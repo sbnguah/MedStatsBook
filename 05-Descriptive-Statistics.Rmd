@@ -1,0 +1,326 @@
+```{r echo=FALSE}
+library(tidyverse)
+library(magrittr)
+```
+
+
+# Descriptive Statistics and graphs
+
+## Categorical Variable
+
+For this section we use the __Titanic__ data set
+ 
+```{r comment=NA}
+titanic2 <-  
+    haven::read_dta("titanic2.dta") %>% 
+    mutate(sex  = haven::as_factor(sex),
+           died = haven::as_factor(died),
+           age  = haven::as_factor(age),
+           class = haven::as_factor(class)) %>% 
+    haven::zap_labels()
+
+titanic2
+
+titanic2 %>% summarytools::dfSummary(graph.col = F)
+```
+
+### Single Caregorical Variable
+
+#### Frequencies & Proportions
+
+```{r comment=NA}
+titanic2 %$% epiDisplay::tab1(class, graph = FALSE) 
+```
+
+#### Graph - Barchart
+
+We first summarize the data
+
+```{r comment=NA}
+bar_data <-
+    titanic2 %>% 
+    drop_na(class) %>% 
+    count(class) %>% 
+    mutate(perc = `n` / sum(`n`)) %>% 
+    arrange(perc) %>%
+    mutate(labels = paste(n, " (", scales::percent(perc), ")", sep=""))
+
+bar_data
+```
+
+And the plot the barplot
+
+```{r comment=NA}
+bar_data %>% 
+    ggplot() +
+    geom_bar(stat = "identity", 
+             aes(y = n, x = class, fill = class), 
+             col = "black", 
+             show.legend = F) +
+    geom_label(aes(y = n, label = labels, x = class), 
+               vjust = 1.2,
+               show.legend = FALSE, size=3.5) +
+    labs(x = NULL, 
+         y = "Count", 
+         title = "Distribution of Class of passenger") +
+    theme_bw()
+```
+
+#### Pie Chart
+
+To do this we use the previously summarized data. Then we draw a customised Pie Chart
+
+```{r comment=NA}
+bar_data %>% 
+    ggplot(aes(x = "", y = perc, fill = class)) +
+    geom_col() +
+    geom_label(aes(label = labels),
+               position = position_stack(vjust = 0.5),
+               show.legend = FALSE, size =3) +
+    coord_polar(theta = "y", start=0) +
+    labs(title = "Distribution of Blood Groups of study participants",
+         fill = "Blood Group") +
+    theme_void()
+```
+
+
+
+### Two categorical Variables
+
+#### Frequencies & Proportions
+
+```{r comment=NA}
+titanic2 %$% 
+    gmodels::CrossTable(sex, died, prop.c=F, prop.r=F, prop.t=F, prop.chisq = F)
+```
+
+#### Row percentages
+
+```{r comment=NA}
+titanic2 %$% 
+    gmodels::CrossTable(sex, died, prop.c=F, prop.r=T, prop.t=F, prop.chisq = F)
+```
+
+#### Column percentages
+
+```{r comment=NA}
+titanic2 %$% 
+    gmodels::CrossTable(sex, died, prop.c=T, prop.r=F, prop.t=F, prop.chisq = F)
+```
+
+#### Table Total Percentages
+
+```{r comment=NA}
+titanic2 %$% 
+    gmodels::CrossTable(sex, died, prop.c=F, prop.r=F, prop.t=T, prop.chisq = F)
+```
+
+#### Bar Chart
+
+```{r comment=NA}
+titanic2 %>% 
+    ggplot(aes(x = class, fill = died)) +
+    geom_bar(position = position_dodge(), col = "black") +
+    labs(y = "Count", x = "Class", fill = "Died",
+          title = "Bar plot of outcome of passengers for each class") +
+    theme_bw()
+```
+
+## Continuous variables
+
+For this section we will use the `NewDrug_clean.dta` dataset
+
+```{r comment=NA}
+newdrug <-  
+    haven::read_dta("NewDrug_clean.dta") %>% 
+    mutate(sex  = haven::as_factor(sex), treat = haven::as_factor(treat)) %>% 
+    haven::zap_labels() 
+
+newdrug
+
+newdrug %>% 
+    summarytools::dfSummary(labels.col = F)
+```
+
+
+### Single continuous variable
+
+#### Measures of Central tendency & Dispersion
+
+These include mean and median and displayed below
+
+```{r comment=NA}
+newdrug %>% 
+    summarise(mean.bp1 = mean(bp1), median.bp1 = median(bp1), 
+              sd.bp1 = sd(bp1), min.bp1 = min(bp1), 
+              max.bp1 = max(bp1), iqr = IQR(bp1)) 
+
+```
+
+Alternatively
+
+```{r comment=NA}
+newdrug %$% 
+    psych::describe(bp1)
+```
+
+And to show the interquartile range we do the following.
+
+```{r comment=NA}
+newdrug %$% 
+    psych::describe(bp1, IQR = TRUE,quant = c(.25, .75))
+```
+
+#### Graphs - Histogram 
+```{r comment=NA}
+newdrug %>% 
+    ggplot(aes(x = bp1)) + 
+    geom_histogram(bins = 7, col="black", alpha = .5, fill = "red") +
+    labs(title = "Histogram of Blood Pressure before  intervention",
+         x= "BP1")+
+    theme_light()
+```
+
+#### Graphs - Boxplot and violin plot 
+
+```{r comment=NA, fig.width=6, fig.height=4}
+newdrug %>% 
+    ggplot(aes(y = bp1)) + 
+    geom_boxplot(col="black",  
+                 alpha = .2, 
+                 fill = "blue", 
+                 outlier.fill = "black",
+                 outlier.shape = 22) +
+    labs(title = "Boxplot of Blood Pressure before  intervention",
+         y = "BP1")+
+    theme_light()
+```
+
+#### Graphs - Density plot
+```{r comment=NA}
+newdrug %>% 
+    ggplot(aes(y = bp1)) + 
+    geom_density(col="black", fill = "yellow", alpha=.6) +
+    labs(title = "Density Plot of Blood Pressure before  intervention",
+         y = "Blood Pressure before  intervention")+
+    coord_flip() +
+    theme_light()
+```
+
+#### Graphs - Cumulative Frequency plot
+
+```{r comment=NA}
+newdrug %>% 
+    group_by(bp1) %>% 
+    summarize(n = n()) %>% 
+    ungroup() %>% 
+    mutate(cum = cumsum(n)/sum(n)*100) %>% 
+    ggplot(aes(y = cum, x = bp1)) +
+    geom_line(col=3, size=1.2)+
+    labs(title = "Cumulative Frequency Plot of Blood Pressure before  intervention",
+         x = "BP1",
+         y = "Cumulative Frequency")+
+    theme_light() 
+
+```
+
+### Multiple Continuous variables
+
+#### Measures of Central tendency & Dispersion
+
+```{r comment=NA}
+newdrug %>% 
+    select(where(is.numeric)) %>% 
+    psych::describe()
+```
+
+To illustrate graphing multiple continuous variables we use the 2 bp variables
+
+```{r comment=NA}
+bps <- 
+    newdrug %>%
+    select(bp1, bp2) %>% 
+    pivot_longer(cols = c(bp1, bp2),names_to = "measure", values_to = "bp") %>% 
+    mutate(measure = fct_recode(measure, 
+                                "Pre-Treatment" = "bp1",
+                                "Post-Treatment" = "bp2"))
+```
+
+
+```{r comment=NA}
+bps %>% 
+    ggplot(aes(y = measure, x = bp, fill = measure)) +
+    ggridges::geom_density_ridges2( col="black", alpha = .5, scale=1, 
+                                    show.legend = F) +
+    labs(x = "Blood pressure (mmHg)", 
+         y = "Density", 
+         fill = "Blood Pressure") +
+    theme_bw()
+```
+
+
+```{r comment=NA}
+bps %>% 
+    ggplot(aes(y = measure, x = bp, fill = measure))+
+    geom_boxplot(show.legend = FALSE) +
+    labs(y = NULL, 
+         x = "Blood Pressure", 
+         fill = "Blood Pressure") +
+    coord_flip()+
+    theme_light() 
+```
+
+
+```{r comment=NA}
+bps %>% 
+    ggplot(aes(y = measure, x = bp, fill = measure))+
+    geom_violin(show.legend = FALSE) +
+    coord_flip()+
+    theme_light() 
+    
+```
+
+## Continuous by single categorical variable
+### Summary
+
+We do this with one variable.
+```{r comment=NA}
+newdrug %>% 
+    group_by(treat) %>% 
+    summarize(mean.bp1 = mean(bp1),
+              sd.bp1 = sd(bp1),
+              var.bp1 = var(bp1),
+              se.mean.bp1 = sd(bp1)/sqrt(n()),
+              median.bp1 = median(bp1),
+              min.bp1 = min(bp1),
+              max.bp1 = max(bp1)) %>% 
+    ungroup()
+```
+
+Alternatively we can use
+```{r comment=NA}
+newdrug %>% 
+    select(where(is.numeric), treat) %>% 
+    psych::describeBy(group = "treat")
+```
+
+### Graph - Histogram, Boxplot, Density plot and cumlative frequency
+The graphs are similar to the aboveso we skip them. 
+
+## Continuous by multiple categorical variables
+### Summary
+This csn be done as below.
+
+```{r comment=NA}
+newdrug %>% 
+    group_by(treat, sex) %>% 
+    summarize(mean.bp1 = mean(bp1),
+              sd.bp1 = sd(bp1),
+              var.bp1 = var(bp1),
+              se.mean.bp1 = sd(bp1)/sqrt(n()),
+              median.bp1 = median(bp1),
+              min.bp1 = min(bp1),
+              max.bp1 = max(bp1)) %>% 
+    ungroup()
+```
+

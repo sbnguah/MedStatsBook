@@ -1,0 +1,286 @@
+# Data Cleaning
+Data to be analysed has be ”cleaned” first of abnormal or invalid values. This 
+should be done with the understanding of the data at hand, how it was collected 
+in the first place and with very little prejudice or bias. This is a critical 
+stage of the analysis where any arbitrary deletion or insertion of data could 
+significantly alter the conclusions.
+
+It therefore goes without saying that all modifications done at the data 
+cleaning stage must have sound statistical, clinical as well as commonsensical 
+reasons to it. Also, the whole process of data cleaning should be well 
+documented and appropriately stored for future references. In this regard it is 
+not good practice to edit the data in softwares such as Microsoft Excel though 
+it may appear easy and tempting. This is because such softwares do not keep an 
+audit trail.
+
+## Data dictionary or codebook
+
+For a well collected and managed data there should always be a dictionary. The 
+dictionary outlines for every variable in the dataset its variable name, the 
+meaning of the variable,the source of the variable (from the questionnaire, data 
+collection sheet, etc.), the valid ranges or codes and the format. This is is an 
+invaluable tool in determine wrong and abnormal entries. It is also sometimes 
+referred to as the codebook. 
+
+A typical example is the one below. This is the data dictionary for the 
+**blood_donors_3.dta** file we are going to use.
+
+![Codebook for the "blood_donors_3" data](codebook.jpg){width=75%}
+
+## Importing the data into **R**
+The first step in analysis is to read or import the data into the data analysis 
+software where a general overview can be obtained. We begin by importing the 
+`blood_donors_3.dta` into **R** and calling it `blood3`. 
+
+```{r echo=FALSE}
+library(tidyverse)
+library(magrittr)
+library(patchwork)
+```
+
+
+```{r comment=NA}
+blood3 <- readxl::read_xls("blood_donors_2.xls")
+```
+
+## Visualising the data in **R**
+Next we visualize the data
+
+```{r comment=NA}
+blood3
+```
+
+To visualise all the data we can use the `print()` or `View()` functions. Note 
+that this might not be the best if yiou have a relatively big data. Below I 
+use the `as.data.frame()` function to display the whole data. 
+
+```{r comment=NA}
+blood3 %>% as.data.frame()
+```
+
+
+## Describing or summarizing the data
+
+We first use the `glimpse()` function to have a basic view of variable names and variable types
+
+```{r comment=NA}
+blood3 %>% glimpse()
+```
+
+We can also use the `dfSummary()` function from the `summarytools` package to 
+give a more comprehensive output for each variable.
+
+```{r comment = NA}
+blood3 %>% summarytools::dfSummary()
+```
+
+## Cleaning individual variables
+We note that all the variables are of type "double". `sex` and `bldgrp` 
+however should be factors. This is done and subsequently summarized below.
+
+```{r comment=NA}
+blood3 <-  
+    blood3 %>% 
+    mutate(sex = factor(sex, 
+                        levels = c(0,1,9),
+                        labels = c("Female", "Male", "Missing")),
+           bldgrp= factor(bldgrp, 
+                          levels = c(1, 2, 3, 4, 9),
+                          labels = c("A", "B", "O", "AB", "Missing"))) 
+
+blood3 %>% summarytools::dfSummary()
+```
+## Cheking for duplicated records
+We begin official data cleaning by checking if we have duplicate records in our
+data
+
+```{r comment=NA, warning=FALSE}
+blood3 %>% janitor::get_dupes()
+```
+
+## Cleaning individual variables
+Next we begin to sort the variables one by one. We begin with the study id 
+variable. We begin by looking for duplicated study ids.
+
+```{r comment=NA}
+blood3 %>% janitor::get_dupes(id)
+```
+
+Study id 14 is duplicated! Next we visually inspect the study ids
+
+```{r comment=NA}
+blood3$id
+```
+
+It looks like the study ids are in numeric order from 1 to 25 but 14 is duplicated while 15 is
+missing. We solve this by writing a new study id variable. Afterwards we check to see if there are
+any more duplicates.
+
+```{r comment=NA}
+blood3 <- 
+    blood3 %>% 
+    mutate(id = 1:25) 
+
+blood3 %>% janitor::get_dupes(id)
+```
+
+Next we inspect the `hb` variable with a summary and a boxplot. We observe from 
+the summary none of the hemoglobin observations is missing. The boxplot of 
+the `hb` is as shown in A below. We observe 4 are outliers and one looks very
+extreme.
+
+
+
+```{r comment=NA}
+blood3 %$% summary(hb)
+```
+
+
+```{r comment=NA}
+A <-
+    blood3 %>% 
+    ggplot(aes(y = hb)) +
+    geom_boxplot(fill = "grey") +
+    labs(y = "Hemoglobin (mg/dl)",
+         title = "Boxplot of hemoglobin of participants 
+         with outliers") +
+    theme_bw()
+```
+
+We convert this observation to missing as below. 
+
+```{r comment=NA}
+blood3 <- 
+    blood3 %>% 
+    mutate(hb = ifelse(hb < 4, NA, hb))
+```
+
+
+```{r comment=NA}
+B <-
+    blood3 %>% 
+    ggplot(aes(y = hb)) +
+    geom_boxplot(fill = "grey") +
+    labs(y = "Hemoglobin (mg/dl)",
+         title = "Boxplot of hemoglobin of participants 
+         after outlier removed") +
+    theme_bw()
+
+A + B + plot_annotation(tag_levels = 'A')
+```
+
+
+
+And redraw the boxplot without the outlier.
+
+```{r comment=NA}
+blood3 %>% 
+    drop_na() %>% 
+    ggplot(aes(y = hb)) +
+    geom_boxplot(fill ="grey") +
+    labs(y = "Hemoglobin (mg/dl)",
+         title = "Boxplot of hemoglobin of participants") +
+    theme_bw()
+```
+
+Next we focus on the `hct` variable. It is of note that it has *99* which represents 'missing'. We
+therefore remove that as below
+
+```{r comment=NA}
+blood3 <- 
+    blood3 %>% 
+    mutate(hct = ifelse(hct >90, NA, hct))
+```
+
+And draw the boxplot as below
+
+```{r comment=NA}
+blood3 %>% 
+    drop_na(hct) %>% 
+    ggplot(aes(y = hct)) + 
+    geom_boxplot(fill = "grey")+ 
+    labs(y = "Hematocrit (%)",
+         title = "Boxplot of hematocrit of participants") +
+    theme_bw()
+```
+
+Because we know the hematocrit has a relationship with the hemoglobin, we use a scatter plot to
+visulie and possibly pick up suspicious data.
+
+```{r comment=NA}
+blood3 %>% 
+    drop_na(hb, hct) %>% 
+    ggplot(aes(x = hct, y = hb)) + 
+    geom_point(col = "red") + 
+    labs(x = "Hematocrit (%)",
+         y = "Hemoglobin (mg/dl)",
+         title = "Scatterplot showing the relationship between the hematocrit and hemoglobin")+
+    theme_bw()
+```
+
+Next we inspect the `sex` variable
+
+```{r comment=NA}
+blood3 %>% 
+    count(sex)
+```
+
+We then convert the *"Missing"* category to `NA`
+
+```{r comment=NA}
+blood3 <- 
+    blood3 %>% 
+    mutate(sex = fct_recode(sex, NULL = "Missing"))
+```
+
+And then check
+
+```{r comment=NA}
+blood3 %>% 
+    count(sex)
+```
+
+Next we sort out the `bldgrp` variable
+
+```{r comment=NA}
+blood3 %>% 
+    count(bldgrp)
+```
+
+We convert *Missing* to `NA` and visualize the variable
+
+```{r comment=NA}
+blood3 <-
+    blood3 %>% 
+    mutate(bldgrp = fct_recode(bldgrp, NULL = "Missing"))
+
+blood3 %>% count(bldgrp)
+```
+
+Next we sort out the `pdonor`
+
+```{r comment=NA}
+blood3 <- 
+    blood3 %>% 
+    mutate(pdonor = ifelse(pdonor == 99, NA, pdonor))
+```
+
+## Visualising the cleaned data
+
+Finally we summarize the data as below
+
+```{r comment=NA}
+blood3 %>% 
+    summarytools::dfSummary()
+```
+## Generating new variables
+Often after cleaning individual variables a data analyst will be required to 
+generate new variables from the old ones. SWe will put this into practice by 
+generating the presence of Anemia if the hb is less than 11g/dl. 
+
+```{r comment=NA}
+blood3 <-
+    blood3 %>% 
+    mutate(anemia = case_when(hb < 11 ~ "Yes", hb >= 11 ~ "No") %>% factor())
+
+summarytools::dfSummary(blood3)
