@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 3 Introduction | Medical Statistics using R</title>
+<title>Chapter 2 Introduction | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="3.1 The statistical data analyst Statistical data analysis is more than just using a computer software to generate a set of results. It involves the basic understanding of the data type being...">
+<meta name="description" content="2.1 The statistical data analyst Statistical data analysis is more than just using computer software to generate a set of results. It involves a basic understanding of the data type being...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 3 Introduction | Medical Statistics using R">
+<meta property="og:title" content="Chapter 2 Introduction | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/introduction.html">
-<meta property="og:description" content="3.1 The statistical data analyst Statistical data analysis is more than just using a computer software to generate a set of results. It involves the basic understanding of the data type being...">
+<meta property="og:description" content="2.1 The statistical data analyst Statistical data analysis is more than just using computer software to generate a set of results. It involves a basic understanding of the data type being...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 3 Introduction | Medical Statistics using R">
-<meta name="twitter:description" content="3.1 The statistical data analyst Statistical data analysis is more than just using a computer software to generate a set of results. It involves the basic understanding of the data type being...">
+<meta name="twitter:title" content="Chapter 2 Introduction | Medical Statistics using R">
+<meta name="twitter:description" content="2.1 The statistical data analyst Statistical data analysis is more than just using computer software to generate a set of results. It involves a basic understanding of the data type being...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -68,156 +68,93 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
-<li><a class="" href="about.html"><span class="header-section-number">2</span> About</a></li>
-<li><a class="active" href="introduction.html"><span class="header-section-number">3</span> Introduction</a></li>
-<li><a class="" href="the-basics.html"><span class="header-section-number">4</span> The Basics</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">5</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-and-graphs.html"><span class="header-section-number">6</span> Descriptive Statistics and graphs</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">7</span> Ordinal logistic regression</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">8</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">9</span> Parts</a></li>
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li><a class="active" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
+<li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
+<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">6</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics-and-graphs.html"><span class="header-section-number">7</span> Descriptive Statistics and graphs</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">8</span> Ordinal logistic regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">9</span> Blocks</a></li>
 <li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">10</span> Footnotes and citations</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">11</span> Blocks</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">12</span> Sharing your book</a></li>
-<li><a class="" href="references.html">References</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">11</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">12</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">13</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/sbnguah/MedStatsBook">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction" class="section level1" number="3">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction" class="section level1" number="2">
 <h1>
-<span class="header-section-number">3</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
 </h1>
-<div id="the-statistical-data-analyst" class="section level2" number="3.1">
+<div id="the-statistical-data-analyst" class="section level2" number="2.1">
 <h2>
-<span class="header-section-number">3.1</span> The statistical data analyst<a class="anchor" aria-label="anchor" href="#the-statistical-data-analyst"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1</span> The statistical data analyst<a class="anchor" aria-label="anchor" href="#the-statistical-data-analyst"><i class="fas fa-link"></i></a>
 </h2>
-<p>Statistical data analysis is more than just using a computer software to
-generate a set of results. It involves the basic understanding of the data type being analysed, the best way to analyse and then present such data to make sense to the population at large. Thus the data analyst :</p>
+<p>Statistical data analysis is more than just using computer software to generate a set of results. It involves a basic understanding of the data type being analysed, and the best way to analyse and then present such data to make meaning to the population at large. Thus the data analyst :</p>
 <ol style="list-style-type: decimal">
-<li>Must understand the genesis (study methodology) involved in obtaining the
-data in the first place. Conclusions from the same data may be different
-depending on the study methodology used and hypothesis being tested. It is very prudent therefore that the statistical data analyst be involved in the data collection process right from the beginning.</li>
+<li>Must understand the genesis (study methodology) involved in obtaining the data in the first place. Conclusions from the same data may be different depending on the study methodology used and the hypothesis being tested. It is very prudent therefore that the statistical data analyst be involved in the data collection process right from the beginning.</li>
 <li>Should be able to point out errors in the data collection process in the very early stages to avoid wasting valuable resources on data that may not answer the question at hand.</li>
 <li>Provide valuable advice on the best method of analysing the data at hand.</li>
-<li>Perform the analysis in a scientifically sound manner applying the most
-current and statistically appropriate principles.</li>
-<li>Be able to present the result of the analysis in a manner that makes it easy for literally all persons without statistical and analytical expertise to completely understand with the least effort. This requires the statistical data analyst to be in a position to explain the analysis in the ”layman’s language”.</li>
-<li>Finally the data analyst must know his limit. There are often instances where the analyst should seek ”professional” help even though he/she may feel he/she is on the right path. It never hurts to seek a second opinion from your peers.</li>
-</ol>
-<p>It therefore goes without saying from the prior discussion that the data analyst
-must have a firm understanding of statistical and research methodology.</p>
-</div>
-<div id="statistical-software" class="section level2" number="3.2">
-<h2>
-<span class="header-section-number">3.2</span> Statistical software<a class="anchor" aria-label="anchor" href="#statistical-software"><i class="fas fa-link"></i></a>
-</h2>
-<p>Some years back, statistical analysis was one of the most tedious processes done mainly by dedicated statisticians. With the advent of computers and statistical software it has become rather handy with many advantages but some disadvantages as well.</p>
-<p>The main advantages are:</p>
-<ol style="list-style-type: decimal">
-<li>The tremendous speed with which large data is processed and results obtained.</li>
-<li>The accuracy of the statistical calculations performed. Computers do not make mistakes but one has to beware of rounding in some software. Some software can perform calculations to specific number of decimal places. Therefore when one is
-confronted with a figure such as 1.00377655432 the software may work with
-1.0037765, leaving out the last four digits. Calculations using this truncated
-value is likely to have different result from the non-truncated figure, thus
-affecting the accuracy ofthe result.</li>
-<li>Many modern statistical software have the ability to read data from varied
-sources and formats. This makes it easy to transfer data from one software to
-another without having to re-enter the data collected into the second computer
-or software.This transferability has enabled the use of other digital equipment such as smart phones, personal digital assistants and tablets for data collection. Data collected in this manner is said to be ready for cleaning and analysis, bypassing the data entry stage.</li>
-<li>Plotting graphs is one of the most important uses of modern day computerised data analysis. Statistical software tend to make this rather tedious process almost hassle free and accords one the ability to redo the plot from scratch at the click of a button.</li>
-</ol>
-<p>Despite all these advantages many disadvantages are also inherent in the use of computers and statistical software. Some include:</p>
-<ol style="list-style-type: decimal">
-<li>Many persons with very little or no statistical knowledge can manipulate data and come up with conclusions that often tend to be very spurious. The cliche ”Garbage In Garbage Out” could not apply better than in this situation.</li>
-<li>Many commonly used software tend to be very reliable and accurate. With the large number of often user written statistical software freely available online one needs to be cautious of the output generated. Some of these could actually be wrongly written codes producing faulty results.</li>
-<li>Unfortunately the most used, reliable and accurate statistical software tend to be expensive as well. This not withstanding there are few, such as R that combines free and open source with versatility and reliability. This forms the basis for my choice of R for this book.</li>
+<li>Perform the analysis in a scientifically sound manner applying the most current and statistically appropriate principles.</li>
+<li>Present the result of the analysis in a manner that makes it easy for literally all persons without statistical and analytical expertise to completely understand with the least effort. This requires the statistical data analyst to be in a position to explain the analysis in ”layman’s language”.</li>
+<li>Finally, the data analyst must know his limit. There are often instances where the analyst should seek ”professional” help even though he/she may feel he/she is on the right path. It never hurts to seek a second opinion from your peers.
+It, therefore, goes without saying from the prior discussion that the data analyst must have a firm understanding of statistical and research methodology.</li>
 </ol>
 </div>
-<div id="obtaining-and-installing-r" class="section level2" number="3.3">
+<div id="statistical-software" class="section level2" number="2.2">
 <h2>
-<span class="header-section-number">3.3</span> Obtaining and installing R<a class="anchor" aria-label="anchor" href="#obtaining-and-installing-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2</span> Statistical software<a class="anchor" aria-label="anchor" href="#statistical-software"><i class="fas fa-link"></i></a>
 </h2>
-<p>R is a free software programming language and environment for data manipulation, calculation and graphical display. It can run on Windows, MacOS X and Unix systems. It has great applications in many academic fields including mathematics, economics and epidemiology. This capability has been enhanced by the many packages written by individuals over the years. R has a great advantage of being able to handle many datasets simultaneously. However this functionality comes at a cost which would be discussed in the subsequent chapters. R also has great graphics functionality but requires practice to harness full use of this.</p>
-<p>Several advanced statistical and mathematical functionality such as regression
-and survival analysis are also implemented in R.</p>
-<p>R and its many packages are obtainable free from <a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a>.
-The most current version as at writing this book is R-3.2.1-win32.exe. The
-Windows version is installable on both the 32 and 64 bit operating systems.
-Download the base file from <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a>, save on your computer and install (preferably as an administrator) by double clicking the executable file and following the on-screen instructions.</p>
+<p>Some years back, statistical analysis was one of the most tedious processes done mainly by dedicated statisticians. With the advent of computers and statistical software it has become rather handy with many advantages but some disadvantages as well.
+The main advantages are:
+1. The tremendous speed with which large data is processed and results obtained.
+1. The accuracy of the statistical calculations performed. Computers do not make mistakes but one has to beware of rounding in some software. Some software can perform calculations to a specific number of decimal places. Therefore when one is confronted with a figure such as 1.00377655432 the software may work with 1.0037765, leaving out the last four digits. Calculations using this truncated value are likely to have a different result from the non-truncated figure, thus affecting the accuracy of the final result.
+1. Many modern statistical software can read data from varied sources and formats. This makes it easy to transfer data from one software to another without having to re-enter the data collected into the second computer or software. This transferability has enabled the use of other digital equipment such as smartphones, personal digital assistants and tablets for data collection. Data collected in this manner is said to be ready for cleaning and analysis, bypassing the data entry stage.
+1. Plotting graphs is one of the most important uses of modern-day computerised data analysis. Statistical software tends to make this rather tedious process almost hassle-free and accords one the ability to redo the plot from scratch at the click of a button.</p>
+<p>Despite all these advantages, many disadvantages are also inherent in the use of computers and statistical software. Some include:
+1. Many persons with very little or no statistical knowledge can manipulate data and come up with conclusions that often tend to be very spurious. The cliche ”Garbage In Garbage Out” could not apply better than in this situation.
+1. Many commonly used software tend to be very reliable and accurate. With the large number of often user-written statistical software freely available online one needs to be cautious of the output generated. Some of these could be wrongly written codes or have errors thus producing faulty results.
+1. Unfortunately, the most used, reliable and accurate statistical software tend to be expensive as well. This notwithstanding there are few, such as R that combine free and open source with versatility and reliability. This forms the basis for my choice of R for this book.</p>
 </div>
-<div id="running-r" class="section level2" number="3.4">
+<div id="obtaining-and-installing-r" class="section level2" number="2.3">
 <h2>
-<span class="header-section-number">3.4</span> Running R<a class="anchor" aria-label="anchor" href="#running-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3</span> Obtaining and installing R<a class="anchor" aria-label="anchor" href="#obtaining-and-installing-r"><i class="fas fa-link"></i></a>
 </h2>
-<p>After installation, two shortcuts similar to the figure below are placed on the desktop (windows version). On a Windows 8 64 bit machine both shortcuts for the 32 and 64 bit versions are placed on the desktop. Double click the desktop icon to launch R. A welcome screen as shown below is displayed in the console launched.</p>
-<p>The &gt; at the end of the output above is the command prompt and indicates R is
-ready to be used. The R Console before you at this stage if running for the
-first time will show a wide grey screen with a smaller white screen. The white
-screen is the referred to as the console. We can type straight and obtain
-requisite output on the console but I will strongly discourage this habit.</p>
+<p>R is a free software programming language and environment for data manipulation, calculation and graphical display. It can run on Windows, MacOS X and Unix systems. It has great applications in many academic fields including mathematics, economics and epidemiology. This capability has been enhanced by the many packages written by individuals over the years. R has the great advantage of being able to handle many datasets simultaneously. However, this functionality comes at a cost which would be discussed in the subsequent chapters. R also has great graphics functionality but requires practice.</p>
+<p>Several advanced statistical and mathematical functions such as regression and survival analysis are also implemented in R.
+R and its many packages are obtainable free from <a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a>. The most current version at the time of writing this book is R-4.2.1. The Windows version can be installed on both the 32 and 64-bit operating systems. Download the base file from <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a>, save it on your computer and install it, preferably as an administrator by following the on-screen instructions.</p>
 </div>
-<div id="r-as-a-calculator" class="section level2" number="3.5">
+<div id="obtaining-and-installing-rstudio" class="section level2" number="2.4">
 <h2>
-<span class="header-section-number">3.5</span> R as a calculator<a class="anchor" aria-label="anchor" href="#r-as-a-calculator"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.4</span> Obtaining and installing RStudio<a class="anchor" aria-label="anchor" href="#obtaining-and-installing-rstudio"><i class="fas fa-link"></i></a>
 </h2>
-<p>The applicability of R in data analysis starts from its use as an overgrown
-calculator. In this section we learn this simple task. Calculations in R can be
-achieved simply by inputting and executing using the appropriate mathematical
-operational symbols. These are</p>
-<p><span class="math inline">\(+\)</span> addition<br><span class="math inline">\(∗\)</span> multiplication<br><span class="math inline">\(−\)</span> substraction<br><span class="math inline">\(/\)</span> division<br><span class="math inline">\(∧\)</span> raised to power or exponent</p>
-<p>A couple of examples</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">+</span><span class="dv">8</span></span>
-<span id="cb1-2"><a href="introduction.html#cb1-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">15</span></span>
-<span id="cb1-3"><a href="introduction.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="introduction.html#cb1-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">12-6</span>)<span class="sc">/</span><span class="dv">7</span></span>
-<span id="cb1-5"><a href="introduction.html#cb1-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.8571429</span></span></code></pre></div>
-</div>
-<div id="name-assignment-in-r" class="section level2" number="3.6">
-<h2>
-<span class="header-section-number">3.6</span> Name assignment in R<a class="anchor" aria-label="anchor" href="#name-assignment-in-r"><i class="fas fa-link"></i></a>
-</h2>
-<p>All objects in R can be assigned names, values or attributes. This assignment
-is achieved by using “-&gt;” or “&lt;-”. The example below assigns the values 5 to
-Kwame and 10 to Ama, their respective ages.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">Kwame</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
-<span><span class="va">Ama</span> <span class="op">&lt;-</span> <span class="fl">10</span></span></code></pre></div>
-<p>Calling these names yield the values (ages) assigned. We can do that by typing
-the names in the console.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction.html#cb3-1" aria-hidden="true" tabindex="-1"></a>Kwame</span>
-<span id="cb3-2"><a href="introduction.html#cb3-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span>
-<span id="cb3-3"><a href="introduction.html#cb3-3" aria-hidden="true" tabindex="-1"></a>Ama</span>
-<span id="cb3-4"><a href="introduction.html#cb3-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">10</span></span></code></pre></div>
-<p>To add the ages of Kwame and Ama we can just do</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction.html#cb4-1" aria-hidden="true" tabindex="-1"></a>Kwame <span class="sc">+</span> Ama</span>
-<span id="cb4-2"><a href="introduction.html#cb4-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">15</span></span></code></pre></div>
+<p>RStudio is an Integrated Development Environment for R and other software such as Python. It provides an interface that adds more functionality and automation to R. It is downloadable from <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>. It has two forms, a desktop version and the Server version used within a web browser. For simplicity and easy following of the processes in this book, it will be preferable to download and install RStudio.</p>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="about.html"><span class="header-section-number">2</span> About</a></div>
-<div class="next"><a href="the-basics.html"><span class="header-section-number">4</span> The Basics</a></div>
+<div class="prev"><a href="index.html"><span class="header-section-number">1</span> About</a></div>
+<div class="next"><a href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction"><span class="header-section-number">3</span> Introduction</a></li>
-<li><a class="nav-link" href="#the-statistical-data-analyst"><span class="header-section-number">3.1</span> The statistical data analyst</a></li>
-<li><a class="nav-link" href="#statistical-software"><span class="header-section-number">3.2</span> Statistical software</a></li>
-<li><a class="nav-link" href="#obtaining-and-installing-r"><span class="header-section-number">3.3</span> Obtaining and installing R</a></li>
-<li><a class="nav-link" href="#running-r"><span class="header-section-number">3.4</span> Running R</a></li>
-<li><a class="nav-link" href="#r-as-a-calculator"><span class="header-section-number">3.5</span> R as a calculator</a></li>
-<li><a class="nav-link" href="#name-assignment-in-r"><span class="header-section-number">3.6</span> Name assignment in R</a></li>
+<li><a class="nav-link" href="#introduction"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="nav-link" href="#the-statistical-data-analyst"><span class="header-section-number">2.1</span> The statistical data analyst</a></li>
+<li><a class="nav-link" href="#statistical-software"><span class="header-section-number">2.2</span> Statistical software</a></li>
+<li><a class="nav-link" href="#obtaining-and-installing-r"><span class="header-section-number">2.3</span> Obtaining and installing R</a></li>
+<li><a class="nav-link" href="#obtaining-and-installing-rstudio"><span class="header-section-number">2.4</span> Obtaining and installing RStudio</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/02-Introduction.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/02-Introduction.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/sbnguah/MedStatsBook/blob/master/Introduction.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/sbnguah/MedStatsBook/edit/master/Introduction.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

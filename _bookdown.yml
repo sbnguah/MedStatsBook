@@ -5,3 +5,19 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
+rmd_files: [
+    "index.Rmd",
+    "Introduction.Rmd",
+    "Statistical-Data-Types.Rmd",
+    "R-Data-Types.Rmd",
+    "Hello-R.Rmd",
+    "R-Data-Types.Rmd",
+    "Data-Cleaning.Rmd",
+    "Descriptive-Statistics.Rmd",
+    "Ordinal-Logistic-Regression.Rmd",
+    "Blocks.Rmd",
+    "Citations.Rmd" ,
+    "Cross-Refs.Rmd",
+    "Parts.Rmd",
+    "Share.Rmd"
+]

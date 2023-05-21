@@ -141,7 +141,7 @@ bar_data %>%
     theme_bw()
 ```
 
-<img src="05-Descriptive-Statistics_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="05-Descriptive-Statistics_files/figure-html/unnamed-chunk-5-1.png" width="480" />
 
 #### Pie Chart
 

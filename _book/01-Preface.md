@@ -9,6 +9,7 @@ using statistical applications by many scientists. **R**, an open source
 statistical software offers a unique but important opportunity to bridge this 
 gap.  
 
+
 The focus of this book is to introduce data analysis and R to persons with very 
 little knowledge in both. This step by step introduction to data analysis and R 
 is deliberately organised to have very limited text but lots of practical 
