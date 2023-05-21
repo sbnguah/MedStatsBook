@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 1 Preface | Medical Statistics using R</title>
+<title>Chapter 2 About | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="This is a basic data analysis and statistics book for non-statitsicians and statisticians.">
+<meta name="description" content="The motivation for writing this book comes from the dire and urgent need for many, especially those in developing countries to have and use a freely available yet sophisticate statistical...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 1 Preface | Medical Statistics using R">
+<meta property="og:title" content="Chapter 2 About | Medical Statistics using R">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://medstastwithr.netlify.app/">
-<meta property="og:description" content="This is a basic data analysis and statistics book for non-statitsicians and statisticians.">
+<meta property="og:url" content="https://medstastwithr.netlify.app/about.html">
+<meta property="og:description" content="The motivation for writing this book comes from the dire and urgent need for many, especially those in developing countries to have and use a freely available yet sophisticate statistical...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 1 Preface | Medical Statistics using R">
-<meta name="twitter:description" content="This is a basic data analysis and statistics book for non-statitsicians and statisticians.">
+<meta name="twitter:title" content="Chapter 2 About | Medical Statistics using R">
+<meta name="twitter:description" content="The motivation for writing this book comes from the dire and urgent need for many, especially those in developing countries to have and use a freely available yet sophisticate statistical...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -68,8 +68,8 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="active" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
-<li><a class="" href="about.html"><span class="header-section-number">2</span> About</a></li>
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
+<li><a class="active" href="about.html"><span class="header-section-number">2</span> About</a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">3</span> Introduction</a></li>
 <li><a class="" href="the-basics.html"><span class="header-section-number">4</span> The Basics</a></li>
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">5</span> Data Cleaning</a></li>
@@ -88,26 +88,53 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="preface" class="section level1" number="1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="about" class="section level1" number="2">
 <h1>
-<span class="header-section-number">1</span> Preface<a class="anchor" aria-label="anchor" href="#preface"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2</span> About<a class="anchor" aria-label="anchor" href="#about"><i class="fas fa-link"></i></a>
 </h1>
-<p>This book is dedicated to my wife <strong>Balqisu</strong>.</p>
-<p>To all the young scientists who would benefit from this book and colleagues who
-through every small or big way helped me write this, I say a big thank you.</p>
+<p>The motivation for writing this book comes from the dire and urgent need for
+many, especially those in developing countries to have and use a freely
+available yet sophisticate statistical software. In regions where buying a
+statistical software is often beyond the means of most persons R comes as a
+great relief. There is a huge gap between theoretical and practical knowledge of
+using statistical applications by many scientists. <strong>R</strong>, an open source
+statistical software offers a unique but important opportunity to bridge this
+gap.</p>
+<p>The focus of this book is to introduce data analysis and R to persons with very
+little knowledge in both. This step by step introduction to data analysis and R
+is deliberately organised to have very limited text but lots of practical
+examples. Readers are advised to replicate the examples as they read along, at
+least to have a feel of how these work in R.</p>
+<p>The book comes with a set of data in many file formats. Some are fictitious
+while a few are real data modified for public use. The datasets are freely
+available online at
+<a href="https://dl.dropboxusercontent.com/u/1673032/Intro_R_STI_Data_14_10_2014.rar" class="uri">https://dl.dropboxusercontent.com/u/1673032/Intro_R_STI_Data_14_10_2014.rar</a>.</p>
+<p>As this is essentially an introductory text, it is set up to sparingly use
+packages1 other than the R base packages that comes with the default setup.
+Occasionally however other packages are mentioned especially when it comes to
+the graphics where the “lattice” and “ggplot2” packages are used. These are kept
+to the minimum as new readers may find it confusing when they are constantly
+being asked to download and install one package after the other.</p>
+<p>As a general rule for this book, functions and their options are printed in
+monospaced font with opening and closing brackets. Packages are written in
+monospaced without brackets. Console output are written in monospaced font and
+with a grey background. ”Urls” and internet links are written in hypertext
+format for easy access to these sites once a reader is connected to the internet.
+Specific datasets are written in courier new font with a file extension such as
+.csv, .txt etc.</p>
 
 </div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="next"><a href="about.html"><span class="header-section-number">2</span> About</a></div>
+<div class="prev"><a href="index.html"><span class="header-section-number">1</span> Preface</a></div>
+<div class="next"><a href="introduction.html"><span class="header-section-number">3</span> Introduction</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#preface"><span class="header-section-number">1</span> Preface</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#about"><span class="header-section-number">2</span> About</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/index.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-Preface.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-Preface.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

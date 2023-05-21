@@ -24,8 +24,7 @@ through every small or big way helped me write this, I say a big thank you.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
-knitr::write_bib(
-    c(.packages(), 
-      'bookdown', 'knitr', 'rmarkdown', "gtsummary"), 
-    'packages.bib')
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
 ```
