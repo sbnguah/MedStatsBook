@@ -3,11 +3,8 @@ fig:nice-fig
 tab:nice-tab
 eq:binom
 thm:tri
-about
-usage
-render-book
-preview-book
 preface
+about
 introduction
 the-statistical-data-analyst
 statistical-software

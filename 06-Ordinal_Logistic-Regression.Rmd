@@ -11,9 +11,9 @@ We begin by reading in the data and selecting our desired subset.
 
 ```{r comment = NA}
 dataF <- 
-    dget("xx") %>% 
-    select(sid, anemia_cat, community, fever, sex, famsize, moccup2, foccup2, 
-           hosp_visit)
+    dget("anemia_data") %>% 
+    select(sid, anemia_cat, community, fever, sex,
+           famsize, moccup2, foccup2, hosp_visit)
 ```
 
 We then view a summary of the data

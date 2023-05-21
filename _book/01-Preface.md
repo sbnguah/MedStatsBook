@@ -1,10 +1,4 @@
-# Preface
-
-This book is dedicated to my wife Balqisu. 
-
-To all the young scientists who would benefit from this book and colleagues who 
-through every small or big way helped me write this, I say a big thank you. 
-@diener1996most
+# About
 
 The motivation for writing this book comes from the dire and urgent need for 
 many, especially those in developing countries to have and use a freely 
