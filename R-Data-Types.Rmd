@@ -1,0 +1,25 @@
+# R data types
+
+All data objects in R are made up of smaller units referred to as ”Atomic” data. 
+The various atomic data types are *Integer*, *Double*, *Complex*, *Logical*, 
+*Character*, *Factor* and *Date and Time*. These would be further explained 
+subsequently. To determine the data types in R the most commonly used function 
+is class(). The example below uses this function to determine the data type for 
+4.2.
+
+```{r comment=NA}
+class(4.2)
+```
+
+As we expected it is a *numeric* variable. Next we determine the class of data 
+”A”
+```{r comment=NA}
+class("A")
+```
+
+R classifies this as a character data type. Finally what about FALSE?
+```{r comment = NA}
+class(FALSE)
+```
+
+This is a logical data type.
