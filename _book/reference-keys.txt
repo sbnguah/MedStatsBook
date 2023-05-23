@@ -23,6 +23,14 @@ rates
 percentage
 ranks
 r-data-types
+integer
+double
+logical
+character
+factor
+ordered-factor
+date-and-time
+missing-values-in-r
 hello-r
 data-cleaning
 data-dictionary-or-codebook
