@@ -25,7 +25,7 @@ The following object is masked from 'package:tidyr':
 ```
 
 
-# Descriptive Statistics and graphs
+# Descriptive Statistics
 
 ## Categorical Variable
 

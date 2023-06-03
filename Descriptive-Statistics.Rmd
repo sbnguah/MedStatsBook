@@ -4,7 +4,7 @@ library(magrittr)
 ```
 
 
-# Descriptive Statistics and graphs
+# Descriptive Statistics
 
 ## Categorical Variable
 
