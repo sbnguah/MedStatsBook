@@ -1,5 +1,10 @@
 # Data wrangling
 
+
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+```
+
 In this chapter we begin to delve into manipulation of data in the form of a 
 data frame or tibble. In so doing, we will introduce the `tidyverse` package 
 and the various verbs (function) it provides.
@@ -8,14 +13,53 @@ The `tidyverse` package is not just a single package but a composit of a group
 of packages. There include among others the `dplyr` package. Most of the function 
 we will be employing in this chapter comes from `dplyr`.
 
-## Rename variables
-We begin by reading in the ... data and renaming the sex to gender
 
+We begin by reading in the `blood_donors.xls`
+```{r comment=NA}
+df_blood <- readxl::read_xls("blood_donors_1.xls")
+df_blood
+```
+
+The output shows we have a 25 row and 6 column tibble. 
+
+## Renaming variables
+Below we rename the variables `hb` to `hemog` and `id` to `studyid` using he 
+`rename` function, and then show the first 5 records with the `head` function.
+
+```{r}
+df_blood %>% 
+    rename(hemog = hb, studyid = id) %>% 
+    head(5)
+```
 ## Sorting data
+Below we use the `arrange` function to sort the `bldgrp` in ascending order and 
+`hb` by descending order.
+
+```{r}
+df_blood %>% 
+    arrange(bldgrp, desc(hb))
+```
 
 ## Subsetting data
+In this subsection we demonstrate the use of the `filter` and `select` function 
+to select specific records and variables in a tibble. Below we filter to select 
+all records with `hb` > 12g/dl and the keep only the `id`, `hb` and `sex`
+columns.
+```{r}
+df_blood %>% 
+    filter(hb > 12) %>% 
+    select(id, hb, sex)
+```
 
 ## Generating new variables
+To enerate new variables we use the `mutate` function. Based on our knowledge 
+that the hemotocrit is approximately three times the hemoglobn we generate a 
+new variable, `hb_from_hct`. 
+```{r}
+df_blood %>% 
+    mutate(hb_from_hct = hct/3)
+```
+
 
 ## Aggregating data
 

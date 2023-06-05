@@ -11,7 +11,7 @@ obtaining-and-installing-r
 obtaining-and-installing-rstudio
 statistical-data-types
 qualitative-data
-nomimal
+nominal
 binary
 ordinal
 quantitative-data
@@ -46,7 +46,7 @@ spss-files
 dbf-files
 others-files
 data-wrangling
-rename-variables
+renaming-variables
 sorting-data
 subsetting-data
 generating-new-variables

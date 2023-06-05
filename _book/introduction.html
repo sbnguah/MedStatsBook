@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 2 Introduction | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="2.1 The statistical data analyst Statistical data analysis is more than just using computer software to generate a set of results. It involves a basic understanding of the data type being...">
+<meta name="description" content="2.1 The statistical data analyst Statistical data analysis is more than just using computer software to generate results. It involves a basic understanding of the data type and the best way to...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Introduction | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/introduction.html">
-<meta property="og:description" content="2.1 The statistical data analyst Statistical data analysis is more than just using computer software to generate a set of results. It involves a basic understanding of the data type being...">
+<meta property="og:description" content="2.1 The statistical data analyst Statistical data analysis is more than just using computer software to generate results. It involves a basic understanding of the data type and the best way to...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 2 Introduction | Medical Statistics using R">
-<meta name="twitter:description" content="2.1 The statistical data analyst Statistical data analysis is more than just using computer software to generate a set of results. It involves a basic understanding of the data type being...">
+<meta name="twitter:description" content="2.1 The statistical data analyst Statistical data analysis is more than just using computer software to generate results. It involves a basic understanding of the data type and the best way to...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -105,14 +105,14 @@
 <h2>
 <span class="header-section-number">2.1</span> The statistical data analyst<a class="anchor" aria-label="anchor" href="#the-statistical-data-analyst"><i class="fas fa-link"></i></a>
 </h2>
-<p>Statistical data analysis is more than just using computer software to generate a set of results. It involves a basic understanding of the data type being analysed, and the best way to analyse and then present such data to make meaning to the population at large. Thus the data analyst :</p>
+<p>Statistical data analysis is more than just using computer software to generate results. It involves a basic understanding of the data type and the best way to analyse and present such data to make meaning to the general population. Thus, the data analyst:</p>
 <ol style="list-style-type: decimal">
-<li>Must understand the genesis (study methodology) involved in obtaining the data in the first place. Conclusions from the same data may be different depending on the study methodology used and the hypothesis being tested. It is very prudent therefore that the statistical data analyst be involved in the data collection process right from the beginning.</li>
-<li>Should be able to point out errors in the data collection process in the very early stages to avoid wasting valuable resources on data that may not answer the question at hand.</li>
+<li>Must understand the genesis (study methodology) involved in obtaining the data in the first place. The conclusion from the same data may differ depending on the study methodology used and the hypothesis being tested. It is very prudent, therefore, that the statistical data analyst be involved in the data collection process right from the beginning.</li>
+<li>Should be able to point out errors in the data collection process in the early stages. This avoids wasting valuable resources on data that may not answer the question.</li>
 <li>Provide valuable advice on the best method of analysing the data at hand.</li>
-<li>Perform the analysis in a scientifically sound manner applying the most current and statistically appropriate principles.</li>
-<li>Present the result of the analysis in a manner that makes it easy for literally all persons without statistical and analytical expertise to completely understand with the least effort. This requires the statistical data analyst to be in a position to explain the analysis in ”layman’s language”.</li>
-<li>Finally, the data analyst must know his limit. There are often instances where the analyst should seek ”professional” help even though he/she may feel he/she is on the right path. It never hurts to seek a second opinion from your peers.
+<li>Perform the analysis scientifically and soundly by applying the most current and statistically appropriate principles.</li>
+<li>Present the result of the analysis in a manner that makes it easy for all persons without statistical and analytical expertise to understand with the least effort. This requires the statistical data analyst to be in a position to explain the analysis in a common language.</li>
+<li>Finally, the data analyst must know his limit. There are often instances where the analyst should seek ”professional” help, even though he may feel he is on the right path. It never hurts to seek a second opinion from your peers.
 It, therefore, goes without saying from the prior discussion that the data analyst must have a firm understanding of statistical and research methodology.</li>
 </ol>
 </div>
@@ -120,24 +120,26 @@ It, therefore, goes without saying from the prior discussion that the data analy
 <h2>
 <span class="header-section-number">2.2</span> Statistical software<a class="anchor" aria-label="anchor" href="#statistical-software"><i class="fas fa-link"></i></a>
 </h2>
-<p>Some years back, statistical analysis was one of the most tedious processes done mainly by dedicated statisticians. With the advent of computers and statistical software it has become rather handy with many advantages but some disadvantages as well.
+<p>Some years back, statistical analysis was one of the most tedious processes done mainly by dedicated statisticians. With the advent of computers and statistical software, it has become rather handy, with many advantages but some disadvantages.
 The main advantages are:
 1. The tremendous speed with which large data is processed and results obtained.
-1. The accuracy of the statistical calculations performed. Computers do not make mistakes but one has to beware of rounding in some software. Some software can perform calculations to a specific number of decimal places. Therefore when one is confronted with a figure such as 1.00377655432 the software may work with 1.0037765, leaving out the last four digits. Calculations using this truncated value are likely to have a different result from the non-truncated figure, thus affecting the accuracy of the final result.
+1. The accuracy of the statistical calculations performed. Computers do not make mistakes but one has to beware of rounding in some software. Some software can perform calculations to a specific number of decimal places. Therefore, when one is confronted with a figure such as 1.00377655432, the software may work with 1.0037765, leaving out the last four digits. Calculations using this truncated value are likely to have a different result from the non-truncated figure, thus affecting the accuracy of the final result.
 1. Many modern statistical software can read data from varied sources and formats. This makes it easy to transfer data from one software to another without having to re-enter the data collected into the second computer or software. This transferability has enabled the use of other digital equipment such as smartphones, personal digital assistants and tablets for data collection. Data collected in this manner is said to be ready for cleaning and analysis, bypassing the data entry stage.
-1. Plotting graphs is one of the most important uses of modern-day computerised data analysis. Statistical software tends to make this rather tedious process almost hassle-free and accords one the ability to redo the plot from scratch at the click of a button.</p>
-<p>Despite all these advantages, many disadvantages are also inherent in the use of computers and statistical software. Some include:
-1. Many persons with very little or no statistical knowledge can manipulate data and come up with conclusions that often tend to be very spurious. The cliche ”Garbage In Garbage Out” could not apply better than in this situation.
-1. Many commonly used software tend to be very reliable and accurate. With the large number of often user-written statistical software freely available online one needs to be cautious of the output generated. Some of these could be wrongly written codes or have errors thus producing faulty results.
-1. Unfortunately, the most used, reliable and accurate statistical software tend to be expensive as well. This notwithstanding there are few, such as R that combine free and open source with versatility and reliability. This forms the basis for my choice of R for this book.</p>
+1. Plotting graphs is one of the most important uses of modern-day computerised data analysis. Statistical software tends to make this rather tedious process almost hassle-free and accords us the ability to redo the plot from scratch at the click of a button.</p>
+<p>Despite all these advantages, many disadvantages are also inherent in the use of computers and statistical software. Some include:</p>
+<ol style="list-style-type: decimal">
+<li>Many people with very little or no statistical knowledge can manipulate data and come up with conclusions that often tend to be very spurious. The cliche ”Garbage In Garbage Out” could not apply better than in this situation.</li>
+<li>Many commonly used software tend to be very reliable and accurate. With a large number of often user-written statistical software freely available online, one needs to be cautious of the output generated. Some of these could be wrongly written codes or have errors, thus producing faulty results.</li>
+<li>Unfortunately, the most used, reliable and accurate statistical software tends to be expensive as well. This notwithstanding, there are few, such as R, that combines free and open source with versatility and reliability. This forms the basis for my choice of R for this book.</li>
+</ol>
 </div>
 <div id="obtaining-and-installing-r" class="section level2" number="2.3">
 <h2>
 <span class="header-section-number">2.3</span> Obtaining and installing R<a class="anchor" aria-label="anchor" href="#obtaining-and-installing-r"><i class="fas fa-link"></i></a>
 </h2>
-<p>R is a free software programming language and environment for data manipulation, calculation and graphical display. It can run on Windows, MacOS X and Unix systems. It has great applications in many academic fields including mathematics, economics and epidemiology. This capability has been enhanced by the many packages written by individuals over the years. R has the great advantage of being able to handle many datasets simultaneously. However, this functionality comes at a cost which would be discussed in the subsequent chapters. R also has great graphics functionality but requires practice.</p>
-<p>Several advanced statistical and mathematical functions such as regression and survival analysis are also implemented in R.
-R and its many packages are obtainable free from <a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a>. The most current version at the time of writing this book is R-4.2.1. The Windows version can be installed on both the 32 and 64-bit operating systems. Download the base file from <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a>, save it on your computer and install it, preferably as an administrator by following the on-screen instructions.</p>
+<p>R is a free software programming language and environment for data manipulation, calculation and graphical display. It can run on Windows, MacOS X and Unix systems. It has great applications in many academic fields, including mathematics, economics and epidemiology. This capability has been enhanced by the many packages written by individuals over the years. R has the great advantage of being able to handle many datasets simultaneously. However, this functionality comes at a cost, which would be discussed in the subsequent chapters. R also has great graphics functionality but requires practice.</p>
+<p>Several advanced statistical and mathematical functions, such as regression and survival analysis, are also implemented in R.
+R and its many packages are obtainable free from <a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a>. The most current version at the time of writing this book is R-4.2.1. The Windows operating system version can be installed on both 32 and 64-bit operating systems. Download the base file from <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a>, save it on your computer and install it, preferably as an administrator, by following the on-screen instructions.</p>
 </div>
 <div id="obtaining-and-installing-rstudio" class="section level2" number="2.4">
 <h2>
@@ -175,7 +177,7 @@ R and its many packages are obtainable free from <a href="http://cran.r-project.
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-06-03.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-06-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

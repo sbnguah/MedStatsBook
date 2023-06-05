@@ -107,26 +107,109 @@ and the various verbs (function) it provides.</p>
 <p>The <code>tidyverse</code> package is not just a single package but a composit of a group
 of packages. There include among others the <code>dplyr</code> package. Most of the function
 we will be employing in this chapter comes from <code>dplyr</code>.</p>
-<div id="rename-variables" class="section level2" number="8.1">
+<p>We begin by reading in the <code>blood_donors.xls</code></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-wrangling.html#cb65-1" aria-hidden="true" tabindex="-1"></a>df_blood <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"blood_donors_1.xls"</span>)</span>
+<span id="cb65-2"><a href="data-wrangling.html#cb65-2" aria-hidden="true" tabindex="-1"></a>df_blood</span>
+<span id="cb65-3"><a href="data-wrangling.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 25 × 6</span></span>
+<span id="cb65-4"><a href="data-wrangling.html#cb65-4" aria-hidden="true" tabindex="-1"></a>      id    hb   hct sex   bldgrp pdonor</span>
+<span id="cb65-5"><a href="data-wrangling.html#cb65-5" aria-hidden="true" tabindex="-1"></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb65-6"><a href="data-wrangling.html#cb65-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>     <span class="dv">1</span> <span class="fl">10.5</span>   <span class="fl">31.8</span> Male  O           <span class="dv">3</span></span>
+<span id="cb65-7"><a href="data-wrangling.html#cb65-7" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>     <span class="dv">2</span> <span class="fl">11.9</span>   <span class="fl">37.2</span> Male  AB          <span class="dv">0</span></span>
+<span id="cb65-8"><a href="data-wrangling.html#cb65-8" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>     <span class="dv">3</span>  <span class="dv">1</span>     <span class="dv">26</span>   Male  A           <span class="dv">1</span></span>
+<span id="cb65-9"><a href="data-wrangling.html#cb65-9" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>     <span class="dv">4</span>  <span class="fl">8.90</span>  <span class="fl">26.8</span> Male  A           <span class="dv">3</span></span>
+<span id="cb65-10"><a href="data-wrangling.html#cb65-10" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>     <span class="dv">5</span>  <span class="fl">7.80</span>  <span class="fl">24.2</span> Male  A           <span class="dv">2</span></span>
+<span id="cb65-11"><a href="data-wrangling.html#cb65-11" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span>     <span class="dv">6</span> <span class="dv">10</span>     <span class="fl">30.9</span> Male  B           <span class="dv">1</span></span>
+<span id="cb65-12"><a href="data-wrangling.html#cb65-12" aria-hidden="true" tabindex="-1"></a> <span class="dv">7</span>     <span class="dv">7</span> <span class="fl">10.4</span>   <span class="fl">33.9</span> Male  B           <span class="dv">0</span></span>
+<span id="cb65-13"><a href="data-wrangling.html#cb65-13" aria-hidden="true" tabindex="-1"></a> <span class="dv">8</span>     <span class="dv">8</span> <span class="fl">11.3</span>   <span class="dv">35</span>   Male  O           <span class="dv">1</span></span>
+<span id="cb65-14"><a href="data-wrangling.html#cb65-14" aria-hidden="true" tabindex="-1"></a> <span class="dv">9</span>     <span class="dv">9</span> <span class="fl">16.4</span>   <span class="cn">NA</span>   Male  AB          <span class="dv">1</span></span>
+<span id="cb65-15"><a href="data-wrangling.html#cb65-15" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>    <span class="dv">10</span> <span class="fl">14.4</span>   <span class="fl">43.6</span> Male  AB          <span class="dv">1</span></span>
+<span id="cb65-16"><a href="data-wrangling.html#cb65-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ 15 more rows</span></span></code></pre></div>
+<p>The output shows we have a 25 row and 6 column tibble.</p>
+<div id="renaming-variables" class="section level2" number="8.1">
 <h2>
-<span class="header-section-number">8.1</span> Rename variables<a class="anchor" aria-label="anchor" href="#rename-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.1</span> Renaming variables<a class="anchor" aria-label="anchor" href="#renaming-variables"><i class="fas fa-link"></i></a>
 </h2>
-<p>We begin by reading in the … data and renaming the sex to gender</p>
+<p>Below we rename the variables <code>hb</code> to <code>hemog</code> and <code>id</code> to <code>studyid</code> using he
+<code>rename</code> function, and then show the first 5 records with the <code>head</code> function.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-wrangling.html#cb66-1" aria-hidden="true" tabindex="-1"></a>df_blood <span class="sc">%&gt;%</span> </span>
+<span id="cb66-2"><a href="data-wrangling.html#cb66-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">hemog =</span> hb, <span class="at">studyid =</span> id) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-3"><a href="data-wrangling.html#cb66-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">5</span>)</span>
+<span id="cb66-4"><a href="data-wrangling.html#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 5 × 6</span></span>
+<span id="cb66-5"><a href="data-wrangling.html#cb66-5" aria-hidden="true" tabindex="-1"></a>  studyid hemog   hct sex   bldgrp pdonor</span>
+<span id="cb66-6"><a href="data-wrangling.html#cb66-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb66-7"><a href="data-wrangling.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>       <span class="dv">1</span> <span class="fl">10.5</span>   <span class="fl">31.8</span> Male  O           <span class="dv">3</span></span>
+<span id="cb66-8"><a href="data-wrangling.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>       <span class="dv">2</span> <span class="fl">11.9</span>   <span class="fl">37.2</span> Male  AB          <span class="dv">0</span></span>
+<span id="cb66-9"><a href="data-wrangling.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>       <span class="dv">3</span>  <span class="dv">1</span>     <span class="dv">26</span>   Male  A           <span class="dv">1</span></span>
+<span id="cb66-10"><a href="data-wrangling.html#cb66-10" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>       <span class="dv">4</span>  <span class="fl">8.90</span>  <span class="fl">26.8</span> Male  A           <span class="dv">3</span></span>
+<span id="cb66-11"><a href="data-wrangling.html#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>       <span class="dv">5</span>  <span class="fl">7.80</span>  <span class="fl">24.2</span> Male  A           <span class="dv">2</span></span></code></pre></div>
 </div>
 <div id="sorting-data" class="section level2" number="8.2">
 <h2>
 <span class="header-section-number">8.2</span> Sorting data<a class="anchor" aria-label="anchor" href="#sorting-data"><i class="fas fa-link"></i></a>
 </h2>
+<p>Below we use the <code>arrange</code> function to sort the <code>bldgrp</code> in ascending order and
+<code>hb</code> by descending order.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-wrangling.html#cb67-1" aria-hidden="true" tabindex="-1"></a>df_blood <span class="sc">%&gt;%</span> </span>
+<span id="cb67-2"><a href="data-wrangling.html#cb67-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(bldgrp, <span class="fu">desc</span>(hb))</span>
+<span id="cb67-3"><a href="data-wrangling.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 25 × 6</span></span>
+<span id="cb67-4"><a href="data-wrangling.html#cb67-4" aria-hidden="true" tabindex="-1"></a>      id    hb   hct sex    bldgrp pdonor</span>
+<span id="cb67-5"><a href="data-wrangling.html#cb67-5" aria-hidden="true" tabindex="-1"></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>  <span class="er">&lt;</span>chr<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb67-6"><a href="data-wrangling.html#cb67-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>    <span class="dv">17</span>  <span class="fl">9.80</span>  <span class="fl">30.5</span> Female A           <span class="dv">4</span></span>
+<span id="cb67-7"><a href="data-wrangling.html#cb67-7" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>    <span class="dv">21</span>  <span class="fl">9.10</span>  <span class="fl">28.0</span> <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>   A           <span class="dv">3</span></span>
+<span id="cb67-8"><a href="data-wrangling.html#cb67-8" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>     <span class="dv">4</span>  <span class="fl">8.90</span>  <span class="fl">26.8</span> Male   A           <span class="dv">3</span></span>
+<span id="cb67-9"><a href="data-wrangling.html#cb67-9" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>     <span class="dv">5</span>  <span class="fl">7.80</span>  <span class="fl">24.2</span> Male   A           <span class="dv">2</span></span>
+<span id="cb67-10"><a href="data-wrangling.html#cb67-10" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>     <span class="dv">3</span>  <span class="dv">1</span>     <span class="dv">26</span>   Male   A           <span class="dv">1</span></span>
+<span id="cb67-11"><a href="data-wrangling.html#cb67-11" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span>     <span class="dv">9</span> <span class="fl">16.4</span>   <span class="cn">NA</span>   Male   AB          <span class="dv">1</span></span>
+<span id="cb67-12"><a href="data-wrangling.html#cb67-12" aria-hidden="true" tabindex="-1"></a> <span class="dv">7</span>    <span class="dv">10</span> <span class="fl">14.4</span>   <span class="fl">43.6</span> Male   AB          <span class="dv">1</span></span>
+<span id="cb67-13"><a href="data-wrangling.html#cb67-13" aria-hidden="true" tabindex="-1"></a> <span class="dv">8</span>    <span class="dv">16</span> <span class="fl">12.7</span>   <span class="dv">99</span>   Female AB          <span class="dv">0</span></span>
+<span id="cb67-14"><a href="data-wrangling.html#cb67-14" aria-hidden="true" tabindex="-1"></a> <span class="dv">9</span>    <span class="dv">24</span> <span class="fl">12.3</span>   <span class="fl">38.2</span> <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>   AB          <span class="dv">2</span></span>
+<span id="cb67-15"><a href="data-wrangling.html#cb67-15" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>    <span class="dv">14</span> <span class="fl">12.2</span>   <span class="fl">36.8</span> Female AB          <span class="dv">1</span></span>
+<span id="cb67-16"><a href="data-wrangling.html#cb67-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ 15 more rows</span></span></code></pre></div>
 </div>
 <div id="subsetting-data" class="section level2" number="8.3">
 <h2>
 <span class="header-section-number">8.3</span> Subsetting data<a class="anchor" aria-label="anchor" href="#subsetting-data"><i class="fas fa-link"></i></a>
 </h2>
+<p>In this subsection we demonstrate the use of the <code>filter</code> and <code>select</code> function
+to select specific records and variables in a tibble. Below we filter to select
+all records with <code>hb</code> &gt; 12g/dl and the keep only the <code>id</code>, <code>hb</code> and <code>sex</code>
+columns.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-wrangling.html#cb68-1" aria-hidden="true" tabindex="-1"></a>df_blood <span class="sc">%&gt;%</span> </span>
+<span id="cb68-2"><a href="data-wrangling.html#cb68-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(hb <span class="sc">&gt;</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-3"><a href="data-wrangling.html#cb68-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(id, hb, sex)</span>
+<span id="cb68-4"><a href="data-wrangling.html#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 6 × 3</span></span>
+<span id="cb68-5"><a href="data-wrangling.html#cb68-5" aria-hidden="true" tabindex="-1"></a>     id    hb sex   </span>
+<span id="cb68-6"><a href="data-wrangling.html#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span> </span>
+<span id="cb68-7"><a href="data-wrangling.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>     <span class="dv">9</span>  <span class="fl">16.4</span> Male  </span>
+<span id="cb68-8"><a href="data-wrangling.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>    <span class="dv">10</span>  <span class="fl">14.4</span> Male  </span>
+<span id="cb68-9"><a href="data-wrangling.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>    <span class="dv">14</span>  <span class="fl">12.2</span> Female</span>
+<span id="cb68-10"><a href="data-wrangling.html#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    <span class="dv">14</span>  <span class="fl">16.4</span> Female</span>
+<span id="cb68-11"><a href="data-wrangling.html#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>    <span class="dv">16</span>  <span class="fl">12.7</span> Female</span>
+<span id="cb68-12"><a href="data-wrangling.html#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>    <span class="dv">24</span>  <span class="fl">12.3</span> <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>  </span></code></pre></div>
 </div>
 <div id="generating-new-variables" class="section level2" number="8.4">
 <h2>
 <span class="header-section-number">8.4</span> Generating new variables<a class="anchor" aria-label="anchor" href="#generating-new-variables"><i class="fas fa-link"></i></a>
 </h2>
+<p>To enerate new variables we use the <code>mutate</code> function. Based on our knowledge
+that the hemotocrit is approximately three times the hemoglobn we generate a
+new variable, <code>hb_from_hct</code>.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-wrangling.html#cb69-1" aria-hidden="true" tabindex="-1"></a>df_blood <span class="sc">%&gt;%</span> </span>
+<span id="cb69-2"><a href="data-wrangling.html#cb69-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">hb_from_hct =</span> hct<span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb69-3"><a href="data-wrangling.html#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 25 × 7</span></span>
+<span id="cb69-4"><a href="data-wrangling.html#cb69-4" aria-hidden="true" tabindex="-1"></a>      id    hb   hct sex   bldgrp pdonor hb_from_hct</span>
+<span id="cb69-5"><a href="data-wrangling.html#cb69-5" aria-hidden="true" tabindex="-1"></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb69-6"><a href="data-wrangling.html#cb69-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>     <span class="dv">1</span> <span class="fl">10.5</span>   <span class="fl">31.8</span> Male  O           <span class="dv">3</span>       <span class="fl">10.6</span> </span>
+<span id="cb69-7"><a href="data-wrangling.html#cb69-7" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>     <span class="dv">2</span> <span class="fl">11.9</span>   <span class="fl">37.2</span> Male  AB          <span class="dv">0</span>       <span class="fl">12.4</span> </span>
+<span id="cb69-8"><a href="data-wrangling.html#cb69-8" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>     <span class="dv">3</span>  <span class="dv">1</span>     <span class="dv">26</span>   Male  A           <span class="dv">1</span>        <span class="fl">8.67</span></span>
+<span id="cb69-9"><a href="data-wrangling.html#cb69-9" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>     <span class="dv">4</span>  <span class="fl">8.90</span>  <span class="fl">26.8</span> Male  A           <span class="dv">3</span>        <span class="fl">8.93</span></span>
+<span id="cb69-10"><a href="data-wrangling.html#cb69-10" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>     <span class="dv">5</span>  <span class="fl">7.80</span>  <span class="fl">24.2</span> Male  A           <span class="dv">2</span>        <span class="fl">8.07</span></span>
+<span id="cb69-11"><a href="data-wrangling.html#cb69-11" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span>     <span class="dv">6</span> <span class="dv">10</span>     <span class="fl">30.9</span> Male  B           <span class="dv">1</span>       <span class="fl">10.3</span> </span>
+<span id="cb69-12"><a href="data-wrangling.html#cb69-12" aria-hidden="true" tabindex="-1"></a> <span class="dv">7</span>     <span class="dv">7</span> <span class="fl">10.4</span>   <span class="fl">33.9</span> Male  B           <span class="dv">0</span>       <span class="fl">11.3</span> </span>
+<span id="cb69-13"><a href="data-wrangling.html#cb69-13" aria-hidden="true" tabindex="-1"></a> <span class="dv">8</span>     <span class="dv">8</span> <span class="fl">11.3</span>   <span class="dv">35</span>   Male  O           <span class="dv">1</span>       <span class="fl">11.7</span> </span>
+<span id="cb69-14"><a href="data-wrangling.html#cb69-14" aria-hidden="true" tabindex="-1"></a> <span class="dv">9</span>     <span class="dv">9</span> <span class="fl">16.4</span>   <span class="cn">NA</span>   Male  AB          <span class="dv">1</span>       <span class="cn">NA</span>   </span>
+<span id="cb69-15"><a href="data-wrangling.html#cb69-15" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>    <span class="dv">10</span> <span class="fl">14.4</span>   <span class="fl">43.6</span> Male  AB          <span class="dv">1</span>       <span class="fl">14.5</span> </span>
+<span id="cb69-16"><a href="data-wrangling.html#cb69-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ 15 more rows</span></span></code></pre></div>
 </div>
 <div id="aggregating-data" class="section level2" number="8.5">
 <h2>
@@ -152,7 +235,7 @@ we will be employing in this chapter comes from <code>dplyr</code>.</p>
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#data-wrangling"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="nav-link" href="#rename-variables"><span class="header-section-number">8.1</span> Rename variables</a></li>
+<li><a class="nav-link" href="#renaming-variables"><span class="header-section-number">8.1</span> Renaming variables</a></li>
 <li><a class="nav-link" href="#sorting-data"><span class="header-section-number">8.2</span> Sorting data</a></li>
 <li><a class="nav-link" href="#subsetting-data"><span class="header-section-number">8.3</span> Subsetting data</a></li>
 <li><a class="nav-link" href="#generating-new-variables"><span class="header-section-number">8.4</span> Generating new variables</a></li>
@@ -176,7 +259,7 @@ we will be employing in this chapter comes from <code>dplyr</code>.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-06-03.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-06-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

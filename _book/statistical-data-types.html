@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 3 Statistical data types | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="We begin proper data analysis by revising what statistical data types are. There are two broad types of data; Quantitative and Qualitative  3.1 Qualitative data In this data type the observations...">
+<meta name="description" content="We begin proper data analysis by revising what statistical data types are. There are two broad types of data; Quantitative and Qualitative  3.1 Qualitative data In this data type, the observations...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Chapter 3 Statistical data types | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/statistical-data-types.html">
-<meta property="og:description" content="We begin proper data analysis by revising what statistical data types are. There are two broad types of data; Quantitative and Qualitative  3.1 Qualitative data In this data type the observations...">
+<meta property="og:description" content="We begin proper data analysis by revising what statistical data types are. There are two broad types of data; Quantitative and Qualitative  3.1 Qualitative data In this data type, the observations...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 Statistical data types | Medical Statistics using R">
-<meta name="twitter:description" content="We begin proper data analysis by revising what statistical data types are. There are two broad types of data; Quantitative and Qualitative  3.1 Qualitative data In this data type the observations...">
+<meta name="twitter:description" content="We begin proper data analysis by revising what statistical data types are. There are two broad types of data; Quantitative and Qualitative  3.1 Qualitative data In this data type, the observations...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -101,36 +101,30 @@
 <h1>
 <span class="header-section-number">3</span> Statistical data types<a class="anchor" aria-label="anchor" href="#statistical-data-types"><i class="fas fa-link"></i></a>
 </h1>
-<p>We begin proper data analysis by revising what statistical data types are. There
-are two broad types of data; Quantitative and Qualitative</p>
+<p>We begin proper data analysis by revising what statistical data types are. There are two broad types of data; Quantitative and Qualitative</p>
 <div id="qualitative-data" class="section level2" number="3.1">
 <h2>
 <span class="header-section-number">3.1</span> Qualitative data<a class="anchor" aria-label="anchor" href="#qualitative-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>In this data type the observations fall into distinctive categories. There is
-usually no scale applicable to qualitative data type. These are further divided
-into:</p>
-<div id="nomimal" class="section level3" number="3.1.1">
+<p>In this data type, the observations fall into distinctive categories. There is
+usually no scale applicable to qualitative data type. These are further divided into:</p>
+<div id="nominal" class="section level3" number="3.1.1">
 <h3>
-<span class="header-section-number">3.1.1</span> Nomimal<a class="anchor" aria-label="anchor" href="#nomimal"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1.1</span> Nominal<a class="anchor" aria-label="anchor" href="#nominal"><i class="fas fa-link"></i></a>
 </h3>
-<p>These are qualitative data types that have no order. The colors of a flag for
-instance can be ”red” ”yellow” and ”green”. None of these can be said to be
-coming after the other. Contrast this to the one immediately below.</p>
+<p>These are qualitative data types that have no order. The colors of a flag for instance can be ”red” ”yellow” and ”green”. None of these can be said to be coming after the other. Contrast this to the one immediately below.</p>
 </div>
 <div id="binary" class="section level3" number="3.1.2">
 <h3>
 <span class="header-section-number">3.1.2</span> Binary<a class="anchor" aria-label="anchor" href="#binary"><i class="fas fa-link"></i></a>
 </h3>
-<p>A special type of a nominal data type is the binary data. It is very common in statistical analysis. These are observations that can take only two values. A question that for instance records the presence of a disease will only have a ”Yes” or ”No” answer. Sex is usually recorded as ”Male” or ”Female”.</p>
+<p>A special type of nominal data type is binary data. It is very common in statistical analysis. These are observations that can take only two values. A question that for instance records the presence of a disease will only have a ”Yes” or ”No” answer. Sex is usually recorded as ”Male” or ”Female”.</p>
 </div>
 <div id="ordinal" class="section level3" number="3.1.3">
 <h3>
 <span class="header-section-number">3.1.3</span> Ordinal<a class="anchor" aria-label="anchor" href="#ordinal"><i class="fas fa-link"></i></a>
 </h3>
-<p>An ordinal qualitative data type has an order to it. A commonly used one is
-the socioeconomic status, often categorised as ”Low”, ”Middle” and ”High”. Although we cannot say that the interval between ”Low” and ”Middle” is the same as ”Middle” and ”High”, we know ”Low” is lower than ”Middle” which in turn is also lower than ”High”. The Likert scale, a well known scale in many social science research is also an example of an ordinal scale. Ordinal variables are often
-created from quantitative (see below)variables. E.g. the ages of a group of men
+<p>An ordinal qualitative data type has an order to it. A commonly used one is the socioeconomic status, often categorised as ”Low”, ”Middle” and ”High”. Although we cannot say that the interval between ”Low” and ”Middle” is the same as ”Middle” and ”High”, we know ”Low” is lower than ”Middle” which in turn is also lower than ”High”. The Likert scale, a well-known scale in many social science research is also an example of an ordinal scale. Ordinal variables are often created from quantitative (see below)variables. E.g. the ages of a group of men
 can be converted into age groups of any desired number of categories.</p>
 </div>
 </div>
@@ -138,27 +132,18 @@ can be converted into age groups of any desired number of categories.</p>
 <h2>
 <span class="header-section-number">3.2</span> Quantitative data<a class="anchor" aria-label="anchor" href="#quantitative-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>Quantitative or numerical data are observations such as numbers that can be
-measured. There are two types:</p>
+<p>Quantitative or numerical data are observations such as numbers that can be measured. There are two types:</p>
 <div id="discrete" class="section level3" number="3.2.1">
 <h3>
 <span class="header-section-number">3.2.1</span> Discrete<a class="anchor" aria-label="anchor" href="#discrete"><i class="fas fa-link"></i></a>
 </h3>
-<p>Discrete quantitative data is one that only specific values can be obtained. The
-number of persons attending a theatre can only be a whole number. So is the
-number of votes obtained in an election. Although discrete quantitative
-variables are often analysed as continuous ones they can occasionally pose
-problems when analysed as such. We will be dealing with some of these in the
-subsequent chapters.</p>
+<p>Discrete quantitative data is one that only specific values can be obtained. The number of persons attending a theatre can only be a whole number. So is the number of votes obtained in an election. Although discrete quantitative variables are often analysed as continuous ones they can occasionally pose problems when analysed as such. We will be dealing with some of these in the subsequent chapters.</p>
 </div>
 <div id="continuous" class="section level3" number="3.2.2">
 <h3>
 <span class="header-section-number">3.2.2</span> Continuous<a class="anchor" aria-label="anchor" href="#continuous"><i class="fas fa-link"></i></a>
 </h3>
-<p>Continuous quantitative variables on the other hand can be measured to any
-precision, thereby making the figures they present to be as precise as the
-experimenter desires. For instance the distance between two towns can be
-measured in kilometers to as much precision as possible. Theoretically this can be as 12.0kms to as much as 12.0234278kms.</p>
+<p>Continuous quantitative variables on the other hand can be measured to any precision, thereby making the figures they present to be as precise as the experimenter desires. For instance, the distance between two towns can be measured in kilometres to as much precision as possible. Theoretically, this can be as 12.0kms to as much as 12.0234278kms.</p>
 </div>
 </div>
 <div id="other-specific-data-types" class="section level2" number="3.3">
@@ -183,7 +168,7 @@ others. The mortality rate is generated for instance from the number of deaths a
 <h3>
 <span class="header-section-number">3.3.3</span> Percentage<a class="anchor" aria-label="anchor" href="#percentage"><i class="fas fa-link"></i></a>
 </h3>
-<p>Percentages are peculiar as they often have a definite maximum and a minimum of 0% and 100% respectively. However, percentage changes can take up any value. For instance a change from 4 to 3 will yield a negative (-25%) change. To avoid the tedious nature of these percentages it is advisable to often retain and work with the specific values involved in determining the percentage rather than the percentages derived.</p>
+<p>Percentages are peculiar as they often have a definite maximum and a minimum of 0% and 100% respectively. However, percentage changes can take up any value. For instance, a change from 4 to 3 will yield a negative (-25%) change. To avoid the tedious nature of these percentages it is advisable to often retain and work with the specific values involved in determining the percentage rather than the percentages derived.</p>
 </div>
 <div id="ranks" class="section level3" number="3.3.4">
 <h3>
@@ -203,7 +188,7 @@ others. The mortality rate is generated for instance from the number of deaths a
 <li><a class="nav-link" href="#statistical-data-types"><span class="header-section-number">3</span> Statistical data types</a></li>
 <li>
 <a class="nav-link" href="#qualitative-data"><span class="header-section-number">3.1</span> Qualitative data</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#nomimal"><span class="header-section-number">3.1.1</span> Nomimal</a></li>
+<li><a class="nav-link" href="#nominal"><span class="header-section-number">3.1.1</span> Nominal</a></li>
 <li><a class="nav-link" href="#binary"><span class="header-section-number">3.1.2</span> Binary</a></li>
 <li><a class="nav-link" href="#ordinal"><span class="header-section-number">3.1.3</span> Ordinal</a></li>
 </ul>
@@ -239,7 +224,7 @@ others. The mortality rate is generated for instance from the number of deaths a
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-06-03.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-06-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

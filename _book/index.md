@@ -1,7 +1,7 @@
 --- 
 title: "Medical Statistics using R"
 author: "Samuel Blay Nguah"
-date: "2023-06-03"
+date: "2023-06-05"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -15,14 +15,13 @@ csl: chicago-fullnote-bibliography.csl
 
 # About
 
-This book is dedicated to my family Balqisu, Nyarko and Ekuba.
+This book is dedicated to my family, Balqisu, Nyarko and Ekuba.
 
-To all the young scientists who would benefit from this book and colleagues who by every way helped me write this, I say a big thank you. My motivation comes from the dire and urgent need for many, especially those in developing countries, to have and use a freely available yet sophisticated statistical software in analysing clinical data. In regions where buying statistical software is often beyond the
-means of most people R comes as a great relief. There is a huge gap between theoretical and practical knowledge of using statistical applications by many scientists. R, an open-source statistical software offers a unique but vital opportunity to bridge this gap.
+To all the young scientists who would benefit from this book and colleagues who, in every way, helped me write this, I say a big thank you. My motivation comes from the dire and urgent need for many, especially those in developing countries, to have and use freely available yet sophisticated statistical software for analysing clinical data. In regions where buying statistical software is often not affordable to most people, R comes as a great relief. There is a huge gap between theoretical and practical knowledge of statistical applications by many scientists. R, an open-source statistical software, offers a unique but vital opportunity to bridge this gap.
 
-This book focuses on introducing data analysis and R to persons with little knowledge of both. This step-by-step introduction to data analysis and R is deliberately organised to have limited text but lots of practical examples. 
+This book introduces data analysis and R to persons with little knowledge of both. The step-by-step introduction to data analysis and R is deliberately organised with limited text but with many practical examples. 
 
-Readers will be briefly introduced to R and RStudio, while some packages required will be introduced in chapters that require them. However, upon the introduction of any function from any package these will be explained briefly.
+Readers will be briefly introduced to R and RStudio. Required packages will be used in chapters that require them. However, before using a function from any package it will be explained.
  
 
 
