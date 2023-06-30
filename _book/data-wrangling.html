@@ -109,7 +109,7 @@ and the various verbs (function) it provides.</p>
 of packages. There include among others the <code>dplyr</code> package. Most of the function
 we will be employing in this chapter comes from <code>dplyr</code>.</p>
 <p>We begin by reading in the <code>blood_donors.xls</code></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-wrangling.html#cb65-1" tabindex="-1"></a>df_blood <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"blood_donors_1.xls"</span>)</span>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-wrangling.html#cb65-1" tabindex="-1"></a>df_blood <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"./Data/blood_donors_1.xls"</span>)</span>
 <span id="cb65-2"><a href="data-wrangling.html#cb65-2" tabindex="-1"></a>df_blood</span>
 <span id="cb65-3"><a href="data-wrangling.html#cb65-3" tabindex="-1"></a><span class="co"># A tibble: 25 × 6</span></span>
 <span id="cb65-4"><a href="data-wrangling.html#cb65-4" tabindex="-1"></a>      id    hb   hct sex   bldgrp pdonor</span>
@@ -246,7 +246,7 @@ means and standard deviations for the various blood groups.</p>
 Such data is recorded either in long or wide formats. A typical example of a
 data frame in the long form is bpB below.</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-wrangling.html#cb72-1" tabindex="-1"></a>bp_long <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb72-2"><a href="data-wrangling.html#cb72-2" tabindex="-1"></a>    <span class="at">file =</span> <span class="st">"bp_long.txt"</span>,</span>
+<span id="cb72-2"><a href="data-wrangling.html#cb72-2" tabindex="-1"></a>    <span class="at">file =</span> <span class="st">"./Data/bp_long.txt"</span>,</span>
 <span id="cb72-3"><a href="data-wrangling.html#cb72-3" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb72-4"><a href="data-wrangling.html#cb72-4" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"i"</span>)</span>
 <span id="cb72-5"><a href="data-wrangling.html#cb72-5" tabindex="-1"></a>    )</span>
@@ -312,7 +312,7 @@ completion (wgtend) and the time it took the athletes to complete the marathon
 (dura).</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-wrangling.html#cb75-1" tabindex="-1"></a>dataA <span class="ot">&lt;-</span> </span>
 <span id="cb75-2"><a href="data-wrangling.html#cb75-2" tabindex="-1"></a>    <span class="fu">read_delim</span>(</span>
-<span id="cb75-3"><a href="data-wrangling.html#cb75-3" tabindex="-1"></a>        <span class="at">file =</span> <span class="st">"marathonA.txt"</span>,</span>
+<span id="cb75-3"><a href="data-wrangling.html#cb75-3" tabindex="-1"></a>        <span class="at">file =</span> <span class="st">"./Data/marathonA.txt"</span>,</span>
 <span id="cb75-4"><a href="data-wrangling.html#cb75-4" tabindex="-1"></a>        <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb75-5"><a href="data-wrangling.html#cb75-5" tabindex="-1"></a>        <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
 <span id="cb75-6"><a href="data-wrangling.html#cb75-6" tabindex="-1"></a>        <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"i"</span>,<span class="st">"d"</span>)</span>
@@ -320,7 +320,7 @@ completion (wgtend) and the time it took the athletes to complete the marathon
 <span id="cb75-8"><a href="data-wrangling.html#cb75-8" tabindex="-1"></a></span>
 <span id="cb75-9"><a href="data-wrangling.html#cb75-9" tabindex="-1"></a>dataB <span class="ot">&lt;-</span> </span>
 <span id="cb75-10"><a href="data-wrangling.html#cb75-10" tabindex="-1"></a>    <span class="fu">read_delim</span>(</span>
-<span id="cb75-11"><a href="data-wrangling.html#cb75-11" tabindex="-1"></a>        <span class="at">file =</span> <span class="st">"marathonB.txt"</span>,</span>
+<span id="cb75-11"><a href="data-wrangling.html#cb75-11" tabindex="-1"></a>        <span class="at">file =</span> <span class="st">"./Data/marathonB.txt"</span>,</span>
 <span id="cb75-12"><a href="data-wrangling.html#cb75-12" tabindex="-1"></a>        <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb75-13"><a href="data-wrangling.html#cb75-13" tabindex="-1"></a>        <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
 <span id="cb75-14"><a href="data-wrangling.html#cb75-14" tabindex="-1"></a>        <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"i"</span>,<span class="st">"d"</span>)</span>

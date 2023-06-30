@@ -16,7 +16,7 @@ we will be employing in this chapter comes from `dplyr`.
 
 We begin by reading in the `blood_donors.xls`
 ```{r comment=NA}
-df_blood <- readxl::read_xls("blood_donors_1.xls")
+df_blood <- readxl::read_xls("./Data/blood_donors_1.xls")
 df_blood
 ```
 
@@ -84,7 +84,7 @@ data frame in the long form is bpB below.
 
 ```{r}
 bp_long <- read_csv(
-    file = "bp_long.txt",
+    file = "./Data/bp_long.txt",
     col_names = TRUE, 
     col_types = c("c", "c", "i")
     )
@@ -137,7 +137,7 @@ completion (wgtend) and the time it took the athletes to complete the marathon
 ```{r}
 dataA <- 
     read_delim(
-        file = "marathonA.txt",
+        file = "./Data/marathonA.txt",
         col_names = TRUE,
         delim = "\t",
         col_types = c("c","c","i","d")
@@ -145,7 +145,7 @@ dataA <-
 
 dataB <- 
     read_delim(
-        file = "marathonB.txt",
+        file = "./Data/marathonB.txt",
         col_names = TRUE,
         delim = "\t",
         col_types = c("c","c","i","d")

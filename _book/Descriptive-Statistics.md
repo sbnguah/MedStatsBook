@@ -34,7 +34,7 @@ For this section we use the __Titanic__ data set
 
 ```r
 titanic2 <-  
-    haven::read_dta("titanic2.dta") %>% 
+    haven::read_dta("./Data/titanic2.dta") %>% 
     mutate(sex  = haven::as_factor(sex),
            died = haven::as_factor(died),
            age  = haven::as_factor(age),
@@ -318,7 +318,7 @@ For this section we will use the `NewDrug_clean.dta` dataset
 
 ```r
 newdrug <-  
-    haven::read_dta("NewDrug_clean.dta") %>% 
+    haven::read_dta("./Data/NewDrug_clean.dta") %>% 
     mutate(sex  = haven::as_factor(sex), treat = haven::as_factor(treat)) %>% 
     haven::zap_labels() 
 

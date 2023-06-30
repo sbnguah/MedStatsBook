@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 10 Descriptive Statistics | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content='10.1 Categorical Variable For this section we use the Titanic data set titanic2 &lt;-    haven::read_dta("titanic2.dta") %&gt;%   mutate(sex = haven::as_factor(sex),      died = haven::as_factor(died), ...'>
+<meta name="description" content='10.1 Categorical Variable For this section we use the Titanic data set titanic2 &lt;-    haven::read_dta("./Data/titanic2.dta") %&gt;%   mutate(sex = haven::as_factor(sex),      died =...'>
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Chapter 10 Descriptive Statistics | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/descriptive-statistics.html">
-<meta property="og:description" content='10.1 Categorical Variable For this section we use the Titanic data set titanic2 &lt;-    haven::read_dta("titanic2.dta") %&gt;%   mutate(sex = haven::as_factor(sex),      died = haven::as_factor(died), ...'>
+<meta property="og:description" content='10.1 Categorical Variable For this section we use the Titanic data set titanic2 &lt;-    haven::read_dta("./Data/titanic2.dta") %&gt;%   mutate(sex = haven::as_factor(sex),      died =...'>
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 10 Descriptive Statistics | Medical Statistics using R">
-<meta name="twitter:description" content='10.1 Categorical Variable For this section we use the Titanic data set titanic2 &lt;-    haven::read_dta("titanic2.dta") %&gt;%   mutate(sex = haven::as_factor(sex),      died = haven::as_factor(died), ...'>
+<meta name="twitter:description" content='10.1 Categorical Variable For this section we use the Titanic data set titanic2 &lt;-    haven::read_dta("./Data/titanic2.dta") %&gt;%   mutate(sex = haven::as_factor(sex),      died =...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -107,53 +107,53 @@
 <span class="header-section-number">10.1</span> Categorical Variable<a class="anchor" aria-label="anchor" href="#categorical-variable"><i class="fas fa-link"></i></a>
 </h2>
 <p>For this section we use the <strong>Titanic</strong> data set</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="descriptive-statistics.html#cb105-1" tabindex="-1"></a>titanic2 <span class="ot">&lt;-</span>  </span>
-<span id="cb105-2"><a href="descriptive-statistics.html#cb105-2" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"titanic2.dta"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb105-3"><a href="descriptive-statistics.html#cb105-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sex  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(sex),</span>
-<span id="cb105-4"><a href="descriptive-statistics.html#cb105-4" tabindex="-1"></a>           <span class="at">died =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(died),</span>
-<span id="cb105-5"><a href="descriptive-statistics.html#cb105-5" tabindex="-1"></a>           <span class="at">age  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(age),</span>
-<span id="cb105-6"><a href="descriptive-statistics.html#cb105-6" tabindex="-1"></a>           <span class="at">class =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(class)) <span class="sc">%&gt;%</span> </span>
-<span id="cb105-7"><a href="descriptive-statistics.html#cb105-7" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">zap_labels</span>()</span>
-<span id="cb105-8"><a href="descriptive-statistics.html#cb105-8" tabindex="-1"></a></span>
-<span id="cb105-9"><a href="descriptive-statistics.html#cb105-9" tabindex="-1"></a>titanic2</span>
-<span id="cb105-10"><a href="descriptive-statistics.html#cb105-10" tabindex="-1"></a><span class="co"># A tibble: 2,201 × 4</span></span>
-<span id="cb105-11"><a href="descriptive-statistics.html#cb105-11" tabindex="-1"></a>   class age   sex   died </span>
-<span id="cb105-12"><a href="descriptive-statistics.html#cb105-12" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span></span>
-<span id="cb105-13"><a href="descriptive-statistics.html#cb105-13" tabindex="-1"></a> <span class="dv">1</span> first adult male  No   </span>
-<span id="cb105-14"><a href="descriptive-statistics.html#cb105-14" tabindex="-1"></a> <span class="dv">2</span> first adult male  No   </span>
-<span id="cb105-15"><a href="descriptive-statistics.html#cb105-15" tabindex="-1"></a> <span class="dv">3</span> first adult male  No   </span>
-<span id="cb105-16"><a href="descriptive-statistics.html#cb105-16" tabindex="-1"></a> <span class="dv">4</span> first adult male  No   </span>
-<span id="cb105-17"><a href="descriptive-statistics.html#cb105-17" tabindex="-1"></a> <span class="dv">5</span> first adult male  No   </span>
-<span id="cb105-18"><a href="descriptive-statistics.html#cb105-18" tabindex="-1"></a> <span class="dv">6</span> first adult male  No   </span>
-<span id="cb105-19"><a href="descriptive-statistics.html#cb105-19" tabindex="-1"></a> <span class="dv">7</span> first adult male  No   </span>
-<span id="cb105-20"><a href="descriptive-statistics.html#cb105-20" tabindex="-1"></a> <span class="dv">8</span> first adult male  No   </span>
-<span id="cb105-21"><a href="descriptive-statistics.html#cb105-21" tabindex="-1"></a> <span class="dv">9</span> first adult male  No   </span>
-<span id="cb105-22"><a href="descriptive-statistics.html#cb105-22" tabindex="-1"></a><span class="dv">10</span> first adult male  No   </span>
-<span id="cb105-23"><a href="descriptive-statistics.html#cb105-23" tabindex="-1"></a><span class="co"># ℹ 2,191 more rows</span></span>
-<span id="cb105-24"><a href="descriptive-statistics.html#cb105-24" tabindex="-1"></a></span>
-<span id="cb105-25"><a href="descriptive-statistics.html#cb105-25" tabindex="-1"></a>titanic2 <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb105-26"><a href="descriptive-statistics.html#cb105-26" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb105-27"><a href="descriptive-statistics.html#cb105-27" tabindex="-1"></a>titanic2  </span>
-<span id="cb105-28"><a href="descriptive-statistics.html#cb105-28" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">2201</span> x <span class="dv">4</span>  </span>
-<span id="cb105-29"><a href="descriptive-statistics.html#cb105-29" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">2177</span>  </span>
-<span id="cb105-30"><a href="descriptive-statistics.html#cb105-30" tabindex="-1"></a></span>
-<span id="cb105-31"><a href="descriptive-statistics.html#cb105-31" tabindex="-1"></a><span class="sc">----------------------------------------------------------------------------------------------------</span></span>
-<span id="cb105-32"><a href="descriptive-statistics.html#cb105-32" tabindex="-1"></a>No   Variable   Label                     Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
-<span id="cb105-33"><a href="descriptive-statistics.html#cb105-33" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">-------------------------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb105-34"><a href="descriptive-statistics.html#cb105-34" tabindex="-1"></a><span class="dv">1</span>    class      Passenger<span class="st">'s cabin class   1. first         325 (14.8%)          2201       0        </span></span>
-<span id="cb105-35"><a href="descriptive-statistics.html#cb105-35" tabindex="-1"></a><span class="st">     [factor]                             2. second        285 (12.9%)          (100.0%)   (0.0%)   </span></span>
-<span id="cb105-36"><a href="descriptive-statistics.html#cb105-36" tabindex="-1"></a><span class="st">                                          3. third         706 (32.1%)                              </span></span>
-<span id="cb105-37"><a href="descriptive-statistics.html#cb105-37" tabindex="-1"></a><span class="st">                                          4. crew          885 (40.2%)                              </span></span>
-<span id="cb105-38"><a href="descriptive-statistics.html#cb105-38" tabindex="-1"></a></span>
-<span id="cb105-39"><a href="descriptive-statistics.html#cb105-39" tabindex="-1"></a><span class="st">2    age        Age group                 1. child          109 ( 5.0%)         2201       0        </span></span>
-<span id="cb105-40"><a href="descriptive-statistics.html#cb105-40" tabindex="-1"></a><span class="st">     [factor]                             2. adult         2092 (95.0%)         (100.0%)   (0.0%)   </span></span>
-<span id="cb105-41"><a href="descriptive-statistics.html#cb105-41" tabindex="-1"></a></span>
-<span id="cb105-42"><a href="descriptive-statistics.html#cb105-42" tabindex="-1"></a><span class="st">3    sex        Sex of passenger          1. female         470 (21.4%)         2201       0        </span></span>
-<span id="cb105-43"><a href="descriptive-statistics.html#cb105-43" tabindex="-1"></a><span class="st">     [factor]                             2. male          1731 (78.6%)         (100.0%)   (0.0%)   </span></span>
-<span id="cb105-44"><a href="descriptive-statistics.html#cb105-44" tabindex="-1"></a></span>
-<span id="cb105-45"><a href="descriptive-statistics.html#cb105-45" tabindex="-1"></a><span class="st">4    died       Died at sea               1. No             711 (32.3%)         2201       0        </span></span>
-<span id="cb105-46"><a href="descriptive-statistics.html#cb105-46" tabindex="-1"></a><span class="st">     [factor]                             2. Yes           1490 (67.7%)         (100.0%)   (0.0%)   </span></span>
-<span id="cb105-47"><a href="descriptive-statistics.html#cb105-47" tabindex="-1"></a><span class="st">----------------------------------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="descriptive-statistics.html#cb104-1" tabindex="-1"></a>titanic2 <span class="ot">&lt;-</span>  </span>
+<span id="cb104-2"><a href="descriptive-statistics.html#cb104-2" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"./Data/titanic2.dta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb104-3"><a href="descriptive-statistics.html#cb104-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sex  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(sex),</span>
+<span id="cb104-4"><a href="descriptive-statistics.html#cb104-4" tabindex="-1"></a>           <span class="at">died =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(died),</span>
+<span id="cb104-5"><a href="descriptive-statistics.html#cb104-5" tabindex="-1"></a>           <span class="at">age  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(age),</span>
+<span id="cb104-6"><a href="descriptive-statistics.html#cb104-6" tabindex="-1"></a>           <span class="at">class =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(class)) <span class="sc">%&gt;%</span> </span>
+<span id="cb104-7"><a href="descriptive-statistics.html#cb104-7" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">zap_labels</span>()</span>
+<span id="cb104-8"><a href="descriptive-statistics.html#cb104-8" tabindex="-1"></a></span>
+<span id="cb104-9"><a href="descriptive-statistics.html#cb104-9" tabindex="-1"></a>titanic2</span>
+<span id="cb104-10"><a href="descriptive-statistics.html#cb104-10" tabindex="-1"></a><span class="co"># A tibble: 2,201 × 4</span></span>
+<span id="cb104-11"><a href="descriptive-statistics.html#cb104-11" tabindex="-1"></a>   class age   sex   died </span>
+<span id="cb104-12"><a href="descriptive-statistics.html#cb104-12" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span></span>
+<span id="cb104-13"><a href="descriptive-statistics.html#cb104-13" tabindex="-1"></a> <span class="dv">1</span> first adult male  No   </span>
+<span id="cb104-14"><a href="descriptive-statistics.html#cb104-14" tabindex="-1"></a> <span class="dv">2</span> first adult male  No   </span>
+<span id="cb104-15"><a href="descriptive-statistics.html#cb104-15" tabindex="-1"></a> <span class="dv">3</span> first adult male  No   </span>
+<span id="cb104-16"><a href="descriptive-statistics.html#cb104-16" tabindex="-1"></a> <span class="dv">4</span> first adult male  No   </span>
+<span id="cb104-17"><a href="descriptive-statistics.html#cb104-17" tabindex="-1"></a> <span class="dv">5</span> first adult male  No   </span>
+<span id="cb104-18"><a href="descriptive-statistics.html#cb104-18" tabindex="-1"></a> <span class="dv">6</span> first adult male  No   </span>
+<span id="cb104-19"><a href="descriptive-statistics.html#cb104-19" tabindex="-1"></a> <span class="dv">7</span> first adult male  No   </span>
+<span id="cb104-20"><a href="descriptive-statistics.html#cb104-20" tabindex="-1"></a> <span class="dv">8</span> first adult male  No   </span>
+<span id="cb104-21"><a href="descriptive-statistics.html#cb104-21" tabindex="-1"></a> <span class="dv">9</span> first adult male  No   </span>
+<span id="cb104-22"><a href="descriptive-statistics.html#cb104-22" tabindex="-1"></a><span class="dv">10</span> first adult male  No   </span>
+<span id="cb104-23"><a href="descriptive-statistics.html#cb104-23" tabindex="-1"></a><span class="co"># ℹ 2,191 more rows</span></span>
+<span id="cb104-24"><a href="descriptive-statistics.html#cb104-24" tabindex="-1"></a></span>
+<span id="cb104-25"><a href="descriptive-statistics.html#cb104-25" tabindex="-1"></a>titanic2 <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb104-26"><a href="descriptive-statistics.html#cb104-26" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb104-27"><a href="descriptive-statistics.html#cb104-27" tabindex="-1"></a>titanic2  </span>
+<span id="cb104-28"><a href="descriptive-statistics.html#cb104-28" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">2201</span> x <span class="dv">4</span>  </span>
+<span id="cb104-29"><a href="descriptive-statistics.html#cb104-29" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">2177</span>  </span>
+<span id="cb104-30"><a href="descriptive-statistics.html#cb104-30" tabindex="-1"></a></span>
+<span id="cb104-31"><a href="descriptive-statistics.html#cb104-31" tabindex="-1"></a><span class="sc">----------------------------------------------------------------------------------------------------</span></span>
+<span id="cb104-32"><a href="descriptive-statistics.html#cb104-32" tabindex="-1"></a>No   Variable   Label                     Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
+<span id="cb104-33"><a href="descriptive-statistics.html#cb104-33" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">-------------------------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb104-34"><a href="descriptive-statistics.html#cb104-34" tabindex="-1"></a><span class="dv">1</span>    class      Passenger<span class="st">'s cabin class   1. first         325 (14.8%)          2201       0        </span></span>
+<span id="cb104-35"><a href="descriptive-statistics.html#cb104-35" tabindex="-1"></a><span class="st">     [factor]                             2. second        285 (12.9%)          (100.0%)   (0.0%)   </span></span>
+<span id="cb104-36"><a href="descriptive-statistics.html#cb104-36" tabindex="-1"></a><span class="st">                                          3. third         706 (32.1%)                              </span></span>
+<span id="cb104-37"><a href="descriptive-statistics.html#cb104-37" tabindex="-1"></a><span class="st">                                          4. crew          885 (40.2%)                              </span></span>
+<span id="cb104-38"><a href="descriptive-statistics.html#cb104-38" tabindex="-1"></a></span>
+<span id="cb104-39"><a href="descriptive-statistics.html#cb104-39" tabindex="-1"></a><span class="st">2    age        Age group                 1. child          109 ( 5.0%)         2201       0        </span></span>
+<span id="cb104-40"><a href="descriptive-statistics.html#cb104-40" tabindex="-1"></a><span class="st">     [factor]                             2. adult         2092 (95.0%)         (100.0%)   (0.0%)   </span></span>
+<span id="cb104-41"><a href="descriptive-statistics.html#cb104-41" tabindex="-1"></a></span>
+<span id="cb104-42"><a href="descriptive-statistics.html#cb104-42" tabindex="-1"></a><span class="st">3    sex        Sex of passenger          1. female         470 (21.4%)         2201       0        </span></span>
+<span id="cb104-43"><a href="descriptive-statistics.html#cb104-43" tabindex="-1"></a><span class="st">     [factor]                             2. male          1731 (78.6%)         (100.0%)   (0.0%)   </span></span>
+<span id="cb104-44"><a href="descriptive-statistics.html#cb104-44" tabindex="-1"></a></span>
+<span id="cb104-45"><a href="descriptive-statistics.html#cb104-45" tabindex="-1"></a><span class="st">4    died       Died at sea               1. No             711 (32.3%)         2201       0        </span></span>
+<span id="cb104-46"><a href="descriptive-statistics.html#cb104-46" tabindex="-1"></a><span class="st">     [factor]                             2. Yes           1490 (67.7%)         (100.0%)   (0.0%)   </span></span>
+<span id="cb104-47"><a href="descriptive-statistics.html#cb104-47" tabindex="-1"></a><span class="st">----------------------------------------------------------------------------------------------------</span></span></code></pre></div>
 <div id="single-caregorical-variable" class="section level3" number="10.1.1">
 <h3>
 <span class="header-section-number">10.1.1</span> Single Caregorical Variable<a class="anchor" aria-label="anchor" href="#single-caregorical-variable"><i class="fas fa-link"></i></a>
@@ -162,38 +162,38 @@
 <h4>
 <span class="header-section-number">10.1.1.1</span> Frequencies &amp; Proportions<a class="anchor" aria-label="anchor" href="#frequencies-proportions"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="descriptive-statistics.html#cb106-1" tabindex="-1"></a>titanic2 <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">tab1</span>(class, <span class="at">graph =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb106-2"><a href="descriptive-statistics.html#cb106-2" tabindex="-1"></a>class <span class="sc">:</span> </span>
-<span id="cb106-3"><a href="descriptive-statistics.html#cb106-3" tabindex="-1"></a>        Frequency Percent Cum. percent</span>
-<span id="cb106-4"><a href="descriptive-statistics.html#cb106-4" tabindex="-1"></a>first         <span class="dv">325</span>    <span class="fl">14.8</span>         <span class="fl">14.8</span></span>
-<span id="cb106-5"><a href="descriptive-statistics.html#cb106-5" tabindex="-1"></a>second        <span class="dv">285</span>    <span class="fl">12.9</span>         <span class="fl">27.7</span></span>
-<span id="cb106-6"><a href="descriptive-statistics.html#cb106-6" tabindex="-1"></a>third         <span class="dv">706</span>    <span class="fl">32.1</span>         <span class="fl">59.8</span></span>
-<span id="cb106-7"><a href="descriptive-statistics.html#cb106-7" tabindex="-1"></a>crew          <span class="dv">885</span>    <span class="fl">40.2</span>        <span class="fl">100.0</span></span>
-<span id="cb106-8"><a href="descriptive-statistics.html#cb106-8" tabindex="-1"></a>  Total      <span class="dv">2201</span>   <span class="fl">100.0</span>        <span class="fl">100.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="descriptive-statistics.html#cb105-1" tabindex="-1"></a>titanic2 <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">tab1</span>(class, <span class="at">graph =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb105-2"><a href="descriptive-statistics.html#cb105-2" tabindex="-1"></a>class <span class="sc">:</span> </span>
+<span id="cb105-3"><a href="descriptive-statistics.html#cb105-3" tabindex="-1"></a>        Frequency Percent Cum. percent</span>
+<span id="cb105-4"><a href="descriptive-statistics.html#cb105-4" tabindex="-1"></a>first         <span class="dv">325</span>    <span class="fl">14.8</span>         <span class="fl">14.8</span></span>
+<span id="cb105-5"><a href="descriptive-statistics.html#cb105-5" tabindex="-1"></a>second        <span class="dv">285</span>    <span class="fl">12.9</span>         <span class="fl">27.7</span></span>
+<span id="cb105-6"><a href="descriptive-statistics.html#cb105-6" tabindex="-1"></a>third         <span class="dv">706</span>    <span class="fl">32.1</span>         <span class="fl">59.8</span></span>
+<span id="cb105-7"><a href="descriptive-statistics.html#cb105-7" tabindex="-1"></a>crew          <span class="dv">885</span>    <span class="fl">40.2</span>        <span class="fl">100.0</span></span>
+<span id="cb105-8"><a href="descriptive-statistics.html#cb105-8" tabindex="-1"></a>  Total      <span class="dv">2201</span>   <span class="fl">100.0</span>        <span class="fl">100.0</span></span></code></pre></div>
 </div>
 <div id="graph---barchart" class="section level4" number="10.1.1.2">
 <h4>
 <span class="header-section-number">10.1.1.2</span> Graph - Barchart<a class="anchor" aria-label="anchor" href="#graph---barchart"><i class="fas fa-link"></i></a>
 </h4>
 <p>We first summarize the data</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="descriptive-statistics.html#cb107-1" tabindex="-1"></a>bar_data <span class="ot">&lt;-</span></span>
-<span id="cb107-2"><a href="descriptive-statistics.html#cb107-2" tabindex="-1"></a>    titanic2 <span class="sc">%&gt;%</span> </span>
-<span id="cb107-3"><a href="descriptive-statistics.html#cb107-3" tabindex="-1"></a>    <span class="fu">drop_na</span>(class) <span class="sc">%&gt;%</span> </span>
-<span id="cb107-4"><a href="descriptive-statistics.html#cb107-4" tabindex="-1"></a>    <span class="fu">count</span>(class) <span class="sc">%&gt;%</span> </span>
-<span id="cb107-5"><a href="descriptive-statistics.html#cb107-5" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="st">`</span><span class="at">n</span><span class="st">`</span> <span class="sc">/</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">n</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb107-6"><a href="descriptive-statistics.html#cb107-6" tabindex="-1"></a>    <span class="fu">arrange</span>(perc) <span class="sc">%&gt;%</span></span>
-<span id="cb107-7"><a href="descriptive-statistics.html#cb107-7" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">labels =</span> <span class="fu">paste</span>(n, <span class="st">" ("</span>, scales<span class="sc">::</span><span class="fu">percent</span>(perc), <span class="st">")"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
-<span id="cb107-8"><a href="descriptive-statistics.html#cb107-8" tabindex="-1"></a></span>
-<span id="cb107-9"><a href="descriptive-statistics.html#cb107-9" tabindex="-1"></a>bar_data</span>
-<span id="cb107-10"><a href="descriptive-statistics.html#cb107-10" tabindex="-1"></a><span class="co"># A tibble: 4 × 4</span></span>
-<span id="cb107-11"><a href="descriptive-statistics.html#cb107-11" tabindex="-1"></a>  class      n  perc labels     </span>
-<span id="cb107-12"><a href="descriptive-statistics.html#cb107-12" tabindex="-1"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>  <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      </span>
-<span id="cb107-13"><a href="descriptive-statistics.html#cb107-13" tabindex="-1"></a><span class="dv">1</span> second   <span class="dv">285</span> <span class="fl">0.129</span> <span class="dv">285</span> (<span class="fl">12.9</span>%)</span>
-<span id="cb107-14"><a href="descriptive-statistics.html#cb107-14" tabindex="-1"></a><span class="dv">2</span> first    <span class="dv">325</span> <span class="fl">0.148</span> <span class="dv">325</span> (<span class="fl">14.8</span>%)</span>
-<span id="cb107-15"><a href="descriptive-statistics.html#cb107-15" tabindex="-1"></a><span class="dv">3</span> third    <span class="dv">706</span> <span class="fl">0.321</span> <span class="dv">706</span> (<span class="fl">32.1</span>%)</span>
-<span id="cb107-16"><a href="descriptive-statistics.html#cb107-16" tabindex="-1"></a><span class="dv">4</span> crew     <span class="dv">885</span> <span class="fl">0.402</span> <span class="dv">885</span> (<span class="fl">40.2</span>%)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="descriptive-statistics.html#cb106-1" tabindex="-1"></a>bar_data <span class="ot">&lt;-</span></span>
+<span id="cb106-2"><a href="descriptive-statistics.html#cb106-2" tabindex="-1"></a>    titanic2 <span class="sc">%&gt;%</span> </span>
+<span id="cb106-3"><a href="descriptive-statistics.html#cb106-3" tabindex="-1"></a>    <span class="fu">drop_na</span>(class) <span class="sc">%&gt;%</span> </span>
+<span id="cb106-4"><a href="descriptive-statistics.html#cb106-4" tabindex="-1"></a>    <span class="fu">count</span>(class) <span class="sc">%&gt;%</span> </span>
+<span id="cb106-5"><a href="descriptive-statistics.html#cb106-5" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="st">`</span><span class="at">n</span><span class="st">`</span> <span class="sc">/</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">n</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb106-6"><a href="descriptive-statistics.html#cb106-6" tabindex="-1"></a>    <span class="fu">arrange</span>(perc) <span class="sc">%&gt;%</span></span>
+<span id="cb106-7"><a href="descriptive-statistics.html#cb106-7" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">labels =</span> <span class="fu">paste</span>(n, <span class="st">" ("</span>, scales<span class="sc">::</span><span class="fu">percent</span>(perc), <span class="st">")"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
+<span id="cb106-8"><a href="descriptive-statistics.html#cb106-8" tabindex="-1"></a></span>
+<span id="cb106-9"><a href="descriptive-statistics.html#cb106-9" tabindex="-1"></a>bar_data</span>
+<span id="cb106-10"><a href="descriptive-statistics.html#cb106-10" tabindex="-1"></a><span class="co"># A tibble: 4 × 4</span></span>
+<span id="cb106-11"><a href="descriptive-statistics.html#cb106-11" tabindex="-1"></a>  class      n  perc labels     </span>
+<span id="cb106-12"><a href="descriptive-statistics.html#cb106-12" tabindex="-1"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>  <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      </span>
+<span id="cb106-13"><a href="descriptive-statistics.html#cb106-13" tabindex="-1"></a><span class="dv">1</span> second   <span class="dv">285</span> <span class="fl">0.129</span> <span class="dv">285</span> (<span class="fl">12.9</span>%)</span>
+<span id="cb106-14"><a href="descriptive-statistics.html#cb106-14" tabindex="-1"></a><span class="dv">2</span> first    <span class="dv">325</span> <span class="fl">0.148</span> <span class="dv">325</span> (<span class="fl">14.8</span>%)</span>
+<span id="cb106-15"><a href="descriptive-statistics.html#cb106-15" tabindex="-1"></a><span class="dv">3</span> third    <span class="dv">706</span> <span class="fl">0.321</span> <span class="dv">706</span> (<span class="fl">32.1</span>%)</span>
+<span id="cb106-16"><a href="descriptive-statistics.html#cb106-16" tabindex="-1"></a><span class="dv">4</span> crew     <span class="dv">885</span> <span class="fl">0.402</span> <span class="dv">885</span> (<span class="fl">40.2</span>%)</span></code></pre></div>
 <p>And the plot the barplot</p>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bar_data</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_bar</span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, </span>
@@ -214,7 +214,7 @@
 <span class="header-section-number">10.1.1.3</span> Pie Chart<a class="anchor" aria-label="anchor" href="#pie-chart"><i class="fas fa-link"></i></a>
 </h4>
 <p>To do this we use the previously summarized data. Then we draw a customised Pie Chart</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bar_data</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="va">perc</span>, fill <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_col</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -236,43 +236,75 @@
 <h4>
 <span class="header-section-number">10.1.2.1</span> Frequencies &amp; Proportions<a class="anchor" aria-label="anchor" href="#frequencies-proportions-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="descriptive-statistics.html#cb110-1" tabindex="-1"></a>titanic2 <span class="sc">%$%</span> </span>
-<span id="cb110-2"><a href="descriptive-statistics.html#cb110-2" tabindex="-1"></a>    gmodels<span class="sc">::</span><span class="fu">CrossTable</span>(sex, died, <span class="at">prop.c=</span>F, <span class="at">prop.r=</span>F, <span class="at">prop.t=</span>F, <span class="at">prop.chisq =</span> F)</span>
-<span id="cb110-3"><a href="descriptive-statistics.html#cb110-3" tabindex="-1"></a></span>
-<span id="cb110-4"><a href="descriptive-statistics.html#cb110-4" tabindex="-1"></a> </span>
-<span id="cb110-5"><a href="descriptive-statistics.html#cb110-5" tabindex="-1"></a>   Cell Contents</span>
-<span id="cb110-6"><a href="descriptive-statistics.html#cb110-6" tabindex="-1"></a><span class="sc">|-------------------------</span><span class="er">|</span></span>
-<span id="cb110-7"><a href="descriptive-statistics.html#cb110-7" tabindex="-1"></a><span class="er">|</span>                       N <span class="sc">|</span></span>
-<span id="cb110-8"><a href="descriptive-statistics.html#cb110-8" tabindex="-1"></a><span class="er">|</span><span class="sc">-------------------------</span><span class="er">|</span></span>
-<span id="cb110-9"><a href="descriptive-statistics.html#cb110-9" tabindex="-1"></a></span>
-<span id="cb110-10"><a href="descriptive-statistics.html#cb110-10" tabindex="-1"></a> </span>
-<span id="cb110-11"><a href="descriptive-statistics.html#cb110-11" tabindex="-1"></a>Total Observations <span class="cf">in</span> Table<span class="sc">:</span>  <span class="dv">2201</span> </span>
-<span id="cb110-12"><a href="descriptive-statistics.html#cb110-12" tabindex="-1"></a></span>
-<span id="cb110-13"><a href="descriptive-statistics.html#cb110-13" tabindex="-1"></a> </span>
-<span id="cb110-14"><a href="descriptive-statistics.html#cb110-14" tabindex="-1"></a>             <span class="sc">|</span> died </span>
-<span id="cb110-15"><a href="descriptive-statistics.html#cb110-15" tabindex="-1"></a>         sex <span class="sc">|</span>        No <span class="sc">|</span>       Yes <span class="sc">|</span> Row Total <span class="sc">|</span> </span>
-<span id="cb110-16"><a href="descriptive-statistics.html#cb110-16" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb110-17"><a href="descriptive-statistics.html#cb110-17" tabindex="-1"></a>      female <span class="sc">|</span>       <span class="dv">344</span> <span class="sc">|</span>       <span class="dv">126</span> <span class="sc">|</span>       <span class="dv">470</span> <span class="sc">|</span> </span>
-<span id="cb110-18"><a href="descriptive-statistics.html#cb110-18" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb110-19"><a href="descriptive-statistics.html#cb110-19" tabindex="-1"></a>        male <span class="sc">|</span>       <span class="dv">367</span> <span class="sc">|</span>      <span class="dv">1364</span> <span class="sc">|</span>      <span class="dv">1731</span> <span class="sc">|</span> </span>
-<span id="cb110-20"><a href="descriptive-statistics.html#cb110-20" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb110-21"><a href="descriptive-statistics.html#cb110-21" tabindex="-1"></a>Column Total <span class="sc">|</span>       <span class="dv">711</span> <span class="sc">|</span>      <span class="dv">1490</span> <span class="sc">|</span>      <span class="dv">2201</span> <span class="sc">|</span> </span>
-<span id="cb110-22"><a href="descriptive-statistics.html#cb110-22" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb110-23"><a href="descriptive-statistics.html#cb110-23" tabindex="-1"></a></span>
-<span id="cb110-24"><a href="descriptive-statistics.html#cb110-24" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="descriptive-statistics.html#cb109-1" tabindex="-1"></a>titanic2 <span class="sc">%$%</span> </span>
+<span id="cb109-2"><a href="descriptive-statistics.html#cb109-2" tabindex="-1"></a>    gmodels<span class="sc">::</span><span class="fu">CrossTable</span>(sex, died, <span class="at">prop.c=</span>F, <span class="at">prop.r=</span>F, <span class="at">prop.t=</span>F, <span class="at">prop.chisq =</span> F)</span>
+<span id="cb109-3"><a href="descriptive-statistics.html#cb109-3" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="descriptive-statistics.html#cb109-4" tabindex="-1"></a> </span>
+<span id="cb109-5"><a href="descriptive-statistics.html#cb109-5" tabindex="-1"></a>   Cell Contents</span>
+<span id="cb109-6"><a href="descriptive-statistics.html#cb109-6" tabindex="-1"></a><span class="sc">|-------------------------</span><span class="er">|</span></span>
+<span id="cb109-7"><a href="descriptive-statistics.html#cb109-7" tabindex="-1"></a><span class="er">|</span>                       N <span class="sc">|</span></span>
+<span id="cb109-8"><a href="descriptive-statistics.html#cb109-8" tabindex="-1"></a><span class="er">|</span><span class="sc">-------------------------</span><span class="er">|</span></span>
+<span id="cb109-9"><a href="descriptive-statistics.html#cb109-9" tabindex="-1"></a></span>
+<span id="cb109-10"><a href="descriptive-statistics.html#cb109-10" tabindex="-1"></a> </span>
+<span id="cb109-11"><a href="descriptive-statistics.html#cb109-11" tabindex="-1"></a>Total Observations <span class="cf">in</span> Table<span class="sc">:</span>  <span class="dv">2201</span> </span>
+<span id="cb109-12"><a href="descriptive-statistics.html#cb109-12" tabindex="-1"></a></span>
+<span id="cb109-13"><a href="descriptive-statistics.html#cb109-13" tabindex="-1"></a> </span>
+<span id="cb109-14"><a href="descriptive-statistics.html#cb109-14" tabindex="-1"></a>             <span class="sc">|</span> died </span>
+<span id="cb109-15"><a href="descriptive-statistics.html#cb109-15" tabindex="-1"></a>         sex <span class="sc">|</span>        No <span class="sc">|</span>       Yes <span class="sc">|</span> Row Total <span class="sc">|</span> </span>
+<span id="cb109-16"><a href="descriptive-statistics.html#cb109-16" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb109-17"><a href="descriptive-statistics.html#cb109-17" tabindex="-1"></a>      female <span class="sc">|</span>       <span class="dv">344</span> <span class="sc">|</span>       <span class="dv">126</span> <span class="sc">|</span>       <span class="dv">470</span> <span class="sc">|</span> </span>
+<span id="cb109-18"><a href="descriptive-statistics.html#cb109-18" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb109-19"><a href="descriptive-statistics.html#cb109-19" tabindex="-1"></a>        male <span class="sc">|</span>       <span class="dv">367</span> <span class="sc">|</span>      <span class="dv">1364</span> <span class="sc">|</span>      <span class="dv">1731</span> <span class="sc">|</span> </span>
+<span id="cb109-20"><a href="descriptive-statistics.html#cb109-20" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb109-21"><a href="descriptive-statistics.html#cb109-21" tabindex="-1"></a>Column Total <span class="sc">|</span>       <span class="dv">711</span> <span class="sc">|</span>      <span class="dv">1490</span> <span class="sc">|</span>      <span class="dv">2201</span> <span class="sc">|</span> </span>
+<span id="cb109-22"><a href="descriptive-statistics.html#cb109-22" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb109-23"><a href="descriptive-statistics.html#cb109-23" tabindex="-1"></a></span>
+<span id="cb109-24"><a href="descriptive-statistics.html#cb109-24" tabindex="-1"></a> </span></code></pre></div>
 </div>
 <div id="row-percentages" class="section level4" number="10.1.2.2">
 <h4>
 <span class="header-section-number">10.1.2.2</span> Row percentages<a class="anchor" aria-label="anchor" href="#row-percentages"><i class="fas fa-link"></i></a>
 </h4>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="descriptive-statistics.html#cb110-1" tabindex="-1"></a>titanic2 <span class="sc">%$%</span> </span>
+<span id="cb110-2"><a href="descriptive-statistics.html#cb110-2" tabindex="-1"></a>    gmodels<span class="sc">::</span><span class="fu">CrossTable</span>(sex, died, <span class="at">prop.c=</span>F, <span class="at">prop.r=</span>T, <span class="at">prop.t=</span>F, <span class="at">prop.chisq =</span> F)</span>
+<span id="cb110-3"><a href="descriptive-statistics.html#cb110-3" tabindex="-1"></a></span>
+<span id="cb110-4"><a href="descriptive-statistics.html#cb110-4" tabindex="-1"></a> </span>
+<span id="cb110-5"><a href="descriptive-statistics.html#cb110-5" tabindex="-1"></a>   Cell Contents</span>
+<span id="cb110-6"><a href="descriptive-statistics.html#cb110-6" tabindex="-1"></a><span class="sc">|-------------------------</span><span class="er">|</span></span>
+<span id="cb110-7"><a href="descriptive-statistics.html#cb110-7" tabindex="-1"></a><span class="er">|</span>                       N <span class="sc">|</span></span>
+<span id="cb110-8"><a href="descriptive-statistics.html#cb110-8" tabindex="-1"></a><span class="er">|</span>           N <span class="sc">/</span> Row Total <span class="sc">|</span></span>
+<span id="cb110-9"><a href="descriptive-statistics.html#cb110-9" tabindex="-1"></a><span class="er">|</span><span class="sc">-------------------------</span><span class="er">|</span></span>
+<span id="cb110-10"><a href="descriptive-statistics.html#cb110-10" tabindex="-1"></a></span>
+<span id="cb110-11"><a href="descriptive-statistics.html#cb110-11" tabindex="-1"></a> </span>
+<span id="cb110-12"><a href="descriptive-statistics.html#cb110-12" tabindex="-1"></a>Total Observations <span class="cf">in</span> Table<span class="sc">:</span>  <span class="dv">2201</span> </span>
+<span id="cb110-13"><a href="descriptive-statistics.html#cb110-13" tabindex="-1"></a></span>
+<span id="cb110-14"><a href="descriptive-statistics.html#cb110-14" tabindex="-1"></a> </span>
+<span id="cb110-15"><a href="descriptive-statistics.html#cb110-15" tabindex="-1"></a>             <span class="sc">|</span> died </span>
+<span id="cb110-16"><a href="descriptive-statistics.html#cb110-16" tabindex="-1"></a>         sex <span class="sc">|</span>        No <span class="sc">|</span>       Yes <span class="sc">|</span> Row Total <span class="sc">|</span> </span>
+<span id="cb110-17"><a href="descriptive-statistics.html#cb110-17" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb110-18"><a href="descriptive-statistics.html#cb110-18" tabindex="-1"></a>      female <span class="sc">|</span>       <span class="dv">344</span> <span class="sc">|</span>       <span class="dv">126</span> <span class="sc">|</span>       <span class="dv">470</span> <span class="sc">|</span> </span>
+<span id="cb110-19"><a href="descriptive-statistics.html#cb110-19" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.732</span> <span class="sc">|</span>     <span class="fl">0.268</span> <span class="sc">|</span>     <span class="fl">0.214</span> <span class="sc">|</span> </span>
+<span id="cb110-20"><a href="descriptive-statistics.html#cb110-20" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb110-21"><a href="descriptive-statistics.html#cb110-21" tabindex="-1"></a>        male <span class="sc">|</span>       <span class="dv">367</span> <span class="sc">|</span>      <span class="dv">1364</span> <span class="sc">|</span>      <span class="dv">1731</span> <span class="sc">|</span> </span>
+<span id="cb110-22"><a href="descriptive-statistics.html#cb110-22" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.212</span> <span class="sc">|</span>     <span class="fl">0.788</span> <span class="sc">|</span>     <span class="fl">0.786</span> <span class="sc">|</span> </span>
+<span id="cb110-23"><a href="descriptive-statistics.html#cb110-23" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb110-24"><a href="descriptive-statistics.html#cb110-24" tabindex="-1"></a>Column Total <span class="sc">|</span>       <span class="dv">711</span> <span class="sc">|</span>      <span class="dv">1490</span> <span class="sc">|</span>      <span class="dv">2201</span> <span class="sc">|</span> </span>
+<span id="cb110-25"><a href="descriptive-statistics.html#cb110-25" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb110-26"><a href="descriptive-statistics.html#cb110-26" tabindex="-1"></a></span>
+<span id="cb110-27"><a href="descriptive-statistics.html#cb110-27" tabindex="-1"></a> </span></code></pre></div>
+</div>
+<div id="column-percentages" class="section level4" number="10.1.2.3">
+<h4>
+<span class="header-section-number">10.1.2.3</span> Column percentages<a class="anchor" aria-label="anchor" href="#column-percentages"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="descriptive-statistics.html#cb111-1" tabindex="-1"></a>titanic2 <span class="sc">%$%</span> </span>
-<span id="cb111-2"><a href="descriptive-statistics.html#cb111-2" tabindex="-1"></a>    gmodels<span class="sc">::</span><span class="fu">CrossTable</span>(sex, died, <span class="at">prop.c=</span>F, <span class="at">prop.r=</span>T, <span class="at">prop.t=</span>F, <span class="at">prop.chisq =</span> F)</span>
+<span id="cb111-2"><a href="descriptive-statistics.html#cb111-2" tabindex="-1"></a>    gmodels<span class="sc">::</span><span class="fu">CrossTable</span>(sex, died, <span class="at">prop.c=</span>T, <span class="at">prop.r=</span>F, <span class="at">prop.t=</span>F, <span class="at">prop.chisq =</span> F)</span>
 <span id="cb111-3"><a href="descriptive-statistics.html#cb111-3" tabindex="-1"></a></span>
 <span id="cb111-4"><a href="descriptive-statistics.html#cb111-4" tabindex="-1"></a> </span>
 <span id="cb111-5"><a href="descriptive-statistics.html#cb111-5" tabindex="-1"></a>   Cell Contents</span>
 <span id="cb111-6"><a href="descriptive-statistics.html#cb111-6" tabindex="-1"></a><span class="sc">|-------------------------</span><span class="er">|</span></span>
 <span id="cb111-7"><a href="descriptive-statistics.html#cb111-7" tabindex="-1"></a><span class="er">|</span>                       N <span class="sc">|</span></span>
-<span id="cb111-8"><a href="descriptive-statistics.html#cb111-8" tabindex="-1"></a><span class="er">|</span>           N <span class="sc">/</span> Row Total <span class="sc">|</span></span>
+<span id="cb111-8"><a href="descriptive-statistics.html#cb111-8" tabindex="-1"></a><span class="er">|</span>           N <span class="sc">/</span> Col Total <span class="sc">|</span></span>
 <span id="cb111-9"><a href="descriptive-statistics.html#cb111-9" tabindex="-1"></a><span class="er">|</span><span class="sc">-------------------------</span><span class="er">|</span></span>
 <span id="cb111-10"><a href="descriptive-statistics.html#cb111-10" tabindex="-1"></a></span>
 <span id="cb111-11"><a href="descriptive-statistics.html#cb111-11" tabindex="-1"></a> </span>
@@ -283,28 +315,29 @@
 <span id="cb111-16"><a href="descriptive-statistics.html#cb111-16" tabindex="-1"></a>         sex <span class="sc">|</span>        No <span class="sc">|</span>       Yes <span class="sc">|</span> Row Total <span class="sc">|</span> </span>
 <span id="cb111-17"><a href="descriptive-statistics.html#cb111-17" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
 <span id="cb111-18"><a href="descriptive-statistics.html#cb111-18" tabindex="-1"></a>      female <span class="sc">|</span>       <span class="dv">344</span> <span class="sc">|</span>       <span class="dv">126</span> <span class="sc">|</span>       <span class="dv">470</span> <span class="sc">|</span> </span>
-<span id="cb111-19"><a href="descriptive-statistics.html#cb111-19" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.732</span> <span class="sc">|</span>     <span class="fl">0.268</span> <span class="sc">|</span>     <span class="fl">0.214</span> <span class="sc">|</span> </span>
+<span id="cb111-19"><a href="descriptive-statistics.html#cb111-19" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.484</span> <span class="sc">|</span>     <span class="fl">0.085</span> <span class="sc">|</span>           <span class="er">|</span> </span>
 <span id="cb111-20"><a href="descriptive-statistics.html#cb111-20" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
 <span id="cb111-21"><a href="descriptive-statistics.html#cb111-21" tabindex="-1"></a>        male <span class="sc">|</span>       <span class="dv">367</span> <span class="sc">|</span>      <span class="dv">1364</span> <span class="sc">|</span>      <span class="dv">1731</span> <span class="sc">|</span> </span>
-<span id="cb111-22"><a href="descriptive-statistics.html#cb111-22" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.212</span> <span class="sc">|</span>     <span class="fl">0.788</span> <span class="sc">|</span>     <span class="fl">0.786</span> <span class="sc">|</span> </span>
+<span id="cb111-22"><a href="descriptive-statistics.html#cb111-22" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.516</span> <span class="sc">|</span>     <span class="fl">0.915</span> <span class="sc">|</span>           <span class="er">|</span> </span>
 <span id="cb111-23"><a href="descriptive-statistics.html#cb111-23" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
 <span id="cb111-24"><a href="descriptive-statistics.html#cb111-24" tabindex="-1"></a>Column Total <span class="sc">|</span>       <span class="dv">711</span> <span class="sc">|</span>      <span class="dv">1490</span> <span class="sc">|</span>      <span class="dv">2201</span> <span class="sc">|</span> </span>
-<span id="cb111-25"><a href="descriptive-statistics.html#cb111-25" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb111-26"><a href="descriptive-statistics.html#cb111-26" tabindex="-1"></a></span>
-<span id="cb111-27"><a href="descriptive-statistics.html#cb111-27" tabindex="-1"></a> </span></code></pre></div>
+<span id="cb111-25"><a href="descriptive-statistics.html#cb111-25" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.323</span> <span class="sc">|</span>     <span class="fl">0.677</span> <span class="sc">|</span>           <span class="er">|</span> </span>
+<span id="cb111-26"><a href="descriptive-statistics.html#cb111-26" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb111-27"><a href="descriptive-statistics.html#cb111-27" tabindex="-1"></a></span>
+<span id="cb111-28"><a href="descriptive-statistics.html#cb111-28" tabindex="-1"></a> </span></code></pre></div>
 </div>
-<div id="column-percentages" class="section level4" number="10.1.2.3">
+<div id="table-total-percentages" class="section level4" number="10.1.2.4">
 <h4>
-<span class="header-section-number">10.1.2.3</span> Column percentages<a class="anchor" aria-label="anchor" href="#column-percentages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.2.4</span> Table Total Percentages<a class="anchor" aria-label="anchor" href="#table-total-percentages"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="descriptive-statistics.html#cb112-1" tabindex="-1"></a>titanic2 <span class="sc">%$%</span> </span>
-<span id="cb112-2"><a href="descriptive-statistics.html#cb112-2" tabindex="-1"></a>    gmodels<span class="sc">::</span><span class="fu">CrossTable</span>(sex, died, <span class="at">prop.c=</span>T, <span class="at">prop.r=</span>F, <span class="at">prop.t=</span>F, <span class="at">prop.chisq =</span> F)</span>
+<span id="cb112-2"><a href="descriptive-statistics.html#cb112-2" tabindex="-1"></a>    gmodels<span class="sc">::</span><span class="fu">CrossTable</span>(sex, died, <span class="at">prop.c=</span>F, <span class="at">prop.r=</span>F, <span class="at">prop.t=</span>T, <span class="at">prop.chisq =</span> F)</span>
 <span id="cb112-3"><a href="descriptive-statistics.html#cb112-3" tabindex="-1"></a></span>
 <span id="cb112-4"><a href="descriptive-statistics.html#cb112-4" tabindex="-1"></a> </span>
 <span id="cb112-5"><a href="descriptive-statistics.html#cb112-5" tabindex="-1"></a>   Cell Contents</span>
 <span id="cb112-6"><a href="descriptive-statistics.html#cb112-6" tabindex="-1"></a><span class="sc">|-------------------------</span><span class="er">|</span></span>
 <span id="cb112-7"><a href="descriptive-statistics.html#cb112-7" tabindex="-1"></a><span class="er">|</span>                       N <span class="sc">|</span></span>
-<span id="cb112-8"><a href="descriptive-statistics.html#cb112-8" tabindex="-1"></a><span class="er">|</span>           N <span class="sc">/</span> Col Total <span class="sc">|</span></span>
+<span id="cb112-8"><a href="descriptive-statistics.html#cb112-8" tabindex="-1"></a><span class="er">|</span>         N <span class="sc">/</span> Table Total <span class="sc">|</span></span>
 <span id="cb112-9"><a href="descriptive-statistics.html#cb112-9" tabindex="-1"></a><span class="er">|</span><span class="sc">-------------------------</span><span class="er">|</span></span>
 <span id="cb112-10"><a href="descriptive-statistics.html#cb112-10" tabindex="-1"></a></span>
 <span id="cb112-11"><a href="descriptive-statistics.html#cb112-11" tabindex="-1"></a> </span>
@@ -315,54 +348,21 @@
 <span id="cb112-16"><a href="descriptive-statistics.html#cb112-16" tabindex="-1"></a>         sex <span class="sc">|</span>        No <span class="sc">|</span>       Yes <span class="sc">|</span> Row Total <span class="sc">|</span> </span>
 <span id="cb112-17"><a href="descriptive-statistics.html#cb112-17" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
 <span id="cb112-18"><a href="descriptive-statistics.html#cb112-18" tabindex="-1"></a>      female <span class="sc">|</span>       <span class="dv">344</span> <span class="sc">|</span>       <span class="dv">126</span> <span class="sc">|</span>       <span class="dv">470</span> <span class="sc">|</span> </span>
-<span id="cb112-19"><a href="descriptive-statistics.html#cb112-19" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.484</span> <span class="sc">|</span>     <span class="fl">0.085</span> <span class="sc">|</span>           <span class="er">|</span> </span>
+<span id="cb112-19"><a href="descriptive-statistics.html#cb112-19" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.156</span> <span class="sc">|</span>     <span class="fl">0.057</span> <span class="sc">|</span>           <span class="er">|</span> </span>
 <span id="cb112-20"><a href="descriptive-statistics.html#cb112-20" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
 <span id="cb112-21"><a href="descriptive-statistics.html#cb112-21" tabindex="-1"></a>        male <span class="sc">|</span>       <span class="dv">367</span> <span class="sc">|</span>      <span class="dv">1364</span> <span class="sc">|</span>      <span class="dv">1731</span> <span class="sc">|</span> </span>
-<span id="cb112-22"><a href="descriptive-statistics.html#cb112-22" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.516</span> <span class="sc">|</span>     <span class="fl">0.915</span> <span class="sc">|</span>           <span class="er">|</span> </span>
+<span id="cb112-22"><a href="descriptive-statistics.html#cb112-22" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.167</span> <span class="sc">|</span>     <span class="fl">0.620</span> <span class="sc">|</span>           <span class="er">|</span> </span>
 <span id="cb112-23"><a href="descriptive-statistics.html#cb112-23" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
 <span id="cb112-24"><a href="descriptive-statistics.html#cb112-24" tabindex="-1"></a>Column Total <span class="sc">|</span>       <span class="dv">711</span> <span class="sc">|</span>      <span class="dv">1490</span> <span class="sc">|</span>      <span class="dv">2201</span> <span class="sc">|</span> </span>
-<span id="cb112-25"><a href="descriptive-statistics.html#cb112-25" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.323</span> <span class="sc">|</span>     <span class="fl">0.677</span> <span class="sc">|</span>           <span class="er">|</span> </span>
-<span id="cb112-26"><a href="descriptive-statistics.html#cb112-26" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb112-27"><a href="descriptive-statistics.html#cb112-27" tabindex="-1"></a></span>
-<span id="cb112-28"><a href="descriptive-statistics.html#cb112-28" tabindex="-1"></a> </span></code></pre></div>
-</div>
-<div id="table-total-percentages" class="section level4" number="10.1.2.4">
-<h4>
-<span class="header-section-number">10.1.2.4</span> Table Total Percentages<a class="anchor" aria-label="anchor" href="#table-total-percentages"><i class="fas fa-link"></i></a>
-</h4>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="descriptive-statistics.html#cb113-1" tabindex="-1"></a>titanic2 <span class="sc">%$%</span> </span>
-<span id="cb113-2"><a href="descriptive-statistics.html#cb113-2" tabindex="-1"></a>    gmodels<span class="sc">::</span><span class="fu">CrossTable</span>(sex, died, <span class="at">prop.c=</span>F, <span class="at">prop.r=</span>F, <span class="at">prop.t=</span>T, <span class="at">prop.chisq =</span> F)</span>
-<span id="cb113-3"><a href="descriptive-statistics.html#cb113-3" tabindex="-1"></a></span>
-<span id="cb113-4"><a href="descriptive-statistics.html#cb113-4" tabindex="-1"></a> </span>
-<span id="cb113-5"><a href="descriptive-statistics.html#cb113-5" tabindex="-1"></a>   Cell Contents</span>
-<span id="cb113-6"><a href="descriptive-statistics.html#cb113-6" tabindex="-1"></a><span class="sc">|-------------------------</span><span class="er">|</span></span>
-<span id="cb113-7"><a href="descriptive-statistics.html#cb113-7" tabindex="-1"></a><span class="er">|</span>                       N <span class="sc">|</span></span>
-<span id="cb113-8"><a href="descriptive-statistics.html#cb113-8" tabindex="-1"></a><span class="er">|</span>         N <span class="sc">/</span> Table Total <span class="sc">|</span></span>
-<span id="cb113-9"><a href="descriptive-statistics.html#cb113-9" tabindex="-1"></a><span class="er">|</span><span class="sc">-------------------------</span><span class="er">|</span></span>
-<span id="cb113-10"><a href="descriptive-statistics.html#cb113-10" tabindex="-1"></a></span>
-<span id="cb113-11"><a href="descriptive-statistics.html#cb113-11" tabindex="-1"></a> </span>
-<span id="cb113-12"><a href="descriptive-statistics.html#cb113-12" tabindex="-1"></a>Total Observations <span class="cf">in</span> Table<span class="sc">:</span>  <span class="dv">2201</span> </span>
-<span id="cb113-13"><a href="descriptive-statistics.html#cb113-13" tabindex="-1"></a></span>
-<span id="cb113-14"><a href="descriptive-statistics.html#cb113-14" tabindex="-1"></a> </span>
-<span id="cb113-15"><a href="descriptive-statistics.html#cb113-15" tabindex="-1"></a>             <span class="sc">|</span> died </span>
-<span id="cb113-16"><a href="descriptive-statistics.html#cb113-16" tabindex="-1"></a>         sex <span class="sc">|</span>        No <span class="sc">|</span>       Yes <span class="sc">|</span> Row Total <span class="sc">|</span> </span>
-<span id="cb113-17"><a href="descriptive-statistics.html#cb113-17" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb113-18"><a href="descriptive-statistics.html#cb113-18" tabindex="-1"></a>      female <span class="sc">|</span>       <span class="dv">344</span> <span class="sc">|</span>       <span class="dv">126</span> <span class="sc">|</span>       <span class="dv">470</span> <span class="sc">|</span> </span>
-<span id="cb113-19"><a href="descriptive-statistics.html#cb113-19" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.156</span> <span class="sc">|</span>     <span class="fl">0.057</span> <span class="sc">|</span>           <span class="er">|</span> </span>
-<span id="cb113-20"><a href="descriptive-statistics.html#cb113-20" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb113-21"><a href="descriptive-statistics.html#cb113-21" tabindex="-1"></a>        male <span class="sc">|</span>       <span class="dv">367</span> <span class="sc">|</span>      <span class="dv">1364</span> <span class="sc">|</span>      <span class="dv">1731</span> <span class="sc">|</span> </span>
-<span id="cb113-22"><a href="descriptive-statistics.html#cb113-22" tabindex="-1"></a>             <span class="er">|</span>     <span class="fl">0.167</span> <span class="sc">|</span>     <span class="fl">0.620</span> <span class="sc">|</span>           <span class="er">|</span> </span>
-<span id="cb113-23"><a href="descriptive-statistics.html#cb113-23" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb113-24"><a href="descriptive-statistics.html#cb113-24" tabindex="-1"></a>Column Total <span class="sc">|</span>       <span class="dv">711</span> <span class="sc">|</span>      <span class="dv">1490</span> <span class="sc">|</span>      <span class="dv">2201</span> <span class="sc">|</span> </span>
-<span id="cb113-25"><a href="descriptive-statistics.html#cb113-25" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
-<span id="cb113-26"><a href="descriptive-statistics.html#cb113-26" tabindex="-1"></a></span>
-<span id="cb113-27"><a href="descriptive-statistics.html#cb113-27" tabindex="-1"></a> </span></code></pre></div>
+<span id="cb112-25"><a href="descriptive-statistics.html#cb112-25" tabindex="-1"></a><span class="sc">-------------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span><span class="sc">-----------</span><span class="er">|</span></span>
+<span id="cb112-26"><a href="descriptive-statistics.html#cb112-26" tabindex="-1"></a></span>
+<span id="cb112-27"><a href="descriptive-statistics.html#cb112-27" tabindex="-1"></a> </span></code></pre></div>
 </div>
 <div id="bar-chart" class="section level4" number="10.1.2.5">
 <h4>
 <span class="header-section-number">10.1.2.5</span> Bar Chart<a class="anchor" aria-label="anchor" href="#bar-chart"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">titanic2</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">died</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_bar</span><span class="op">(</span>position <span class="op">=</span> <span class="fu">position_dodge</span><span class="op">(</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -378,80 +378,80 @@
 <span class="header-section-number">10.2</span> Continuous variables<a class="anchor" aria-label="anchor" href="#continuous-variables"><i class="fas fa-link"></i></a>
 </h2>
 <p>For this section we will use the <code>NewDrug_clean.dta</code> dataset</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="descriptive-statistics.html#cb115-1" tabindex="-1"></a>newdrug <span class="ot">&lt;-</span>  </span>
-<span id="cb115-2"><a href="descriptive-statistics.html#cb115-2" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"NewDrug_clean.dta"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb115-3"><a href="descriptive-statistics.html#cb115-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sex  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(sex), <span class="at">treat =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(treat)) <span class="sc">%&gt;%</span> </span>
-<span id="cb115-4"><a href="descriptive-statistics.html#cb115-4" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">zap_labels</span>() </span>
-<span id="cb115-5"><a href="descriptive-statistics.html#cb115-5" tabindex="-1"></a></span>
-<span id="cb115-6"><a href="descriptive-statistics.html#cb115-6" tabindex="-1"></a>newdrug</span>
-<span id="cb115-7"><a href="descriptive-statistics.html#cb115-7" tabindex="-1"></a><span class="co"># A tibble: 50 × 7</span></span>
-<span id="cb115-8"><a href="descriptive-statistics.html#cb115-8" tabindex="-1"></a>   id    treat     age sex     bp1   bp2 bpdiff</span>
-<span id="cb115-9"><a href="descriptive-statistics.html#cb115-9" tabindex="-1"></a>   <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb115-10"><a href="descriptive-statistics.html#cb115-10" tabindex="-1"></a> <span class="dv">1</span> C1    Control    <span class="dv">63</span> F      <span class="fl">97.4</span>  <span class="fl">93.1</span>   <span class="fl">4.30</span></span>
-<span id="cb115-11"><a href="descriptive-statistics.html#cb115-11" tabindex="-1"></a> <span class="dv">2</span> C2    Control    <span class="dv">56</span> F      <span class="fl">97.2</span>  <span class="fl">92.4</span>   <span class="fl">4.80</span></span>
-<span id="cb115-12"><a href="descriptive-statistics.html#cb115-12" tabindex="-1"></a> <span class="dv">3</span> C6    Control    <span class="dv">62</span> F     <span class="fl">103.</span>   <span class="fl">99.7</span>   <span class="fl">3.70</span></span>
-<span id="cb115-13"><a href="descriptive-statistics.html#cb115-13" tabindex="-1"></a> <span class="dv">4</span> C7    Control    <span class="dv">61</span> F      <span class="fl">90.1</span>  <span class="fl">88.4</span>   <span class="fl">1.70</span></span>
-<span id="cb115-14"><a href="descriptive-statistics.html#cb115-14" tabindex="-1"></a> <span class="dv">5</span> C9    Control    <span class="dv">73</span> F      <span class="fl">96.4</span>  <span class="fl">91.1</span>   <span class="fl">5.30</span></span>
-<span id="cb115-15"><a href="descriptive-statistics.html#cb115-15" tabindex="-1"></a> <span class="dv">6</span> C10   Control    <span class="dv">57</span> F      <span class="fl">98.6</span>  <span class="fl">90.5</span>   <span class="fl">8.10</span></span>
-<span id="cb115-16"><a href="descriptive-statistics.html#cb115-16" tabindex="-1"></a> <span class="dv">7</span> C13   Control    <span class="dv">61</span> F      <span class="fl">97.4</span>  <span class="fl">93.8</span>   <span class="fl">3.60</span></span>
-<span id="cb115-17"><a href="descriptive-statistics.html#cb115-17" tabindex="-1"></a> <span class="dv">8</span> C14   Control    <span class="dv">66</span> F      <span class="fl">97.4</span>  <span class="fl">92.6</span>   <span class="fl">4.80</span></span>
-<span id="cb115-18"><a href="descriptive-statistics.html#cb115-18" tabindex="-1"></a> <span class="dv">9</span> A18   Control    <span class="dv">51</span> F      <span class="fl">92.2</span>  <span class="fl">86.2</span>   <span class="dv">6</span>   </span>
-<span id="cb115-19"><a href="descriptive-statistics.html#cb115-19" tabindex="-1"></a><span class="dv">10</span> A20   Control    <span class="dv">65</span> F      <span class="fl">96.9</span>  <span class="fl">90.4</span>   <span class="fl">6.5</span> </span>
-<span id="cb115-20"><a href="descriptive-statistics.html#cb115-20" tabindex="-1"></a><span class="co"># ℹ 40 more rows</span></span>
-<span id="cb115-21"><a href="descriptive-statistics.html#cb115-21" tabindex="-1"></a></span>
-<span id="cb115-22"><a href="descriptive-statistics.html#cb115-22" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb115-23"><a href="descriptive-statistics.html#cb115-23" tabindex="-1"></a>    summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">labels.col =</span> F)</span>
-<span id="cb115-24"><a href="descriptive-statistics.html#cb115-24" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb115-25"><a href="descriptive-statistics.html#cb115-25" tabindex="-1"></a>newdrug  </span>
-<span id="cb115-26"><a href="descriptive-statistics.html#cb115-26" tabindex="-1"></a>Label<span class="sc">:</span> Newdrug Treatment Trial  </span>
-<span id="cb115-27"><a href="descriptive-statistics.html#cb115-27" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">50</span> x <span class="dv">7</span>  </span>
-<span id="cb115-28"><a href="descriptive-statistics.html#cb115-28" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
-<span id="cb115-29"><a href="descriptive-statistics.html#cb115-29" tabindex="-1"></a></span>
-<span id="cb115-30"><a href="descriptive-statistics.html#cb115-30" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------------------------</span></span>
-<span id="cb115-31"><a href="descriptive-statistics.html#cb115-31" tabindex="-1"></a>No   Variable      Stats <span class="sc">/</span> Values           <span class="fu">Freqs</span> (% of Valid)   Graph              Valid      Missing  </span>
-<span id="cb115-32"><a href="descriptive-statistics.html#cb115-32" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-------------</span> <span class="sc">------------------------</span> <span class="sc">--------------------</span> <span class="sc">------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb115-33"><a href="descriptive-statistics.html#cb115-33" tabindex="-1"></a><span class="dv">1</span>    id            <span class="fl">1.</span> A18                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                              <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb115-34"><a href="descriptive-statistics.html#cb115-34" tabindex="-1"></a>     [character]   <span class="fl">2.</span> A19                    <span class="dv">1</span> ( <span class="fl">2.0</span><span class="sc">%)                              (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb115-35"><a href="descriptive-statistics.html#cb115-35" tabindex="-1"></a>                   <span class="fl">3.</span> A20                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
-<span id="cb115-36"><a href="descriptive-statistics.html#cb115-36" tabindex="-1"></a>                   <span class="fl">4.</span> A21                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
-<span id="cb115-37"><a href="descriptive-statistics.html#cb115-37" tabindex="-1"></a>                   <span class="fl">5.</span> A22                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
-<span id="cb115-38"><a href="descriptive-statistics.html#cb115-38" tabindex="-1"></a>                   <span class="fl">6.</span> C1                     <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
-<span id="cb115-39"><a href="descriptive-statistics.html#cb115-39" tabindex="-1"></a>                   <span class="fl">7.</span> C10                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
-<span id="cb115-40"><a href="descriptive-statistics.html#cb115-40" tabindex="-1"></a>                   <span class="fl">8.</span> C11                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
-<span id="cb115-41"><a href="descriptive-statistics.html#cb115-41" tabindex="-1"></a>                   <span class="fl">9.</span> C12                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
-<span id="cb115-42"><a href="descriptive-statistics.html#cb115-42" tabindex="-1"></a>                   <span class="fl">10.</span> C13                   <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
-<span id="cb115-43"><a href="descriptive-statistics.html#cb115-43" tabindex="-1"></a>                   [ <span class="dv">40</span> others ]            <span class="dv">40</span> (<span class="fl">80.0</span>%)           IIIIIIIIIIIIIIII                       </span>
-<span id="cb115-44"><a href="descriptive-statistics.html#cb115-44" tabindex="-1"></a></span>
-<span id="cb115-45"><a href="descriptive-statistics.html#cb115-45" tabindex="-1"></a><span class="dv">2</span>    treat         <span class="fl">1.</span> Control               <span class="dv">22</span> (<span class="fl">44.0</span>%)           IIIIIIII           <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb115-46"><a href="descriptive-statistics.html#cb115-46" tabindex="-1"></a>     [factor]      <span class="fl">2.</span> Newdrug               <span class="dv">28</span> (<span class="fl">56.0</span><span class="sc">%)           IIIIIIIIIII        (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb115-47"><a href="descriptive-statistics.html#cb115-47" tabindex="-1"></a></span>
-<span id="cb115-48"><a href="descriptive-statistics.html#cb115-48" tabindex="-1"></a><span class="dv">3</span>    age           <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">61.5</span> (<span class="fl">6.5</span>)   <span class="dv">22</span> distinct values         <span class="sc">:</span>            <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb115-49"><a href="descriptive-statistics.html#cb115-49" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                    <span class="er">:</span>            (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb115-50"><a href="descriptive-statistics.html#cb115-50" tabindex="-1"></a>                   <span class="dv">45</span> <span class="sc">&lt;</span> <span class="dv">63</span> <span class="sc">&lt;</span> <span class="dv">75</span>                                      . <span class="sc">:</span>                                </span>
-<span id="cb115-51"><a href="descriptive-statistics.html#cb115-51" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">7.8</span> (<span class="fl">0.1</span>)                              <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span>                              </span>
-<span id="cb115-52"><a href="descriptive-statistics.html#cb115-52" tabindex="-1"></a>                                                                 <span class="er">:</span> . <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span> .                            </span>
-<span id="cb115-53"><a href="descriptive-statistics.html#cb115-53" tabindex="-1"></a></span>
-<span id="cb115-54"><a href="descriptive-statistics.html#cb115-54" tabindex="-1"></a><span class="dv">4</span>    sex           <span class="fl">1.</span> F                     <span class="dv">26</span> (<span class="fl">52.0</span>%)           IIIIIIIIII         <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb115-55"><a href="descriptive-statistics.html#cb115-55" tabindex="-1"></a>     [factor]      <span class="fl">2.</span> M                     <span class="dv">24</span> (<span class="fl">48.0</span><span class="sc">%)           IIIIIIIII          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb115-56"><a href="descriptive-statistics.html#cb115-56" tabindex="-1"></a></span>
-<span id="cb115-57"><a href="descriptive-statistics.html#cb115-57" tabindex="-1"></a><span class="dv">5</span>    bp1           <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">98.3</span> (<span class="fl">5.2</span>)   <span class="dv">39</span> distinct values       <span class="sc">:</span>              <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb115-58"><a href="descriptive-statistics.html#cb115-58" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  <span class="er">:</span>              (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb115-59"><a href="descriptive-statistics.html#cb115-59" tabindex="-1"></a>                   <span class="fl">87.5</span> <span class="sc">&lt;</span> <span class="fl">97.7</span> <span class="sc">&lt;</span> <span class="fl">111.7</span>                               <span class="sc">:</span>                                  </span>
-<span id="cb115-60"><a href="descriptive-statistics.html#cb115-60" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">3.8</span> (<span class="fl">0.1</span>)                            . <span class="sc">:</span>                                  </span>
-<span id="cb115-61"><a href="descriptive-statistics.html#cb115-61" tabindex="-1"></a>                                                                 . <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span> . .                            </span>
-<span id="cb115-62"><a href="descriptive-statistics.html#cb115-62" tabindex="-1"></a></span>
-<span id="cb115-63"><a href="descriptive-statistics.html#cb115-63" tabindex="-1"></a><span class="dv">6</span>    bp2           <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">88.6</span> (<span class="fl">4.6</span>)   <span class="dv">40</span> distinct values       <span class="sc">:</span>              <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb115-64"><a href="descriptive-statistics.html#cb115-64" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  <span class="er">:</span> <span class="er">:</span>            (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb115-65"><a href="descriptive-statistics.html#cb115-65" tabindex="-1"></a>                   <span class="dv">78</span> <span class="sc">&lt;</span> <span class="fl">88.2</span> <span class="sc">&lt;</span> <span class="fl">99.7</span>                                . <span class="sc">:</span> <span class="er">:</span>                                </span>
-<span id="cb115-66"><a href="descriptive-statistics.html#cb115-66" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">6.9</span> (<span class="fl">0.1</span>)                            <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span>                                </span>
-<span id="cb115-67"><a href="descriptive-statistics.html#cb115-67" tabindex="-1"></a>                                                                   <span class="er">:</span> <span class="er">:</span> <span class="er">:</span> <span class="er">:</span>                              </span>
-<span id="cb115-68"><a href="descriptive-statistics.html#cb115-68" tabindex="-1"></a></span>
-<span id="cb115-69"><a href="descriptive-statistics.html#cb115-69" tabindex="-1"></a><span class="dv">7</span>    bpdiff        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">9.7</span> (<span class="fl">6.2</span>)    <span class="dv">46</span> distinct values   <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span>              <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb115-70"><a href="descriptive-statistics.html#cb115-70" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                              <span class="er">:</span> <span class="er">:</span> <span class="er">:</span>              (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb115-71"><a href="descriptive-statistics.html#cb115-71" tabindex="-1"></a>                   <span class="fl">0.5</span> <span class="sc">&lt;</span> <span class="fl">8.2</span> <span class="sc">&lt;</span> <span class="fl">26.3</span>                              <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span>                                  </span>
-<span id="cb115-72"><a href="descriptive-statistics.html#cb115-72" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">8.9</span> (<span class="fl">0.6</span>)                          <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span> .                                </span>
-<span id="cb115-73"><a href="descriptive-statistics.html#cb115-73" tabindex="-1"></a>                                                                 <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span> <span class="er">:</span> <span class="er">:</span> .                            </span>
-<span id="cb115-74"><a href="descriptive-statistics.html#cb115-74" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="descriptive-statistics.html#cb114-1" tabindex="-1"></a>newdrug <span class="ot">&lt;-</span>  </span>
+<span id="cb114-2"><a href="descriptive-statistics.html#cb114-2" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"./Data/NewDrug_clean.dta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb114-3"><a href="descriptive-statistics.html#cb114-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sex  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(sex), <span class="at">treat =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(treat)) <span class="sc">%&gt;%</span> </span>
+<span id="cb114-4"><a href="descriptive-statistics.html#cb114-4" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">zap_labels</span>() </span>
+<span id="cb114-5"><a href="descriptive-statistics.html#cb114-5" tabindex="-1"></a></span>
+<span id="cb114-6"><a href="descriptive-statistics.html#cb114-6" tabindex="-1"></a>newdrug</span>
+<span id="cb114-7"><a href="descriptive-statistics.html#cb114-7" tabindex="-1"></a><span class="co"># A tibble: 50 × 7</span></span>
+<span id="cb114-8"><a href="descriptive-statistics.html#cb114-8" tabindex="-1"></a>   id    treat     age sex     bp1   bp2 bpdiff</span>
+<span id="cb114-9"><a href="descriptive-statistics.html#cb114-9" tabindex="-1"></a>   <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb114-10"><a href="descriptive-statistics.html#cb114-10" tabindex="-1"></a> <span class="dv">1</span> C1    Control    <span class="dv">63</span> F      <span class="fl">97.4</span>  <span class="fl">93.1</span>   <span class="fl">4.30</span></span>
+<span id="cb114-11"><a href="descriptive-statistics.html#cb114-11" tabindex="-1"></a> <span class="dv">2</span> C2    Control    <span class="dv">56</span> F      <span class="fl">97.2</span>  <span class="fl">92.4</span>   <span class="fl">4.80</span></span>
+<span id="cb114-12"><a href="descriptive-statistics.html#cb114-12" tabindex="-1"></a> <span class="dv">3</span> C6    Control    <span class="dv">62</span> F     <span class="fl">103.</span>   <span class="fl">99.7</span>   <span class="fl">3.70</span></span>
+<span id="cb114-13"><a href="descriptive-statistics.html#cb114-13" tabindex="-1"></a> <span class="dv">4</span> C7    Control    <span class="dv">61</span> F      <span class="fl">90.1</span>  <span class="fl">88.4</span>   <span class="fl">1.70</span></span>
+<span id="cb114-14"><a href="descriptive-statistics.html#cb114-14" tabindex="-1"></a> <span class="dv">5</span> C9    Control    <span class="dv">73</span> F      <span class="fl">96.4</span>  <span class="fl">91.1</span>   <span class="fl">5.30</span></span>
+<span id="cb114-15"><a href="descriptive-statistics.html#cb114-15" tabindex="-1"></a> <span class="dv">6</span> C10   Control    <span class="dv">57</span> F      <span class="fl">98.6</span>  <span class="fl">90.5</span>   <span class="fl">8.10</span></span>
+<span id="cb114-16"><a href="descriptive-statistics.html#cb114-16" tabindex="-1"></a> <span class="dv">7</span> C13   Control    <span class="dv">61</span> F      <span class="fl">97.4</span>  <span class="fl">93.8</span>   <span class="fl">3.60</span></span>
+<span id="cb114-17"><a href="descriptive-statistics.html#cb114-17" tabindex="-1"></a> <span class="dv">8</span> C14   Control    <span class="dv">66</span> F      <span class="fl">97.4</span>  <span class="fl">92.6</span>   <span class="fl">4.80</span></span>
+<span id="cb114-18"><a href="descriptive-statistics.html#cb114-18" tabindex="-1"></a> <span class="dv">9</span> A18   Control    <span class="dv">51</span> F      <span class="fl">92.2</span>  <span class="fl">86.2</span>   <span class="dv">6</span>   </span>
+<span id="cb114-19"><a href="descriptive-statistics.html#cb114-19" tabindex="-1"></a><span class="dv">10</span> A20   Control    <span class="dv">65</span> F      <span class="fl">96.9</span>  <span class="fl">90.4</span>   <span class="fl">6.5</span> </span>
+<span id="cb114-20"><a href="descriptive-statistics.html#cb114-20" tabindex="-1"></a><span class="co"># ℹ 40 more rows</span></span>
+<span id="cb114-21"><a href="descriptive-statistics.html#cb114-21" tabindex="-1"></a></span>
+<span id="cb114-22"><a href="descriptive-statistics.html#cb114-22" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
+<span id="cb114-23"><a href="descriptive-statistics.html#cb114-23" tabindex="-1"></a>    summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">labels.col =</span> F)</span>
+<span id="cb114-24"><a href="descriptive-statistics.html#cb114-24" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb114-25"><a href="descriptive-statistics.html#cb114-25" tabindex="-1"></a>newdrug  </span>
+<span id="cb114-26"><a href="descriptive-statistics.html#cb114-26" tabindex="-1"></a>Label<span class="sc">:</span> Newdrug Treatment Trial  </span>
+<span id="cb114-27"><a href="descriptive-statistics.html#cb114-27" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">50</span> x <span class="dv">7</span>  </span>
+<span id="cb114-28"><a href="descriptive-statistics.html#cb114-28" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
+<span id="cb114-29"><a href="descriptive-statistics.html#cb114-29" tabindex="-1"></a></span>
+<span id="cb114-30"><a href="descriptive-statistics.html#cb114-30" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------------------------</span></span>
+<span id="cb114-31"><a href="descriptive-statistics.html#cb114-31" tabindex="-1"></a>No   Variable      Stats <span class="sc">/</span> Values           <span class="fu">Freqs</span> (% of Valid)   Graph              Valid      Missing  </span>
+<span id="cb114-32"><a href="descriptive-statistics.html#cb114-32" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-------------</span> <span class="sc">------------------------</span> <span class="sc">--------------------</span> <span class="sc">------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb114-33"><a href="descriptive-statistics.html#cb114-33" tabindex="-1"></a><span class="dv">1</span>    id            <span class="fl">1.</span> A18                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                              <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb114-34"><a href="descriptive-statistics.html#cb114-34" tabindex="-1"></a>     [character]   <span class="fl">2.</span> A19                    <span class="dv">1</span> ( <span class="fl">2.0</span><span class="sc">%)                              (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb114-35"><a href="descriptive-statistics.html#cb114-35" tabindex="-1"></a>                   <span class="fl">3.</span> A20                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
+<span id="cb114-36"><a href="descriptive-statistics.html#cb114-36" tabindex="-1"></a>                   <span class="fl">4.</span> A21                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
+<span id="cb114-37"><a href="descriptive-statistics.html#cb114-37" tabindex="-1"></a>                   <span class="fl">5.</span> A22                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
+<span id="cb114-38"><a href="descriptive-statistics.html#cb114-38" tabindex="-1"></a>                   <span class="fl">6.</span> C1                     <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
+<span id="cb114-39"><a href="descriptive-statistics.html#cb114-39" tabindex="-1"></a>                   <span class="fl">7.</span> C10                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
+<span id="cb114-40"><a href="descriptive-statistics.html#cb114-40" tabindex="-1"></a>                   <span class="fl">8.</span> C11                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
+<span id="cb114-41"><a href="descriptive-statistics.html#cb114-41" tabindex="-1"></a>                   <span class="fl">9.</span> C12                    <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
+<span id="cb114-42"><a href="descriptive-statistics.html#cb114-42" tabindex="-1"></a>                   <span class="fl">10.</span> C13                   <span class="dv">1</span> ( <span class="fl">2.0</span>%)                                                  </span>
+<span id="cb114-43"><a href="descriptive-statistics.html#cb114-43" tabindex="-1"></a>                   [ <span class="dv">40</span> others ]            <span class="dv">40</span> (<span class="fl">80.0</span>%)           IIIIIIIIIIIIIIII                       </span>
+<span id="cb114-44"><a href="descriptive-statistics.html#cb114-44" tabindex="-1"></a></span>
+<span id="cb114-45"><a href="descriptive-statistics.html#cb114-45" tabindex="-1"></a><span class="dv">2</span>    treat         <span class="fl">1.</span> Control               <span class="dv">22</span> (<span class="fl">44.0</span>%)           IIIIIIII           <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb114-46"><a href="descriptive-statistics.html#cb114-46" tabindex="-1"></a>     [factor]      <span class="fl">2.</span> Newdrug               <span class="dv">28</span> (<span class="fl">56.0</span><span class="sc">%)           IIIIIIIIIII        (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb114-47"><a href="descriptive-statistics.html#cb114-47" tabindex="-1"></a></span>
+<span id="cb114-48"><a href="descriptive-statistics.html#cb114-48" tabindex="-1"></a><span class="dv">3</span>    age           <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">61.5</span> (<span class="fl">6.5</span>)   <span class="dv">22</span> distinct values         <span class="sc">:</span>            <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb114-49"><a href="descriptive-statistics.html#cb114-49" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                    <span class="er">:</span>            (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb114-50"><a href="descriptive-statistics.html#cb114-50" tabindex="-1"></a>                   <span class="dv">45</span> <span class="sc">&lt;</span> <span class="dv">63</span> <span class="sc">&lt;</span> <span class="dv">75</span>                                      . <span class="sc">:</span>                                </span>
+<span id="cb114-51"><a href="descriptive-statistics.html#cb114-51" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">7.8</span> (<span class="fl">0.1</span>)                              <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span>                              </span>
+<span id="cb114-52"><a href="descriptive-statistics.html#cb114-52" tabindex="-1"></a>                                                                 <span class="er">:</span> . <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span> .                            </span>
+<span id="cb114-53"><a href="descriptive-statistics.html#cb114-53" tabindex="-1"></a></span>
+<span id="cb114-54"><a href="descriptive-statistics.html#cb114-54" tabindex="-1"></a><span class="dv">4</span>    sex           <span class="fl">1.</span> F                     <span class="dv">26</span> (<span class="fl">52.0</span>%)           IIIIIIIIII         <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb114-55"><a href="descriptive-statistics.html#cb114-55" tabindex="-1"></a>     [factor]      <span class="fl">2.</span> M                     <span class="dv">24</span> (<span class="fl">48.0</span><span class="sc">%)           IIIIIIIII          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb114-56"><a href="descriptive-statistics.html#cb114-56" tabindex="-1"></a></span>
+<span id="cb114-57"><a href="descriptive-statistics.html#cb114-57" tabindex="-1"></a><span class="dv">5</span>    bp1           <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">98.3</span> (<span class="fl">5.2</span>)   <span class="dv">39</span> distinct values       <span class="sc">:</span>              <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb114-58"><a href="descriptive-statistics.html#cb114-58" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  <span class="er">:</span>              (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb114-59"><a href="descriptive-statistics.html#cb114-59" tabindex="-1"></a>                   <span class="fl">87.5</span> <span class="sc">&lt;</span> <span class="fl">97.7</span> <span class="sc">&lt;</span> <span class="fl">111.7</span>                               <span class="sc">:</span>                                  </span>
+<span id="cb114-60"><a href="descriptive-statistics.html#cb114-60" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">3.8</span> (<span class="fl">0.1</span>)                            . <span class="sc">:</span>                                  </span>
+<span id="cb114-61"><a href="descriptive-statistics.html#cb114-61" tabindex="-1"></a>                                                                 . <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span> . .                            </span>
+<span id="cb114-62"><a href="descriptive-statistics.html#cb114-62" tabindex="-1"></a></span>
+<span id="cb114-63"><a href="descriptive-statistics.html#cb114-63" tabindex="-1"></a><span class="dv">6</span>    bp2           <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">88.6</span> (<span class="fl">4.6</span>)   <span class="dv">40</span> distinct values       <span class="sc">:</span>              <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb114-64"><a href="descriptive-statistics.html#cb114-64" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  <span class="er">:</span> <span class="er">:</span>            (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb114-65"><a href="descriptive-statistics.html#cb114-65" tabindex="-1"></a>                   <span class="dv">78</span> <span class="sc">&lt;</span> <span class="fl">88.2</span> <span class="sc">&lt;</span> <span class="fl">99.7</span>                                . <span class="sc">:</span> <span class="er">:</span>                                </span>
+<span id="cb114-66"><a href="descriptive-statistics.html#cb114-66" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">6.9</span> (<span class="fl">0.1</span>)                            <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span>                                </span>
+<span id="cb114-67"><a href="descriptive-statistics.html#cb114-67" tabindex="-1"></a>                                                                   <span class="er">:</span> <span class="er">:</span> <span class="er">:</span> <span class="er">:</span>                              </span>
+<span id="cb114-68"><a href="descriptive-statistics.html#cb114-68" tabindex="-1"></a></span>
+<span id="cb114-69"><a href="descriptive-statistics.html#cb114-69" tabindex="-1"></a><span class="dv">7</span>    bpdiff        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">9.7</span> (<span class="fl">6.2</span>)    <span class="dv">46</span> distinct values   <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span>              <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb114-70"><a href="descriptive-statistics.html#cb114-70" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                              <span class="er">:</span> <span class="er">:</span> <span class="er">:</span>              (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb114-71"><a href="descriptive-statistics.html#cb114-71" tabindex="-1"></a>                   <span class="fl">0.5</span> <span class="sc">&lt;</span> <span class="fl">8.2</span> <span class="sc">&lt;</span> <span class="fl">26.3</span>                              <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span>                                  </span>
+<span id="cb114-72"><a href="descriptive-statistics.html#cb114-72" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">8.9</span> (<span class="fl">0.6</span>)                          <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span> .                                </span>
+<span id="cb114-73"><a href="descriptive-statistics.html#cb114-73" tabindex="-1"></a>                                                                 <span class="sc">:</span> <span class="er">:</span> <span class="er">:</span> <span class="er">:</span> <span class="er">:</span> .                            </span>
+<span id="cb114-74"><a href="descriptive-statistics.html#cb114-74" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------------------------</span></span></code></pre></div>
 <div id="single-continuous-variable" class="section level3" number="10.2.1">
 <h3>
 <span class="header-section-number">10.2.1</span> Single continuous variable<a class="anchor" aria-label="anchor" href="#single-continuous-variable"><i class="fas fa-link"></i></a>
@@ -461,34 +461,34 @@
 <span class="header-section-number">10.2.1.1</span> Measures of Central tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion"><i class="fas fa-link"></i></a>
 </h4>
 <p>These include mean and median and displayed below</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="descriptive-statistics.html#cb116-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb116-2"><a href="descriptive-statistics.html#cb116-2" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean.bp1 =</span> <span class="fu">mean</span>(bp1), <span class="at">median.bp1 =</span> <span class="fu">median</span>(bp1), </span>
-<span id="cb116-3"><a href="descriptive-statistics.html#cb116-3" tabindex="-1"></a>              <span class="at">sd.bp1 =</span> <span class="fu">sd</span>(bp1), <span class="at">min.bp1 =</span> <span class="fu">min</span>(bp1), </span>
-<span id="cb116-4"><a href="descriptive-statistics.html#cb116-4" tabindex="-1"></a>              <span class="at">max.bp1 =</span> <span class="fu">max</span>(bp1), <span class="at">iqr =</span> <span class="fu">IQR</span>(bp1)) </span>
-<span id="cb116-5"><a href="descriptive-statistics.html#cb116-5" tabindex="-1"></a><span class="co"># A tibble: 1 × 6</span></span>
-<span id="cb116-6"><a href="descriptive-statistics.html#cb116-6" tabindex="-1"></a>  mean.bp1 median.bp1 sd.bp1 min.bp1 max.bp1   iqr</span>
-<span id="cb116-7"><a href="descriptive-statistics.html#cb116-7" tabindex="-1"></a>     <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb116-8"><a href="descriptive-statistics.html#cb116-8" tabindex="-1"></a><span class="dv">1</span>     <span class="fl">98.3</span>       <span class="fl">97.7</span>   <span class="fl">5.17</span>    <span class="fl">87.5</span>    <span class="fl">112.</span>  <span class="fl">3.78</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="descriptive-statistics.html#cb115-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
+<span id="cb115-2"><a href="descriptive-statistics.html#cb115-2" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean.bp1 =</span> <span class="fu">mean</span>(bp1), <span class="at">median.bp1 =</span> <span class="fu">median</span>(bp1), </span>
+<span id="cb115-3"><a href="descriptive-statistics.html#cb115-3" tabindex="-1"></a>              <span class="at">sd.bp1 =</span> <span class="fu">sd</span>(bp1), <span class="at">min.bp1 =</span> <span class="fu">min</span>(bp1), </span>
+<span id="cb115-4"><a href="descriptive-statistics.html#cb115-4" tabindex="-1"></a>              <span class="at">max.bp1 =</span> <span class="fu">max</span>(bp1), <span class="at">iqr =</span> <span class="fu">IQR</span>(bp1)) </span>
+<span id="cb115-5"><a href="descriptive-statistics.html#cb115-5" tabindex="-1"></a><span class="co"># A tibble: 1 × 6</span></span>
+<span id="cb115-6"><a href="descriptive-statistics.html#cb115-6" tabindex="-1"></a>  mean.bp1 median.bp1 sd.bp1 min.bp1 max.bp1   iqr</span>
+<span id="cb115-7"><a href="descriptive-statistics.html#cb115-7" tabindex="-1"></a>     <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb115-8"><a href="descriptive-statistics.html#cb115-8" tabindex="-1"></a><span class="dv">1</span>     <span class="fl">98.3</span>       <span class="fl">97.7</span>   <span class="fl">5.17</span>    <span class="fl">87.5</span>    <span class="fl">112.</span>  <span class="fl">3.78</span></span></code></pre></div>
 <p>Alternatively</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="descriptive-statistics.html#cb117-1" tabindex="-1"></a>newdrug <span class="sc">%$%</span> </span>
-<span id="cb117-2"><a href="descriptive-statistics.html#cb117-2" tabindex="-1"></a>    psych<span class="sc">::</span><span class="fu">describe</span>(bp1)</span>
-<span id="cb117-3"><a href="descriptive-statistics.html#cb117-3" tabindex="-1"></a>   vars  n mean   sd median trimmed  mad  min   max range</span>
-<span id="cb117-4"><a href="descriptive-statistics.html#cb117-4" tabindex="-1"></a>X1    <span class="dv">1</span> <span class="dv">50</span> <span class="fl">98.3</span> <span class="fl">5.17</span>   <span class="fl">97.7</span>   <span class="fl">97.89</span> <span class="fl">2.97</span> <span class="fl">87.5</span> <span class="fl">111.7</span>  <span class="fl">24.2</span></span>
-<span id="cb117-5"><a href="descriptive-statistics.html#cb117-5" tabindex="-1"></a>   skew kurtosis   se</span>
-<span id="cb117-6"><a href="descriptive-statistics.html#cb117-6" tabindex="-1"></a>X1  <span class="fl">0.7</span>     <span class="fl">0.62</span> <span class="fl">0.73</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="descriptive-statistics.html#cb116-1" tabindex="-1"></a>newdrug <span class="sc">%$%</span> </span>
+<span id="cb116-2"><a href="descriptive-statistics.html#cb116-2" tabindex="-1"></a>    psych<span class="sc">::</span><span class="fu">describe</span>(bp1)</span>
+<span id="cb116-3"><a href="descriptive-statistics.html#cb116-3" tabindex="-1"></a>   vars  n mean   sd median trimmed  mad  min   max range</span>
+<span id="cb116-4"><a href="descriptive-statistics.html#cb116-4" tabindex="-1"></a>X1    <span class="dv">1</span> <span class="dv">50</span> <span class="fl">98.3</span> <span class="fl">5.17</span>   <span class="fl">97.7</span>   <span class="fl">97.89</span> <span class="fl">2.97</span> <span class="fl">87.5</span> <span class="fl">111.7</span>  <span class="fl">24.2</span></span>
+<span id="cb116-5"><a href="descriptive-statistics.html#cb116-5" tabindex="-1"></a>   skew kurtosis   se</span>
+<span id="cb116-6"><a href="descriptive-statistics.html#cb116-6" tabindex="-1"></a>X1  <span class="fl">0.7</span>     <span class="fl">0.62</span> <span class="fl">0.73</span></span></code></pre></div>
 <p>And to show the interquartile range we do the following.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="descriptive-statistics.html#cb118-1" tabindex="-1"></a>newdrug <span class="sc">%$%</span> </span>
-<span id="cb118-2"><a href="descriptive-statistics.html#cb118-2" tabindex="-1"></a>    psych<span class="sc">::</span><span class="fu">describe</span>(bp1, <span class="at">IQR =</span> <span class="cn">TRUE</span>,<span class="at">quant =</span> <span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">75</span>))</span>
-<span id="cb118-3"><a href="descriptive-statistics.html#cb118-3" tabindex="-1"></a>  vars  n mean   sd median trimmed  mad  min   max range</span>
-<span id="cb118-4"><a href="descriptive-statistics.html#cb118-4" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">1</span> <span class="dv">50</span> <span class="fl">98.3</span> <span class="fl">5.17</span>   <span class="fl">97.7</span>   <span class="fl">97.89</span> <span class="fl">2.97</span> <span class="fl">87.5</span> <span class="fl">111.7</span>  <span class="fl">24.2</span></span>
-<span id="cb118-5"><a href="descriptive-statistics.html#cb118-5" tabindex="-1"></a>  skew kurtosis   se  IQR Q0<span class="fl">.25</span> Q0<span class="fl">.75</span></span>
-<span id="cb118-6"><a href="descriptive-statistics.html#cb118-6" tabindex="-1"></a><span class="dv">1</span>  <span class="fl">0.7</span>     <span class="fl">0.62</span> <span class="fl">0.73</span> <span class="fl">3.78</span> <span class="fl">95.62</span>  <span class="fl">99.4</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="descriptive-statistics.html#cb117-1" tabindex="-1"></a>newdrug <span class="sc">%$%</span> </span>
+<span id="cb117-2"><a href="descriptive-statistics.html#cb117-2" tabindex="-1"></a>    psych<span class="sc">::</span><span class="fu">describe</span>(bp1, <span class="at">IQR =</span> <span class="cn">TRUE</span>,<span class="at">quant =</span> <span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">75</span>))</span>
+<span id="cb117-3"><a href="descriptive-statistics.html#cb117-3" tabindex="-1"></a>  vars  n mean   sd median trimmed  mad  min   max range</span>
+<span id="cb117-4"><a href="descriptive-statistics.html#cb117-4" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">1</span> <span class="dv">50</span> <span class="fl">98.3</span> <span class="fl">5.17</span>   <span class="fl">97.7</span>   <span class="fl">97.89</span> <span class="fl">2.97</span> <span class="fl">87.5</span> <span class="fl">111.7</span>  <span class="fl">24.2</span></span>
+<span id="cb117-5"><a href="descriptive-statistics.html#cb117-5" tabindex="-1"></a>  skew kurtosis   se  IQR Q0<span class="fl">.25</span> Q0<span class="fl">.75</span></span>
+<span id="cb117-6"><a href="descriptive-statistics.html#cb117-6" tabindex="-1"></a><span class="dv">1</span>  <span class="fl">0.7</span>     <span class="fl">0.62</span> <span class="fl">0.73</span> <span class="fl">3.78</span> <span class="fl">95.62</span>  <span class="fl">99.4</span></span></code></pre></div>
 </div>
 <div id="graphs---histogram" class="section level4" number="10.2.1.2">
 <h4>
 <span class="header-section-number">10.2.1.2</span> Graphs - Histogram<a class="anchor" aria-label="anchor" href="#graphs---histogram"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">7</span>, col<span class="op">=</span><span class="st">"black"</span>, alpha <span class="op">=</span> <span class="fl">.5</span>, fill <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -501,7 +501,7 @@
 <h4>
 <span class="header-section-number">10.2.1.3</span> Graphs - Boxplot and violin plot<a class="anchor" aria-label="anchor" href="#graphs---boxplot-and-violin-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_boxplot</span><span class="op">(</span>col<span class="op">=</span><span class="st">"black"</span>,  </span>
@@ -518,7 +518,7 @@
 <h4>
 <span class="header-section-number">10.2.1.4</span> Graphs - Density plot<a class="anchor" aria-label="anchor" href="#graphs---density-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_density</span><span class="op">(</span>col<span class="op">=</span><span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"yellow"</span>, alpha<span class="op">=</span><span class="fl">.6</span><span class="op">)</span> <span class="op">+</span></span>
@@ -532,23 +532,23 @@
 <h4>
 <span class="header-section-number">10.2.1.5</span> Graphs - Cumulative Frequency plot<a class="anchor" aria-label="anchor" href="#graphs---cumulative-frequency-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="descriptive-statistics.html#cb122-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb122-2"><a href="descriptive-statistics.html#cb122-2" tabindex="-1"></a>    <span class="fu">group_by</span>(bp1) <span class="sc">%&gt;%</span> </span>
-<span id="cb122-3"><a href="descriptive-statistics.html#cb122-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb122-4"><a href="descriptive-statistics.html#cb122-4" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb122-5"><a href="descriptive-statistics.html#cb122-5" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">cum =</span> <span class="fu">cumsum</span>(n)<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb122-6"><a href="descriptive-statistics.html#cb122-6" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> cum, <span class="at">x =</span> bp1)) <span class="sc">+</span></span>
-<span id="cb122-7"><a href="descriptive-statistics.html#cb122-7" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">col=</span><span class="dv">3</span>, <span class="at">size=</span><span class="fl">1.2</span>)<span class="sc">+</span></span>
-<span id="cb122-8"><a href="descriptive-statistics.html#cb122-8" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Cumulative Frequency Plot of Blood Pressure before  intervention"</span>,</span>
-<span id="cb122-9"><a href="descriptive-statistics.html#cb122-9" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"BP1"</span>,</span>
-<span id="cb122-10"><a href="descriptive-statistics.html#cb122-10" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Cumulative Frequency"</span>)<span class="sc">+</span></span>
-<span id="cb122-11"><a href="descriptive-statistics.html#cb122-11" tabindex="-1"></a>    <span class="fu">theme_light</span>() </span>
-<span id="cb122-12"><a href="descriptive-statistics.html#cb122-12" tabindex="-1"></a>Warning<span class="sc">:</span> Using <span class="st">`</span><span class="at">size</span><span class="st">`</span> aesthetic <span class="cf">for</span> lines was deprecated <span class="cf">in</span> ggplot2</span>
-<span id="cb122-13"><a href="descriptive-statistics.html#cb122-13" tabindex="-1"></a><span class="dv">3</span>.<span class="dv">4</span>.<span class="fl">0.</span></span>
-<span id="cb122-14"><a href="descriptive-statistics.html#cb122-14" tabindex="-1"></a>ℹ Please use <span class="st">`</span><span class="at">linewidth</span><span class="st">`</span> instead.</span>
-<span id="cb122-15"><a href="descriptive-statistics.html#cb122-15" tabindex="-1"></a>This warning is displayed once every <span class="dv">8</span> hours.</span>
-<span id="cb122-16"><a href="descriptive-statistics.html#cb122-16" tabindex="-1"></a>Call <span class="st">`</span><span class="at">lifecycle::last_lifecycle_warnings()</span><span class="st">`</span> to see where</span>
-<span id="cb122-17"><a href="descriptive-statistics.html#cb122-17" tabindex="-1"></a>this warning was generated.</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="descriptive-statistics.html#cb121-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
+<span id="cb121-2"><a href="descriptive-statistics.html#cb121-2" tabindex="-1"></a>    <span class="fu">group_by</span>(bp1) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-3"><a href="descriptive-statistics.html#cb121-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-4"><a href="descriptive-statistics.html#cb121-4" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb121-5"><a href="descriptive-statistics.html#cb121-5" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">cum =</span> <span class="fu">cumsum</span>(n)<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-6"><a href="descriptive-statistics.html#cb121-6" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> cum, <span class="at">x =</span> bp1)) <span class="sc">+</span></span>
+<span id="cb121-7"><a href="descriptive-statistics.html#cb121-7" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">col=</span><span class="dv">3</span>, <span class="at">size=</span><span class="fl">1.2</span>)<span class="sc">+</span></span>
+<span id="cb121-8"><a href="descriptive-statistics.html#cb121-8" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Cumulative Frequency Plot of Blood Pressure before  intervention"</span>,</span>
+<span id="cb121-9"><a href="descriptive-statistics.html#cb121-9" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"BP1"</span>,</span>
+<span id="cb121-10"><a href="descriptive-statistics.html#cb121-10" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Cumulative Frequency"</span>)<span class="sc">+</span></span>
+<span id="cb121-11"><a href="descriptive-statistics.html#cb121-11" tabindex="-1"></a>    <span class="fu">theme_light</span>() </span>
+<span id="cb121-12"><a href="descriptive-statistics.html#cb121-12" tabindex="-1"></a>Warning<span class="sc">:</span> Using <span class="st">`</span><span class="at">size</span><span class="st">`</span> aesthetic <span class="cf">for</span> lines was deprecated <span class="cf">in</span> ggplot2</span>
+<span id="cb121-13"><a href="descriptive-statistics.html#cb121-13" tabindex="-1"></a><span class="dv">3</span>.<span class="dv">4</span>.<span class="fl">0.</span></span>
+<span id="cb121-14"><a href="descriptive-statistics.html#cb121-14" tabindex="-1"></a>ℹ Please use <span class="st">`</span><span class="at">linewidth</span><span class="st">`</span> instead.</span>
+<span id="cb121-15"><a href="descriptive-statistics.html#cb121-15" tabindex="-1"></a>This warning is displayed once every <span class="dv">8</span> hours.</span>
+<span id="cb121-16"><a href="descriptive-statistics.html#cb121-16" tabindex="-1"></a>Call <span class="st">`</span><span class="at">lifecycle::last_lifecycle_warnings()</span><span class="st">`</span> to see where</span>
+<span id="cb121-17"><a href="descriptive-statistics.html#cb121-17" tabindex="-1"></a>this warning was generated.</span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics_files/figure-html/unnamed-chunk-19-1.png" width="672"></div>
 </div>
 </div>
@@ -560,21 +560,21 @@
 <h4>
 <span class="header-section-number">10.2.2.1</span> Measures of Central tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="descriptive-statistics.html#cb123-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb123-2"><a href="descriptive-statistics.html#cb123-2" tabindex="-1"></a>    <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb123-3"><a href="descriptive-statistics.html#cb123-3" tabindex="-1"></a>    psych<span class="sc">::</span><span class="fu">describe</span>()</span>
-<span id="cb123-4"><a href="descriptive-statistics.html#cb123-4" tabindex="-1"></a>       vars  n  mean   sd median trimmed  mad  min   max</span>
-<span id="cb123-5"><a href="descriptive-statistics.html#cb123-5" tabindex="-1"></a>age       <span class="dv">1</span> <span class="dv">50</span> <span class="fl">61.48</span> <span class="fl">6.51</span>  <span class="fl">63.00</span>   <span class="fl">61.98</span> <span class="fl">4.45</span> <span class="fl">45.0</span>  <span class="fl">75.0</span></span>
-<span id="cb123-6"><a href="descriptive-statistics.html#cb123-6" tabindex="-1"></a>bp1       <span class="dv">2</span> <span class="dv">50</span> <span class="fl">98.30</span> <span class="fl">5.17</span>  <span class="fl">97.70</span>   <span class="fl">97.89</span> <span class="fl">2.97</span> <span class="fl">87.5</span> <span class="fl">111.7</span></span>
-<span id="cb123-7"><a href="descriptive-statistics.html#cb123-7" tabindex="-1"></a>bp2       <span class="dv">3</span> <span class="dv">50</span> <span class="fl">88.60</span> <span class="fl">4.56</span>  <span class="fl">88.15</span>   <span class="fl">88.46</span> <span class="fl">4.52</span> <span class="fl">78.0</span>  <span class="fl">99.7</span></span>
-<span id="cb123-8"><a href="descriptive-statistics.html#cb123-8" tabindex="-1"></a>bpdiff    <span class="dv">4</span> <span class="dv">50</span>  <span class="fl">9.70</span> <span class="fl">6.20</span>   <span class="fl">8.25</span>    <span class="fl">8.95</span> <span class="fl">5.49</span>  <span class="fl">0.5</span>  <span class="fl">26.3</span></span>
-<span id="cb123-9"><a href="descriptive-statistics.html#cb123-9" tabindex="-1"></a>       range  skew kurtosis   se</span>
-<span id="cb123-10"><a href="descriptive-statistics.html#cb123-10" tabindex="-1"></a>age     <span class="fl">30.0</span> <span class="sc">-</span><span class="fl">0.60</span>     <span class="fl">0.16</span> <span class="fl">0.92</span></span>
-<span id="cb123-11"><a href="descriptive-statistics.html#cb123-11" tabindex="-1"></a>bp1     <span class="fl">24.2</span>  <span class="fl">0.70</span>     <span class="fl">0.62</span> <span class="fl">0.73</span></span>
-<span id="cb123-12"><a href="descriptive-statistics.html#cb123-12" tabindex="-1"></a>bp2     <span class="fl">21.7</span>  <span class="fl">0.25</span>    <span class="sc">-</span><span class="fl">0.24</span> <span class="fl">0.65</span></span>
-<span id="cb123-13"><a href="descriptive-statistics.html#cb123-13" tabindex="-1"></a>bpdiff  <span class="fl">25.8</span>  <span class="fl">0.93</span>     <span class="fl">0.24</span> <span class="fl">0.88</span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="descriptive-statistics.html#cb122-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
+<span id="cb122-2"><a href="descriptive-statistics.html#cb122-2" tabindex="-1"></a>    <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb122-3"><a href="descriptive-statistics.html#cb122-3" tabindex="-1"></a>    psych<span class="sc">::</span><span class="fu">describe</span>()</span>
+<span id="cb122-4"><a href="descriptive-statistics.html#cb122-4" tabindex="-1"></a>       vars  n  mean   sd median trimmed  mad  min   max</span>
+<span id="cb122-5"><a href="descriptive-statistics.html#cb122-5" tabindex="-1"></a>age       <span class="dv">1</span> <span class="dv">50</span> <span class="fl">61.48</span> <span class="fl">6.51</span>  <span class="fl">63.00</span>   <span class="fl">61.98</span> <span class="fl">4.45</span> <span class="fl">45.0</span>  <span class="fl">75.0</span></span>
+<span id="cb122-6"><a href="descriptive-statistics.html#cb122-6" tabindex="-1"></a>bp1       <span class="dv">2</span> <span class="dv">50</span> <span class="fl">98.30</span> <span class="fl">5.17</span>  <span class="fl">97.70</span>   <span class="fl">97.89</span> <span class="fl">2.97</span> <span class="fl">87.5</span> <span class="fl">111.7</span></span>
+<span id="cb122-7"><a href="descriptive-statistics.html#cb122-7" tabindex="-1"></a>bp2       <span class="dv">3</span> <span class="dv">50</span> <span class="fl">88.60</span> <span class="fl">4.56</span>  <span class="fl">88.15</span>   <span class="fl">88.46</span> <span class="fl">4.52</span> <span class="fl">78.0</span>  <span class="fl">99.7</span></span>
+<span id="cb122-8"><a href="descriptive-statistics.html#cb122-8" tabindex="-1"></a>bpdiff    <span class="dv">4</span> <span class="dv">50</span>  <span class="fl">9.70</span> <span class="fl">6.20</span>   <span class="fl">8.25</span>    <span class="fl">8.95</span> <span class="fl">5.49</span>  <span class="fl">0.5</span>  <span class="fl">26.3</span></span>
+<span id="cb122-9"><a href="descriptive-statistics.html#cb122-9" tabindex="-1"></a>       range  skew kurtosis   se</span>
+<span id="cb122-10"><a href="descriptive-statistics.html#cb122-10" tabindex="-1"></a>age     <span class="fl">30.0</span> <span class="sc">-</span><span class="fl">0.60</span>     <span class="fl">0.16</span> <span class="fl">0.92</span></span>
+<span id="cb122-11"><a href="descriptive-statistics.html#cb122-11" tabindex="-1"></a>bp1     <span class="fl">24.2</span>  <span class="fl">0.70</span>     <span class="fl">0.62</span> <span class="fl">0.73</span></span>
+<span id="cb122-12"><a href="descriptive-statistics.html#cb122-12" tabindex="-1"></a>bp2     <span class="fl">21.7</span>  <span class="fl">0.25</span>    <span class="sc">-</span><span class="fl">0.24</span> <span class="fl">0.65</span></span>
+<span id="cb122-13"><a href="descriptive-statistics.html#cb122-13" tabindex="-1"></a>bpdiff  <span class="fl">25.8</span>  <span class="fl">0.93</span>     <span class="fl">0.24</span> <span class="fl">0.88</span></span></code></pre></div>
 <p>To illustrate graphing multiple continuous variables we use the 2 bp variables</p>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bps</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="va">newdrug</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="va">bp1</span>, <span class="va">bp2</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -582,17 +582,17 @@
 <span>    <span class="fu">mutate</span><span class="op">(</span>measure <span class="op">=</span> <span class="fu">fct_recode</span><span class="op">(</span><span class="va">measure</span>, </span>
 <span>                                <span class="st">"Pre-Treatment"</span> <span class="op">=</span> <span class="st">"bp1"</span>,</span>
 <span>                                <span class="st">"Post-Treatment"</span> <span class="op">=</span> <span class="st">"bp2"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="descriptive-statistics.html#cb125-1" tabindex="-1"></a>bps <span class="sc">%&gt;%</span> </span>
-<span id="cb125-2"><a href="descriptive-statistics.html#cb125-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> measure, <span class="at">x =</span> bp, <span class="at">fill =</span> measure)) <span class="sc">+</span></span>
-<span id="cb125-3"><a href="descriptive-statistics.html#cb125-3" tabindex="-1"></a>    ggridges<span class="sc">::</span><span class="fu">geom_density_ridges2</span>( <span class="at">col=</span><span class="st">"black"</span>, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">scale=</span><span class="dv">1</span>, </span>
-<span id="cb125-4"><a href="descriptive-statistics.html#cb125-4" tabindex="-1"></a>                                    <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
-<span id="cb125-5"><a href="descriptive-statistics.html#cb125-5" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Blood pressure (mmHg)"</span>, </span>
-<span id="cb125-6"><a href="descriptive-statistics.html#cb125-6" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Density"</span>, </span>
-<span id="cb125-7"><a href="descriptive-statistics.html#cb125-7" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Blood Pressure"</span>) <span class="sc">+</span></span>
-<span id="cb125-8"><a href="descriptive-statistics.html#cb125-8" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb125-9"><a href="descriptive-statistics.html#cb125-9" tabindex="-1"></a>Picking joint bandwidth of <span class="fl">1.52</span></span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="descriptive-statistics.html#cb124-1" tabindex="-1"></a>bps <span class="sc">%&gt;%</span> </span>
+<span id="cb124-2"><a href="descriptive-statistics.html#cb124-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> measure, <span class="at">x =</span> bp, <span class="at">fill =</span> measure)) <span class="sc">+</span></span>
+<span id="cb124-3"><a href="descriptive-statistics.html#cb124-3" tabindex="-1"></a>    ggridges<span class="sc">::</span><span class="fu">geom_density_ridges2</span>( <span class="at">col=</span><span class="st">"black"</span>, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">scale=</span><span class="dv">1</span>, </span>
+<span id="cb124-4"><a href="descriptive-statistics.html#cb124-4" tabindex="-1"></a>                                    <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb124-5"><a href="descriptive-statistics.html#cb124-5" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Blood pressure (mmHg)"</span>, </span>
+<span id="cb124-6"><a href="descriptive-statistics.html#cb124-6" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Density"</span>, </span>
+<span id="cb124-7"><a href="descriptive-statistics.html#cb124-7" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Blood Pressure"</span>) <span class="sc">+</span></span>
+<span id="cb124-8"><a href="descriptive-statistics.html#cb124-8" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb124-9"><a href="descriptive-statistics.html#cb124-9" tabindex="-1"></a>Picking joint bandwidth of <span class="fl">1.52</span></span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
-<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bps</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">measure</span>, x <span class="op">=</span> <span class="va">bp</span>, fill <span class="op">=</span> <span class="va">measure</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu">geom_boxplot</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -602,7 +602,7 @@
 <span>    <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bps</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">measure</span>, x <span class="op">=</span> <span class="va">bp</span>, fill <span class="op">=</span> <span class="va">measure</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu">geom_violin</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -621,55 +621,55 @@
 <span class="header-section-number">10.3.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
 </h3>
 <p>We do this with one variable.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="descriptive-statistics.html#cb128-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb128-2"><a href="descriptive-statistics.html#cb128-2" tabindex="-1"></a>    <span class="fu">group_by</span>(treat) <span class="sc">%&gt;%</span> </span>
-<span id="cb128-3"><a href="descriptive-statistics.html#cb128-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean.bp1 =</span> <span class="fu">mean</span>(bp1),</span>
-<span id="cb128-4"><a href="descriptive-statistics.html#cb128-4" tabindex="-1"></a>              <span class="at">sd.bp1 =</span> <span class="fu">sd</span>(bp1),</span>
-<span id="cb128-5"><a href="descriptive-statistics.html#cb128-5" tabindex="-1"></a>              <span class="at">var.bp1 =</span> <span class="fu">var</span>(bp1),</span>
-<span id="cb128-6"><a href="descriptive-statistics.html#cb128-6" tabindex="-1"></a>              <span class="at">se.mean.bp1 =</span> <span class="fu">sd</span>(bp1)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
-<span id="cb128-7"><a href="descriptive-statistics.html#cb128-7" tabindex="-1"></a>              <span class="at">median.bp1 =</span> <span class="fu">median</span>(bp1),</span>
-<span id="cb128-8"><a href="descriptive-statistics.html#cb128-8" tabindex="-1"></a>              <span class="at">min.bp1 =</span> <span class="fu">min</span>(bp1),</span>
-<span id="cb128-9"><a href="descriptive-statistics.html#cb128-9" tabindex="-1"></a>              <span class="at">max.bp1 =</span> <span class="fu">max</span>(bp1)) <span class="sc">%&gt;%</span> </span>
-<span id="cb128-10"><a href="descriptive-statistics.html#cb128-10" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
-<span id="cb128-11"><a href="descriptive-statistics.html#cb128-11" tabindex="-1"></a><span class="co"># A tibble: 2 × 8</span></span>
-<span id="cb128-12"><a href="descriptive-statistics.html#cb128-12" tabindex="-1"></a>  treat   mean.bp1 sd.bp1 var.bp1 se.mean.bp1 median.bp1</span>
-<span id="cb128-13"><a href="descriptive-statistics.html#cb128-13" tabindex="-1"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb128-14"><a href="descriptive-statistics.html#cb128-14" tabindex="-1"></a><span class="dv">1</span> Control     <span class="fl">97.1</span>   <span class="fl">3.56</span>    <span class="fl">12.7</span>       <span class="fl">0.760</span>       <span class="fl">97.4</span></span>
-<span id="cb128-15"><a href="descriptive-statistics.html#cb128-15" tabindex="-1"></a><span class="dv">2</span> Newdrug     <span class="fl">99.2</span>   <span class="fl">6.05</span>    <span class="fl">36.6</span>       <span class="fl">1.14</span>        <span class="fl">98.2</span></span>
-<span id="cb128-16"><a href="descriptive-statistics.html#cb128-16" tabindex="-1"></a><span class="co"># ℹ 2 more variables: min.bp1 &lt;dbl&gt;, max.bp1 &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="descriptive-statistics.html#cb127-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
+<span id="cb127-2"><a href="descriptive-statistics.html#cb127-2" tabindex="-1"></a>    <span class="fu">group_by</span>(treat) <span class="sc">%&gt;%</span> </span>
+<span id="cb127-3"><a href="descriptive-statistics.html#cb127-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean.bp1 =</span> <span class="fu">mean</span>(bp1),</span>
+<span id="cb127-4"><a href="descriptive-statistics.html#cb127-4" tabindex="-1"></a>              <span class="at">sd.bp1 =</span> <span class="fu">sd</span>(bp1),</span>
+<span id="cb127-5"><a href="descriptive-statistics.html#cb127-5" tabindex="-1"></a>              <span class="at">var.bp1 =</span> <span class="fu">var</span>(bp1),</span>
+<span id="cb127-6"><a href="descriptive-statistics.html#cb127-6" tabindex="-1"></a>              <span class="at">se.mean.bp1 =</span> <span class="fu">sd</span>(bp1)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
+<span id="cb127-7"><a href="descriptive-statistics.html#cb127-7" tabindex="-1"></a>              <span class="at">median.bp1 =</span> <span class="fu">median</span>(bp1),</span>
+<span id="cb127-8"><a href="descriptive-statistics.html#cb127-8" tabindex="-1"></a>              <span class="at">min.bp1 =</span> <span class="fu">min</span>(bp1),</span>
+<span id="cb127-9"><a href="descriptive-statistics.html#cb127-9" tabindex="-1"></a>              <span class="at">max.bp1 =</span> <span class="fu">max</span>(bp1)) <span class="sc">%&gt;%</span> </span>
+<span id="cb127-10"><a href="descriptive-statistics.html#cb127-10" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb127-11"><a href="descriptive-statistics.html#cb127-11" tabindex="-1"></a><span class="co"># A tibble: 2 × 8</span></span>
+<span id="cb127-12"><a href="descriptive-statistics.html#cb127-12" tabindex="-1"></a>  treat   mean.bp1 sd.bp1 var.bp1 se.mean.bp1 median.bp1</span>
+<span id="cb127-13"><a href="descriptive-statistics.html#cb127-13" tabindex="-1"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb127-14"><a href="descriptive-statistics.html#cb127-14" tabindex="-1"></a><span class="dv">1</span> Control     <span class="fl">97.1</span>   <span class="fl">3.56</span>    <span class="fl">12.7</span>       <span class="fl">0.760</span>       <span class="fl">97.4</span></span>
+<span id="cb127-15"><a href="descriptive-statistics.html#cb127-15" tabindex="-1"></a><span class="dv">2</span> Newdrug     <span class="fl">99.2</span>   <span class="fl">6.05</span>    <span class="fl">36.6</span>       <span class="fl">1.14</span>        <span class="fl">98.2</span></span>
+<span id="cb127-16"><a href="descriptive-statistics.html#cb127-16" tabindex="-1"></a><span class="co"># ℹ 2 more variables: min.bp1 &lt;dbl&gt;, max.bp1 &lt;dbl&gt;</span></span></code></pre></div>
 <p>Alternatively we can use</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="descriptive-statistics.html#cb129-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb129-2"><a href="descriptive-statistics.html#cb129-2" tabindex="-1"></a>    <span class="fu">select</span>(<span class="fu">where</span>(is.numeric), treat) <span class="sc">%&gt;%</span> </span>
-<span id="cb129-3"><a href="descriptive-statistics.html#cb129-3" tabindex="-1"></a>    psych<span class="sc">::</span><span class="fu">describeBy</span>(<span class="at">group =</span> <span class="st">"treat"</span>)</span>
-<span id="cb129-4"><a href="descriptive-statistics.html#cb129-4" tabindex="-1"></a></span>
-<span id="cb129-5"><a href="descriptive-statistics.html#cb129-5" tabindex="-1"></a> Descriptive statistics by group </span>
-<span id="cb129-6"><a href="descriptive-statistics.html#cb129-6" tabindex="-1"></a>treat<span class="sc">:</span> Control</span>
-<span id="cb129-7"><a href="descriptive-statistics.html#cb129-7" tabindex="-1"></a>       vars  n  mean   sd median trimmed  mad  min   max</span>
-<span id="cb129-8"><a href="descriptive-statistics.html#cb129-8" tabindex="-1"></a>age       <span class="dv">1</span> <span class="dv">22</span> <span class="fl">62.09</span> <span class="fl">6.57</span>   <span class="fl">63.0</span>   <span class="fl">62.17</span> <span class="fl">5.19</span> <span class="fl">48.0</span>  <span class="fl">75.0</span></span>
-<span id="cb129-9"><a href="descriptive-statistics.html#cb129-9" tabindex="-1"></a>bp1       <span class="dv">2</span> <span class="dv">22</span> <span class="fl">97.13</span> <span class="fl">3.56</span>   <span class="fl">97.4</span>   <span class="fl">97.28</span> <span class="fl">2.59</span> <span class="fl">89.8</span> <span class="fl">103.4</span></span>
-<span id="cb129-10"><a href="descriptive-statistics.html#cb129-10" tabindex="-1"></a>bp2       <span class="dv">3</span> <span class="dv">22</span> <span class="fl">92.19</span> <span class="fl">3.25</span>   <span class="fl">91.9</span>   <span class="fl">91.94</span> <span class="fl">2.52</span> <span class="fl">86.2</span>  <span class="fl">99.7</span></span>
-<span id="cb129-11"><a href="descriptive-statistics.html#cb129-11" tabindex="-1"></a>bpdiff    <span class="dv">4</span> <span class="dv">22</span>  <span class="fl">4.95</span> <span class="fl">2.25</span>    <span class="fl">4.8</span>    <span class="fl">4.86</span> <span class="fl">1.70</span>  <span class="fl">0.5</span>  <span class="fl">11.1</span></span>
-<span id="cb129-12"><a href="descriptive-statistics.html#cb129-12" tabindex="-1"></a>treat<span class="sc">*</span>    <span class="dv">5</span> <span class="dv">22</span>  <span class="fl">1.00</span> <span class="fl">0.00</span>    <span class="fl">1.0</span>    <span class="fl">1.00</span> <span class="fl">0.00</span>  <span class="fl">1.0</span>   <span class="fl">1.0</span></span>
-<span id="cb129-13"><a href="descriptive-statistics.html#cb129-13" tabindex="-1"></a>       range  skew kurtosis   se</span>
-<span id="cb129-14"><a href="descriptive-statistics.html#cb129-14" tabindex="-1"></a>age     <span class="fl">27.0</span> <span class="sc">-</span><span class="fl">0.17</span>    <span class="sc">-</span><span class="fl">0.37</span> <span class="fl">1.40</span></span>
-<span id="cb129-15"><a href="descriptive-statistics.html#cb129-15" tabindex="-1"></a>bp1     <span class="fl">13.6</span> <span class="sc">-</span><span class="fl">0.33</span>    <span class="sc">-</span><span class="fl">0.39</span> <span class="fl">0.76</span></span>
-<span id="cb129-16"><a href="descriptive-statistics.html#cb129-16" tabindex="-1"></a>bp2     <span class="fl">13.5</span>  <span class="fl">0.66</span>     <span class="fl">0.03</span> <span class="fl">0.69</span></span>
-<span id="cb129-17"><a href="descriptive-statistics.html#cb129-17" tabindex="-1"></a>bpdiff  <span class="fl">10.6</span>  <span class="fl">0.56</span>     <span class="fl">0.82</span> <span class="fl">0.48</span></span>
-<span id="cb129-18"><a href="descriptive-statistics.html#cb129-18" tabindex="-1"></a>treat<span class="sc">*</span>   <span class="fl">0.0</span>   <span class="cn">NaN</span>      <span class="cn">NaN</span> <span class="fl">0.00</span></span>
-<span id="cb129-19"><a href="descriptive-statistics.html#cb129-19" tabindex="-1"></a><span class="sc">---------------------------------------------</span> </span>
-<span id="cb129-20"><a href="descriptive-statistics.html#cb129-20" tabindex="-1"></a>treat<span class="sc">:</span> Newdrug</span>
-<span id="cb129-21"><a href="descriptive-statistics.html#cb129-21" tabindex="-1"></a>       vars  n  mean   sd median trimmed  mad  min   max</span>
-<span id="cb129-22"><a href="descriptive-statistics.html#cb129-22" tabindex="-1"></a>age       <span class="dv">1</span> <span class="dv">28</span> <span class="fl">61.00</span> <span class="fl">6.54</span>  <span class="fl">62.50</span>   <span class="fl">61.58</span> <span class="fl">5.19</span> <span class="fl">45.0</span>  <span class="fl">70.0</span></span>
-<span id="cb129-23"><a href="descriptive-statistics.html#cb129-23" tabindex="-1"></a>bp1       <span class="dv">2</span> <span class="dv">28</span> <span class="fl">99.22</span> <span class="fl">6.05</span>  <span class="fl">98.25</span>   <span class="fl">98.99</span> <span class="fl">4.15</span> <span class="fl">87.5</span> <span class="fl">111.7</span></span>
-<span id="cb129-24"><a href="descriptive-statistics.html#cb129-24" tabindex="-1"></a>bp2       <span class="dv">3</span> <span class="dv">28</span> <span class="fl">85.78</span> <span class="fl">3.29</span>  <span class="fl">85.35</span>   <span class="fl">85.67</span> <span class="fl">2.22</span> <span class="fl">78.0</span>  <span class="fl">94.2</span></span>
-<span id="cb129-25"><a href="descriptive-statistics.html#cb129-25" tabindex="-1"></a>bpdiff    <span class="dv">4</span> <span class="dv">28</span> <span class="fl">13.44</span> <span class="fl">5.73</span>  <span class="fl">12.45</span>   <span class="fl">13.17</span> <span class="fl">4.37</span>  <span class="fl">3.8</span>  <span class="fl">26.3</span></span>
-<span id="cb129-26"><a href="descriptive-statistics.html#cb129-26" tabindex="-1"></a>treat<span class="sc">*</span>    <span class="dv">5</span> <span class="dv">28</span>  <span class="fl">2.00</span> <span class="fl">0.00</span>   <span class="fl">2.00</span>    <span class="fl">2.00</span> <span class="fl">0.00</span>  <span class="fl">2.0</span>   <span class="fl">2.0</span></span>
-<span id="cb129-27"><a href="descriptive-statistics.html#cb129-27" tabindex="-1"></a>       range  skew kurtosis   se</span>
-<span id="cb129-28"><a href="descriptive-statistics.html#cb129-28" tabindex="-1"></a>age     <span class="fl">25.0</span> <span class="sc">-</span><span class="fl">0.92</span>     <span class="fl">0.14</span> <span class="fl">1.24</span></span>
-<span id="cb129-29"><a href="descriptive-statistics.html#cb129-29" tabindex="-1"></a>bp1     <span class="fl">24.2</span>  <span class="fl">0.54</span>    <span class="sc">-</span><span class="fl">0.37</span> <span class="fl">1.14</span></span>
-<span id="cb129-30"><a href="descriptive-statistics.html#cb129-30" tabindex="-1"></a>bp2     <span class="fl">16.2</span>  <span class="fl">0.38</span>     <span class="fl">0.96</span> <span class="fl">0.62</span></span>
-<span id="cb129-31"><a href="descriptive-statistics.html#cb129-31" tabindex="-1"></a>bpdiff  <span class="fl">22.5</span>  <span class="fl">0.65</span>    <span class="sc">-</span><span class="fl">0.25</span> <span class="fl">1.08</span></span>
-<span id="cb129-32"><a href="descriptive-statistics.html#cb129-32" tabindex="-1"></a>treat<span class="sc">*</span>   <span class="fl">0.0</span>   <span class="cn">NaN</span>      <span class="cn">NaN</span> <span class="fl">0.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="descriptive-statistics.html#cb128-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
+<span id="cb128-2"><a href="descriptive-statistics.html#cb128-2" tabindex="-1"></a>    <span class="fu">select</span>(<span class="fu">where</span>(is.numeric), treat) <span class="sc">%&gt;%</span> </span>
+<span id="cb128-3"><a href="descriptive-statistics.html#cb128-3" tabindex="-1"></a>    psych<span class="sc">::</span><span class="fu">describeBy</span>(<span class="at">group =</span> <span class="st">"treat"</span>)</span>
+<span id="cb128-4"><a href="descriptive-statistics.html#cb128-4" tabindex="-1"></a></span>
+<span id="cb128-5"><a href="descriptive-statistics.html#cb128-5" tabindex="-1"></a> Descriptive statistics by group </span>
+<span id="cb128-6"><a href="descriptive-statistics.html#cb128-6" tabindex="-1"></a>treat<span class="sc">:</span> Control</span>
+<span id="cb128-7"><a href="descriptive-statistics.html#cb128-7" tabindex="-1"></a>       vars  n  mean   sd median trimmed  mad  min   max</span>
+<span id="cb128-8"><a href="descriptive-statistics.html#cb128-8" tabindex="-1"></a>age       <span class="dv">1</span> <span class="dv">22</span> <span class="fl">62.09</span> <span class="fl">6.57</span>   <span class="fl">63.0</span>   <span class="fl">62.17</span> <span class="fl">5.19</span> <span class="fl">48.0</span>  <span class="fl">75.0</span></span>
+<span id="cb128-9"><a href="descriptive-statistics.html#cb128-9" tabindex="-1"></a>bp1       <span class="dv">2</span> <span class="dv">22</span> <span class="fl">97.13</span> <span class="fl">3.56</span>   <span class="fl">97.4</span>   <span class="fl">97.28</span> <span class="fl">2.59</span> <span class="fl">89.8</span> <span class="fl">103.4</span></span>
+<span id="cb128-10"><a href="descriptive-statistics.html#cb128-10" tabindex="-1"></a>bp2       <span class="dv">3</span> <span class="dv">22</span> <span class="fl">92.19</span> <span class="fl">3.25</span>   <span class="fl">91.9</span>   <span class="fl">91.94</span> <span class="fl">2.52</span> <span class="fl">86.2</span>  <span class="fl">99.7</span></span>
+<span id="cb128-11"><a href="descriptive-statistics.html#cb128-11" tabindex="-1"></a>bpdiff    <span class="dv">4</span> <span class="dv">22</span>  <span class="fl">4.95</span> <span class="fl">2.25</span>    <span class="fl">4.8</span>    <span class="fl">4.86</span> <span class="fl">1.70</span>  <span class="fl">0.5</span>  <span class="fl">11.1</span></span>
+<span id="cb128-12"><a href="descriptive-statistics.html#cb128-12" tabindex="-1"></a>treat<span class="sc">*</span>    <span class="dv">5</span> <span class="dv">22</span>  <span class="fl">1.00</span> <span class="fl">0.00</span>    <span class="fl">1.0</span>    <span class="fl">1.00</span> <span class="fl">0.00</span>  <span class="fl">1.0</span>   <span class="fl">1.0</span></span>
+<span id="cb128-13"><a href="descriptive-statistics.html#cb128-13" tabindex="-1"></a>       range  skew kurtosis   se</span>
+<span id="cb128-14"><a href="descriptive-statistics.html#cb128-14" tabindex="-1"></a>age     <span class="fl">27.0</span> <span class="sc">-</span><span class="fl">0.17</span>    <span class="sc">-</span><span class="fl">0.37</span> <span class="fl">1.40</span></span>
+<span id="cb128-15"><a href="descriptive-statistics.html#cb128-15" tabindex="-1"></a>bp1     <span class="fl">13.6</span> <span class="sc">-</span><span class="fl">0.33</span>    <span class="sc">-</span><span class="fl">0.39</span> <span class="fl">0.76</span></span>
+<span id="cb128-16"><a href="descriptive-statistics.html#cb128-16" tabindex="-1"></a>bp2     <span class="fl">13.5</span>  <span class="fl">0.66</span>     <span class="fl">0.03</span> <span class="fl">0.69</span></span>
+<span id="cb128-17"><a href="descriptive-statistics.html#cb128-17" tabindex="-1"></a>bpdiff  <span class="fl">10.6</span>  <span class="fl">0.56</span>     <span class="fl">0.82</span> <span class="fl">0.48</span></span>
+<span id="cb128-18"><a href="descriptive-statistics.html#cb128-18" tabindex="-1"></a>treat<span class="sc">*</span>   <span class="fl">0.0</span>   <span class="cn">NaN</span>      <span class="cn">NaN</span> <span class="fl">0.00</span></span>
+<span id="cb128-19"><a href="descriptive-statistics.html#cb128-19" tabindex="-1"></a><span class="sc">---------------------------------------------</span> </span>
+<span id="cb128-20"><a href="descriptive-statistics.html#cb128-20" tabindex="-1"></a>treat<span class="sc">:</span> Newdrug</span>
+<span id="cb128-21"><a href="descriptive-statistics.html#cb128-21" tabindex="-1"></a>       vars  n  mean   sd median trimmed  mad  min   max</span>
+<span id="cb128-22"><a href="descriptive-statistics.html#cb128-22" tabindex="-1"></a>age       <span class="dv">1</span> <span class="dv">28</span> <span class="fl">61.00</span> <span class="fl">6.54</span>  <span class="fl">62.50</span>   <span class="fl">61.58</span> <span class="fl">5.19</span> <span class="fl">45.0</span>  <span class="fl">70.0</span></span>
+<span id="cb128-23"><a href="descriptive-statistics.html#cb128-23" tabindex="-1"></a>bp1       <span class="dv">2</span> <span class="dv">28</span> <span class="fl">99.22</span> <span class="fl">6.05</span>  <span class="fl">98.25</span>   <span class="fl">98.99</span> <span class="fl">4.15</span> <span class="fl">87.5</span> <span class="fl">111.7</span></span>
+<span id="cb128-24"><a href="descriptive-statistics.html#cb128-24" tabindex="-1"></a>bp2       <span class="dv">3</span> <span class="dv">28</span> <span class="fl">85.78</span> <span class="fl">3.29</span>  <span class="fl">85.35</span>   <span class="fl">85.67</span> <span class="fl">2.22</span> <span class="fl">78.0</span>  <span class="fl">94.2</span></span>
+<span id="cb128-25"><a href="descriptive-statistics.html#cb128-25" tabindex="-1"></a>bpdiff    <span class="dv">4</span> <span class="dv">28</span> <span class="fl">13.44</span> <span class="fl">5.73</span>  <span class="fl">12.45</span>   <span class="fl">13.17</span> <span class="fl">4.37</span>  <span class="fl">3.8</span>  <span class="fl">26.3</span></span>
+<span id="cb128-26"><a href="descriptive-statistics.html#cb128-26" tabindex="-1"></a>treat<span class="sc">*</span>    <span class="dv">5</span> <span class="dv">28</span>  <span class="fl">2.00</span> <span class="fl">0.00</span>   <span class="fl">2.00</span>    <span class="fl">2.00</span> <span class="fl">0.00</span>  <span class="fl">2.0</span>   <span class="fl">2.0</span></span>
+<span id="cb128-27"><a href="descriptive-statistics.html#cb128-27" tabindex="-1"></a>       range  skew kurtosis   se</span>
+<span id="cb128-28"><a href="descriptive-statistics.html#cb128-28" tabindex="-1"></a>age     <span class="fl">25.0</span> <span class="sc">-</span><span class="fl">0.92</span>     <span class="fl">0.14</span> <span class="fl">1.24</span></span>
+<span id="cb128-29"><a href="descriptive-statistics.html#cb128-29" tabindex="-1"></a>bp1     <span class="fl">24.2</span>  <span class="fl">0.54</span>    <span class="sc">-</span><span class="fl">0.37</span> <span class="fl">1.14</span></span>
+<span id="cb128-30"><a href="descriptive-statistics.html#cb128-30" tabindex="-1"></a>bp2     <span class="fl">16.2</span>  <span class="fl">0.38</span>     <span class="fl">0.96</span> <span class="fl">0.62</span></span>
+<span id="cb128-31"><a href="descriptive-statistics.html#cb128-31" tabindex="-1"></a>bpdiff  <span class="fl">22.5</span>  <span class="fl">0.65</span>    <span class="sc">-</span><span class="fl">0.25</span> <span class="fl">1.08</span></span>
+<span id="cb128-32"><a href="descriptive-statistics.html#cb128-32" tabindex="-1"></a>treat<span class="sc">*</span>   <span class="fl">0.0</span>   <span class="cn">NaN</span>      <span class="cn">NaN</span> <span class="fl">0.00</span></span></code></pre></div>
 </div>
 <div id="graph---histogram-boxplot-density-plot-and-cumlative-frequency" class="section level3" number="10.3.2">
 <h3>
@@ -687,26 +687,26 @@
 <span class="header-section-number">10.4.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>This csn be done as below.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="descriptive-statistics.html#cb130-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb130-2"><a href="descriptive-statistics.html#cb130-2" tabindex="-1"></a>    <span class="fu">group_by</span>(treat, sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb130-3"><a href="descriptive-statistics.html#cb130-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean.bp1 =</span> <span class="fu">mean</span>(bp1),</span>
-<span id="cb130-4"><a href="descriptive-statistics.html#cb130-4" tabindex="-1"></a>              <span class="at">sd.bp1 =</span> <span class="fu">sd</span>(bp1),</span>
-<span id="cb130-5"><a href="descriptive-statistics.html#cb130-5" tabindex="-1"></a>              <span class="at">var.bp1 =</span> <span class="fu">var</span>(bp1),</span>
-<span id="cb130-6"><a href="descriptive-statistics.html#cb130-6" tabindex="-1"></a>              <span class="at">se.mean.bp1 =</span> <span class="fu">sd</span>(bp1)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
-<span id="cb130-7"><a href="descriptive-statistics.html#cb130-7" tabindex="-1"></a>              <span class="at">median.bp1 =</span> <span class="fu">median</span>(bp1),</span>
-<span id="cb130-8"><a href="descriptive-statistics.html#cb130-8" tabindex="-1"></a>              <span class="at">min.bp1 =</span> <span class="fu">min</span>(bp1),</span>
-<span id="cb130-9"><a href="descriptive-statistics.html#cb130-9" tabindex="-1"></a>              <span class="at">max.bp1 =</span> <span class="fu">max</span>(bp1)) <span class="sc">%&gt;%</span> </span>
-<span id="cb130-10"><a href="descriptive-statistics.html#cb130-10" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
-<span id="cb130-11"><a href="descriptive-statistics.html#cb130-11" tabindex="-1"></a><span class="st">`</span><span class="at">summarise()</span><span class="st">`</span> has grouped output by <span class="st">'treat'</span>. You can</span>
-<span id="cb130-12"><a href="descriptive-statistics.html#cb130-12" tabindex="-1"></a>override using the <span class="st">`</span><span class="at">.groups</span><span class="st">`</span> argument.</span>
-<span id="cb130-13"><a href="descriptive-statistics.html#cb130-13" tabindex="-1"></a><span class="co"># A tibble: 4 × 9</span></span>
-<span id="cb130-14"><a href="descriptive-statistics.html#cb130-14" tabindex="-1"></a>  treat sex   mean.bp1 sd.bp1 var.bp1 se.mean.bp1 median.bp1</span>
-<span id="cb130-15"><a href="descriptive-statistics.html#cb130-15" tabindex="-1"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span>    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb130-16"><a href="descriptive-statistics.html#cb130-16" tabindex="-1"></a><span class="dv">1</span> Cont… F         <span class="fl">97.2</span>   <span class="fl">3.82</span>    <span class="fl">14.6</span>        <span class="fl">1.15</span>       <span class="fl">97.4</span></span>
-<span id="cb130-17"><a href="descriptive-statistics.html#cb130-17" tabindex="-1"></a><span class="dv">2</span> Cont… M         <span class="fl">97.0</span>   <span class="fl">3.47</span>    <span class="fl">12.1</span>        <span class="fl">1.05</span>       <span class="fl">97.5</span></span>
-<span id="cb130-18"><a href="descriptive-statistics.html#cb130-18" tabindex="-1"></a><span class="dv">3</span> Newd… F         <span class="fl">98.6</span>   <span class="fl">6.01</span>    <span class="fl">36.1</span>        <span class="fl">1.55</span>       <span class="fl">98.4</span></span>
-<span id="cb130-19"><a href="descriptive-statistics.html#cb130-19" tabindex="-1"></a><span class="dv">4</span> Newd… M        <span class="fl">100.</span>    <span class="fl">6.25</span>    <span class="fl">39.1</span>        <span class="fl">1.73</span>       <span class="fl">98.1</span></span>
-<span id="cb130-20"><a href="descriptive-statistics.html#cb130-20" tabindex="-1"></a><span class="co"># ℹ 2 more variables: min.bp1 &lt;dbl&gt;, max.bp1 &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="descriptive-statistics.html#cb129-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
+<span id="cb129-2"><a href="descriptive-statistics.html#cb129-2" tabindex="-1"></a>    <span class="fu">group_by</span>(treat, sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb129-3"><a href="descriptive-statistics.html#cb129-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean.bp1 =</span> <span class="fu">mean</span>(bp1),</span>
+<span id="cb129-4"><a href="descriptive-statistics.html#cb129-4" tabindex="-1"></a>              <span class="at">sd.bp1 =</span> <span class="fu">sd</span>(bp1),</span>
+<span id="cb129-5"><a href="descriptive-statistics.html#cb129-5" tabindex="-1"></a>              <span class="at">var.bp1 =</span> <span class="fu">var</span>(bp1),</span>
+<span id="cb129-6"><a href="descriptive-statistics.html#cb129-6" tabindex="-1"></a>              <span class="at">se.mean.bp1 =</span> <span class="fu">sd</span>(bp1)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
+<span id="cb129-7"><a href="descriptive-statistics.html#cb129-7" tabindex="-1"></a>              <span class="at">median.bp1 =</span> <span class="fu">median</span>(bp1),</span>
+<span id="cb129-8"><a href="descriptive-statistics.html#cb129-8" tabindex="-1"></a>              <span class="at">min.bp1 =</span> <span class="fu">min</span>(bp1),</span>
+<span id="cb129-9"><a href="descriptive-statistics.html#cb129-9" tabindex="-1"></a>              <span class="at">max.bp1 =</span> <span class="fu">max</span>(bp1)) <span class="sc">%&gt;%</span> </span>
+<span id="cb129-10"><a href="descriptive-statistics.html#cb129-10" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb129-11"><a href="descriptive-statistics.html#cb129-11" tabindex="-1"></a><span class="st">`</span><span class="at">summarise()</span><span class="st">`</span> has grouped output by <span class="st">'treat'</span>. You can</span>
+<span id="cb129-12"><a href="descriptive-statistics.html#cb129-12" tabindex="-1"></a>override using the <span class="st">`</span><span class="at">.groups</span><span class="st">`</span> argument.</span>
+<span id="cb129-13"><a href="descriptive-statistics.html#cb129-13" tabindex="-1"></a><span class="co"># A tibble: 4 × 9</span></span>
+<span id="cb129-14"><a href="descriptive-statistics.html#cb129-14" tabindex="-1"></a>  treat sex   mean.bp1 sd.bp1 var.bp1 se.mean.bp1 median.bp1</span>
+<span id="cb129-15"><a href="descriptive-statistics.html#cb129-15" tabindex="-1"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span>    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb129-16"><a href="descriptive-statistics.html#cb129-16" tabindex="-1"></a><span class="dv">1</span> Cont… F         <span class="fl">97.2</span>   <span class="fl">3.82</span>    <span class="fl">14.6</span>        <span class="fl">1.15</span>       <span class="fl">97.4</span></span>
+<span id="cb129-17"><a href="descriptive-statistics.html#cb129-17" tabindex="-1"></a><span class="dv">2</span> Cont… M         <span class="fl">97.0</span>   <span class="fl">3.47</span>    <span class="fl">12.1</span>        <span class="fl">1.05</span>       <span class="fl">97.5</span></span>
+<span id="cb129-18"><a href="descriptive-statistics.html#cb129-18" tabindex="-1"></a><span class="dv">3</span> Newd… F         <span class="fl">98.6</span>   <span class="fl">6.01</span>    <span class="fl">36.1</span>        <span class="fl">1.55</span>       <span class="fl">98.4</span></span>
+<span id="cb129-19"><a href="descriptive-statistics.html#cb129-19" tabindex="-1"></a><span class="dv">4</span> Newd… M        <span class="fl">100.</span>    <span class="fl">6.25</span>    <span class="fl">39.1</span>        <span class="fl">1.73</span>       <span class="fl">98.1</span></span>
+<span id="cb129-20"><a href="descriptive-statistics.html#cb129-20" tabindex="-1"></a><span class="co"># ℹ 2 more variables: min.bp1 &lt;dbl&gt;, max.bp1 &lt;dbl&gt;</span></span></code></pre></div>
 
 </div>
 </div>

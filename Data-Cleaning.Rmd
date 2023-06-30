@@ -32,7 +32,7 @@ The first step in analysis is to read or import the data into the data analysis
 software where a general overview can be obtained. We begin by importing the 
 `blood_donors_3.dta` into **R** and calling it `blood3`. 
 
-```{r echo=FALSE}
+```{r echo=FALSE, include=F}
 library(tidyverse)
 library(magrittr)
 library(patchwork)
@@ -40,7 +40,7 @@ library(patchwork)
 
 
 ```{r comment=NA}
-blood3 <- readxl::read_xls("blood_donors_2.xls")
+blood3 <- readxl::read_xls("./Data/blood_donors_2.xls")
 ```
 
 ## Visualising the data in **R**

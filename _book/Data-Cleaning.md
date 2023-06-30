@@ -33,35 +33,11 @@ software where a general overview can be obtained. We begin by importing the
 `blood_donors_3.dta` into **R** and calling it `blood3`. 
 
 
-```
-── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
-── Conflicts ────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-
-Attaching package: 'magrittr'
-
-
-The following object is masked from 'package:purrr':
-
-    set_names
-
-
-The following object is masked from 'package:tidyr':
-
-    extract
-```
 
 
 
 ```r
-blood3 <- readxl::read_xls("blood_donors_2.xls")
+blood3 <- readxl::read_xls("./Data/blood_donors_2.xls")
 ```
 
 ## Visualising the data in **R**

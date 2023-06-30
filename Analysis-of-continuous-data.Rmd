@@ -32,7 +32,7 @@ We first import the data
 ```{r}
 df_data1 <- 
     read_delim(
-        file = "data1.txt", 
+        file = "./Data/data1.txt", 
         delim = "\t",
         col_types = c("c", "f", "i","i")
     )
