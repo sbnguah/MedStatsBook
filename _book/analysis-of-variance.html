@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 14 Analysis of Variance | Medical Statistics using R</title>
+<title>Chapter 15 Analysis of Variance | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="14.1 Introduction   14.2 Assumptions   14.3 One-way ANOVA   14.4 Two-way ANOVA">
+<meta name="description" content="15.1 Introduction   15.2 Assumptions   15.3 One-way ANOVA   15.4 Two-way ANOVA">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 14 Analysis of Variance | Medical Statistics using R">
+<meta property="og:title" content="Chapter 15 Analysis of Variance | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/analysis-of-variance.html">
-<meta property="og:description" content="14.1 Introduction   14.2 Assumptions   14.3 One-way ANOVA   14.4 Two-way ANOVA">
+<meta property="og:description" content="15.1 Introduction   15.2 Assumptions   15.3 One-way ANOVA   15.4 Two-way ANOVA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 14 Analysis of Variance | Medical Statistics using R">
-<meta name="twitter:description" content="14.1 Introduction   14.2 Assumptions   14.3 One-way ANOVA   14.4 Two-way ANOVA">
+<meta name="twitter:title" content="Chapter 15 Analysis of Variance | Medical Statistics using R">
+<meta name="twitter:description" content="15.1 Introduction   15.2 Assumptions   15.3 One-way ANOVA   15.4 Two-way ANOVA">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -78,18 +78,19 @@
 <li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
 <li><a class="" href="descriptive-statistics.html"><span class="header-section-number">10</span> Descriptive Statistics</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">11</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">12</span> Confounding and Interaction</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">13</span> Linear Regression</a></li>
-<li><a class="active" href="analysis-of-variance.html"><span class="header-section-number">14</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">15</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">16</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">17</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">18</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">19</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">20</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">21</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">22</span> Sharing your book</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">11</span> Analysis of numeric data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">12</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">13</span> Confounding and Interaction</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">14</span> Linear Regression</a></li>
+<li><a class="active" href="analysis-of-variance.html"><span class="header-section-number">15</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">16</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">17</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">18</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">19</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">20</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">21</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">22</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">23</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -97,43 +98,43 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-variance" class="section level1" number="14">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-variance" class="section level1" number="15">
 <h1>
-<span class="header-section-number">14</span> Analysis of Variance<a class="anchor" aria-label="anchor" href="#analysis-of-variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15</span> Analysis of Variance<a class="anchor" aria-label="anchor" href="#analysis-of-variance"><i class="fas fa-link"></i></a>
 </h1>
-<div id="introduction-4" class="section level2" number="14.1">
+<div id="introduction-4" class="section level2" number="15.1">
 <h2>
-<span class="header-section-number">14.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-4"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="assumptions-1" class="section level2" number="14.2">
+<div id="assumptions-1" class="section level2" number="15.2">
 <h2>
-<span class="header-section-number">14.2</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions-1"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="one-way-anova" class="section level2" number="14.3">
+<div id="one-way-anova" class="section level2" number="15.3">
 <h2>
-<span class="header-section-number">14.3</span> One-way ANOVA<a class="anchor" aria-label="anchor" href="#one-way-anova"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.3</span> One-way ANOVA<a class="anchor" aria-label="anchor" href="#one-way-anova"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="two-way-anova" class="section level2" number="14.4">
+<div id="two-way-anova" class="section level2" number="15.4">
 <h2>
-<span class="header-section-number">14.4</span> Two-way ANOVA<a class="anchor" aria-label="anchor" href="#two-way-anova"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.4</span> Two-way ANOVA<a class="anchor" aria-label="anchor" href="#two-way-anova"><i class="fas fa-link"></i></a>
 </h2>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="linear-regression.html"><span class="header-section-number">13</span> Linear Regression</a></div>
-<div class="next"><a href="ordinal-logistic-regression.html"><span class="header-section-number">15</span> Ordinal logistic regression</a></div>
+<div class="prev"><a href="linear-regression.html"><span class="header-section-number">14</span> Linear Regression</a></div>
+<div class="next"><a href="ordinal-logistic-regression.html"><span class="header-section-number">16</span> Ordinal logistic regression</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#analysis-of-variance"><span class="header-section-number">14</span> Analysis of Variance</a></li>
-<li><a class="nav-link" href="#introduction-4"><span class="header-section-number">14.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#assumptions-1"><span class="header-section-number">14.2</span> Assumptions</a></li>
-<li><a class="nav-link" href="#one-way-anova"><span class="header-section-number">14.3</span> One-way ANOVA</a></li>
-<li><a class="nav-link" href="#two-way-anova"><span class="header-section-number">14.4</span> Two-way ANOVA</a></li>
+<li><a class="nav-link" href="#analysis-of-variance"><span class="header-section-number">15</span> Analysis of Variance</a></li>
+<li><a class="nav-link" href="#introduction-4"><span class="header-section-number">15.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#assumptions-1"><span class="header-section-number">15.2</span> Assumptions</a></li>
+<li><a class="nav-link" href="#one-way-anova"><span class="header-section-number">15.3</span> One-way ANOVA</a></li>
+<li><a class="nav-link" href="#two-way-anova"><span class="header-section-number">15.4</span> Two-way ANOVA</a></li>
 </ul>
 
       <div class="book-extra">
@@ -151,7 +152,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-06-05.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-06-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

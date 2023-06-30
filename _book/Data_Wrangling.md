@@ -124,7 +124,171 @@ df_blood %>%
 
 
 ## Aggregating data
+Data can be aggregated in R using the `summarize` function. Below we determine 
+the mean and standard deviation of the hemoglobin for the patient in the data.
+
+```r
+df_blood %>% 
+    summarize(mean_hb = mean(hb), sd_hb = sd(hb))
+# A tibble: 1 × 2
+  mean_hb sd_hb
+    <dbl> <dbl>
+1    11.0  2.89
+```
+
+Grouping the data by the bldgrp before the aggregation yields the aggregated 
+means and standard deviations for the various blood groups.
+
+```r
+df_blood %>% 
+    group_by(bldgrp) %>% 
+    summarize(mean_hb = mean(hb), sd_hb = sd(hb))
+# A tibble: 5 × 3
+  bldgrp mean_hb  sd_hb
+  <chr>    <dbl>  <dbl>
+1 A         7.32  3.61 
+2 AB       13.1   1.69 
+3 B        10.2   0.283
+4 O        11.0   0.427
+5 P        16.4  NA    
+```
 
 ## Reshaping data
+In longitudinal studies, data is captured from the same individual repeatedly. 
+Such data is recorded either in long or wide formats. A typical example of a 
+data frame in the long form is bpB below. 
 
-## Combiing data
+
+```r
+bp_long <- read_csv(
+    file = "bp_long.txt",
+    col_names = TRUE, 
+    col_types = c("c", "c", "i")
+    )
+
+bp_long
+# A tibble: 5 × 3
+  id    measure   sbp
+  <chr> <chr>   <dbl>
+1 B01   sbp1      141
+2 B01   sbp2      137
+3 B02   sbp1      155
+4 B02   sbp2      153
+5 B03   sbp1      153
+```
+In this format, each visit or round of data taking is captured as a new row, but 
+with the appropriate study ID and period of record, captured as the variable 
+measure above. Measurement of systolic blood pressure on day 1 is indicated by 
+sbp1 in the measure variable. Day 2 measurements are indicated as sbp2.
+
+The wide format of the same data can be obtained as below.
+
+
+```r
+bp_wide <- 
+    bp_long %>% 
+    pivot_wider(
+        id_cols = id, 
+        names_from = measure, 
+        values_from = sbp
+    )
+
+bp_wide
+# A tibble: 3 × 3
+  id     sbp1  sbp2
+  <chr> <dbl> <dbl>
+1 B01     141   137
+2 B02     155   153
+3 B03     153    NA
+```
+
+Here, each study participant's record for the whole study is on one row of the data and the different measurements of systolic blood pressure are captured as different variables. Next, we convert the wide back to the long format.
+
+
+```r
+bp_wide %>% 
+    pivot_longer(
+        cols = c(sbp1, sbp2),
+        names_to = "time",
+        values_to = "syst_bp"
+    )
+# A tibble: 6 × 3
+  id    time  syst_bp
+  <chr> <chr>   <dbl>
+1 B01   sbp1      141
+2 B01   sbp2      137
+3 B02   sbp1      155
+4 B02   sbp2      153
+5 B03   sbp1      153
+6 B03   sbp2       NA
+```
+
+
+## Combining data
+
+In a study to determine the change in weight of athletes running a marathon, 
+data about the athletes were obtained by the investigators. Since the marathon 
+starts in town A and ends in town B, the investigators decided to weigh the 
+athletes just before starting the race. Here they took records of the ID of the 
+athlete's sid, sex, age and weight at the start (wgtst). The records of five of 
+these athletes are in the data marathonA. At the end point of the marathon, 
+another member of the investigation team recorded their IDs (eid), weight upon 
+completion (wgtend) and the time it took the athletes to complete the marathon 
+(dura).
+
+
+```r
+dataA <- 
+    read_delim(
+        file = "marathonA.txt",
+        col_names = TRUE,
+        delim = "\t",
+        col_types = c("c","c","i","d")
+    )
+
+dataB <- 
+    read_delim(
+        file = "marathonB.txt",
+        col_names = TRUE,
+        delim = "\t",
+        col_types = c("c","c","i","d")
+    )
+
+dataA
+# A tibble: 5 × 4
+  sid   sex     age wgtst
+  <chr> <chr> <dbl> <dbl>
+1 C001  M        23  57.1
+2 C002  F        27  62.3
+3 C003  M        19  54.5
+4 C004  M        21  59.4
+5 C005  F        32  53.4
+
+dataB
+# A tibble: 4 × 3
+  eid   wgtend  dura
+  <chr>  <dbl> <dbl>
+1 C003    53.9   189
+2 C005    53     197
+3 C002    62.2   201
+4 C001    56.8   209
+```
+
+We can determine the change in weight only by matching the before and after 
+weight of each individual. This is where merging is very useful. Below, we 
+merge the two data into one. This is done below.
+
+
+```r
+dataA %>% 
+    full_join(dataB, by = join_by(sid==eid))
+# A tibble: 5 × 6
+  sid   sex     age wgtst wgtend  dura
+  <chr> <chr> <dbl> <dbl>  <dbl> <dbl>
+1 C001  M        23  57.1   56.8   209
+2 C002  F        27  62.3   62.2   201
+3 C003  M        19  54.5   53.9   189
+4 C004  M        21  59.4   NA      NA
+5 C005  F        32  53.4   53     197
+```
+

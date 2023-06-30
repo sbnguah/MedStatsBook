@@ -52,7 +52,7 @@ subsetting-data
 generating-new-variables
 aggregating-data
 reshaping-data
-combiing-data
+combining-data
 data-cleaning
 data-dictionary-or-codebook
 importing-the-data-into-r
@@ -89,6 +89,8 @@ summary
 graph---histogram-boxplot-density-plot-and-cumlative-frequency
 continuous-by-multiple-categorical-variables
 summary-1
+analysis-of-numeric-data
+confidence-interval-of-a-mean
 risk-and-odds
 introduction-1
 risk

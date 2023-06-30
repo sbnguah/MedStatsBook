@@ -17,6 +17,7 @@ rmd_files: [
     "Data_Wrangling.Rmd",
     "Data-Cleaning.Rmd",
     "Descriptive-Statistics.Rmd",
+    "Analysis-of-continuous-data.Rmd",
     "Risk-and-Odds.Rmd",
     "Confounding-and-Interaction.Rmd",
     "Linear-Regression.Rmd",
