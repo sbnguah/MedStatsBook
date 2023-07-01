@@ -1,7 +1,7 @@
 --- 
 title: "Medical Statistics using R"
 author: "Samuel Blay Nguah"
-date: "2023-06-30"
+date: "2023-07-01"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

@@ -50,23 +50,27 @@ $ height <dbl> 64, 96, 115, 106, 94, 78, 77, 59, 96, 92, 9…
 ```r
 df_data1 %$% 
     epiDisplay::ci(height)%>% 
-    flextable::flextable()
+    knitr::kable(booktabs = TRUE)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-df19045a{}.cl-df0d7446{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-df132e0e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df1343c6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df1343d0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-df19045a'><thead><tr style="overflow-wrap:break-word;"><th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">n</span></p></th><th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">mean</span></p></th><th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">sd</span></p></th><th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">se</span></p></th><th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">lower95ci</span></p></th><th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">upper95ci</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">139</span></p></td><td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">90.85612</span></p></td><td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">21.34179</span></p></td><td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">1.810187</span></p></td><td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">87.27683</span></p></td><td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">94.4354</span></p></td></tr></tbody></table></div>
-```
+
+
+|   |   n|     mean|       sd|       se| lower95ci| upper95ci|
+|:--|---:|--------:|--------:|--------:|---------:|---------:|
+|   | 139| 90.85612| 21.34179| 1.810187|  87.27683|   94.4354|
 
 
 ```r
 df_data1 %>% 
     meantables::mean_table(height) %>% 
-    flextable::flextable()
+    knitr::kable(booktabs = TRUE)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-df356cf8{}.cl-df2c6c66{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-df2fd86a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df2fd874{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df2fef76{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df2fef80{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df2fef8a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df2fef8b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-df356cf8'><thead><tr style="overflow-wrap:break-word;"><th class="cl-df2fef76"><p class="cl-df2fd86a"><span class="cl-df2c6c66">response_var</span></p></th><th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">n</span></p></th><th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">mean</span></p></th><th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">sd</span></p></th><th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">sem</span></p></th><th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">lcl</span></p></th><th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">ucl</span></p></th><th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">min</span></p></th><th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">max</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-df2fef8a"><p class="cl-df2fd86a"><span class="cl-df2c6c66">height</span></p></td><td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">139</span></p></td><td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">90.86</span></p></td><td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">21.34</span></p></td><td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">1.810187</span></p></td><td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">87.28</span></p></td><td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">94.44</span></p></td><td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">49</span></p></td><td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">137</span></p></td></tr></tbody></table></div>
-```
+
+
+|response_var |   n|  mean|    sd|      sem|   lcl|   ucl| min| max|
+|:------------|---:|-----:|-----:|--------:|-----:|-----:|---:|---:|
+|height       | 139| 90.86| 21.34| 1.810187| 87.28| 94.44|  49| 137|
 
 For sex stratified confidence intervals we have
 
@@ -75,13 +79,233 @@ For sex stratified confidence intervals we have
 df_data1 %>% 
     group_by(sex) %>% 
     meantables::mean_table(height)%>% 
-    flextable::flextable()
-```
-
-```{=html}
-<div class="tabwid"><style>.cl-df546fcc{}.cl-df4ae9ca{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-df4ea7d6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df4ea7ea{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df4ebeb0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebeb1{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebeba{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebec4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebec5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebece{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-df546fcc'><thead><tr style="overflow-wrap:break-word;"><th class="cl-df4ebeb0"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">response_var</span></p></th><th class="cl-df4ebeb0"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">group_var</span></p></th><th class="cl-df4ebeb0"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">group_cat</span></p></th><th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">n</span></p></th><th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">mean</span></p></th><th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">sd</span></p></th><th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">sem</span></p></th><th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">lcl</span></p></th><th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">ucl</span></p></th><th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">min</span></p></th><th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">max</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-df4ebeba"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">height</span></p></td><td class="cl-df4ebeba"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">sex</span></p></td><td class="cl-df4ebeba"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">Female</span></p></td><td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">63</span></p></td><td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">92.16</span></p></td><td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">22.98</span></p></td><td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">2.894829</span></p></td><td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">86.37</span></p></td><td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">97.95</span></p></td><td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">49</span></p></td><td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">137</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df4ebec5"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">height</span></p></td><td class="cl-df4ebec5"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">sex</span></p></td><td class="cl-df4ebec5"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">Male</span></p></td><td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">76</span></p></td><td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">89.78</span></p></td><td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">19.98</span></p></td><td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">2.291372</span></p></td><td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">85.21</span></p></td><td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">94.34</span></p></td><td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">55</span></p></td><td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">131</span></p></td></tr></tbody></table></div>
+    knitr::kable(booktabs = TRUE)
 ```
 
 
-To test the H0: The mean height is 100cm whiles generating the confidence 
-interval as well we use
+
+|response_var |group_var |group_cat |  n|  mean|    sd|      sem|   lcl|   ucl| min| max|
+|:------------|:---------|:---------|--:|-----:|-----:|--------:|-----:|-----:|---:|---:|
+|height       |sex       |Female    | 63| 92.16| 22.98| 2.894829| 86.37| 97.95|  49| 137|
+|height       |sex       |Male      | 76| 89.78| 19.98| 2.291372| 85.21| 94.34|  55| 131|
+
+## Comparing the mean to a hypothesised value
+Assuming the objective of the data collected  was to determine if the average 
+weight of our population was similar to a population with a known mean weight of 
+14kgs. 
+
+Our null hypothesis is: 
+
+> H0: There is no difference in mean weight between our population and a 
+population with mean weight of 14kgs.
+
+To test this hypothesis we use the One sample t-test after we have satisfied 
+ourselves that the assumptions for its use have been met.
+
+
+```r
+df_data1 %>% 
+     rstatix::t_test(formula = weight~1, mu=14) %>% 
+     knitr::kable(booktabs = TRUE)
+```
+
+
+
+|.y.    |group1 |group2     |   n| statistic|  df|       p|
+|:------|:------|:----------|---:|---------:|---:|-------:|
+|weight |1      |null model | 140| -3.324013| 139| 0.00113|
+
+The p-value of 0.001 is the probability that our sample could have come from a 
+population with a mean weight of 14kgs. Since this is very small we reject the 
+null H0 at a 5% significance level and conclude that our population mean weight 
+is significantly different from 14kgs.
+The confidence interval generated is that of our sample mean. With the 
+hypothesized value of
+14kgs outside the confidence interval of the mean we conclude that there is 
+insuficient evidence to suggest that the mean weight of our population is 14kgs.
+
+## Comparing mean of two independent groups
+This is possibly the most common use for the t-test. To compare the mean weights 
+of the males and female in our study we come up with
+
+> H0: There is no difference in weight between the males and females in our 
+population.
+
+To test this assertion we first determine if our sample fits the assumption for 
+the use of the Two sample t-test. These are:
+
+1. The sample should have been randomly chosen
+1. The two samples are completely independent
+1. Each population is at least 20 times larger than its respective sample.
+1. The population distribution of the variable should be normal. This can be assumed to be
+present if
+    - The distribution of the population is known to be normal
+    - The population distribution should have one mode, symmetric, without outliers and
+a sample size of 15 or less
+    - The population distribution should be moderately skewed, without outliers, have
+one mode and with a sample size between 16 and 40
+    - The sample size is more than 40 and data has no outliers.
+    
+Our data fulfils all the criteria above hence we apply the test
+
+
+```r
+df_data1 %>% 
+    rstatix::t_test(formula = weight ~ sex, detailed = T)%>% 
+    knitr::kable(booktabs = TRUE)
+```
+
+
+
+| estimate| estimate1| estimate2|.y.    |group1 |group2 | n1| n2| statistic|     p|       df|   conf.low| conf.high|method |alternative |
+|--------:|---------:|---------:|:------|:------|:------|--:|--:|---------:|-----:|--------:|----------:|---------:|:------|:-----------|
+| 1.305921|   12.9375|  11.63158|weight |Female |Male   | 64| 76|  1.196345| 0.234| 117.1908| -0.8558831|  3.467725|T-test |two.sided   |
+
+With a relatively high p-value we conclude that there is insufficient evidence 
+to refute null hypothesis. In other words there is insufficient evidence to 
+conclude the mean weights of males and females differ in the study population. 
+Note that in our sample however females appear heavier than males as shown by 
+the last two lines of the output above.
+
+The confidence interval determined above (-0.86 to 3.47) is actually that for 
+the mean sample difference between females and males. Since the confidence 
+interval contains the null value from H0 above i.e. 0, we conclude that there 
+isn't enough evidence of a difference in mean weight between the two sexes.
+Hence both the confidence interval and p-value come to similar conclusions.
+
+## Comparing means of paired observations
+In this section we use the `bread.txt` data which has the weight in grams before 
+and after baking some loaves of bread. A description of the variables is 
+contained in the data file. Paired observations occur in circumstances where 
+repeated measurement are done on the same object or data collected has some 
+characteristics in common. For the bread data the same bread is weighed before 
+and after baking. Determining if there is a significant difference between the 
+two measurements requires the use of the Paired t-test. As always be begin by 
+importing the data
+
+Next we determine the structure of the data frame df2
+
+
+```r
+df_bread <-read.table("./Data/bread.txt", sep="\t", header=T)
+```
+
+And then summarize it 
+
+
+```r
+df_bread %>% summarytools::dfSummary(graph.col = F)
+Data Frame Summary  
+df_bread  
+Dimensions: 399 x 5  
+Duplicates: 0  
+
+----------------------------------------------------------------------------------------
+No   Variable      Stats / Values             Freqs (% of Valid)    Valid      Missing  
+---- ------------- -------------------------- --------------------- ---------- ---------
+1    sid           Mean (sd) : 200 (115.3)    399 distinct values   399        0        
+     [integer]     min < med < max:           (Integer sequence)    (100.0%)   (0.0%)   
+                   1 < 200 < 399                                                        
+                   IQR (CV) : 199 (0.6)                                                 
+
+2    type          1. maize                   212 (53.1%)           399        0        
+     [character]   2. wheat                   187 (46.9%)           (100.0%)   (0.0%)   
+
+3    before        Mean (sd) : 379.5 (28.1)   120 distinct values   399        0        
+     [integer]     min < med < max:                                 (100.0%)   (0.0%)   
+                   304 < 379 < 479                                                      
+                   IQR (CV) : 40 (0.1)                                                  
+
+4    after         Mean (sd) : 217 (29.8)     121 distinct values   399        0        
+     [integer]     min < med < max:                                 (100.0%)   (0.0%)   
+                   140 < 215 < 295                                                      
+                   IQR (CV) : 48 (0.1)                                                  
+
+5    oven          1. Firewood                199 (49.9%)           399        0        
+     [character]   2. Gas                     200 (50.1%)           (100.0%)   (0.0%)   
+----------------------------------------------------------------------------------------
+```
+
+Our next task is to compare the weight of the loaves of bread before and after 
+baking. We begin by looking at the mean and standard deviations of the two 
+weights.
+
+
+```r
+df_bread %>% 
+    select(before, after) %>% 
+    rstatix::get_summary_stats(type= "mean_sd")
+# A tibble: 2 × 4
+  variable     n  mean    sd
+  <fct>    <dbl> <dbl> <dbl>
+1 before     399  380.  28.1
+2 after      399  217.  29.8
+```
+
+It is obvious that the mean weight of the bread before baking is much higher 
+than after however the standard deviations appear similar. For a formal test to 
+determine the difference in means we use the paired t-test. As before the we 
+state the assumptions of the paired t-test 
+
+1. The sample should have been randomly chosen
+1. The two samples are not independent (they are related)
+1. Each population is at least 20 times larger than its respective sample.
+1. The population distribution of the difference between the two variables 
+should be normal.
+This can be assumed to be present if
+    - The distribution of the population is known to be normal
+    - The population distribution should have one mode, symmetric, without 
+    outliers and a sample size of 15 or less
+    - The population distribution should be moderately skewed, without outliers, 
+    have one mode and with a sample size between 16 and 40
+    - The sample size is more than 40 and data has no outliers.
+    
+The only new assumption we need to evaluate here is the distribution of the 
+difference between the weights before and after. We do so below
+
+
+```r
+df_bread %>% 
+    mutate(diff_in_wgt = after - before) %>% 
+    ggplot(aes(x = diff_in_wgt)) +
+    geom_histogram(bins = 10, col = "white") + 
+    labs(x = "Difference in weight") +
+    theme_bw()
+```
+
+<img src="Analysis-of-continuous-data_files/figure-html/unnamed-chunk-11-1.png" width="480" />
+
+The graphical representation in above shows our difference in weight is 
+literally normally distributed. We therefore go ahead to determine the 
+difference in mean weights. First we state our hypothesis
+
+> H0: There is no change in weight of loaves of bread after baking
+
+And then perform the test after converting the data to the long format
+
+
+```r
+df_bread %>%
+    pivot_longer(
+        cols = c(before, after), 
+        names_to = "time", 
+        values_to = "weight"
+    ) %>% 
+    rstatix::t_test(
+        formula = weight~time, 
+        paired = TRUE, 
+        detailed = TRUE
+    )%>% 
+    knitr::kable(booktabs = TRUE)
+```
+
+
+
+|  estimate|.y.    |group1 |group2 |  n1|  n2| statistic|  p|  df|  conf.low| conf.high|method |alternative |
+|---------:|:------|:------|:------|---:|---:|---------:|--:|---:|---------:|---------:|:------|:-----------|
+| -162.5213|weight |after  |before | 399| 399| -94.07754|  0| 398| -165.9175| -159.1251|T-test |two.sided   |
+
+There was on average a 162.5g reduction in weight of the loaves of bread after 
+baking. This reduction has a 95% confidence interval of 159.1g to 165.9g and is 
+significantly different from 0 (p-value<0.001).
+

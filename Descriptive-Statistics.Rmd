@@ -1,6 +1,8 @@
 ```{r echo=FALSE}
 library(tidyverse)
 library(magrittr)
+library(gtsummary)
+gtsummary::theme_gtsummary_compact()
 ```
 
 
@@ -18,9 +20,17 @@ titanic2 <-
            age  = haven::as_factor(age),
            class = haven::as_factor(class)) %>% 
     haven::zap_labels()
+```
 
-titanic2
+We visualize the first 6 rows of the data 
 
+```{r comment=NA}
+titanic2 %>% head()
+```
+
+And the summarize the entire as below
+
+```{r comment=NA}
 titanic2 %>% summarytools::dfSummary(graph.col = F)
 ```
 
@@ -29,7 +39,12 @@ titanic2 %>% summarytools::dfSummary(graph.col = F)
 #### Frequencies & Proportions
 
 ```{r comment=NA}
-titanic2 %$% epiDisplay::tab1(class, graph = FALSE) 
+titanic2 %>% 
+    gtsummary::tbl_summary(
+        include = class,
+        digits = class ~ c(0,1)
+    ) %>% 
+    gtsummary::bold_labels()
 ```
 
 #### Graph - Barchart

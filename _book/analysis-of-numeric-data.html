@@ -130,130 +130,437 @@ and have one mode and with a sample size between 16 and 40</li>
 <p>With our sample considered to be randomly selected and a sample size of 140, we
 apply the One-sample T-test as below.</p>
 <p>We first import the data</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="analysis-of-numeric-data.html#cb130-1" tabindex="-1"></a>df_data1 <span class="ot">&lt;-</span> </span>
-<span id="cb130-2"><a href="analysis-of-numeric-data.html#cb130-2" tabindex="-1"></a>    <span class="fu">read_delim</span>(</span>
-<span id="cb130-3"><a href="analysis-of-numeric-data.html#cb130-3" tabindex="-1"></a>        <span class="at">file =</span> <span class="st">"./Data/data1.txt"</span>, </span>
-<span id="cb130-4"><a href="analysis-of-numeric-data.html#cb130-4" tabindex="-1"></a>        <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
-<span id="cb130-5"><a href="analysis-of-numeric-data.html#cb130-5" tabindex="-1"></a>        <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"f"</span>, <span class="st">"i"</span>,<span class="st">"i"</span>)</span>
-<span id="cb130-6"><a href="analysis-of-numeric-data.html#cb130-6" tabindex="-1"></a>    )</span>
-<span id="cb130-7"><a href="analysis-of-numeric-data.html#cb130-7" tabindex="-1"></a></span>
-<span id="cb130-8"><a href="analysis-of-numeric-data.html#cb130-8" tabindex="-1"></a><span class="fu">glimpse</span>(df_data1)</span>
-<span id="cb130-9"><a href="analysis-of-numeric-data.html#cb130-9" tabindex="-1"></a>Rows<span class="sc">:</span> <span class="dv">140</span></span>
-<span id="cb130-10"><a href="analysis-of-numeric-data.html#cb130-10" tabindex="-1"></a>Columns<span class="sc">:</span> <span class="dv">4</span></span>
-<span id="cb130-11"><a href="analysis-of-numeric-data.html#cb130-11" tabindex="-1"></a><span class="sc">$</span> id     <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"125"</span>, <span class="st">"62"</span>, <span class="st">"112"</span>, <span class="st">"29"</span>, <span class="st">"27"</span>, <span class="st">"131"</span>, <span class="st">"83"</span>…</span>
-<span id="cb130-12"><a href="analysis-of-numeric-data.html#cb130-12" tabindex="-1"></a><span class="sc">$</span> sex    <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male…</span></span>
-<span id="cb130-13"><a href="analysis-of-numeric-data.html#cb130-13" tabindex="-1"></a><span class="st">$ weight &lt;dbl&gt; 7, 11, 13, 20, 12, 9, 9, 4, 14, 13, 14, 22,…</span></span>
-<span id="cb130-14"><a href="analysis-of-numeric-data.html#cb130-14" tabindex="-1"></a><span class="st">$ height &lt;dbl&gt; 64, 96, 115, 106, 94, 78, 77, 59, 96, 92, 9…</span></span></code></pre></div>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="analysis-of-numeric-data.html#cb132-1" tabindex="-1"></a>df_data1 <span class="ot">&lt;-</span> </span>
+<span id="cb132-2"><a href="analysis-of-numeric-data.html#cb132-2" tabindex="-1"></a>    <span class="fu">read_delim</span>(</span>
+<span id="cb132-3"><a href="analysis-of-numeric-data.html#cb132-3" tabindex="-1"></a>        <span class="at">file =</span> <span class="st">"./Data/data1.txt"</span>, </span>
+<span id="cb132-4"><a href="analysis-of-numeric-data.html#cb132-4" tabindex="-1"></a>        <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
+<span id="cb132-5"><a href="analysis-of-numeric-data.html#cb132-5" tabindex="-1"></a>        <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"f"</span>, <span class="st">"i"</span>,<span class="st">"i"</span>)</span>
+<span id="cb132-6"><a href="analysis-of-numeric-data.html#cb132-6" tabindex="-1"></a>    )</span>
+<span id="cb132-7"><a href="analysis-of-numeric-data.html#cb132-7" tabindex="-1"></a></span>
+<span id="cb132-8"><a href="analysis-of-numeric-data.html#cb132-8" tabindex="-1"></a><span class="fu">glimpse</span>(df_data1)</span>
+<span id="cb132-9"><a href="analysis-of-numeric-data.html#cb132-9" tabindex="-1"></a>Rows<span class="sc">:</span> <span class="dv">140</span></span>
+<span id="cb132-10"><a href="analysis-of-numeric-data.html#cb132-10" tabindex="-1"></a>Columns<span class="sc">:</span> <span class="dv">4</span></span>
+<span id="cb132-11"><a href="analysis-of-numeric-data.html#cb132-11" tabindex="-1"></a><span class="sc">$</span> id     <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"125"</span>, <span class="st">"62"</span>, <span class="st">"112"</span>, <span class="st">"29"</span>, <span class="st">"27"</span>, <span class="st">"131"</span>, <span class="st">"83"</span>…</span>
+<span id="cb132-12"><a href="analysis-of-numeric-data.html#cb132-12" tabindex="-1"></a><span class="sc">$</span> sex    <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male…</span></span>
+<span id="cb132-13"><a href="analysis-of-numeric-data.html#cb132-13" tabindex="-1"></a><span class="st">$ weight &lt;dbl&gt; 7, 11, 13, 20, 12, 9, 9, 4, 14, 13, 14, 22,…</span></span>
+<span id="cb132-14"><a href="analysis-of-numeric-data.html#cb132-14" tabindex="-1"></a><span class="st">$ height &lt;dbl&gt; 64, 96, 115, 106, 94, 78, 77, 59, 96, 92, 9…</span></span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu">epiDisplay</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/epiDisplay/man/ci.html">ci</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="tabwid">
-<style>.cl-df19045a{}.cl-df0d7446{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-df132e0e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df1343c6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df1343d0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-df19045a">
-<thead><tr style="overflow-wrap:break-word;">
-<th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">n</span></p></th>
-<th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">mean</span></p></th>
-<th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">sd</span></p></th>
-<th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">se</span></p></th>
-<th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">lower95ci</span></p></th>
-<th class="cl-df1343c6"><p class="cl-df132e0e"><span class="cl-df0d7446">upper95ci</span></p></th>
+<span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">n</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">se</th>
+<th align="right">lower95ci</th>
+<th align="right">upper95ci</th>
 </tr></thead>
-<tbody><tr style="overflow-wrap:break-word;">
-<td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">139</span></p></td>
-<td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">90.85612</span></p></td>
-<td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">21.34179</span></p></td>
-<td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">1.810187</span></p></td>
-<td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">87.27683</span></p></td>
-<td class="cl-df1343d0"><p class="cl-df132e0e"><span class="cl-df0d7446">94.4354</span></p></td>
+<tbody><tr class="odd">
+<td align="left"></td>
+<td align="right">139</td>
+<td align="right">90.85612</td>
+<td align="right">21.34179</td>
+<td align="right">1.810187</td>
+<td align="right">87.27683</td>
+<td align="right">94.4354</td>
 </tr></tbody>
 </table></div>
-</div>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">meantables</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/meantables/man/mean_table.html">mean_table</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="tabwid">
-<style>.cl-df356cf8{}.cl-df2c6c66{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-df2fd86a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df2fd874{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df2fef76{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df2fef80{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df2fef8a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df2fef8b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-df356cf8">
-<thead><tr style="overflow-wrap:break-word;">
-<th class="cl-df2fef76"><p class="cl-df2fd86a"><span class="cl-df2c6c66">response_var</span></p></th>
-<th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">n</span></p></th>
-<th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">mean</span></p></th>
-<th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">sd</span></p></th>
-<th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">sem</span></p></th>
-<th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">lcl</span></p></th>
-<th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">ucl</span></p></th>
-<th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">min</span></p></th>
-<th class="cl-df2fef80"><p class="cl-df2fd874"><span class="cl-df2c6c66">max</span></p></th>
+<span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">response_var</th>
+<th align="right">n</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">sem</th>
+<th align="right">lcl</th>
+<th align="right">ucl</th>
+<th align="right">min</th>
+<th align="right">max</th>
 </tr></thead>
-<tbody><tr style="overflow-wrap:break-word;">
-<td class="cl-df2fef8a"><p class="cl-df2fd86a"><span class="cl-df2c6c66">height</span></p></td>
-<td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">139</span></p></td>
-<td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">90.86</span></p></td>
-<td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">21.34</span></p></td>
-<td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">1.810187</span></p></td>
-<td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">87.28</span></p></td>
-<td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">94.44</span></p></td>
-<td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">49</span></p></td>
-<td class="cl-df2fef8b"><p class="cl-df2fd874"><span class="cl-df2c6c66">137</span></p></td>
+<tbody><tr class="odd">
+<td align="left">height</td>
+<td align="right">139</td>
+<td align="right">90.86</td>
+<td align="right">21.34</td>
+<td align="right">1.810187</td>
+<td align="right">87.28</td>
+<td align="right">94.44</td>
+<td align="right">49</td>
+<td align="right">137</td>
 </tr></tbody>
 </table></div>
-</div>
 <p>For sex stratified confidence intervals we have</p>
-<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">meantables</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/meantables/man/mean_table.html">mean_table</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="tabwid">
-<style>.cl-df546fcc{}.cl-df4ae9ca{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-df4ea7d6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df4ea7ea{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-df4ebeb0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebeb1{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebeba{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebec4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebec5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df4ebece{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-df546fcc">
-<thead><tr style="overflow-wrap:break-word;">
-<th class="cl-df4ebeb0"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">response_var</span></p></th>
-<th class="cl-df4ebeb0"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">group_var</span></p></th>
-<th class="cl-df4ebeb0"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">group_cat</span></p></th>
-<th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">n</span></p></th>
-<th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">mean</span></p></th>
-<th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">sd</span></p></th>
-<th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">sem</span></p></th>
-<th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">lcl</span></p></th>
-<th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">ucl</span></p></th>
-<th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">min</span></p></th>
-<th class="cl-df4ebeb1"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">max</span></p></th>
+<span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="16%">
+<col width="12%">
+<col width="12%">
+<col width="3%">
+<col width="7%">
+<col width="7%">
+<col width="11%">
+<col width="7%">
+<col width="7%">
+<col width="5%">
+<col width="5%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">response_var</th>
+<th align="left">group_var</th>
+<th align="left">group_cat</th>
+<th align="right">n</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">sem</th>
+<th align="right">lcl</th>
+<th align="right">ucl</th>
+<th align="right">min</th>
+<th align="right">max</th>
 </tr></thead>
 <tbody>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-df4ebeba"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">height</span></p></td>
-<td class="cl-df4ebeba"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">sex</span></p></td>
-<td class="cl-df4ebeba"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">Female</span></p></td>
-<td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">63</span></p></td>
-<td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">92.16</span></p></td>
-<td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">22.98</span></p></td>
-<td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">2.894829</span></p></td>
-<td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">86.37</span></p></td>
-<td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">97.95</span></p></td>
-<td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">49</span></p></td>
-<td class="cl-df4ebec4"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">137</span></p></td>
+<tr class="odd">
+<td align="left">height</td>
+<td align="left">sex</td>
+<td align="left">Female</td>
+<td align="right">63</td>
+<td align="right">92.16</td>
+<td align="right">22.98</td>
+<td align="right">2.894829</td>
+<td align="right">86.37</td>
+<td align="right">97.95</td>
+<td align="right">49</td>
+<td align="right">137</td>
 </tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-df4ebec5"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">height</span></p></td>
-<td class="cl-df4ebec5"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">sex</span></p></td>
-<td class="cl-df4ebec5"><p class="cl-df4ea7d6"><span class="cl-df4ae9ca">Male</span></p></td>
-<td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">76</span></p></td>
-<td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">89.78</span></p></td>
-<td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">19.98</span></p></td>
-<td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">2.291372</span></p></td>
-<td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">85.21</span></p></td>
-<td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">94.34</span></p></td>
-<td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">55</span></p></td>
-<td class="cl-df4ebece"><p class="cl-df4ea7ea"><span class="cl-df4ae9ca">131</span></p></td>
+<tr class="even">
+<td align="left">height</td>
+<td align="left">sex</td>
+<td align="left">Male</td>
+<td align="right">76</td>
+<td align="right">89.78</td>
+<td align="right">19.98</td>
+<td align="right">2.291372</td>
+<td align="right">85.21</td>
+<td align="right">94.34</td>
+<td align="right">55</td>
+<td align="right">131</td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p>To test the H0: The mean height is 100cm whiles generating the confidence
-interval as well we use</p>
+<div id="comparing-the-mean-to-a-hypothesised-value" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> Comparing the mean to a hypothesised value<a class="anchor" aria-label="anchor" href="#comparing-the-mean-to-a-hypothesised-value"><i class="fas fa-link"></i></a>
+</h2>
+<p>Assuming the objective of the data collected was to determine if the average
+weight of our population was similar to a population with a known mean weight of
+14kgs.</p>
+<p>Our null hypothesis is:</p>
+<blockquote>
+<p>H0: There is no difference in mean weight between our population and a
+population with mean weight of 14kgs.</p>
+</blockquote>
+<p>To test this hypothesis we use the One sample t-test after we have satisfied
+ourselves that the assumptions for its use have been met.</p>
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
+<span>     <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">weight</span><span class="op">~</span><span class="fl">1</span>, mu<span class="op">=</span><span class="fl">14</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>     <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">.y.</th>
+<th align="left">group1</th>
+<th align="left">group2</th>
+<th align="right">n</th>
+<th align="right">statistic</th>
+<th align="right">df</th>
+<th align="right">p</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">weight</td>
+<td align="left">1</td>
+<td align="left">null model</td>
+<td align="right">140</td>
+<td align="right">-3.324013</td>
+<td align="right">139</td>
+<td align="right">0.00113</td>
+</tr></tbody>
+</table></div>
+<p>The p-value of 0.001 is the probability that our sample could have come from a
+population with a mean weight of 14kgs. Since this is very small we reject the
+null H0 at a 5% significance level and conclude that our population mean weight
+is significantly different from 14kgs.
+The confidence interval generated is that of our sample mean. With the
+hypothesized value of
+14kgs outside the confidence interval of the mean we conclude that there is
+insuficient evidence to suggest that the mean weight of our population is 14kgs.</p>
+</div>
+<div id="comparing-mean-of-two-independent-groups" class="section level2" number="11.3">
+<h2>
+<span class="header-section-number">11.3</span> Comparing mean of two independent groups<a class="anchor" aria-label="anchor" href="#comparing-mean-of-two-independent-groups"><i class="fas fa-link"></i></a>
+</h2>
+<p>This is possibly the most common use for the t-test. To compare the mean weights
+of the males and female in our study we come up with</p>
+<blockquote>
+<p>H0: There is no difference in weight between the males and females in our
+population.</p>
+</blockquote>
+<p>To test this assertion we first determine if our sample fits the assumption for
+the use of the Two sample t-test. These are:</p>
+<ol style="list-style-type: decimal">
+<li>The sample should have been randomly chosen</li>
+<li>The two samples are completely independent</li>
+<li>Each population is at least 20 times larger than its respective sample.</li>
+<li>The population distribution of the variable should be normal. This can be assumed to be
+present if
+<ul>
+<li>The distribution of the population is known to be normal</li>
+<li>The population distribution should have one mode, symmetric, without outliers and
+a sample size of 15 or less</li>
+<li>The population distribution should be moderately skewed, without outliers, have
+one mode and with a sample size between 16 and 40</li>
+<li>The sample size is more than 40 and data has no outliers.</li>
+</ul>
+</li>
+</ol>
+<p>Our data fulfils all the criteria above hence we apply the test</p>
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">weight</span> <span class="op">~</span> <span class="va">sex</span>, detailed <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="7%">
+<col width="8%">
+<col width="8%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="2%">
+<col width="2%">
+<col width="8%">
+<col width="4%">
+<col width="7%">
+<col width="9%">
+<col width="8%">
+<col width="5%">
+<col width="9%">
+</colgroup>
+<thead><tr class="header">
+<th align="right">estimate</th>
+<th align="right">estimate1</th>
+<th align="right">estimate2</th>
+<th align="left">.y.</th>
+<th align="left">group1</th>
+<th align="left">group2</th>
+<th align="right">n1</th>
+<th align="right">n2</th>
+<th align="right">statistic</th>
+<th align="right">p</th>
+<th align="right">df</th>
+<th align="right">conf.low</th>
+<th align="right">conf.high</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">1.305921</td>
+<td align="right">12.9375</td>
+<td align="right">11.63158</td>
+<td align="left">weight</td>
+<td align="left">Female</td>
+<td align="left">Male</td>
+<td align="right">64</td>
+<td align="right">76</td>
+<td align="right">1.196345</td>
+<td align="right">0.234</td>
+<td align="right">117.1908</td>
+<td align="right">-0.8558831</td>
+<td align="right">3.467725</td>
+<td align="left">T-test</td>
+<td align="left">two.sided</td>
+</tr></tbody>
+</table></div>
+<p>With a relatively high p-value we conclude that there is insufficient evidence
+to refute null hypothesis. In other words there is insufficient evidence to
+conclude the mean weights of males and females differ in the study population.
+Note that in our sample however females appear heavier than males as shown by
+the last two lines of the output above.</p>
+<p>The confidence interval determined above (-0.86 to 3.47) is actually that for
+the mean sample difference between females and males. Since the confidence
+interval contains the null value from H0 above i.e. 0, we conclude that there
+isn’t enough evidence of a difference in mean weight between the two sexes.
+Hence both the confidence interval and p-value come to similar conclusions.</p>
+</div>
+<div id="comparing-means-of-paired-observations" class="section level2" number="11.4">
+<h2>
+<span class="header-section-number">11.4</span> Comparing means of paired observations<a class="anchor" aria-label="anchor" href="#comparing-means-of-paired-observations"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this section we use the <code>bread.txt</code> data which has the weight in grams before
+and after baking some loaves of bread. A description of the variables is
+contained in the data file. Paired observations occur in circumstances where
+repeated measurement are done on the same object or data collected has some
+characteristics in common. For the bread data the same bread is weighed before
+and after baking. Determining if there is a significant difference between the
+two measurements requires the use of the Paired t-test. As always be begin by
+importing the data</p>
+<p>Next we determine the structure of the data frame df2</p>
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"./Data/bread.txt"</span>, sep<span class="op">=</span><span class="st">"\t"</span>, header<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span></code></pre></div>
+<p>And then summarize it</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="analysis-of-numeric-data.html#cb139-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb139-2"><a href="analysis-of-numeric-data.html#cb139-2" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb139-3"><a href="analysis-of-numeric-data.html#cb139-3" tabindex="-1"></a>df_bread  </span>
+<span id="cb139-4"><a href="analysis-of-numeric-data.html#cb139-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">399</span> x <span class="dv">5</span>  </span>
+<span id="cb139-5"><a href="analysis-of-numeric-data.html#cb139-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
+<span id="cb139-6"><a href="analysis-of-numeric-data.html#cb139-6" tabindex="-1"></a></span>
+<span id="cb139-7"><a href="analysis-of-numeric-data.html#cb139-7" tabindex="-1"></a><span class="sc">----------------------------------------------------------------------------------------</span></span>
+<span id="cb139-8"><a href="analysis-of-numeric-data.html#cb139-8" tabindex="-1"></a>No   Variable      Stats <span class="sc">/</span> Values             <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
+<span id="cb139-9"><a href="analysis-of-numeric-data.html#cb139-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-------------</span> <span class="sc">--------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb139-10"><a href="analysis-of-numeric-data.html#cb139-10" tabindex="-1"></a><span class="dv">1</span>    sid           <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">200</span> (<span class="fl">115.3</span>)    <span class="dv">399</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb139-11"><a href="analysis-of-numeric-data.html#cb139-11" tabindex="-1"></a>     [integer]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>           (Integer sequence)    (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb139-12"><a href="analysis-of-numeric-data.html#cb139-12" tabindex="-1"></a>                   <span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">200</span> <span class="sc">&lt;</span> <span class="dv">399</span>                                                        </span>
+<span id="cb139-13"><a href="analysis-of-numeric-data.html#cb139-13" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">199</span> (<span class="fl">0.6</span>)                                                 </span>
+<span id="cb139-14"><a href="analysis-of-numeric-data.html#cb139-14" tabindex="-1"></a></span>
+<span id="cb139-15"><a href="analysis-of-numeric-data.html#cb139-15" tabindex="-1"></a><span class="dv">2</span>    type          <span class="fl">1.</span> maize                   <span class="dv">212</span> (<span class="fl">53.1</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb139-16"><a href="analysis-of-numeric-data.html#cb139-16" tabindex="-1"></a>     [character]   <span class="fl">2.</span> wheat                   <span class="dv">187</span> (<span class="fl">46.9</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb139-17"><a href="analysis-of-numeric-data.html#cb139-17" tabindex="-1"></a></span>
+<span id="cb139-18"><a href="analysis-of-numeric-data.html#cb139-18" tabindex="-1"></a><span class="dv">3</span>    before        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">379.5</span> (<span class="fl">28.1</span>)   <span class="dv">120</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb139-19"><a href="analysis-of-numeric-data.html#cb139-19" tabindex="-1"></a>     [integer]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb139-20"><a href="analysis-of-numeric-data.html#cb139-20" tabindex="-1"></a>                   <span class="dv">304</span> <span class="sc">&lt;</span> <span class="dv">379</span> <span class="sc">&lt;</span> <span class="dv">479</span>                                                      </span>
+<span id="cb139-21"><a href="analysis-of-numeric-data.html#cb139-21" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">40</span> (<span class="fl">0.1</span>)                                                  </span>
+<span id="cb139-22"><a href="analysis-of-numeric-data.html#cb139-22" tabindex="-1"></a></span>
+<span id="cb139-23"><a href="analysis-of-numeric-data.html#cb139-23" tabindex="-1"></a><span class="dv">4</span>    after         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">217</span> (<span class="fl">29.8</span>)     <span class="dv">121</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb139-24"><a href="analysis-of-numeric-data.html#cb139-24" tabindex="-1"></a>     [integer]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb139-25"><a href="analysis-of-numeric-data.html#cb139-25" tabindex="-1"></a>                   <span class="dv">140</span> <span class="sc">&lt;</span> <span class="dv">215</span> <span class="sc">&lt;</span> <span class="dv">295</span>                                                      </span>
+<span id="cb139-26"><a href="analysis-of-numeric-data.html#cb139-26" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">48</span> (<span class="fl">0.1</span>)                                                  </span>
+<span id="cb139-27"><a href="analysis-of-numeric-data.html#cb139-27" tabindex="-1"></a></span>
+<span id="cb139-28"><a href="analysis-of-numeric-data.html#cb139-28" tabindex="-1"></a><span class="dv">5</span>    oven          <span class="fl">1.</span> Firewood                <span class="dv">199</span> (<span class="fl">49.9</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb139-29"><a href="analysis-of-numeric-data.html#cb139-29" tabindex="-1"></a>     [character]   <span class="fl">2.</span> Gas                     <span class="dv">200</span> (<span class="fl">50.1</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb139-30"><a href="analysis-of-numeric-data.html#cb139-30" tabindex="-1"></a><span class="sc">----------------------------------------------------------------------------------------</span></span></code></pre></div>
+<p>Our next task is to compare the weight of the loaves of bread before and after
+baking. We begin by looking at the mean and standard deviations of the two
+weights.</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="analysis-of-numeric-data.html#cb140-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> </span>
+<span id="cb140-2"><a href="analysis-of-numeric-data.html#cb140-2" tabindex="-1"></a>    <span class="fu">select</span>(before, after) <span class="sc">%&gt;%</span> </span>
+<span id="cb140-3"><a href="analysis-of-numeric-data.html#cb140-3" tabindex="-1"></a>    rstatix<span class="sc">::</span><span class="fu">get_summary_stats</span>(<span class="at">type=</span> <span class="st">"mean_sd"</span>)</span>
+<span id="cb140-4"><a href="analysis-of-numeric-data.html#cb140-4" tabindex="-1"></a><span class="co"># A tibble: 2 × 4</span></span>
+<span id="cb140-5"><a href="analysis-of-numeric-data.html#cb140-5" tabindex="-1"></a>  variable     n  mean    sd</span>
+<span id="cb140-6"><a href="analysis-of-numeric-data.html#cb140-6" tabindex="-1"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb140-7"><a href="analysis-of-numeric-data.html#cb140-7" tabindex="-1"></a><span class="dv">1</span> before     <span class="dv">399</span>  <span class="fl">380.</span>  <span class="fl">28.1</span></span>
+<span id="cb140-8"><a href="analysis-of-numeric-data.html#cb140-8" tabindex="-1"></a><span class="dv">2</span> after      <span class="dv">399</span>  <span class="fl">217.</span>  <span class="fl">29.8</span></span></code></pre></div>
+<p>It is obvious that the mean weight of the bread before baking is much higher
+than after however the standard deviations appear similar. For a formal test to
+determine the difference in means we use the paired t-test. As before the we
+state the assumptions of the paired t-test</p>
+<ol style="list-style-type: decimal">
+<li>The sample should have been randomly chosen</li>
+<li>The two samples are not independent (they are related)</li>
+<li>Each population is at least 20 times larger than its respective sample.</li>
+<li>The population distribution of the difference between the two variables
+should be normal.
+This can be assumed to be present if
+<ul>
+<li>The distribution of the population is known to be normal</li>
+<li>The population distribution should have one mode, symmetric, without
+outliers and a sample size of 15 or less</li>
+<li>The population distribution should be moderately skewed, without outliers,
+have one mode and with a sample size between 16 and 40</li>
+<li>The sample size is more than 40 and data has no outliers.</li>
+</ul>
+</li>
+</ol>
+<p>The only new assumption we need to evaluate here is the distribution of the
+difference between the weights before and after. We do so below</p>
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>diff_in_wgt <span class="op">=</span> <span class="va">after</span> <span class="op">-</span> <span class="va">before</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">diff_in_wgt</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">10</span>, col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Difference in weight"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Analysis-of-continuous-data_files/figure-html/unnamed-chunk-11-1.png" width="480"></div>
+<p>The graphical representation in above shows our difference in weight is
+literally normally distributed. We therefore go ahead to determine the
+difference in mean weights. First we state our hypothesis</p>
+<blockquote>
+<p>H0: There is no change in weight of loaves of bread after baking</p>
+</blockquote>
+<p>And then perform the test after converting the data to the long format</p>
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">pivot_longer</span><span class="op">(</span></span>
+<span>        cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">before</span>, <span class="va">after</span><span class="op">)</span>, </span>
+<span>        names_to <span class="op">=</span> <span class="st">"time"</span>, </span>
+<span>        values_to <span class="op">=</span> <span class="st">"weight"</span></span>
+<span>    <span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span></span>
+<span>        formula <span class="op">=</span> <span class="va">weight</span><span class="op">~</span><span class="va">time</span>, </span>
+<span>        paired <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>        detailed <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>    <span class="op">)</span><span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="10%">
+<col width="7%">
+<col width="7%">
+<col width="7%">
+<col width="4%">
+<col width="4%">
+<col width="10%">
+<col width="3%">
+<col width="4%">
+<col width="10%">
+<col width="10%">
+<col width="7%">
+<col width="12%">
+</colgroup>
+<thead><tr class="header">
+<th align="right">estimate</th>
+<th align="left">.y.</th>
+<th align="left">group1</th>
+<th align="left">group2</th>
+<th align="right">n1</th>
+<th align="right">n2</th>
+<th align="right">statistic</th>
+<th align="right">p</th>
+<th align="right">df</th>
+<th align="right">conf.low</th>
+<th align="right">conf.high</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">-162.5213</td>
+<td align="left">weight</td>
+<td align="left">after</td>
+<td align="left">before</td>
+<td align="right">399</td>
+<td align="right">399</td>
+<td align="right">-94.07754</td>
+<td align="right">0</td>
+<td align="right">398</td>
+<td align="right">-165.9175</td>
+<td align="right">-159.1251</td>
+<td align="left">T-test</td>
+<td align="left">two.sided</td>
+</tr></tbody>
+</table></div>
+<p>There was on average a 162.5g reduction in weight of the loaves of bread after
+baking. This reduction has a 95% confidence interval of 159.1g to 165.9g and is
+significantly different from 0 (p-value&lt;0.001).</p>
 
 </div>
 </div>
@@ -265,6 +572,9 @@ interval as well we use</p>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#analysis-of-numeric-data"><span class="header-section-number">11</span> Analysis of numeric data</a></li>
 <li><a class="nav-link" href="#confidence-interval-of-a-mean"><span class="header-section-number">11.1</span> Confidence interval of a mean</a></li>
+<li><a class="nav-link" href="#comparing-the-mean-to-a-hypothesised-value"><span class="header-section-number">11.2</span> Comparing the mean to a hypothesised value</a></li>
+<li><a class="nav-link" href="#comparing-mean-of-two-independent-groups"><span class="header-section-number">11.3</span> Comparing mean of two independent groups</a></li>
+<li><a class="nav-link" href="#comparing-means-of-paired-observations"><span class="header-section-number">11.4</span> Comparing means of paired observations</a></li>
 </ul>
 
       <div class="book-extra">
@@ -282,7 +592,7 @@ interval as well we use</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-06-30.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

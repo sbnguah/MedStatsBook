@@ -45,13 +45,13 @@ glimpse(df_data1)
 ```{r}
 df_data1 %$% 
     epiDisplay::ci(height)%>% 
-    flextable::flextable()
+    knitr::kable(booktabs = TRUE)
 ```
 
 ```{r}
 df_data1 %>% 
     meantables::mean_table(height) %>% 
-    flextable::flextable()
+    knitr::kable(booktabs = TRUE)
 ```
 
 For sex stratified confidence intervals we have
@@ -60,9 +60,165 @@ For sex stratified confidence intervals we have
 df_data1 %>% 
     group_by(sex) %>% 
     meantables::mean_table(height)%>% 
-    flextable::flextable()
+    knitr::kable(booktabs = TRUE)
 ```
 
+## Comparing the mean to a hypothesised value
+Assuming the objective of the data collected  was to determine if the average 
+weight of our population was similar to a population with a known mean weight of 
+14kgs. 
 
-To test the H0: The mean height is 100cm whiles generating the confidence 
-interval as well we use
+Our null hypothesis is: 
+
+> H0: There is no difference in mean weight between our population and a 
+population with mean weight of 14kgs.
+
+To test this hypothesis we use the One sample t-test after we have satisfied 
+ourselves that the assumptions for its use have been met.
+
+```{r}
+df_data1 %>% 
+     rstatix::t_test(formula = weight~1, mu=14) %>% 
+     knitr::kable(booktabs = TRUE)
+```
+
+The p-value of 0.001 is the probability that our sample could have come from a 
+population with a mean weight of 14kgs. Since this is very small we reject the 
+null H0 at a 5% significance level and conclude that our population mean weight 
+is significantly different from 14kgs.
+The confidence interval generated is that of our sample mean. With the 
+hypothesized value of
+14kgs outside the confidence interval of the mean we conclude that there is 
+insuficient evidence to suggest that the mean weight of our population is 14kgs.
+
+## Comparing mean of two independent groups
+This is possibly the most common use for the t-test. To compare the mean weights 
+of the males and female in our study we come up with
+
+> H0: There is no difference in weight between the males and females in our 
+population.
+
+To test this assertion we first determine if our sample fits the assumption for 
+the use of the Two sample t-test. These are:
+
+1. The sample should have been randomly chosen
+1. The two samples are completely independent
+1. Each population is at least 20 times larger than its respective sample.
+1. The population distribution of the variable should be normal. This can be assumed to be
+present if
+    - The distribution of the population is known to be normal
+    - The population distribution should have one mode, symmetric, without outliers and
+a sample size of 15 or less
+    - The population distribution should be moderately skewed, without outliers, have
+one mode and with a sample size between 16 and 40
+    - The sample size is more than 40 and data has no outliers.
+    
+Our data fulfils all the criteria above hence we apply the test
+
+```{r}
+df_data1 %>% 
+    rstatix::t_test(formula = weight ~ sex, detailed = T)%>% 
+    knitr::kable(booktabs = TRUE)
+```
+
+With a relatively high p-value we conclude that there is insufficient evidence 
+to refute null hypothesis. In other words there is insufficient evidence to 
+conclude the mean weights of males and females differ in the study population. 
+Note that in our sample however females appear heavier than males as shown by 
+the last two lines of the output above.
+
+The confidence interval determined above (-0.86 to 3.47) is actually that for 
+the mean sample difference between females and males. Since the confidence 
+interval contains the null value from H0 above i.e. 0, we conclude that there 
+isn't enough evidence of a difference in mean weight between the two sexes.
+Hence both the confidence interval and p-value come to similar conclusions.
+
+## Comparing means of paired observations
+In this section we use the `bread.txt` data which has the weight in grams before 
+and after baking some loaves of bread. A description of the variables is 
+contained in the data file. Paired observations occur in circumstances where 
+repeated measurement are done on the same object or data collected has some 
+characteristics in common. For the bread data the same bread is weighed before 
+and after baking. Determining if there is a significant difference between the 
+two measurements requires the use of the Paired t-test. As always be begin by 
+importing the data
+
+Next we determine the structure of the data frame df2
+
+```{r}
+df_bread <-read.table("./Data/bread.txt", sep="\t", header=T)
+```
+
+And then summarize it 
+
+```{r}
+df_bread %>% summarytools::dfSummary(graph.col = F)
+```
+
+Our next task is to compare the weight of the loaves of bread before and after 
+baking. We begin by looking at the mean and standard deviations of the two 
+weights.
+
+```{r}
+df_bread %>% 
+    select(before, after) %>% 
+    rstatix::get_summary_stats(type= "mean_sd")
+```
+
+It is obvious that the mean weight of the bread before baking is much higher 
+than after however the standard deviations appear similar. For a formal test to 
+determine the difference in means we use the paired t-test. As before the we 
+state the assumptions of the paired t-test 
+
+1. The sample should have been randomly chosen
+1. The two samples are not independent (they are related)
+1. Each population is at least 20 times larger than its respective sample.
+1. The population distribution of the difference between the two variables 
+should be normal.
+This can be assumed to be present if
+    - The distribution of the population is known to be normal
+    - The population distribution should have one mode, symmetric, without 
+    outliers and a sample size of 15 or less
+    - The population distribution should be moderately skewed, without outliers, 
+    have one mode and with a sample size between 16 and 40
+    - The sample size is more than 40 and data has no outliers.
+    
+The only new assumption we need to evaluate here is the distribution of the 
+difference between the weights before and after. We do so below
+
+```{r fig.height=3, fig.width=5}
+df_bread %>% 
+    mutate(diff_in_wgt = after - before) %>% 
+    ggplot(aes(x = diff_in_wgt)) +
+    geom_histogram(bins = 10, col = "white") + 
+    labs(x = "Difference in weight") +
+    theme_bw()
+```
+
+The graphical representation in above shows our difference in weight is 
+literally normally distributed. We therefore go ahead to determine the 
+difference in mean weights. First we state our hypothesis
+
+> H0: There is no change in weight of loaves of bread after baking
+
+And then perform the test after converting the data to the long format
+
+```{r}
+df_bread %>%
+    pivot_longer(
+        cols = c(before, after), 
+        names_to = "time", 
+        values_to = "weight"
+    ) %>% 
+    rstatix::t_test(
+        formula = weight~time, 
+        paired = TRUE, 
+        detailed = TRUE
+    )%>% 
+    knitr::kable(booktabs = TRUE)
+```
+
+There was on average a 162.5g reduction in weight of the loaves of bread after 
+baking. This reduction has a 95% confidence interval of 159.1g to 165.9g and is 
+significantly different from 0 (p-value<0.001).
+

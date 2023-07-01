@@ -91,6 +91,9 @@ continuous-by-multiple-categorical-variables
 summary-1
 analysis-of-numeric-data
 confidence-interval-of-a-mean
+comparing-the-mean-to-a-hypothesised-value
+comparing-mean-of-two-independent-groups
+comparing-means-of-paired-observations
 risk-and-odds
 introduction-1
 risk
