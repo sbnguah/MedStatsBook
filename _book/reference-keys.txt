@@ -94,6 +94,7 @@ confidence-interval-of-a-mean
 comparing-the-mean-to-a-hypothesised-value
 comparing-mean-of-two-independent-groups
 comparing-means-of-paired-observations
+test-for-equality-of-variances
 risk-and-odds
 introduction-1
 risk

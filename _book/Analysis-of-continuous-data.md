@@ -275,7 +275,21 @@ df_bread %>%
 
 <img src="Analysis-of-continuous-data_files/figure-html/unnamed-chunk-11-1.png" width="480" />
 
-The graphical representation in above shows our difference in weight is 
+Alternatively, we can perform a Shapiro-Wilk's test for normality. This has H0 
+as not deviating from the normal distribution. This is done below
+
+```r
+df_bread %>% 
+    mutate(diff_in_wgt = after - before) %>%
+    rstatix::shapiro_test(vars = "diff_in_wgt")
+# A tibble: 1 × 3
+  variable    statistic     p
+  <chr>           <dbl> <dbl>
+1 diff_in_wgt     0.997 0.636
+```
+
+
+The output and graphical representation above shows our difference in weight is 
 literally normally distributed. We therefore go ahead to determine the 
 difference in mean weights. First we state our hypothesis
 
@@ -308,4 +322,121 @@ df_bread %>%
 There was on average a 162.5g reduction in weight of the loaves of bread after 
 baking. This reduction has a 95% confidence interval of 159.1g to 165.9g and is 
 significantly different from 0 (p-value<0.001).
+
+## Test for equality of variances
+In using the Student's T-test to determine difference between the means of two 
+independent groups we need to be mindful of the variances of each group. The 
+computations done for the independent groups t-test are different when the 
+variances between the groups are similar or different. Therefore to determine 
+if the mean weight significantly differ between males and females we need to 
+determine and compare their variances. The function `var.test()` in R compares 
+the variances between two independent groups and can be used for this 
+determination.Below we apply this F-test to compare the variances of the weight 
+for the two sexes. First we determine the variances.
+
+
+```r
+df_data1 %>% 
+    group_by(sex) %>%
+    summarise(across(weight, list(var = var, meam = mean)))
+# A tibble: 2 × 3
+  sex    weight_var weight_meam
+  <chr>       <dbl>       <dbl>
+1 Female       50.8        12.9
+2 Male         30.2        11.6
+```
+
+There seem to be a big difference between the variance of the weights for the 
+two sexes. That for the females is almost 1.7 times that of the males. To 
+determine if this is not a chance finding we apply a formal statistical test. 
+Here our
+
+> H0: There is no difference in the variance of the weights for males and 
+females in our population
+
+The F-test actually tests the ratio of the variances not the difference. In that 
+regard our null value would be 1.
+
+
+```r
+df_data1 %>% 
+    var.test(formula = weight~sex, data = .) %>% 
+    broom::tidy() %>% 
+    knitr::kable(booktabs = TRUE)
+Multiple parameters; naming those columns num.df, den.df
+```
+
+
+
+| estimate| num.df| den.df| statistic|   p.value| conf.low| conf.high|method                          |alternative |
+|--------:|------:|------:|---------:|---------:|--------:|---------:|:-------------------------------|:-----------|
+| 1.682321|     63|     75|  1.682321| 0.0311132|  1.04865|  2.726112|F test to compare two variances |two.sided   |
+
+The significant p-value (at a significance level of 0.05) and a confidence 
+interval not containing 1 (the null value) implies there is very little evidence 
+that the variance between the two groups are the same (in other words they 
+differ significantly). In that case the conclusion from the previous analysis is 
+valid as R assumes the variances to be unequal by default if the `t.test()`
+function is used.
+
+Next we apply the same principle to the determine if the mean heights are 
+similar for males and females in our population. We first determine if the 
+variances are significantly different.
+
+
+```r
+df_data1 %>% 
+    group_by(sex) %>%
+    summarise(across(height,
+                     list(
+                         var = ~var(., na.rm=T),
+                         meam = ~mean(., na.rm=T))))
+# A tibble: 2 × 3
+  sex    height_var height_meam
+  <chr>       <dbl>       <dbl>
+1 Female       528.        92.2
+2 Male         399.        89.8
+```
+
+From the results above the variance for the females look much higher (1.3 times) 
+than the males however we apply a test to formally determine this. 
+
+
+```r
+df_data1 %>% 
+    var.test(formula = height~sex, data = .) %>% 
+    broom::tidy() %>% 
+    knitr::kable(booktabs = TRUE)
+Multiple parameters; naming those columns num.df, den.df
+```
+
+
+
+| estimate| num.df| den.df| statistic|   p.value|  conf.low| conf.high|method                          |alternative |
+|--------:|------:|------:|---------:|---------:|---------:|---------:|:-------------------------------|:-----------|
+| 1.323066|     62|     75|  1.323066| 0.2460558| 0.8233775|  2.149616|F test to compare two variances |two.sided   |
+
+Both p-value and confidence interval conclude there is insufficient evidence to 
+say the two variances are different. To use the `t.test()` function to determine 
+the possibility that mean height differ between males and females we specify 
+that variance is equal as below.
+
+
+```r
+df_data1 %>%
+    rstatix::t_test(
+        formula = height~sex, 
+        var.equal = TRUE, 
+        detailed = TRUE
+    )%>% 
+    knitr::kable(booktabs = TRUE)
+```
+
+
+
+| estimate| estimate1| estimate2|.y.    |group1 |group2 | n1| n2| statistic|     p|  df|  conf.low| conf.high|method |alternative |
+|--------:|---------:|---------:|:------|:------|:------|--:|--:|---------:|-----:|---:|---------:|---------:|:------|:-----------|
+| 2.382414|  92.15873|  89.77632|height |Female |Male   | 63| 76| 0.6538128| 0.514| 137| -4.823105|  9.587934|T-test |two.sided   |
+
+
 
