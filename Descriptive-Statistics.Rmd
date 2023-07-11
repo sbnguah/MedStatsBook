@@ -1,8 +1,8 @@
 ```{r echo=FALSE}
 library(tidyverse)
 library(magrittr)
+library(huxtable)
 library(gtsummary)
-gtsummary::theme_gtsummary_compact()
 ```
 
 
@@ -31,7 +31,7 @@ titanic2 %>% head()
 And the summarize the entire as below
 
 ```{r comment=NA}
-titanic2 %>% summarytools::dfSummary(graph.col = F)
+titanic2 %>% summary()
 ```
 
 ### Single Caregorical Variable
@@ -65,7 +65,7 @@ bar_data
 
 And the plot the barplot
 
-```{r comment=NA, fig.width = 5, fig.height=5}
+```{r comment=NA, fig.width = 6, fig.height=4}
 bar_data %>% 
     ggplot() +
     geom_bar(stat = "identity", 
@@ -85,7 +85,7 @@ bar_data %>%
 
 To do this we use the previously summarized data. Then we draw a customised Pie Chart
 
-```{r comment=NA}
+```{r comment=NA, fig.width = 6, fig.height=4}
 bar_data %>% 
     ggplot(aes(x = "", y = perc, fill = class)) +
     geom_col() +
@@ -105,29 +105,37 @@ bar_data %>%
 #### Frequencies & Proportions
 
 ```{r comment=NA}
-titanic2 %$% 
-    gmodels::CrossTable(sex, died, prop.c=F, prop.r=F, prop.t=F, prop.chisq = F)
+titanic2 %>% 
+    tbl_cross(row = sex, col = died) %>% 
+    bold_labels()
 ```
 
 #### Row percentages
 
+
 ```{r comment=NA}
-titanic2 %$% 
-    gmodels::CrossTable(sex, died, prop.c=F, prop.r=T, prop.t=F, prop.chisq = F)
+titanic2 %>% 
+    tbl_cross(row = sex, col = died, percent = "row", digits = c(0,1)) %>% 
+    bold_labels()
 ```
 
 #### Column percentages
 
 ```{r comment=NA}
-titanic2 %$% 
-    gmodels::CrossTable(sex, died, prop.c=T, prop.r=F, prop.t=F, prop.chisq = F)
+titanic2 %>% 
+    tbl_cross(row = sex, col = died, percent = "col", digits = c(0,1)) %>% 
+    bold_labels()
 ```
 
 #### Table Total Percentages
-
 ```{r comment=NA}
-titanic2 %$% 
-    gmodels::CrossTable(sex, died, prop.c=F, prop.r=F, prop.t=T, prop.chisq = F)
+titanic2 %>% 
+    tbl_cross(
+        row = sex, 
+        col = died, 
+        percent = c("cell"), 
+        digits = c(0,1)) %>% 
+    bold_labels()
 ```
 
 #### Bar Chart
@@ -151,10 +159,7 @@ newdrug <-
     mutate(sex  = haven::as_factor(sex), treat = haven::as_factor(treat)) %>% 
     haven::zap_labels() 
 
-newdrug
-
-newdrug %>% 
-    summarytools::dfSummary(labels.col = F)
+newdrug %>% summary()
 ```
 
 
@@ -166,9 +171,14 @@ These include mean and median and displayed below
 
 ```{r comment=NA}
 newdrug %>% 
-    summarise(mean.bp1 = mean(bp1), median.bp1 = median(bp1), 
-              sd.bp1 = sd(bp1), min.bp1 = min(bp1), 
-              max.bp1 = max(bp1), iqr = IQR(bp1)) 
+    summarise(
+        mean.bp1 = mean(bp1), 
+        median.bp1 = median(bp1), 
+        sd.bp1 = sd(bp1), 
+        min.bp1 = min(bp1), 
+        max.bp1 = max(bp1),
+        iqr = IQR(bp1)
+    ) 
 
 ```
 
@@ -187,7 +197,7 @@ newdrug %$%
 ```
 
 #### Graphs - Histogram 
-```{r comment=NA}
+```{r comment=NA, fig.width = 6, fig.height=4}
 newdrug %>% 
     ggplot(aes(x = bp1)) + 
     geom_histogram(bins = 7, col="black", alpha = .5, fill = "red") +
@@ -212,7 +222,7 @@ newdrug %>%
 ```
 
 #### Graphs - Density plot
-```{r comment=NA}
+```{r comment=NA, fig.width = 6, fig.height=4}
 newdrug %>% 
     ggplot(aes(y = bp1)) + 
     geom_density(col="black", fill = "yellow", alpha=.6) +
@@ -224,7 +234,7 @@ newdrug %>%
 
 #### Graphs - Cumulative Frequency plot
 
-```{r comment=NA}
+```{r comment=NA, fig.width = 6, fig.height=4}
 newdrug %>% 
     group_by(bp1) %>% 
     summarize(n = n()) %>% 
@@ -262,7 +272,7 @@ bps <-
 ```
 
 
-```{r comment=NA}
+```{r comment=NA, fig.width = 6, fig.height=4}
 bps %>% 
     ggplot(aes(y = measure, x = bp, fill = measure)) +
     ggridges::geom_density_ridges2( col="black", alpha = .5, scale=1, 
@@ -274,7 +284,7 @@ bps %>%
 ```
 
 
-```{r comment=NA}
+```{r comment=NA, fig.width = 6, fig.height=4}
 bps %>% 
     ggplot(aes(y = measure, x = bp, fill = measure))+
     geom_boxplot(show.legend = FALSE) +
@@ -286,7 +296,7 @@ bps %>%
 ```
 
 
-```{r comment=NA}
+```{r comment=NA, fig.width = 6, fig.height=4}
 bps %>% 
     ggplot(aes(y = measure, x = bp, fill = measure))+
     geom_violin(show.legend = FALSE) +

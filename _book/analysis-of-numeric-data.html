@@ -67,31 +67,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
-<li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
-<li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
-<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
-<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">6</span> Data Structures in R</a></li>
-<li><a class="" href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">10</span> Descriptive Statistics</a></li>
-<li><a class="active" href="analysis-of-numeric-data.html"><span class="header-section-number">11</span> Analysis of numeric data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">12</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">13</span> Confounding and Interaction</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">14</span> Linear Regression</a></li>
-<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">15</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">16</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">17</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">18</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">19</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">20</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">21</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">22</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">23</span> Sharing your book</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 11</span> Analysis of numeric data</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/sbnguah/MedStatsBook">View book source <i class="fab fa-github"></i></a></p>
@@ -130,21 +106,21 @@ and have one mode and with a sample size between 16 and 40</li>
 <p>With our sample considered to be randomly selected and a sample size of 140, we
 apply the One-sample T-test as below.</p>
 <p>We first import the data</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="analysis-of-numeric-data.html#cb132-1" tabindex="-1"></a>df_data1 <span class="ot">&lt;-</span> </span>
-<span id="cb132-2"><a href="analysis-of-numeric-data.html#cb132-2" tabindex="-1"></a>    <span class="fu">read_delim</span>(</span>
-<span id="cb132-3"><a href="analysis-of-numeric-data.html#cb132-3" tabindex="-1"></a>        <span class="at">file =</span> <span class="st">"./Data/data1.txt"</span>, </span>
-<span id="cb132-4"><a href="analysis-of-numeric-data.html#cb132-4" tabindex="-1"></a>        <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
-<span id="cb132-5"><a href="analysis-of-numeric-data.html#cb132-5" tabindex="-1"></a>        <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"f"</span>, <span class="st">"i"</span>,<span class="st">"i"</span>)</span>
-<span id="cb132-6"><a href="analysis-of-numeric-data.html#cb132-6" tabindex="-1"></a>    )</span>
-<span id="cb132-7"><a href="analysis-of-numeric-data.html#cb132-7" tabindex="-1"></a></span>
-<span id="cb132-8"><a href="analysis-of-numeric-data.html#cb132-8" tabindex="-1"></a><span class="fu">glimpse</span>(df_data1)</span>
-<span id="cb132-9"><a href="analysis-of-numeric-data.html#cb132-9" tabindex="-1"></a>Rows<span class="sc">:</span> <span class="dv">140</span></span>
-<span id="cb132-10"><a href="analysis-of-numeric-data.html#cb132-10" tabindex="-1"></a>Columns<span class="sc">:</span> <span class="dv">4</span></span>
-<span id="cb132-11"><a href="analysis-of-numeric-data.html#cb132-11" tabindex="-1"></a><span class="sc">$</span> id     <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"125"</span>, <span class="st">"62"</span>, <span class="st">"112"</span>, <span class="st">"29"</span>, <span class="st">"27"</span>, <span class="st">"131"</span>, <span class="st">"83"</span>…</span>
-<span id="cb132-12"><a href="analysis-of-numeric-data.html#cb132-12" tabindex="-1"></a><span class="sc">$</span> sex    <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male…</span></span>
-<span id="cb132-13"><a href="analysis-of-numeric-data.html#cb132-13" tabindex="-1"></a><span class="st">$ weight &lt;dbl&gt; 7, 11, 13, 20, 12, 9, 9, 4, 14, 13, 14, 22,…</span></span>
-<span id="cb132-14"><a href="analysis-of-numeric-data.html#cb132-14" tabindex="-1"></a><span class="st">$ height &lt;dbl&gt; 64, 96, 115, 106, 94, 78, 77, 59, 96, 92, 9…</span></span></code></pre></div>
-<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="analysis-of-numeric-data.html#cb1-1" tabindex="-1"></a>df_data1 <span class="ot">&lt;-</span> </span>
+<span id="cb1-2"><a href="analysis-of-numeric-data.html#cb1-2" tabindex="-1"></a>    <span class="fu">read_delim</span>(</span>
+<span id="cb1-3"><a href="analysis-of-numeric-data.html#cb1-3" tabindex="-1"></a>        <span class="at">file =</span> <span class="st">"./Data/data1.txt"</span>, </span>
+<span id="cb1-4"><a href="analysis-of-numeric-data.html#cb1-4" tabindex="-1"></a>        <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
+<span id="cb1-5"><a href="analysis-of-numeric-data.html#cb1-5" tabindex="-1"></a>        <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"f"</span>, <span class="st">"i"</span>,<span class="st">"i"</span>)</span>
+<span id="cb1-6"><a href="analysis-of-numeric-data.html#cb1-6" tabindex="-1"></a>    )</span>
+<span id="cb1-7"><a href="analysis-of-numeric-data.html#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="analysis-of-numeric-data.html#cb1-8" tabindex="-1"></a><span class="fu">glimpse</span>(df_data1)</span>
+<span id="cb1-9"><a href="analysis-of-numeric-data.html#cb1-9" tabindex="-1"></a>Rows<span class="sc">:</span> <span class="dv">140</span></span>
+<span id="cb1-10"><a href="analysis-of-numeric-data.html#cb1-10" tabindex="-1"></a>Columns<span class="sc">:</span> <span class="dv">4</span></span>
+<span id="cb1-11"><a href="analysis-of-numeric-data.html#cb1-11" tabindex="-1"></a><span class="sc">$</span> id     <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"125"</span>, <span class="st">"62"</span>, <span class="st">"112"</span>, <span class="st">"29"</span>, <span class="st">"27"</span>, <span class="st">"131"</span>, <span class="st">"83"</span>…</span>
+<span id="cb1-12"><a href="analysis-of-numeric-data.html#cb1-12" tabindex="-1"></a><span class="sc">$</span> sex    <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male…</span></span>
+<span id="cb1-13"><a href="analysis-of-numeric-data.html#cb1-13" tabindex="-1"></a><span class="st">$ weight &lt;dbl&gt; 7, 11, 13, 20, 12, 9, 9, 4, 14, 13, 14, 22,…</span></span>
+<span id="cb1-14"><a href="analysis-of-numeric-data.html#cb1-14" tabindex="-1"></a><span class="st">$ height &lt;dbl&gt; 64, 96, 115, 106, 94, 78, 77, 59, 96, 92, 9…</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu">epiDisplay</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/epiDisplay/man/ci.html">ci</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -168,7 +144,7 @@ apply the One-sample T-test as below.</p>
 <td align="right">94.4354</td>
 </tr></tbody>
 </table></div>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">meantables</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/meantables/man/mean_table.html">mean_table</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -197,7 +173,7 @@ apply the One-sample T-test as below.</p>
 </tr></tbody>
 </table></div>
 <p>For sex stratified confidence intervals we have</p>
-<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">meantables</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/meantables/man/mean_table.html">mean_table</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
@@ -273,7 +249,7 @@ population with mean weight of 14kgs.</p>
 </blockquote>
 <p>To test this hypothesis we use the One sample t-test after we have satisfied
 ourselves that the assumptions for its use have been met.</p>
-<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>     <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">weight</span><span class="op">~</span><span class="fl">1</span>, mu<span class="op">=</span><span class="fl">14</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>     <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -335,7 +311,7 @@ one mode and with a sample size between 16 and 40</li>
 </li>
 </ol>
 <p>Our data fulfils all the criteria above hence we apply the test</p>
-<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">weight</span> <span class="op">~</span> <span class="va">sex</span>, detailed <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -416,50 +392,50 @@ and after baking. Determining if there is a significant difference between the
 two measurements requires the use of the Paired t-test. As always be begin by
 importing the data</p>
 <p>Next we determine the structure of the data frame df2</p>
-<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"./Data/bread.txt"</span>, sep<span class="op">=</span><span class="st">"\t"</span>, header<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 <p>And then summarize it</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="analysis-of-numeric-data.html#cb139-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb139-2"><a href="analysis-of-numeric-data.html#cb139-2" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb139-3"><a href="analysis-of-numeric-data.html#cb139-3" tabindex="-1"></a>df_bread  </span>
-<span id="cb139-4"><a href="analysis-of-numeric-data.html#cb139-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">399</span> x <span class="dv">5</span>  </span>
-<span id="cb139-5"><a href="analysis-of-numeric-data.html#cb139-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
-<span id="cb139-6"><a href="analysis-of-numeric-data.html#cb139-6" tabindex="-1"></a></span>
-<span id="cb139-7"><a href="analysis-of-numeric-data.html#cb139-7" tabindex="-1"></a><span class="sc">----------------------------------------------------------------------------------------</span></span>
-<span id="cb139-8"><a href="analysis-of-numeric-data.html#cb139-8" tabindex="-1"></a>No   Variable      Stats <span class="sc">/</span> Values             <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
-<span id="cb139-9"><a href="analysis-of-numeric-data.html#cb139-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-------------</span> <span class="sc">--------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb139-10"><a href="analysis-of-numeric-data.html#cb139-10" tabindex="-1"></a><span class="dv">1</span>    sid           <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">200</span> (<span class="fl">115.3</span>)    <span class="dv">399</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb139-11"><a href="analysis-of-numeric-data.html#cb139-11" tabindex="-1"></a>     [integer]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>           (Integer sequence)    (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb139-12"><a href="analysis-of-numeric-data.html#cb139-12" tabindex="-1"></a>                   <span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">200</span> <span class="sc">&lt;</span> <span class="dv">399</span>                                                        </span>
-<span id="cb139-13"><a href="analysis-of-numeric-data.html#cb139-13" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">199</span> (<span class="fl">0.6</span>)                                                 </span>
-<span id="cb139-14"><a href="analysis-of-numeric-data.html#cb139-14" tabindex="-1"></a></span>
-<span id="cb139-15"><a href="analysis-of-numeric-data.html#cb139-15" tabindex="-1"></a><span class="dv">2</span>    type          <span class="fl">1.</span> maize                   <span class="dv">212</span> (<span class="fl">53.1</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb139-16"><a href="analysis-of-numeric-data.html#cb139-16" tabindex="-1"></a>     [character]   <span class="fl">2.</span> wheat                   <span class="dv">187</span> (<span class="fl">46.9</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb139-17"><a href="analysis-of-numeric-data.html#cb139-17" tabindex="-1"></a></span>
-<span id="cb139-18"><a href="analysis-of-numeric-data.html#cb139-18" tabindex="-1"></a><span class="dv">3</span>    before        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">379.5</span> (<span class="fl">28.1</span>)   <span class="dv">120</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb139-19"><a href="analysis-of-numeric-data.html#cb139-19" tabindex="-1"></a>     [integer]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb139-20"><a href="analysis-of-numeric-data.html#cb139-20" tabindex="-1"></a>                   <span class="dv">304</span> <span class="sc">&lt;</span> <span class="dv">379</span> <span class="sc">&lt;</span> <span class="dv">479</span>                                                      </span>
-<span id="cb139-21"><a href="analysis-of-numeric-data.html#cb139-21" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">40</span> (<span class="fl">0.1</span>)                                                  </span>
-<span id="cb139-22"><a href="analysis-of-numeric-data.html#cb139-22" tabindex="-1"></a></span>
-<span id="cb139-23"><a href="analysis-of-numeric-data.html#cb139-23" tabindex="-1"></a><span class="dv">4</span>    after         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">217</span> (<span class="fl">29.8</span>)     <span class="dv">121</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb139-24"><a href="analysis-of-numeric-data.html#cb139-24" tabindex="-1"></a>     [integer]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb139-25"><a href="analysis-of-numeric-data.html#cb139-25" tabindex="-1"></a>                   <span class="dv">140</span> <span class="sc">&lt;</span> <span class="dv">215</span> <span class="sc">&lt;</span> <span class="dv">295</span>                                                      </span>
-<span id="cb139-26"><a href="analysis-of-numeric-data.html#cb139-26" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">48</span> (<span class="fl">0.1</span>)                                                  </span>
-<span id="cb139-27"><a href="analysis-of-numeric-data.html#cb139-27" tabindex="-1"></a></span>
-<span id="cb139-28"><a href="analysis-of-numeric-data.html#cb139-28" tabindex="-1"></a><span class="dv">5</span>    oven          <span class="fl">1.</span> Firewood                <span class="dv">199</span> (<span class="fl">49.9</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb139-29"><a href="analysis-of-numeric-data.html#cb139-29" tabindex="-1"></a>     [character]   <span class="fl">2.</span> Gas                     <span class="dv">200</span> (<span class="fl">50.1</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb139-30"><a href="analysis-of-numeric-data.html#cb139-30" tabindex="-1"></a><span class="sc">----------------------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="analysis-of-numeric-data.html#cb8-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb8-2"><a href="analysis-of-numeric-data.html#cb8-2" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb8-3"><a href="analysis-of-numeric-data.html#cb8-3" tabindex="-1"></a>df_bread  </span>
+<span id="cb8-4"><a href="analysis-of-numeric-data.html#cb8-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">399</span> x <span class="dv">5</span>  </span>
+<span id="cb8-5"><a href="analysis-of-numeric-data.html#cb8-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
+<span id="cb8-6"><a href="analysis-of-numeric-data.html#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="analysis-of-numeric-data.html#cb8-7" tabindex="-1"></a><span class="sc">----------------------------------------------------------------------------------------</span></span>
+<span id="cb8-8"><a href="analysis-of-numeric-data.html#cb8-8" tabindex="-1"></a>No   Variable      Stats <span class="sc">/</span> Values             <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
+<span id="cb8-9"><a href="analysis-of-numeric-data.html#cb8-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-------------</span> <span class="sc">--------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb8-10"><a href="analysis-of-numeric-data.html#cb8-10" tabindex="-1"></a><span class="dv">1</span>    sid           <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">200</span> (<span class="fl">115.3</span>)    <span class="dv">399</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb8-11"><a href="analysis-of-numeric-data.html#cb8-11" tabindex="-1"></a>     [integer]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>           (Integer sequence)    (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb8-12"><a href="analysis-of-numeric-data.html#cb8-12" tabindex="-1"></a>                   <span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">200</span> <span class="sc">&lt;</span> <span class="dv">399</span>                                                        </span>
+<span id="cb8-13"><a href="analysis-of-numeric-data.html#cb8-13" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">199</span> (<span class="fl">0.6</span>)                                                 </span>
+<span id="cb8-14"><a href="analysis-of-numeric-data.html#cb8-14" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="analysis-of-numeric-data.html#cb8-15" tabindex="-1"></a><span class="dv">2</span>    type          <span class="fl">1.</span> maize                   <span class="dv">212</span> (<span class="fl">53.1</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb8-16"><a href="analysis-of-numeric-data.html#cb8-16" tabindex="-1"></a>     [character]   <span class="fl">2.</span> wheat                   <span class="dv">187</span> (<span class="fl">46.9</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb8-17"><a href="analysis-of-numeric-data.html#cb8-17" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="analysis-of-numeric-data.html#cb8-18" tabindex="-1"></a><span class="dv">3</span>    before        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">379.5</span> (<span class="fl">28.1</span>)   <span class="dv">120</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb8-19"><a href="analysis-of-numeric-data.html#cb8-19" tabindex="-1"></a>     [integer]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb8-20"><a href="analysis-of-numeric-data.html#cb8-20" tabindex="-1"></a>                   <span class="dv">304</span> <span class="sc">&lt;</span> <span class="dv">379</span> <span class="sc">&lt;</span> <span class="dv">479</span>                                                      </span>
+<span id="cb8-21"><a href="analysis-of-numeric-data.html#cb8-21" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">40</span> (<span class="fl">0.1</span>)                                                  </span>
+<span id="cb8-22"><a href="analysis-of-numeric-data.html#cb8-22" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="analysis-of-numeric-data.html#cb8-23" tabindex="-1"></a><span class="dv">4</span>    after         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">217</span> (<span class="fl">29.8</span>)     <span class="dv">121</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb8-24"><a href="analysis-of-numeric-data.html#cb8-24" tabindex="-1"></a>     [integer]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb8-25"><a href="analysis-of-numeric-data.html#cb8-25" tabindex="-1"></a>                   <span class="dv">140</span> <span class="sc">&lt;</span> <span class="dv">215</span> <span class="sc">&lt;</span> <span class="dv">295</span>                                                      </span>
+<span id="cb8-26"><a href="analysis-of-numeric-data.html#cb8-26" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">48</span> (<span class="fl">0.1</span>)                                                  </span>
+<span id="cb8-27"><a href="analysis-of-numeric-data.html#cb8-27" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="analysis-of-numeric-data.html#cb8-28" tabindex="-1"></a><span class="dv">5</span>    oven          <span class="fl">1.</span> Firewood                <span class="dv">199</span> (<span class="fl">49.9</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb8-29"><a href="analysis-of-numeric-data.html#cb8-29" tabindex="-1"></a>     [character]   <span class="fl">2.</span> Gas                     <span class="dv">200</span> (<span class="fl">50.1</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb8-30"><a href="analysis-of-numeric-data.html#cb8-30" tabindex="-1"></a><span class="sc">----------------------------------------------------------------------------------------</span></span></code></pre></div>
 <p>Our next task is to compare the weight of the loaves of bread before and after
 baking. We begin by looking at the mean and standard deviations of the two
 weights.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="analysis-of-numeric-data.html#cb140-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> </span>
-<span id="cb140-2"><a href="analysis-of-numeric-data.html#cb140-2" tabindex="-1"></a>    <span class="fu">select</span>(before, after) <span class="sc">%&gt;%</span> </span>
-<span id="cb140-3"><a href="analysis-of-numeric-data.html#cb140-3" tabindex="-1"></a>    rstatix<span class="sc">::</span><span class="fu">get_summary_stats</span>(<span class="at">type=</span> <span class="st">"mean_sd"</span>)</span>
-<span id="cb140-4"><a href="analysis-of-numeric-data.html#cb140-4" tabindex="-1"></a><span class="co"># A tibble: 2 × 4</span></span>
-<span id="cb140-5"><a href="analysis-of-numeric-data.html#cb140-5" tabindex="-1"></a>  variable     n  mean    sd</span>
-<span id="cb140-6"><a href="analysis-of-numeric-data.html#cb140-6" tabindex="-1"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb140-7"><a href="analysis-of-numeric-data.html#cb140-7" tabindex="-1"></a><span class="dv">1</span> before     <span class="dv">399</span>  <span class="fl">380.</span>  <span class="fl">28.1</span></span>
-<span id="cb140-8"><a href="analysis-of-numeric-data.html#cb140-8" tabindex="-1"></a><span class="dv">2</span> after      <span class="dv">399</span>  <span class="fl">217.</span>  <span class="fl">29.8</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="analysis-of-numeric-data.html#cb9-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="analysis-of-numeric-data.html#cb9-2" tabindex="-1"></a>    <span class="fu">select</span>(before, after) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="analysis-of-numeric-data.html#cb9-3" tabindex="-1"></a>    rstatix<span class="sc">::</span><span class="fu">get_summary_stats</span>(<span class="at">type=</span> <span class="st">"mean_sd"</span>)</span>
+<span id="cb9-4"><a href="analysis-of-numeric-data.html#cb9-4" tabindex="-1"></a><span class="co"># A tibble: 2 × 4</span></span>
+<span id="cb9-5"><a href="analysis-of-numeric-data.html#cb9-5" tabindex="-1"></a>  variable     n  mean    sd</span>
+<span id="cb9-6"><a href="analysis-of-numeric-data.html#cb9-6" tabindex="-1"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb9-7"><a href="analysis-of-numeric-data.html#cb9-7" tabindex="-1"></a><span class="dv">1</span> before     <span class="dv">399</span>  <span class="fl">380.</span>  <span class="fl">28.1</span></span>
+<span id="cb9-8"><a href="analysis-of-numeric-data.html#cb9-8" tabindex="-1"></a><span class="dv">2</span> after      <span class="dv">399</span>  <span class="fl">217.</span>  <span class="fl">29.8</span></span></code></pre></div>
 <p>It is obvious that the mean weight of the bread before baking is much higher
 than after however the standard deviations appear similar. For a formal test to
 determine the difference in means we use the paired t-test. As before the we
@@ -483,7 +459,7 @@ have one mode and with a sample size between 16 and 40</li>
 </ol>
 <p>The only new assumption we need to evaluate here is the distribution of the
 difference between the weights before and after. We do so below</p>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>diff_in_wgt <span class="op">=</span> <span class="va">after</span> <span class="op">-</span> <span class="va">before</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">diff_in_wgt</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -493,13 +469,13 @@ difference between the weights before and after. We do so below</p>
 <div class="inline-figure"><img src="Analysis-of-continuous-data_files/figure-html/unnamed-chunk-11-1.png" width="480"></div>
 <p>Alternatively, we can perform a Shapiro-Wilk’s test for normality. This has H0
 as not deviating from the normal distribution. This is done below</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="analysis-of-numeric-data.html#cb142-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> </span>
-<span id="cb142-2"><a href="analysis-of-numeric-data.html#cb142-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff_in_wgt =</span> after <span class="sc">-</span> before) <span class="sc">%&gt;%</span></span>
-<span id="cb142-3"><a href="analysis-of-numeric-data.html#cb142-3" tabindex="-1"></a>    rstatix<span class="sc">::</span><span class="fu">shapiro_test</span>(<span class="at">vars =</span> <span class="st">"diff_in_wgt"</span>)</span>
-<span id="cb142-4"><a href="analysis-of-numeric-data.html#cb142-4" tabindex="-1"></a><span class="co"># A tibble: 1 × 3</span></span>
-<span id="cb142-5"><a href="analysis-of-numeric-data.html#cb142-5" tabindex="-1"></a>  variable    statistic     p</span>
-<span id="cb142-6"><a href="analysis-of-numeric-data.html#cb142-6" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>           <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb142-7"><a href="analysis-of-numeric-data.html#cb142-7" tabindex="-1"></a><span class="dv">1</span> diff_in_wgt     <span class="fl">0.997</span> <span class="fl">0.636</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="analysis-of-numeric-data.html#cb11-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="analysis-of-numeric-data.html#cb11-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff_in_wgt =</span> after <span class="sc">-</span> before) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="analysis-of-numeric-data.html#cb11-3" tabindex="-1"></a>    rstatix<span class="sc">::</span><span class="fu">shapiro_test</span>(<span class="at">vars =</span> <span class="st">"diff_in_wgt"</span>)</span>
+<span id="cb11-4"><a href="analysis-of-numeric-data.html#cb11-4" tabindex="-1"></a><span class="co"># A tibble: 1 × 3</span></span>
+<span id="cb11-5"><a href="analysis-of-numeric-data.html#cb11-5" tabindex="-1"></a>  variable    statistic     p</span>
+<span id="cb11-6"><a href="analysis-of-numeric-data.html#cb11-6" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>           <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb11-7"><a href="analysis-of-numeric-data.html#cb11-7" tabindex="-1"></a><span class="dv">1</span> diff_in_wgt     <span class="fl">0.997</span> <span class="fl">0.636</span></span></code></pre></div>
 <p>The output and graphical representation above shows our difference in weight is
 literally normally distributed. We therefore go ahead to determine the
 difference in mean weights. First we state our hypothesis</p>
@@ -507,7 +483,7 @@ difference in mean weights. First we state our hypothesis</p>
 <p>H0: There is no change in weight of loaves of bread after baking</p>
 </blockquote>
 <p>And then perform the test after converting the data to the long format</p>
-<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>        cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">before</span>, <span class="va">after</span><span class="op">)</span>, </span>
@@ -584,14 +560,14 @@ determine and compare their variances. The function <code><a href="https://rdrr.
 the variances between two independent groups and can be used for this
 determination.Below we apply this F-test to compare the variances of the weight
 for the two sexes. First we determine the variances.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="analysis-of-numeric-data.html#cb144-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
-<span id="cb144-2"><a href="analysis-of-numeric-data.html#cb144-2" tabindex="-1"></a>    <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
-<span id="cb144-3"><a href="analysis-of-numeric-data.html#cb144-3" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">across</span>(weight, <span class="fu">list</span>(<span class="at">var =</span> var, <span class="at">meam =</span> mean)))</span>
-<span id="cb144-4"><a href="analysis-of-numeric-data.html#cb144-4" tabindex="-1"></a><span class="co"># A tibble: 2 × 3</span></span>
-<span id="cb144-5"><a href="analysis-of-numeric-data.html#cb144-5" tabindex="-1"></a>  sex    weight_var weight_meam</span>
-<span id="cb144-6"><a href="analysis-of-numeric-data.html#cb144-6" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb144-7"><a href="analysis-of-numeric-data.html#cb144-7" tabindex="-1"></a><span class="dv">1</span> Female       <span class="fl">50.8</span>        <span class="fl">12.9</span></span>
-<span id="cb144-8"><a href="analysis-of-numeric-data.html#cb144-8" tabindex="-1"></a><span class="dv">2</span> Male         <span class="fl">30.2</span>        <span class="fl">11.6</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="analysis-of-numeric-data.html#cb13-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="analysis-of-numeric-data.html#cb13-2" tabindex="-1"></a>    <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="analysis-of-numeric-data.html#cb13-3" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">across</span>(weight, <span class="fu">list</span>(<span class="at">var =</span> var, <span class="at">meam =</span> mean)))</span>
+<span id="cb13-4"><a href="analysis-of-numeric-data.html#cb13-4" tabindex="-1"></a><span class="co"># A tibble: 2 × 3</span></span>
+<span id="cb13-5"><a href="analysis-of-numeric-data.html#cb13-5" tabindex="-1"></a>  sex    weight_var weight_meam</span>
+<span id="cb13-6"><a href="analysis-of-numeric-data.html#cb13-6" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb13-7"><a href="analysis-of-numeric-data.html#cb13-7" tabindex="-1"></a><span class="dv">1</span> Female       <span class="fl">50.8</span>        <span class="fl">12.9</span></span>
+<span id="cb13-8"><a href="analysis-of-numeric-data.html#cb13-8" tabindex="-1"></a><span class="dv">2</span> Male         <span class="fl">30.2</span>        <span class="fl">11.6</span></span></code></pre></div>
 <p>There seem to be a big difference between the variance of the weights for the
 two sexes. That for the females is almost 1.7 times that of the males. To
 determine if this is not a chance finding we apply a formal statistical test.
@@ -602,11 +578,11 @@ females in our population</p>
 </blockquote>
 <p>The F-test actually tests the ratio of the variances not the difference. In that
 regard our null value would be 1.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="analysis-of-numeric-data.html#cb145-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
-<span id="cb145-2"><a href="analysis-of-numeric-data.html#cb145-2" tabindex="-1"></a>    <span class="fu">var.test</span>(<span class="at">formula =</span> weight<span class="sc">~</span>sex, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
-<span id="cb145-3"><a href="analysis-of-numeric-data.html#cb145-3" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb145-4"><a href="analysis-of-numeric-data.html#cb145-4" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb145-5"><a href="analysis-of-numeric-data.html#cb145-5" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="analysis-of-numeric-data.html#cb14-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="analysis-of-numeric-data.html#cb14-2" tabindex="-1"></a>    <span class="fu">var.test</span>(<span class="at">formula =</span> weight<span class="sc">~</span>sex, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="analysis-of-numeric-data.html#cb14-3" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="analysis-of-numeric-data.html#cb14-4" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-5"><a href="analysis-of-numeric-data.html#cb14-5" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="8%">
@@ -651,24 +627,24 @@ function is used.</p>
 <p>Next we apply the same principle to the determine if the mean heights are
 similar for males and females in our population. We first determine if the
 variances are significantly different.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="analysis-of-numeric-data.html#cb146-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
-<span id="cb146-2"><a href="analysis-of-numeric-data.html#cb146-2" tabindex="-1"></a>    <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
-<span id="cb146-3"><a href="analysis-of-numeric-data.html#cb146-3" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">across</span>(height,</span>
-<span id="cb146-4"><a href="analysis-of-numeric-data.html#cb146-4" tabindex="-1"></a>                     <span class="fu">list</span>(</span>
-<span id="cb146-5"><a href="analysis-of-numeric-data.html#cb146-5" tabindex="-1"></a>                         <span class="at">var =</span> <span class="sc">~</span><span class="fu">var</span>(., <span class="at">na.rm=</span>T),</span>
-<span id="cb146-6"><a href="analysis-of-numeric-data.html#cb146-6" tabindex="-1"></a>                         <span class="at">meam =</span> <span class="sc">~</span><span class="fu">mean</span>(., <span class="at">na.rm=</span>T))))</span>
-<span id="cb146-7"><a href="analysis-of-numeric-data.html#cb146-7" tabindex="-1"></a><span class="co"># A tibble: 2 × 3</span></span>
-<span id="cb146-8"><a href="analysis-of-numeric-data.html#cb146-8" tabindex="-1"></a>  sex    height_var height_meam</span>
-<span id="cb146-9"><a href="analysis-of-numeric-data.html#cb146-9" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb146-10"><a href="analysis-of-numeric-data.html#cb146-10" tabindex="-1"></a><span class="dv">1</span> Female       <span class="fl">528.</span>        <span class="fl">92.2</span></span>
-<span id="cb146-11"><a href="analysis-of-numeric-data.html#cb146-11" tabindex="-1"></a><span class="dv">2</span> Male         <span class="fl">399.</span>        <span class="fl">89.8</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="analysis-of-numeric-data.html#cb15-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="analysis-of-numeric-data.html#cb15-2" tabindex="-1"></a>    <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="analysis-of-numeric-data.html#cb15-3" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">across</span>(height,</span>
+<span id="cb15-4"><a href="analysis-of-numeric-data.html#cb15-4" tabindex="-1"></a>                     <span class="fu">list</span>(</span>
+<span id="cb15-5"><a href="analysis-of-numeric-data.html#cb15-5" tabindex="-1"></a>                         <span class="at">var =</span> <span class="sc">~</span><span class="fu">var</span>(., <span class="at">na.rm=</span>T),</span>
+<span id="cb15-6"><a href="analysis-of-numeric-data.html#cb15-6" tabindex="-1"></a>                         <span class="at">meam =</span> <span class="sc">~</span><span class="fu">mean</span>(., <span class="at">na.rm=</span>T))))</span>
+<span id="cb15-7"><a href="analysis-of-numeric-data.html#cb15-7" tabindex="-1"></a><span class="co"># A tibble: 2 × 3</span></span>
+<span id="cb15-8"><a href="analysis-of-numeric-data.html#cb15-8" tabindex="-1"></a>  sex    height_var height_meam</span>
+<span id="cb15-9"><a href="analysis-of-numeric-data.html#cb15-9" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb15-10"><a href="analysis-of-numeric-data.html#cb15-10" tabindex="-1"></a><span class="dv">1</span> Female       <span class="fl">528.</span>        <span class="fl">92.2</span></span>
+<span id="cb15-11"><a href="analysis-of-numeric-data.html#cb15-11" tabindex="-1"></a><span class="dv">2</span> Male         <span class="fl">399.</span>        <span class="fl">89.8</span></span></code></pre></div>
 <p>From the results above the variance for the females look much higher (1.3 times)
 than the males however we apply a test to formally determine this.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="analysis-of-numeric-data.html#cb147-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
-<span id="cb147-2"><a href="analysis-of-numeric-data.html#cb147-2" tabindex="-1"></a>    <span class="fu">var.test</span>(<span class="at">formula =</span> height<span class="sc">~</span>sex, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
-<span id="cb147-3"><a href="analysis-of-numeric-data.html#cb147-3" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb147-4"><a href="analysis-of-numeric-data.html#cb147-4" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb147-5"><a href="analysis-of-numeric-data.html#cb147-5" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="analysis-of-numeric-data.html#cb16-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="analysis-of-numeric-data.html#cb16-2" tabindex="-1"></a>    <span class="fu">var.test</span>(<span class="at">formula =</span> height<span class="sc">~</span>sex, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="analysis-of-numeric-data.html#cb16-3" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-4"><a href="analysis-of-numeric-data.html#cb16-4" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-5"><a href="analysis-of-numeric-data.html#cb16-5" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="8%">
@@ -708,87 +684,504 @@ than the males however we apply a test to formally determine this.</p>
 say the two variances are different. To use the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function to determine
 the possibility that mean height differ between males and females we specify
 that variance is equal as below.</p>
-<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span></span>
 <span>        formula <span class="op">=</span> <span class="va">height</span><span class="op">~</span><span class="va">sex</span>, </span>
 <span>        var.equal <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>        detailed <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span>    <span class="op">)</span><span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>booktabs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="7%">
-<col width="8%">
-<col width="8%">
-<col width="6%">
-<col width="6%">
-<col width="6%">
-<col width="2%">
-<col width="2%">
-<col width="8%">
-<col width="5%">
-<col width="3%">
-<col width="8%">
-<col width="8%">
-<col width="6%">
-<col width="10%">
-</colgroup>
-<thead><tr class="header">
-<th align="right">estimate</th>
-<th align="right">estimate1</th>
-<th align="right">estimate2</th>
-<th align="left">.y.</th>
-<th align="left">group1</th>
-<th align="left">group2</th>
-<th align="right">n1</th>
-<th align="right">n2</th>
-<th align="right">statistic</th>
-<th align="right">p</th>
-<th align="right">df</th>
-<th align="right">conf.low</th>
-<th align="right">conf.high</th>
-<th align="left">method</th>
-<th align="left">alternative</th>
-</tr></thead>
-<tbody><tr class="odd">
-<td align="right">2.382414</td>
-<td align="right">92.15873</td>
-<td align="right">89.77632</td>
-<td align="left">height</td>
-<td align="left">Female</td>
-<td align="left">Male</td>
-<td align="right">63</td>
-<td align="right">76</td>
-<td align="right">0.6538128</td>
-<td align="right">0.514</td>
-<td align="right">137</td>
-<td align="right">-4.823105</td>
-<td align="right">9.587934</td>
-<td align="left">T-test</td>
-<td align="left">two.sided</td>
+<span>    <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div id="bylypdzyrx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bylypdzyrx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bylypdzyrx thead, #bylypdzyrx tbody, #bylypdzyrx tfoot, #bylypdzyrx tr, #bylypdzyrx td, #bylypdzyrx th {
+  border-style: none;
+}
+
+#bylypdzyrx p {
+  margin: 0;
+  padding: 0;
+}
+
+#bylypdzyrx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bylypdzyrx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bylypdzyrx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bylypdzyrx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bylypdzyrx .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bylypdzyrx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bylypdzyrx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bylypdzyrx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bylypdzyrx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bylypdzyrx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bylypdzyrx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bylypdzyrx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bylypdzyrx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bylypdzyrx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bylypdzyrx .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bylypdzyrx .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bylypdzyrx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bylypdzyrx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bylypdzyrx .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bylypdzyrx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bylypdzyrx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bylypdzyrx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bylypdzyrx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bylypdzyrx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bylypdzyrx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bylypdzyrx .gt_left {
+  text-align: left;
+}
+
+#bylypdzyrx .gt_center {
+  text-align: center;
+}
+
+#bylypdzyrx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bylypdzyrx .gt_font_normal {
+  font-weight: normal;
+}
+
+#bylypdzyrx .gt_font_bold {
+  font-weight: bold;
+}
+
+#bylypdzyrx .gt_font_italic {
+  font-style: italic;
+}
+
+#bylypdzyrx .gt_super {
+  font-size: 65%;
+}
+
+#bylypdzyrx .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bylypdzyrx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bylypdzyrx .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bylypdzyrx .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bylypdzyrx .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bylypdzyrx .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bylypdzyrx .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="estimate">estimate</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="estimate1">estimate1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="estimate2">estimate2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=".y.">.y.</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="group1">group1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="group2">group2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n1">n1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n2">n2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="statistic">statistic</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="p">p</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="df">df</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="conf.low">conf.low</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="conf.high">conf.high</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="method">method</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="alternative">alternative</th>
+    </tr></thead>
+<tbody class="gt_table_body"><tr>
+<td headers="estimate" class="gt_row gt_right">2.382414</td>
+<td headers="estimate1" class="gt_row gt_right">92.15873</td>
+<td headers="estimate2" class="gt_row gt_right">89.77632</td>
+<td headers=".y." class="gt_row gt_left">height</td>
+<td headers="group1" class="gt_row gt_left">Female</td>
+<td headers="group2" class="gt_row gt_left">Male</td>
+<td headers="n1" class="gt_row gt_right">63</td>
+<td headers="n2" class="gt_row gt_right">76</td>
+<td headers="statistic" class="gt_row gt_right">0.6538128</td>
+<td headers="p" class="gt_row gt_right">0.514</td>
+<td headers="df" class="gt_row gt_right">137</td>
+<td headers="conf.low" class="gt_row gt_right">-4.823105</td>
+<td headers="conf.high" class="gt_row gt_right">9.587933</td>
+<td headers="method" class="gt_row gt_left">T-test</td>
+<td headers="alternative" class="gt_row gt_left">two.sided</td>
 </tr></tbody>
 </table></div>
 </div>
+
+</div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="descriptive-statistics.html"><span class="header-section-number">10</span> Descriptive Statistics</a></div>
-<div class="next"><a href="risk-and-odds.html"><span class="header-section-number">12</span> Risk and Odds</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#analysis-of-numeric-data"><span class="header-section-number">11</span> Analysis of numeric data</a></li>
-<li><a class="nav-link" href="#confidence-interval-of-a-mean"><span class="header-section-number">11.1</span> Confidence interval of a mean</a></li>
-<li><a class="nav-link" href="#comparing-the-mean-to-a-hypothesised-value"><span class="header-section-number">11.2</span> Comparing the mean to a hypothesised value</a></li>
-<li><a class="nav-link" href="#comparing-mean-of-two-independent-groups"><span class="header-section-number">11.3</span> Comparing mean of two independent groups</a></li>
-<li><a class="nav-link" href="#comparing-means-of-paired-observations"><span class="header-section-number">11.4</span> Comparing means of paired observations</a></li>
-<li><a class="nav-link" href="#test-for-equality-of-variances"><span class="header-section-number">11.5</span> Test for equality of variances</a></li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/sbnguah/MedStatsBook/blob/master/Analysis-of-continuous-data.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/sbnguah/MedStatsBook/edit/master/Analysis-of-continuous-data.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
@@ -808,34 +1201,6 @@ that variance is equal as below.</p>
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>
