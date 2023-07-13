@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 15 Receiver Operating Characteristic (ROC) | Medical Statistics using R</title>
+<meta name="author" content="Samuel Blay Nguah">
+<meta name="description" content="Up until now we have dealt with tests that are categorized as either positive or negative. However, many tests are quantitative rather than qualitative. For instance the blood urea and nitrogen,...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="Chapter 15 Receiver Operating Characteristic (ROC) | Medical Statistics using R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://medstastwithr.netlify.app/receiver-operating-characteristic-roc.html">
+<meta property="og:description" content="Up until now we have dealt with tests that are categorized as either positive or negative. However, many tests are quantitative rather than qualitative. For instance the blood urea and nitrogen,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 15 Receiver Operating Characteristic (ROC) | Medical Statistics using R">
+<meta name="twitter:description" content="Up until now we have dealt with tests that are categorized as either positive or negative. However, many tests are quantitative rather than qualitative. For instance the blood urea and nitrogen,...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Medical Statistics using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
+<li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
+<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
+<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">6</span> Data Structures in R</a></li>
+<li><a class="" href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">10</span> Descriptive Statistics</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">11</span> Analysis of numeric data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">12</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">13</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">14</span> Diagnostic Tests</a></li>
+<li><a class="active" href="receiver-operating-characteristic-roc.html"><span class="header-section-number">15</span> Receiver Operating Characteristic (ROC)</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">16</span> Linear Regression</a></li>
+<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">17</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">18</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">19</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">20</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">21</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">22</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">23</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">24</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">25</span> Sharing your book</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/sbnguah/MedStatsBook">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="receiver-operating-characteristic-roc" class="section level1" number="15">
+<h1>
+<span class="header-section-number">15</span> Receiver Operating Characteristic (ROC)<a class="anchor" aria-label="anchor" href="#receiver-operating-characteristic-roc"><i class="fas fa-link"></i></a>
+</h1>
+<p>Up until now we have dealt with tests that are categorized as either positive or
+negative. However, many tests are quantitative rather than qualitative. For
+instance the blood urea and nitrogen, serum cholesterol and serum protein among
+many others are measured on a continuous scale often ranging from 0 to infinity.
+Such tests pose different challenges as we often need a cut-off point to
+determine which range of values can be considered “normal” or “abnormal”. As we
+have learned above the sensitivity and specificity of a test are often used to
+defines how good it is. For tests on a continuous scale the sensitivity and
+specificity change depending on the cut-off provided for the measure.</p>
+<p>In this section we use the lbw.csv data collected in a study conducted in a
+cohort of 350 newborns in Ghana. The identification of babies born with weight
+of less than 2.5kgs is important because of the special needs they require. In
+many under developed countries however the unavailability of a reliable weighing
+scale makes this a challenge. This has prompted the search for other surrogate
+measures easily available in rural areas for determining if a baby is low birth
+weight (&lt;2.5kgs). The aim of the study was to determine how well the length or
+chest circumference of a baby could be used as a surrogate indicator for low
+birth weight in newborns. If they turn out to be good tests they can easily be
+deployed in any rural area as the only instrument needed here would be a
+measuring tape. The variables collected include their study ID (sid), birth
+weight (bweight), sex (gender), chest circumference (chc) and length
+of baby (lgth).</p>
+<p>First we read in the data after clearing the workspace</p>
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_lbw</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu">read_csv</span><span class="op">(</span><span class="st">"./Data/lbw.csv"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>gender <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>bwcat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">bweight</span> <span class="op">&lt;</span> <span class="fl">2.5</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>               <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Normal"</span>,<span class="st">"Low"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>And then summarize it</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="receiver-operating-characteristic-roc.html#cb179-1" tabindex="-1"></a>df_lbw <span class="sc">%&gt;%</span> <span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb179-2"><a href="receiver-operating-characteristic-roc.html#cb179-2" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb179-3"><a href="receiver-operating-characteristic-roc.html#cb179-3" tabindex="-1"></a>df_lbw  </span>
+<span id="cb179-4"><a href="receiver-operating-characteristic-roc.html#cb179-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">350</span> x <span class="dv">6</span>  </span>
+<span id="cb179-5"><a href="receiver-operating-characteristic-roc.html#cb179-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
+<span id="cb179-6"><a href="receiver-operating-characteristic-roc.html#cb179-6" tabindex="-1"></a></span>
+<span id="cb179-7"><a href="receiver-operating-characteristic-roc.html#cb179-7" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span>
+<span id="cb179-8"><a href="receiver-operating-characteristic-roc.html#cb179-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values              <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
+<span id="cb179-9"><a href="receiver-operating-characteristic-roc.html#cb179-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">---------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb179-10"><a href="receiver-operating-characteristic-roc.html#cb179-10" tabindex="-1"></a><span class="dv">1</span>    sid         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">175.5</span> (<span class="fl">101.2</span>)   <span class="dv">350</span> distinct values   <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb179-11"><a href="receiver-operating-characteristic-roc.html#cb179-11" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb179-12"><a href="receiver-operating-characteristic-roc.html#cb179-12" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="fl">175.5</span> <span class="sc">&lt;</span> <span class="dv">350</span>                                                       </span>
+<span id="cb179-13"><a href="receiver-operating-characteristic-roc.html#cb179-13" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">174.5</span> (<span class="fl">0.6</span>)                                                </span>
+<span id="cb179-14"><a href="receiver-operating-characteristic-roc.html#cb179-14" tabindex="-1"></a></span>
+<span id="cb179-15"><a href="receiver-operating-characteristic-roc.html#cb179-15" tabindex="-1"></a><span class="dv">2</span>    bweight     <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">2.9</span> (<span class="fl">0.6</span>)       <span class="dv">33</span> distinct values    <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb179-16"><a href="receiver-operating-characteristic-roc.html#cb179-16" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb179-17"><a href="receiver-operating-characteristic-roc.html#cb179-17" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="fl">2.9</span> <span class="sc">&lt;</span> <span class="fl">4.5</span>                                                         </span>
+<span id="cb179-18"><a href="receiver-operating-characteristic-roc.html#cb179-18" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">0.7</span> (<span class="fl">0.2</span>)                                                  </span>
+<span id="cb179-19"><a href="receiver-operating-characteristic-roc.html#cb179-19" tabindex="-1"></a></span>
+<span id="cb179-20"><a href="receiver-operating-characteristic-roc.html#cb179-20" tabindex="-1"></a><span class="dv">3</span>    gender      <span class="fl">1.</span> Female                   <span class="dv">166</span> (<span class="fl">47.4</span>%)           <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb179-21"><a href="receiver-operating-characteristic-roc.html#cb179-21" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Male                     <span class="dv">184</span> (<span class="fl">52.6</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb179-22"><a href="receiver-operating-characteristic-roc.html#cb179-22" tabindex="-1"></a></span>
+<span id="cb179-23"><a href="receiver-operating-characteristic-roc.html#cb179-23" tabindex="-1"></a><span class="dv">4</span>    chc         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">31.7</span> (<span class="fl">3.2</span>)      <span class="dv">115</span> distinct values   <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb179-24"><a href="receiver-operating-characteristic-roc.html#cb179-24" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb179-25"><a href="receiver-operating-characteristic-roc.html#cb179-25" tabindex="-1"></a>                 <span class="dv">20</span> <span class="sc">&lt;</span> <span class="dv">32</span> <span class="sc">&lt;</span> <span class="fl">42.1</span>                                                        </span>
+<span id="cb179-26"><a href="receiver-operating-characteristic-roc.html#cb179-26" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">4</span> (<span class="fl">0.1</span>)                                                    </span>
+<span id="cb179-27"><a href="receiver-operating-characteristic-roc.html#cb179-27" tabindex="-1"></a></span>
+<span id="cb179-28"><a href="receiver-operating-characteristic-roc.html#cb179-28" tabindex="-1"></a><span class="dv">5</span>    lgth        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">46.8</span> (<span class="fl">4.3</span>)      <span class="dv">109</span> distinct values   <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb179-29"><a href="receiver-operating-characteristic-roc.html#cb179-29" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb179-30"><a href="receiver-operating-characteristic-roc.html#cb179-30" tabindex="-1"></a>                 <span class="dv">28</span> <span class="sc">&lt;</span> <span class="dv">47</span> <span class="sc">&lt;</span> <span class="fl">60.3</span>                                                        </span>
+<span id="cb179-31"><a href="receiver-operating-characteristic-roc.html#cb179-31" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">5.5</span> (<span class="fl">0.1</span>)                                                  </span>
+<span id="cb179-32"><a href="receiver-operating-characteristic-roc.html#cb179-32" tabindex="-1"></a></span>
+<span id="cb179-33"><a href="receiver-operating-characteristic-roc.html#cb179-33" tabindex="-1"></a><span class="dv">6</span>    bwcat       <span class="fl">1.</span> Normal                   <span class="dv">268</span> (<span class="fl">76.6</span>%)           <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb179-34"><a href="receiver-operating-characteristic-roc.html#cb179-34" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Low                       <span class="dv">82</span> (<span class="fl">23.4</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb179-35"><a href="receiver-operating-characteristic-roc.html#cb179-35" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span></code></pre></div>
+<p>Next, I introduce the <code>pROC</code> package. The function <code>roc()</code> from the package will
+be used extensively in this section.</p>
+<div id="sensitivity-specificity-and-cut-offs" class="section level2" number="15.1">
+<h2>
+<span class="header-section-number">15.1</span> Sensitivity, specificity and cut-offs<a class="anchor" aria-label="anchor" href="#sensitivity-specificity-and-cut-offs"><i class="fas fa-link"></i></a>
+</h2>
+<p>As mentioned above when one has a gold standard which is bivariate (indicating
+presence or absence) and a quantitative test, the sensitivity and specificity of
+the test depends on the cut-off chosen. For our <code>lbw.csv</code> data our gold standard
+for a low birth weight baby is the the birth weight categorised into low birth
+weight (LBW) or normal birth weight (NBW). Two continuous measures, the chest
+circumference and the length of the baby were used as our tests.</p>
+<p>To illustrate the relationship between the various cut-offs with sensitivity and
+specificity we generate some arbitrary cut-offs.</p>
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cut.off</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">28</span>, <span class="fl">42</span>, <span class="fl">44</span>, <span class="fl">46</span>, <span class="fl">47</span>, <span class="fl">49</span>, <span class="fl">50</span>, <span class="fl">51</span>, <span class="fl">61</span><span class="op">)</span></span></code></pre></div>
+<p>From these cut-offs we generate the categories from the length of the babies
+and tabulate the resultant categorical variable.</p>
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_lbw</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="va">df_lbw</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>lgthcat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">lgth</span>, br<span class="op">=</span><span class="va">cut.off</span>, include.lowest<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>And then count the various groups</p>
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_lbw</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span></span>
+<span>        include <span class="op">=</span> <span class="va">lgthcat</span>,</span>
+<span>        digits <span class="op">=</span> <span class="va">lgthcat</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/bold_italicize_labels_levels.html">bold_labels</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div id="bxexyiwxrp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bxexyiwxrp table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bxexyiwxrp thead, #bxexyiwxrp tbody, #bxexyiwxrp tfoot, #bxexyiwxrp tr, #bxexyiwxrp td, #bxexyiwxrp th {
+  border-style: none;
+}
+
+#bxexyiwxrp p {
+  margin: 0;
+  padding: 0;
+}
+
+#bxexyiwxrp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bxexyiwxrp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bxexyiwxrp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bxexyiwxrp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bxexyiwxrp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bxexyiwxrp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bxexyiwxrp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bxexyiwxrp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bxexyiwxrp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bxexyiwxrp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bxexyiwxrp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bxexyiwxrp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bxexyiwxrp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bxexyiwxrp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bxexyiwxrp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxexyiwxrp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bxexyiwxrp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bxexyiwxrp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bxexyiwxrp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxexyiwxrp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bxexyiwxrp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxexyiwxrp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bxexyiwxrp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxexyiwxrp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bxexyiwxrp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxexyiwxrp .gt_left {
+  text-align: left;
+}
+
+#bxexyiwxrp .gt_center {
+  text-align: center;
+}
+
+#bxexyiwxrp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bxexyiwxrp .gt_font_normal {
+  font-weight: normal;
+}
+
+#bxexyiwxrp .gt_font_bold {
+  font-weight: bold;
+}
+
+#bxexyiwxrp .gt_font_italic {
+  font-style: italic;
+}
+
+#bxexyiwxrp .gt_super {
+  font-size: 65%;
+}
+
+#bxexyiwxrp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bxexyiwxrp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bxexyiwxrp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bxexyiwxrp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bxexyiwxrp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bxexyiwxrp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bxexyiwxrp .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id='&lt;strong&gt;N = 350&lt;/strong&gt;&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;'>
+<strong>N = 350</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="label" class="gt_row gt_left" style="font-weight: bold;">lgthcat</td>
+<td headers="stat_0" class="gt_row gt_center"></td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    [28,42]</td>
+<td headers="stat_0" class="gt_row gt_center">49 (14.0%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    (42,44]</td>
+<td headers="stat_0" class="gt_row gt_center">36 (10.3%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    (44,46]</td>
+<td headers="stat_0" class="gt_row gt_center">59 (16.9%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    (46,47]</td>
+<td headers="stat_0" class="gt_row gt_center">35 (10.0%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    (47,49]</td>
+<td headers="stat_0" class="gt_row gt_center">67 (19.1%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    (49,50]</td>
+<td headers="stat_0" class="gt_row gt_center">39 (11.1%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    (50,51]</td>
+<td headers="stat_0" class="gt_row gt_center">25 (7.1%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    (51,61]</td>
+<td headers="stat_0" class="gt_row gt_center">40 (11.4%)</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="2">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<p>Next we determine the sensitivities and specificities at the various cut-offs by
+using the <code>roc()</code> function from the <code>pROC</code> package. Since this package requires
+an ordered categorical variable we convert <code>lgthcat</code> into an ordered factor
+variable. And then go ahead to impute the relevant information into the <code>roc()</code>
+function</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="diagnostic-tests.html"><span class="header-section-number">14</span> Diagnostic Tests</a></div>
+<div class="next"><a href="linear-regression.html"><span class="header-section-number">16</span> Linear Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#receiver-operating-characteristic-roc"><span class="header-section-number">15</span> Receiver Operating Characteristic (ROC)</a></li>
+<li><a class="nav-link" href="#sensitivity-specificity-and-cut-offs"><span class="header-section-number">15.1</span> Sensitivity, specificity and cut-offs</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/sbnguah/MedStatsBook/blob/master/Receiver-Operating-Characteristic.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/sbnguah/MedStatsBook/edit/master/Receiver-Operating-Characteristic.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

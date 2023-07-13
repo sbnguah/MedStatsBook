@@ -20,6 +20,8 @@ rmd_files: [
     "Analysis-of-continuous-data.Rmd",
     "Risk-and-Odds.Rmd",
     "Confounding-and-Interaction.Rmd",
+    "Diagnostic-Tests.Rmd",
+    "Receiver-Operating-Characteristic.Rmd",
     "Linear-Regression.Rmd",
     "Analysis-of-Variance.Rmd",
     "Ordinal-Logistic-Regression.Rmd",
