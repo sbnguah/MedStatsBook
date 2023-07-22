@@ -42,18 +42,25 @@ df_data1 <-
 
 And then summarize it below
 
-```{r}
+```{r echo=F}
 options(huxtable.knit_print_df = FALSE)
-df_data1 %>% summarytools::dfSummary(graph.col = F)
 ```
 
 
-
 ```{r}
-options(huxtable.knit_print_df = TRUE)
+df_data1 %>% 
+    summarytools::dfSummary(graph.col = F)
+```
 
-df_data1 %$% 
-    epiDisplay::ci(height)
+
+```{r echo=F}
+options(huxtable.knit_print_df = TRUE)
+```
+
+
+```{r echo=F}
+df_data1 %>% 
+    rstatix::get_summary_stats(height, type = "common")
 ```
 
 ```{r}
@@ -83,8 +90,9 @@ To test this hypothesis we use the One sample t-test after we have satisfied
 ourselves that the assumptions for its use have been met.
 
 ```{r}
-df_data1 %>% 
-     rstatix::t_test(formula = weight~1, mu=14) 
+df_data1 %$% 
+    t.test(weight, mu=14) %>% 
+    broom::tidy()
 ```
 
 The p-value of 0.001 is the probability that our sample could have come from a 
@@ -121,8 +129,9 @@ one mode and with a sample size between 16 and 40
 Our data fulfils all the criteria above hence we apply the test
 
 ```{r}
-df_data1 %>% 
-    rstatix::t_test(formula = weight ~ sex, detailed = T)
+df_data1 %$% 
+    t.test(formula = weight ~ sex) %>% 
+    broom::tidy()
 ```
 
 With a relatively high p-value we conclude that there is insufficient evidence 
@@ -157,8 +166,12 @@ df_bread <-
 
 And then summarize it 
 
-```{r}
+```{r echo=F}
 options(huxtable.knit_print_df = FALSE)
+```
+
+
+```{r}
 df_bread %>% summarytools::dfSummary(graph.col = F)
 ```
 
@@ -166,8 +179,12 @@ Our next task is to compare the weight of the loaves of bread before and after
 baking. We begin by looking at the mean and standard deviations of the two 
 weights.
 
-```{r}
+```{r echo=T}
 options(huxtable.knit_print_df = TRUE)
+```
+
+
+```{r}
 df_bread %>% 
     select(before, after) %>% 
     rstatix::get_summary_stats(type= "mean_sd")

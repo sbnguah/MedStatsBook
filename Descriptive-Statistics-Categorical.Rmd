@@ -1,0 +1,157 @@
+```{r echo=FALSE}
+library(tidyverse)
+library(magrittr)
+library(huxtable)
+library(gtsummary)
+```
+
+
+# Descriptive Statistics of Catergorical Data
+
+For this section we use the __Titanic__ data set
+ 
+```{r comment=NA}
+titanic2 <-  
+    haven::read_dta("./Data/titanic2.dta") %>% 
+    mutate(sex  = haven::as_factor(sex),
+           died = haven::as_factor(died),
+           age  = haven::as_factor(age),
+           class = haven::as_factor(class)) %>% 
+    haven::zap_labels()
+```
+
+We visualize the first 6 rows of the data 
+
+```{r comment=NA}
+titanic2 %>% head()
+```
+
+And the summarize the entire as below
+
+```{r comment=NA}
+titanic2 %>% summary()
+```
+
+### Single Caregorical Variable
+
+#### Frequencies & Proportions
+
+```{r comment=NA}
+titanic2 %>% 
+    gtsummary::tbl_summary(
+        include = class,
+        digits = class ~ c(0,1)
+    ) %>% 
+    gtsummary::bold_labels()
+```
+
+#### Graph - Barchart
+
+We first summarize the data
+
+```{r comment=NA}
+bar_data <-
+    titanic2 %>% 
+    drop_na(class) %>% 
+    count(class) %>% 
+    mutate(perc = `n` / sum(`n`)) %>% 
+    arrange(perc) %>%
+    mutate(labels = paste(n, " (", scales::percent(perc), ")", sep=""))
+
+bar_data
+```
+
+And the plot the barplot
+
+```{r comment=NA, fig.width = 6, fig.height=4}
+bar_data %>% 
+    ggplot() +
+    geom_bar(stat = "identity", 
+             aes(y = n, x = class, fill = class), 
+             col = "black", 
+             show.legend = F) +
+    geom_label(aes(y = n, label = labels, x = class), 
+               vjust = 1.2,
+               show.legend = FALSE, size=3.5) +
+    labs(x = NULL, 
+         y = "Count", 
+         title = "Distribution of Class of passenger") +
+    theme_bw()
+```
+
+#### Pie Chart
+
+To do this we use the previously summarized data. Then we draw a customised Pie Chart
+
+```{r comment=NA, fig.width = 6, fig.height=4}
+bar_data %>% 
+    ggplot(aes(x = "", y = perc, fill = class)) +
+    geom_col() +
+    geom_label(aes(label = labels),
+               position = position_stack(vjust = 0.5),
+               show.legend = FALSE, size =3) +
+    coord_polar(theta = "y", start=0) +
+    labs(title = "Distribution of Blood Groups of study participants",
+         fill = "Blood Group") +
+    theme_void()
+```
+
+
+
+### Two categorical Variables
+
+#### Frequencies & Proportions
+
+```{r comment=NA}
+titanic2 %>% 
+    tbl_cross(row = sex, col = died) %>% 
+    bold_labels()
+```
+
+#### Row percentages
+
+
+```{r comment=NA}
+titanic2 %>% 
+    tbl_cross(row = sex, col = died, percent = "row", digits = c(0,1)) %>% 
+    bold_labels()
+```
+
+#### Column percentages
+
+```{r comment=NA}
+titanic2 %>% 
+    tbl_cross(row = sex, col = died, percent = "col", digits = c(0,1)) %>% 
+    bold_labels()
+```
+
+#### Table Total Percentages
+```{r comment=NA}
+titanic2 %>% 
+    tbl_cross(
+        row = sex, 
+        col = died, 
+        percent = c("cell"), 
+        digits = c(0,1)) %>% 
+    bold_labels()
+```
+
+#### Bar Chart
+
+```{r comment=NA}
+titanic2 %>% 
+    ggplot(aes(x = class, fill = died)) +
+    geom_bar(position = position_dodge(), col = "black") +
+    labs(y = "Count", x = "Class", fill = "Died",
+          title = "Bar plot of outcome of passengers for each class") +
+    theme_bw()
+```
+
+
+
+
+
+
+
+
+

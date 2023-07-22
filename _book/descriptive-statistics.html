@@ -17,7 +17,7 @@
 <meta name="twitter:description" content='10.1 Categorical Variable For this section we use the Titanic data set titanic2 &lt;-    haven::read_dta("./Data/titanic2.dta") %&gt;%   mutate(sex = haven::as_factor(sex),      died =...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
 <script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
@@ -67,33 +67,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
-<li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
-<li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
-<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
-<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">6</span> Data Structures in R</a></li>
-<li><a class="" href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="active" href="descriptive-statistics.html"><span class="header-section-number">10</span> Descriptive Statistics</a></li>
-<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">11</span> Analysis of numeric data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">12</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">13</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">14</span> Diagnostic Tests</a></li>
-<li><a class="" href="receiver-operating-characteristic-roc.html"><span class="header-section-number">15</span> Receiver Operating Characteristic (ROC)</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">16</span> Linear Regression</a></li>
-<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">17</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">18</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">19</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">20</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">21</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">22</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">23</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">24</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">25</span> Sharing your book</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 10</span> Descriptive Statistics</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/sbnguah/MedStatsBook">View book source <i class="fab fa-github"></i></a></p>
@@ -109,7 +83,7 @@
 <span class="header-section-number">10.1</span> Categorical Variable<a class="anchor" aria-label="anchor" href="#categorical-variable"><i class="fas fa-link"></i></a>
 </h2>
 <p>For this section we use the <strong>Titanic</strong> data set</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">titanic2</span> <span class="op">&lt;-</span>  </span>
 <span>    <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta</a></span><span class="op">(</span><span class="st">"./Data/titanic2.dta"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>sex  <span class="op">=</span> <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>,</span>
@@ -118,7 +92,7 @@
 <span>           class <span class="op">=</span> <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://haven.tidyverse.org/reference/zap_labels.html">zap_labels</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>We visualize the first 6 rows of the data</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">titanic2</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
 <caption style="caption-side: top; text-align: center;">
@@ -171,12 +145,12 @@
 </tr>
 </table></div>
 <p>And the summarize the entire as below</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="descriptive-statistics.html#cb106-1" tabindex="-1"></a>titanic2 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
-<span id="cb106-2"><a href="descriptive-statistics.html#cb106-2" tabindex="-1"></a>    class        age           sex        died     </span>
-<span id="cb106-3"><a href="descriptive-statistics.html#cb106-3" tabindex="-1"></a> first <span class="sc">:</span><span class="dv">325</span>   child<span class="sc">:</span> <span class="dv">109</span>   female<span class="sc">:</span> <span class="dv">470</span>   No <span class="sc">:</span> <span class="dv">711</span>  </span>
-<span id="cb106-4"><a href="descriptive-statistics.html#cb106-4" tabindex="-1"></a> second<span class="sc">:</span><span class="dv">285</span>   adult<span class="sc">:</span><span class="dv">2092</span>   male  <span class="sc">:</span><span class="dv">1731</span>   Yes<span class="sc">:</span><span class="dv">1490</span>  </span>
-<span id="cb106-5"><a href="descriptive-statistics.html#cb106-5" tabindex="-1"></a> third <span class="sc">:</span><span class="dv">706</span>                                        </span>
-<span id="cb106-6"><a href="descriptive-statistics.html#cb106-6" tabindex="-1"></a> crew  <span class="sc">:</span><span class="dv">885</span>                                        </span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="descriptive-statistics.html#cb4-1" tabindex="-1"></a>titanic2 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
+<span id="cb4-2"><a href="descriptive-statistics.html#cb4-2" tabindex="-1"></a>    class        age           sex        died     </span>
+<span id="cb4-3"><a href="descriptive-statistics.html#cb4-3" tabindex="-1"></a> first <span class="sc">:</span><span class="dv">325</span>   child<span class="sc">:</span> <span class="dv">109</span>   female<span class="sc">:</span> <span class="dv">470</span>   No <span class="sc">:</span> <span class="dv">711</span>  </span>
+<span id="cb4-4"><a href="descriptive-statistics.html#cb4-4" tabindex="-1"></a> second<span class="sc">:</span><span class="dv">285</span>   adult<span class="sc">:</span><span class="dv">2092</span>   male  <span class="sc">:</span><span class="dv">1731</span>   Yes<span class="sc">:</span><span class="dv">1490</span>  </span>
+<span id="cb4-5"><a href="descriptive-statistics.html#cb4-5" tabindex="-1"></a> third <span class="sc">:</span><span class="dv">706</span>                                        </span>
+<span id="cb4-6"><a href="descriptive-statistics.html#cb4-6" tabindex="-1"></a> crew  <span class="sc">:</span><span class="dv">885</span>                                        </span></code></pre></div>
 <div id="single-caregorical-variable" class="section level3" number="10.1.1">
 <h3>
 <span class="header-section-number">10.1.1</span> Single Caregorical Variable<a class="anchor" aria-label="anchor" href="#single-caregorical-variable"><i class="fas fa-link"></i></a>
@@ -185,30 +159,30 @@
 <h4>
 <span class="header-section-number">10.1.1.1</span> Frequencies &amp; Proportions<a class="anchor" aria-label="anchor" href="#frequencies-proportions"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">titanic2</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span></span>
 <span>        include <span class="op">=</span> <span class="va">class</span>,</span>
 <span>        digits <span class="op">=</span> <span class="va">class</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span></span>
 <span>    <span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/bold_italicize_labels_levels.html">bold_labels</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="mkkuulecmr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mkkuulecmr table {
+<div id="wtbmuxcvrr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wtbmuxcvrr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mkkuulecmr thead, #mkkuulecmr tbody, #mkkuulecmr tfoot, #mkkuulecmr tr, #mkkuulecmr td, #mkkuulecmr th {
+#wtbmuxcvrr thead, #wtbmuxcvrr tbody, #wtbmuxcvrr tfoot, #wtbmuxcvrr tr, #wtbmuxcvrr td, #wtbmuxcvrr th {
   border-style: none;
 }
 
-#mkkuulecmr p {
+#wtbmuxcvrr p {
   margin: 0;
   padding: 0;
 }
 
-#mkkuulecmr .gt_table {
+#wtbmuxcvrr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -234,12 +208,12 @@
   border-left-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_caption {
+#wtbmuxcvrr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mkkuulecmr .gt_title {
+#wtbmuxcvrr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -251,7 +225,7 @@
   border-bottom-width: 0;
 }
 
-#mkkuulecmr .gt_subtitle {
+#wtbmuxcvrr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -263,7 +237,7 @@
   border-top-width: 0;
 }
 
-#mkkuulecmr .gt_heading {
+#wtbmuxcvrr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -275,13 +249,13 @@
   border-right-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_bottom_border {
+#wtbmuxcvrr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_col_headings {
+#wtbmuxcvrr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -296,7 +270,7 @@
   border-right-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_col_heading {
+#wtbmuxcvrr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -316,7 +290,7 @@
   overflow-x: hidden;
 }
 
-#mkkuulecmr .gt_column_spanner_outer {
+#wtbmuxcvrr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -328,15 +302,15 @@
   padding-right: 4px;
 }
 
-#mkkuulecmr .gt_column_spanner_outer:first-child {
+#wtbmuxcvrr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mkkuulecmr .gt_column_spanner_outer:last-child {
+#wtbmuxcvrr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mkkuulecmr .gt_column_spanner {
+#wtbmuxcvrr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -348,11 +322,11 @@
   width: 100%;
 }
 
-#mkkuulecmr .gt_spanner_row {
+#wtbmuxcvrr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mkkuulecmr .gt_group_heading {
+#wtbmuxcvrr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -378,7 +352,7 @@
   text-align: left;
 }
 
-#mkkuulecmr .gt_empty_group_heading {
+#wtbmuxcvrr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -393,15 +367,15 @@
   vertical-align: middle;
 }
 
-#mkkuulecmr .gt_from_md > :first-child {
+#wtbmuxcvrr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mkkuulecmr .gt_from_md > :last-child {
+#wtbmuxcvrr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mkkuulecmr .gt_row {
+#wtbmuxcvrr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -420,7 +394,7 @@
   overflow-x: hidden;
 }
 
-#mkkuulecmr .gt_stub {
+#wtbmuxcvrr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -433,7 +407,7 @@
   padding-right: 5px;
 }
 
-#mkkuulecmr .gt_stub_row_group {
+#wtbmuxcvrr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -447,15 +421,15 @@
   vertical-align: top;
 }
 
-#mkkuulecmr .gt_row_group_first td {
+#wtbmuxcvrr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mkkuulecmr .gt_row_group_first th {
+#wtbmuxcvrr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mkkuulecmr .gt_summary_row {
+#wtbmuxcvrr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -465,16 +439,16 @@
   padding-right: 5px;
 }
 
-#mkkuulecmr .gt_first_summary_row {
+#wtbmuxcvrr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_first_summary_row.thick {
+#wtbmuxcvrr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mkkuulecmr .gt_last_summary_row {
+#wtbmuxcvrr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -484,7 +458,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_grand_summary_row {
+#wtbmuxcvrr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -494,7 +468,7 @@
   padding-right: 5px;
 }
 
-#mkkuulecmr .gt_first_grand_summary_row {
+#wtbmuxcvrr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -504,7 +478,7 @@
   border-top-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_last_grand_summary_row_top {
+#wtbmuxcvrr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -514,11 +488,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_striped {
+#wtbmuxcvrr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mkkuulecmr .gt_table_body {
+#wtbmuxcvrr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -527,7 +501,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_footnotes {
+#wtbmuxcvrr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -541,7 +515,7 @@
   border-right-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_footnote {
+#wtbmuxcvrr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -550,7 +524,7 @@
   padding-right: 5px;
 }
 
-#mkkuulecmr .gt_sourcenotes {
+#wtbmuxcvrr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -564,7 +538,7 @@
   border-right-color: #D3D3D3;
 }
 
-#mkkuulecmr .gt_sourcenote {
+#wtbmuxcvrr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -572,63 +546,63 @@
   padding-right: 5px;
 }
 
-#mkkuulecmr .gt_left {
+#wtbmuxcvrr .gt_left {
   text-align: left;
 }
 
-#mkkuulecmr .gt_center {
+#wtbmuxcvrr .gt_center {
   text-align: center;
 }
 
-#mkkuulecmr .gt_right {
+#wtbmuxcvrr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mkkuulecmr .gt_font_normal {
+#wtbmuxcvrr .gt_font_normal {
   font-weight: normal;
 }
 
-#mkkuulecmr .gt_font_bold {
+#wtbmuxcvrr .gt_font_bold {
   font-weight: bold;
 }
 
-#mkkuulecmr .gt_font_italic {
+#wtbmuxcvrr .gt_font_italic {
   font-style: italic;
 }
 
-#mkkuulecmr .gt_super {
+#wtbmuxcvrr .gt_super {
   font-size: 65%;
 }
 
-#mkkuulecmr .gt_footnote_marks {
+#wtbmuxcvrr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mkkuulecmr .gt_asterisk {
+#wtbmuxcvrr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mkkuulecmr .gt_indent_1 {
+#wtbmuxcvrr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mkkuulecmr .gt_indent_2 {
+#wtbmuxcvrr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mkkuulecmr .gt_indent_3 {
+#wtbmuxcvrr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mkkuulecmr .gt_indent_4 {
+#wtbmuxcvrr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mkkuulecmr .gt_indent_5 {
+#wtbmuxcvrr .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -673,7 +647,7 @@
 <span class="header-section-number">10.1.1.2</span> Graph - Barchart<a class="anchor" aria-label="anchor" href="#graph---barchart"><i class="fas fa-link"></i></a>
 </h4>
 <p>We first summarize the data</p>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bar_data</span> <span class="op">&lt;-</span></span>
 <span>    <span class="va">titanic2</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">drop_na</span><span class="op">(</span><span class="va">class</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -722,7 +696,7 @@
 </tr>
 </table></div>
 <p>And the plot the barplot</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bar_data</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_bar</span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, </span>
@@ -743,7 +717,7 @@
 <span class="header-section-number">10.1.1.3</span> Pie Chart<a class="anchor" aria-label="anchor" href="#pie-chart"><i class="fas fa-link"></i></a>
 </h4>
 <p>To do this we use the previously summarized data. Then we draw a customised Pie Chart</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bar_data</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="va">perc</span>, fill <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_col</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -765,27 +739,27 @@
 <h4>
 <span class="header-section-number">10.1.2.1</span> Frequencies &amp; Proportions<a class="anchor" aria-label="anchor" href="#frequencies-proportions-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">titanic2</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">tbl_cross</span><span class="op">(</span>row <span class="op">=</span> <span class="va">sex</span>, col <span class="op">=</span> <span class="va">died</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">bold_labels</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="gxmgzhubhn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gxmgzhubhn table {
+<div id="lvsrcxvnwa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lvsrcxvnwa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gxmgzhubhn thead, #gxmgzhubhn tbody, #gxmgzhubhn tfoot, #gxmgzhubhn tr, #gxmgzhubhn td, #gxmgzhubhn th {
+#lvsrcxvnwa thead, #lvsrcxvnwa tbody, #lvsrcxvnwa tfoot, #lvsrcxvnwa tr, #lvsrcxvnwa td, #lvsrcxvnwa th {
   border-style: none;
 }
 
-#gxmgzhubhn p {
+#lvsrcxvnwa p {
   margin: 0;
   padding: 0;
 }
 
-#gxmgzhubhn .gt_table {
+#lvsrcxvnwa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -811,12 +785,12 @@
   border-left-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_caption {
+#lvsrcxvnwa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gxmgzhubhn .gt_title {
+#lvsrcxvnwa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -828,7 +802,7 @@
   border-bottom-width: 0;
 }
 
-#gxmgzhubhn .gt_subtitle {
+#lvsrcxvnwa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -840,7 +814,7 @@
   border-top-width: 0;
 }
 
-#gxmgzhubhn .gt_heading {
+#lvsrcxvnwa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -852,13 +826,13 @@
   border-right-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_bottom_border {
+#lvsrcxvnwa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_col_headings {
+#lvsrcxvnwa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -873,7 +847,7 @@
   border-right-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_col_heading {
+#lvsrcxvnwa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -893,7 +867,7 @@
   overflow-x: hidden;
 }
 
-#gxmgzhubhn .gt_column_spanner_outer {
+#lvsrcxvnwa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -905,15 +879,15 @@
   padding-right: 4px;
 }
 
-#gxmgzhubhn .gt_column_spanner_outer:first-child {
+#lvsrcxvnwa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gxmgzhubhn .gt_column_spanner_outer:last-child {
+#lvsrcxvnwa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gxmgzhubhn .gt_column_spanner {
+#lvsrcxvnwa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -925,11 +899,11 @@
   width: 100%;
 }
 
-#gxmgzhubhn .gt_spanner_row {
+#lvsrcxvnwa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gxmgzhubhn .gt_group_heading {
+#lvsrcxvnwa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -955,7 +929,7 @@
   text-align: left;
 }
 
-#gxmgzhubhn .gt_empty_group_heading {
+#lvsrcxvnwa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -970,15 +944,15 @@
   vertical-align: middle;
 }
 
-#gxmgzhubhn .gt_from_md > :first-child {
+#lvsrcxvnwa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gxmgzhubhn .gt_from_md > :last-child {
+#lvsrcxvnwa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gxmgzhubhn .gt_row {
+#lvsrcxvnwa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -997,7 +971,7 @@
   overflow-x: hidden;
 }
 
-#gxmgzhubhn .gt_stub {
+#lvsrcxvnwa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1010,7 +984,7 @@
   padding-right: 5px;
 }
 
-#gxmgzhubhn .gt_stub_row_group {
+#lvsrcxvnwa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1024,15 +998,15 @@
   vertical-align: top;
 }
 
-#gxmgzhubhn .gt_row_group_first td {
+#lvsrcxvnwa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gxmgzhubhn .gt_row_group_first th {
+#lvsrcxvnwa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gxmgzhubhn .gt_summary_row {
+#lvsrcxvnwa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1042,16 +1016,16 @@
   padding-right: 5px;
 }
 
-#gxmgzhubhn .gt_first_summary_row {
+#lvsrcxvnwa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_first_summary_row.thick {
+#lvsrcxvnwa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gxmgzhubhn .gt_last_summary_row {
+#lvsrcxvnwa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1061,7 +1035,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_grand_summary_row {
+#lvsrcxvnwa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1071,7 +1045,7 @@
   padding-right: 5px;
 }
 
-#gxmgzhubhn .gt_first_grand_summary_row {
+#lvsrcxvnwa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1081,7 +1055,7 @@
   border-top-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_last_grand_summary_row_top {
+#lvsrcxvnwa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1091,11 +1065,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_striped {
+#lvsrcxvnwa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gxmgzhubhn .gt_table_body {
+#lvsrcxvnwa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1104,7 +1078,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_footnotes {
+#lvsrcxvnwa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1118,7 +1092,7 @@
   border-right-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_footnote {
+#lvsrcxvnwa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1127,7 +1101,7 @@
   padding-right: 5px;
 }
 
-#gxmgzhubhn .gt_sourcenotes {
+#lvsrcxvnwa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1141,7 +1115,7 @@
   border-right-color: #D3D3D3;
 }
 
-#gxmgzhubhn .gt_sourcenote {
+#lvsrcxvnwa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1149,63 +1123,63 @@
   padding-right: 5px;
 }
 
-#gxmgzhubhn .gt_left {
+#lvsrcxvnwa .gt_left {
   text-align: left;
 }
 
-#gxmgzhubhn .gt_center {
+#lvsrcxvnwa .gt_center {
   text-align: center;
 }
 
-#gxmgzhubhn .gt_right {
+#lvsrcxvnwa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gxmgzhubhn .gt_font_normal {
+#lvsrcxvnwa .gt_font_normal {
   font-weight: normal;
 }
 
-#gxmgzhubhn .gt_font_bold {
+#lvsrcxvnwa .gt_font_bold {
   font-weight: bold;
 }
 
-#gxmgzhubhn .gt_font_italic {
+#lvsrcxvnwa .gt_font_italic {
   font-style: italic;
 }
 
-#gxmgzhubhn .gt_super {
+#lvsrcxvnwa .gt_super {
   font-size: 65%;
 }
 
-#gxmgzhubhn .gt_footnote_marks {
+#lvsrcxvnwa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gxmgzhubhn .gt_asterisk {
+#lvsrcxvnwa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gxmgzhubhn .gt_indent_1 {
+#lvsrcxvnwa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gxmgzhubhn .gt_indent_2 {
+#lvsrcxvnwa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gxmgzhubhn .gt_indent_3 {
+#lvsrcxvnwa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gxmgzhubhn .gt_indent_4 {
+#lvsrcxvnwa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gxmgzhubhn .gt_indent_5 {
+#lvsrcxvnwa .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1256,27 +1230,27 @@
 <h4>
 <span class="header-section-number">10.1.2.2</span> Row percentages<a class="anchor" aria-label="anchor" href="#row-percentages"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">titanic2</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">tbl_cross</span><span class="op">(</span>row <span class="op">=</span> <span class="va">sex</span>, col <span class="op">=</span> <span class="va">died</span>, percent <span class="op">=</span> <span class="st">"row"</span>, digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">bold_labels</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="lthaffssow" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lthaffssow table {
+<div id="arahzcyugp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#arahzcyugp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lthaffssow thead, #lthaffssow tbody, #lthaffssow tfoot, #lthaffssow tr, #lthaffssow td, #lthaffssow th {
+#arahzcyugp thead, #arahzcyugp tbody, #arahzcyugp tfoot, #arahzcyugp tr, #arahzcyugp td, #arahzcyugp th {
   border-style: none;
 }
 
-#lthaffssow p {
+#arahzcyugp p {
   margin: 0;
   padding: 0;
 }
 
-#lthaffssow .gt_table {
+#arahzcyugp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1302,12 +1276,12 @@
   border-left-color: #D3D3D3;
 }
 
-#lthaffssow .gt_caption {
+#arahzcyugp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lthaffssow .gt_title {
+#arahzcyugp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1319,7 +1293,7 @@
   border-bottom-width: 0;
 }
 
-#lthaffssow .gt_subtitle {
+#arahzcyugp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1331,7 +1305,7 @@
   border-top-width: 0;
 }
 
-#lthaffssow .gt_heading {
+#arahzcyugp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1343,13 +1317,13 @@
   border-right-color: #D3D3D3;
 }
 
-#lthaffssow .gt_bottom_border {
+#arahzcyugp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lthaffssow .gt_col_headings {
+#arahzcyugp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1364,7 +1338,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lthaffssow .gt_col_heading {
+#arahzcyugp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1384,7 +1358,7 @@
   overflow-x: hidden;
 }
 
-#lthaffssow .gt_column_spanner_outer {
+#arahzcyugp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1396,15 +1370,15 @@
   padding-right: 4px;
 }
 
-#lthaffssow .gt_column_spanner_outer:first-child {
+#arahzcyugp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lthaffssow .gt_column_spanner_outer:last-child {
+#arahzcyugp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lthaffssow .gt_column_spanner {
+#arahzcyugp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1416,11 +1390,11 @@
   width: 100%;
 }
 
-#lthaffssow .gt_spanner_row {
+#arahzcyugp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lthaffssow .gt_group_heading {
+#arahzcyugp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1446,7 +1420,7 @@
   text-align: left;
 }
 
-#lthaffssow .gt_empty_group_heading {
+#arahzcyugp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1461,15 +1435,15 @@
   vertical-align: middle;
 }
 
-#lthaffssow .gt_from_md > :first-child {
+#arahzcyugp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lthaffssow .gt_from_md > :last-child {
+#arahzcyugp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lthaffssow .gt_row {
+#arahzcyugp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1488,7 +1462,7 @@
   overflow-x: hidden;
 }
 
-#lthaffssow .gt_stub {
+#arahzcyugp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1501,7 +1475,7 @@
   padding-right: 5px;
 }
 
-#lthaffssow .gt_stub_row_group {
+#arahzcyugp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1515,15 +1489,15 @@
   vertical-align: top;
 }
 
-#lthaffssow .gt_row_group_first td {
+#arahzcyugp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lthaffssow .gt_row_group_first th {
+#arahzcyugp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lthaffssow .gt_summary_row {
+#arahzcyugp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1533,16 +1507,16 @@
   padding-right: 5px;
 }
 
-#lthaffssow .gt_first_summary_row {
+#arahzcyugp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lthaffssow .gt_first_summary_row.thick {
+#arahzcyugp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lthaffssow .gt_last_summary_row {
+#arahzcyugp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1552,7 +1526,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lthaffssow .gt_grand_summary_row {
+#arahzcyugp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1562,7 +1536,7 @@
   padding-right: 5px;
 }
 
-#lthaffssow .gt_first_grand_summary_row {
+#arahzcyugp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1572,7 +1546,7 @@
   border-top-color: #D3D3D3;
 }
 
-#lthaffssow .gt_last_grand_summary_row_top {
+#arahzcyugp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1582,11 +1556,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lthaffssow .gt_striped {
+#arahzcyugp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lthaffssow .gt_table_body {
+#arahzcyugp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1595,7 +1569,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lthaffssow .gt_footnotes {
+#arahzcyugp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1609,7 +1583,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lthaffssow .gt_footnote {
+#arahzcyugp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1618,7 +1592,7 @@
   padding-right: 5px;
 }
 
-#lthaffssow .gt_sourcenotes {
+#arahzcyugp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1632,7 +1606,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lthaffssow .gt_sourcenote {
+#arahzcyugp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1640,63 +1614,63 @@
   padding-right: 5px;
 }
 
-#lthaffssow .gt_left {
+#arahzcyugp .gt_left {
   text-align: left;
 }
 
-#lthaffssow .gt_center {
+#arahzcyugp .gt_center {
   text-align: center;
 }
 
-#lthaffssow .gt_right {
+#arahzcyugp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lthaffssow .gt_font_normal {
+#arahzcyugp .gt_font_normal {
   font-weight: normal;
 }
 
-#lthaffssow .gt_font_bold {
+#arahzcyugp .gt_font_bold {
   font-weight: bold;
 }
 
-#lthaffssow .gt_font_italic {
+#arahzcyugp .gt_font_italic {
   font-style: italic;
 }
 
-#lthaffssow .gt_super {
+#arahzcyugp .gt_super {
   font-size: 65%;
 }
 
-#lthaffssow .gt_footnote_marks {
+#arahzcyugp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lthaffssow .gt_asterisk {
+#arahzcyugp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lthaffssow .gt_indent_1 {
+#arahzcyugp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lthaffssow .gt_indent_2 {
+#arahzcyugp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lthaffssow .gt_indent_3 {
+#arahzcyugp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lthaffssow .gt_indent_4 {
+#arahzcyugp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lthaffssow .gt_indent_5 {
+#arahzcyugp .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1747,27 +1721,27 @@
 <h4>
 <span class="header-section-number">10.1.2.3</span> Column percentages<a class="anchor" aria-label="anchor" href="#column-percentages"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">titanic2</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">tbl_cross</span><span class="op">(</span>row <span class="op">=</span> <span class="va">sex</span>, col <span class="op">=</span> <span class="va">died</span>, percent <span class="op">=</span> <span class="st">"col"</span>, digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">bold_labels</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="azjvneigtp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#azjvneigtp table {
+<div id="rbiouggicw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rbiouggicw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#azjvneigtp thead, #azjvneigtp tbody, #azjvneigtp tfoot, #azjvneigtp tr, #azjvneigtp td, #azjvneigtp th {
+#rbiouggicw thead, #rbiouggicw tbody, #rbiouggicw tfoot, #rbiouggicw tr, #rbiouggicw td, #rbiouggicw th {
   border-style: none;
 }
 
-#azjvneigtp p {
+#rbiouggicw p {
   margin: 0;
   padding: 0;
 }
 
-#azjvneigtp .gt_table {
+#rbiouggicw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1793,12 +1767,12 @@
   border-left-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_caption {
+#rbiouggicw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#azjvneigtp .gt_title {
+#rbiouggicw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1810,7 +1784,7 @@
   border-bottom-width: 0;
 }
 
-#azjvneigtp .gt_subtitle {
+#rbiouggicw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1822,7 +1796,7 @@
   border-top-width: 0;
 }
 
-#azjvneigtp .gt_heading {
+#rbiouggicw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1834,13 +1808,13 @@
   border-right-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_bottom_border {
+#rbiouggicw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_col_headings {
+#rbiouggicw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1855,7 +1829,7 @@
   border-right-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_col_heading {
+#rbiouggicw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1875,7 +1849,7 @@
   overflow-x: hidden;
 }
 
-#azjvneigtp .gt_column_spanner_outer {
+#rbiouggicw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1887,15 +1861,15 @@
   padding-right: 4px;
 }
 
-#azjvneigtp .gt_column_spanner_outer:first-child {
+#rbiouggicw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#azjvneigtp .gt_column_spanner_outer:last-child {
+#rbiouggicw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#azjvneigtp .gt_column_spanner {
+#rbiouggicw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1907,11 +1881,11 @@
   width: 100%;
 }
 
-#azjvneigtp .gt_spanner_row {
+#rbiouggicw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#azjvneigtp .gt_group_heading {
+#rbiouggicw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1937,7 +1911,7 @@
   text-align: left;
 }
 
-#azjvneigtp .gt_empty_group_heading {
+#rbiouggicw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1952,15 +1926,15 @@
   vertical-align: middle;
 }
 
-#azjvneigtp .gt_from_md > :first-child {
+#rbiouggicw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#azjvneigtp .gt_from_md > :last-child {
+#rbiouggicw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#azjvneigtp .gt_row {
+#rbiouggicw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1979,7 +1953,7 @@
   overflow-x: hidden;
 }
 
-#azjvneigtp .gt_stub {
+#rbiouggicw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1992,7 +1966,7 @@
   padding-right: 5px;
 }
 
-#azjvneigtp .gt_stub_row_group {
+#rbiouggicw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2006,15 +1980,15 @@
   vertical-align: top;
 }
 
-#azjvneigtp .gt_row_group_first td {
+#rbiouggicw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#azjvneigtp .gt_row_group_first th {
+#rbiouggicw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#azjvneigtp .gt_summary_row {
+#rbiouggicw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2024,16 +1998,16 @@
   padding-right: 5px;
 }
 
-#azjvneigtp .gt_first_summary_row {
+#rbiouggicw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_first_summary_row.thick {
+#rbiouggicw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#azjvneigtp .gt_last_summary_row {
+#rbiouggicw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2043,7 +2017,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_grand_summary_row {
+#rbiouggicw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2053,7 +2027,7 @@
   padding-right: 5px;
 }
 
-#azjvneigtp .gt_first_grand_summary_row {
+#rbiouggicw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2063,7 +2037,7 @@
   border-top-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_last_grand_summary_row_top {
+#rbiouggicw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2073,11 +2047,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_striped {
+#rbiouggicw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#azjvneigtp .gt_table_body {
+#rbiouggicw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2086,7 +2060,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_footnotes {
+#rbiouggicw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2100,7 +2074,7 @@
   border-right-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_footnote {
+#rbiouggicw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2109,7 +2083,7 @@
   padding-right: 5px;
 }
 
-#azjvneigtp .gt_sourcenotes {
+#rbiouggicw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2123,7 +2097,7 @@
   border-right-color: #D3D3D3;
 }
 
-#azjvneigtp .gt_sourcenote {
+#rbiouggicw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2131,63 +2105,63 @@
   padding-right: 5px;
 }
 
-#azjvneigtp .gt_left {
+#rbiouggicw .gt_left {
   text-align: left;
 }
 
-#azjvneigtp .gt_center {
+#rbiouggicw .gt_center {
   text-align: center;
 }
 
-#azjvneigtp .gt_right {
+#rbiouggicw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#azjvneigtp .gt_font_normal {
+#rbiouggicw .gt_font_normal {
   font-weight: normal;
 }
 
-#azjvneigtp .gt_font_bold {
+#rbiouggicw .gt_font_bold {
   font-weight: bold;
 }
 
-#azjvneigtp .gt_font_italic {
+#rbiouggicw .gt_font_italic {
   font-style: italic;
 }
 
-#azjvneigtp .gt_super {
+#rbiouggicw .gt_super {
   font-size: 65%;
 }
 
-#azjvneigtp .gt_footnote_marks {
+#rbiouggicw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#azjvneigtp .gt_asterisk {
+#rbiouggicw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#azjvneigtp .gt_indent_1 {
+#rbiouggicw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#azjvneigtp .gt_indent_2 {
+#rbiouggicw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#azjvneigtp .gt_indent_3 {
+#rbiouggicw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#azjvneigtp .gt_indent_4 {
+#rbiouggicw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#azjvneigtp .gt_indent_5 {
+#rbiouggicw .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2238,7 +2212,7 @@
 <h4>
 <span class="header-section-number">10.1.2.4</span> Table Total Percentages<a class="anchor" aria-label="anchor" href="#table-total-percentages"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">titanic2</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">tbl_cross</span><span class="op">(</span></span>
 <span>        row <span class="op">=</span> <span class="va">sex</span>, </span>
@@ -2246,23 +2220,23 @@
 <span>        percent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cell"</span><span class="op">)</span>, </span>
 <span>        digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">bold_labels</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="rxkpcchyyd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rxkpcchyyd table {
+<div id="oqbjvdrduv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#oqbjvdrduv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rxkpcchyyd thead, #rxkpcchyyd tbody, #rxkpcchyyd tfoot, #rxkpcchyyd tr, #rxkpcchyyd td, #rxkpcchyyd th {
+#oqbjvdrduv thead, #oqbjvdrduv tbody, #oqbjvdrduv tfoot, #oqbjvdrduv tr, #oqbjvdrduv td, #oqbjvdrduv th {
   border-style: none;
 }
 
-#rxkpcchyyd p {
+#oqbjvdrduv p {
   margin: 0;
   padding: 0;
 }
 
-#rxkpcchyyd .gt_table {
+#oqbjvdrduv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2288,12 +2262,12 @@
   border-left-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_caption {
+#oqbjvdrduv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rxkpcchyyd .gt_title {
+#oqbjvdrduv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2305,7 +2279,7 @@
   border-bottom-width: 0;
 }
 
-#rxkpcchyyd .gt_subtitle {
+#oqbjvdrduv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2317,7 +2291,7 @@
   border-top-width: 0;
 }
 
-#rxkpcchyyd .gt_heading {
+#oqbjvdrduv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2329,13 +2303,13 @@
   border-right-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_bottom_border {
+#oqbjvdrduv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_col_headings {
+#oqbjvdrduv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2350,7 +2324,7 @@
   border-right-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_col_heading {
+#oqbjvdrduv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2370,7 +2344,7 @@
   overflow-x: hidden;
 }
 
-#rxkpcchyyd .gt_column_spanner_outer {
+#oqbjvdrduv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2382,15 +2356,15 @@
   padding-right: 4px;
 }
 
-#rxkpcchyyd .gt_column_spanner_outer:first-child {
+#oqbjvdrduv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rxkpcchyyd .gt_column_spanner_outer:last-child {
+#oqbjvdrduv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rxkpcchyyd .gt_column_spanner {
+#oqbjvdrduv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2402,11 +2376,11 @@
   width: 100%;
 }
 
-#rxkpcchyyd .gt_spanner_row {
+#oqbjvdrduv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rxkpcchyyd .gt_group_heading {
+#oqbjvdrduv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2432,7 +2406,7 @@
   text-align: left;
 }
 
-#rxkpcchyyd .gt_empty_group_heading {
+#oqbjvdrduv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2447,15 +2421,15 @@
   vertical-align: middle;
 }
 
-#rxkpcchyyd .gt_from_md > :first-child {
+#oqbjvdrduv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rxkpcchyyd .gt_from_md > :last-child {
+#oqbjvdrduv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rxkpcchyyd .gt_row {
+#oqbjvdrduv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2474,7 +2448,7 @@
   overflow-x: hidden;
 }
 
-#rxkpcchyyd .gt_stub {
+#oqbjvdrduv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2487,7 +2461,7 @@
   padding-right: 5px;
 }
 
-#rxkpcchyyd .gt_stub_row_group {
+#oqbjvdrduv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2501,15 +2475,15 @@
   vertical-align: top;
 }
 
-#rxkpcchyyd .gt_row_group_first td {
+#oqbjvdrduv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rxkpcchyyd .gt_row_group_first th {
+#oqbjvdrduv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rxkpcchyyd .gt_summary_row {
+#oqbjvdrduv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2519,16 +2493,16 @@
   padding-right: 5px;
 }
 
-#rxkpcchyyd .gt_first_summary_row {
+#oqbjvdrduv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_first_summary_row.thick {
+#oqbjvdrduv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rxkpcchyyd .gt_last_summary_row {
+#oqbjvdrduv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2538,7 +2512,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_grand_summary_row {
+#oqbjvdrduv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2548,7 +2522,7 @@
   padding-right: 5px;
 }
 
-#rxkpcchyyd .gt_first_grand_summary_row {
+#oqbjvdrduv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2558,7 +2532,7 @@
   border-top-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_last_grand_summary_row_top {
+#oqbjvdrduv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2568,11 +2542,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_striped {
+#oqbjvdrduv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rxkpcchyyd .gt_table_body {
+#oqbjvdrduv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2581,7 +2555,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_footnotes {
+#oqbjvdrduv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2595,7 +2569,7 @@
   border-right-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_footnote {
+#oqbjvdrduv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2604,7 +2578,7 @@
   padding-right: 5px;
 }
 
-#rxkpcchyyd .gt_sourcenotes {
+#oqbjvdrduv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2618,7 +2592,7 @@
   border-right-color: #D3D3D3;
 }
 
-#rxkpcchyyd .gt_sourcenote {
+#oqbjvdrduv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2626,63 +2600,63 @@
   padding-right: 5px;
 }
 
-#rxkpcchyyd .gt_left {
+#oqbjvdrduv .gt_left {
   text-align: left;
 }
 
-#rxkpcchyyd .gt_center {
+#oqbjvdrduv .gt_center {
   text-align: center;
 }
 
-#rxkpcchyyd .gt_right {
+#oqbjvdrduv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rxkpcchyyd .gt_font_normal {
+#oqbjvdrduv .gt_font_normal {
   font-weight: normal;
 }
 
-#rxkpcchyyd .gt_font_bold {
+#oqbjvdrduv .gt_font_bold {
   font-weight: bold;
 }
 
-#rxkpcchyyd .gt_font_italic {
+#oqbjvdrduv .gt_font_italic {
   font-style: italic;
 }
 
-#rxkpcchyyd .gt_super {
+#oqbjvdrduv .gt_super {
   font-size: 65%;
 }
 
-#rxkpcchyyd .gt_footnote_marks {
+#oqbjvdrduv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rxkpcchyyd .gt_asterisk {
+#oqbjvdrduv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rxkpcchyyd .gt_indent_1 {
+#oqbjvdrduv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rxkpcchyyd .gt_indent_2 {
+#oqbjvdrduv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rxkpcchyyd .gt_indent_3 {
+#oqbjvdrduv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rxkpcchyyd .gt_indent_4 {
+#oqbjvdrduv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rxkpcchyyd .gt_indent_5 {
+#oqbjvdrduv .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2733,7 +2707,7 @@
 <h4>
 <span class="header-section-number">10.1.2.5</span> Bar Chart<a class="anchor" aria-label="anchor" href="#bar-chart"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">titanic2</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">died</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_bar</span><span class="op">(</span>position <span class="op">=</span> <span class="fu">position_dodge</span><span class="op">(</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -2749,26 +2723,26 @@
 <span class="header-section-number">10.2</span> Continuous variables<a class="anchor" aria-label="anchor" href="#continuous-variables"><i class="fas fa-link"></i></a>
 </h2>
 <p>For this section we will use the <code>NewDrug_clean.dta</code> dataset</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="descriptive-statistics.html#cb116-1" tabindex="-1"></a>newdrug <span class="ot">&lt;-</span>  </span>
-<span id="cb116-2"><a href="descriptive-statistics.html#cb116-2" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"./Data/NewDrug_clean.dta"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb116-3"><a href="descriptive-statistics.html#cb116-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sex  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(sex), <span class="at">treat =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(treat)) <span class="sc">%&gt;%</span> </span>
-<span id="cb116-4"><a href="descriptive-statistics.html#cb116-4" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">zap_labels</span>() </span>
-<span id="cb116-5"><a href="descriptive-statistics.html#cb116-5" tabindex="-1"></a></span>
-<span id="cb116-6"><a href="descriptive-statistics.html#cb116-6" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
-<span id="cb116-7"><a href="descriptive-statistics.html#cb116-7" tabindex="-1"></a>      id                treat         age        sex   </span>
-<span id="cb116-8"><a href="descriptive-statistics.html#cb116-8" tabindex="-1"></a> Length<span class="sc">:</span><span class="dv">50</span>          Control<span class="sc">:</span><span class="dv">22</span>   Min.   <span class="sc">:</span><span class="fl">45.00</span>   F<span class="sc">:</span><span class="dv">26</span>  </span>
-<span id="cb116-9"><a href="descriptive-statistics.html#cb116-9" tabindex="-1"></a> Class <span class="sc">:</span>character   Newdrug<span class="sc">:</span><span class="dv">28</span>   1st Qu.<span class="sc">:</span><span class="fl">57.25</span>   M<span class="sc">:</span><span class="dv">24</span>  </span>
-<span id="cb116-10"><a href="descriptive-statistics.html#cb116-10" tabindex="-1"></a> Mode  <span class="sc">:</span>character                Median <span class="sc">:</span><span class="fl">63.00</span>         </span>
-<span id="cb116-11"><a href="descriptive-statistics.html#cb116-11" tabindex="-1"></a>                                 Mean   <span class="sc">:</span><span class="fl">61.48</span>         </span>
-<span id="cb116-12"><a href="descriptive-statistics.html#cb116-12" tabindex="-1"></a>                                 3rd Qu.<span class="sc">:</span><span class="fl">65.00</span>         </span>
-<span id="cb116-13"><a href="descriptive-statistics.html#cb116-13" tabindex="-1"></a>                                 Max.   <span class="sc">:</span><span class="fl">75.00</span>         </span>
-<span id="cb116-14"><a href="descriptive-statistics.html#cb116-14" tabindex="-1"></a>      bp1              bp2            bpdiff      </span>
-<span id="cb116-15"><a href="descriptive-statistics.html#cb116-15" tabindex="-1"></a> Min.   <span class="sc">:</span> <span class="fl">87.50</span>   Min.   <span class="sc">:</span><span class="fl">78.00</span>   Min.   <span class="sc">:</span> <span class="fl">0.500</span>  </span>
-<span id="cb116-16"><a href="descriptive-statistics.html#cb116-16" tabindex="-1"></a> 1st Qu.<span class="sc">:</span> <span class="fl">95.62</span>   1st Qu.<span class="sc">:</span><span class="fl">85.22</span>   1st Qu.<span class="sc">:</span> <span class="fl">4.800</span>  </span>
-<span id="cb116-17"><a href="descriptive-statistics.html#cb116-17" tabindex="-1"></a> Median <span class="sc">:</span> <span class="fl">97.70</span>   Median <span class="sc">:</span><span class="fl">88.15</span>   Median <span class="sc">:</span> <span class="fl">8.250</span>  </span>
-<span id="cb116-18"><a href="descriptive-statistics.html#cb116-18" tabindex="-1"></a> Mean   <span class="sc">:</span> <span class="fl">98.30</span>   Mean   <span class="sc">:</span><span class="fl">88.60</span>   Mean   <span class="sc">:</span> <span class="fl">9.704</span>  </span>
-<span id="cb116-19"><a href="descriptive-statistics.html#cb116-19" tabindex="-1"></a> 3rd Qu.<span class="sc">:</span> <span class="fl">99.40</span>   3rd Qu.<span class="sc">:</span><span class="fl">92.10</span>   3rd Qu.<span class="sc">:</span><span class="fl">13.700</span>  </span>
-<span id="cb116-20"><a href="descriptive-statistics.html#cb116-20" tabindex="-1"></a> Max.   <span class="sc">:</span><span class="fl">111.70</span>   Max.   <span class="sc">:</span><span class="fl">99.70</span>   Max.   <span class="sc">:</span><span class="fl">26.300</span>  </span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="descriptive-statistics.html#cb14-1" tabindex="-1"></a>newdrug <span class="ot">&lt;-</span>  </span>
+<span id="cb14-2"><a href="descriptive-statistics.html#cb14-2" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"./Data/NewDrug_clean.dta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="descriptive-statistics.html#cb14-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sex  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(sex), <span class="at">treat =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(treat)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="descriptive-statistics.html#cb14-4" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">zap_labels</span>() </span>
+<span id="cb14-5"><a href="descriptive-statistics.html#cb14-5" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="descriptive-statistics.html#cb14-6" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
+<span id="cb14-7"><a href="descriptive-statistics.html#cb14-7" tabindex="-1"></a>      id                treat         age        sex   </span>
+<span id="cb14-8"><a href="descriptive-statistics.html#cb14-8" tabindex="-1"></a> Length<span class="sc">:</span><span class="dv">50</span>          Control<span class="sc">:</span><span class="dv">22</span>   Min.   <span class="sc">:</span><span class="fl">45.00</span>   F<span class="sc">:</span><span class="dv">26</span>  </span>
+<span id="cb14-9"><a href="descriptive-statistics.html#cb14-9" tabindex="-1"></a> Class <span class="sc">:</span>character   Newdrug<span class="sc">:</span><span class="dv">28</span>   1st Qu.<span class="sc">:</span><span class="fl">57.25</span>   M<span class="sc">:</span><span class="dv">24</span>  </span>
+<span id="cb14-10"><a href="descriptive-statistics.html#cb14-10" tabindex="-1"></a> Mode  <span class="sc">:</span>character                Median <span class="sc">:</span><span class="fl">63.00</span>         </span>
+<span id="cb14-11"><a href="descriptive-statistics.html#cb14-11" tabindex="-1"></a>                                 Mean   <span class="sc">:</span><span class="fl">61.48</span>         </span>
+<span id="cb14-12"><a href="descriptive-statistics.html#cb14-12" tabindex="-1"></a>                                 3rd Qu.<span class="sc">:</span><span class="fl">65.00</span>         </span>
+<span id="cb14-13"><a href="descriptive-statistics.html#cb14-13" tabindex="-1"></a>                                 Max.   <span class="sc">:</span><span class="fl">75.00</span>         </span>
+<span id="cb14-14"><a href="descriptive-statistics.html#cb14-14" tabindex="-1"></a>      bp1              bp2            bpdiff      </span>
+<span id="cb14-15"><a href="descriptive-statistics.html#cb14-15" tabindex="-1"></a> Min.   <span class="sc">:</span> <span class="fl">87.50</span>   Min.   <span class="sc">:</span><span class="fl">78.00</span>   Min.   <span class="sc">:</span> <span class="fl">0.500</span>  </span>
+<span id="cb14-16"><a href="descriptive-statistics.html#cb14-16" tabindex="-1"></a> 1st Qu.<span class="sc">:</span> <span class="fl">95.62</span>   1st Qu.<span class="sc">:</span><span class="fl">85.22</span>   1st Qu.<span class="sc">:</span> <span class="fl">4.800</span>  </span>
+<span id="cb14-17"><a href="descriptive-statistics.html#cb14-17" tabindex="-1"></a> Median <span class="sc">:</span> <span class="fl">97.70</span>   Median <span class="sc">:</span><span class="fl">88.15</span>   Median <span class="sc">:</span> <span class="fl">8.250</span>  </span>
+<span id="cb14-18"><a href="descriptive-statistics.html#cb14-18" tabindex="-1"></a> Mean   <span class="sc">:</span> <span class="fl">98.30</span>   Mean   <span class="sc">:</span><span class="fl">88.60</span>   Mean   <span class="sc">:</span> <span class="fl">9.704</span>  </span>
+<span id="cb14-19"><a href="descriptive-statistics.html#cb14-19" tabindex="-1"></a> 3rd Qu.<span class="sc">:</span> <span class="fl">99.40</span>   3rd Qu.<span class="sc">:</span><span class="fl">92.10</span>   3rd Qu.<span class="sc">:</span><span class="fl">13.700</span>  </span>
+<span id="cb14-20"><a href="descriptive-statistics.html#cb14-20" tabindex="-1"></a> Max.   <span class="sc">:</span><span class="fl">111.70</span>   Max.   <span class="sc">:</span><span class="fl">99.70</span>   Max.   <span class="sc">:</span><span class="fl">26.300</span>  </span></code></pre></div>
 <div id="single-continuous-variable" class="section level3" number="10.2.1">
 <h3>
 <span class="header-section-number">10.2.1</span> Single continuous variable<a class="anchor" aria-label="anchor" href="#single-continuous-variable"><i class="fas fa-link"></i></a>
@@ -2778,7 +2752,7 @@
 <span class="header-section-number">10.2.1.1</span> Measures of Central tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion"><i class="fas fa-link"></i></a>
 </h4>
 <p>These include mean and median and displayed below</p>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">summarise</span><span class="op">(</span></span>
 <span>        mean.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>, </span>
@@ -2815,7 +2789,7 @@
 </tr>
 </table></div>
 <p>Alternatively</p>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-16">
@@ -2866,7 +2840,7 @@
 </tr>
 </table></div>
 <p>And to show the interquartile range we do the following.</p>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">bp1</span>, IQR <span class="op">=</span> <span class="cn">TRUE</span>,quant <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.25</span>, <span class="fl">.75</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-17">
@@ -2930,7 +2904,7 @@
 <h4>
 <span class="header-section-number">10.2.1.2</span> Graphs - Histogram<a class="anchor" aria-label="anchor" href="#graphs---histogram"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">7</span>, col<span class="op">=</span><span class="st">"black"</span>, alpha <span class="op">=</span> <span class="fl">.5</span>, fill <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -2943,7 +2917,7 @@
 <h4>
 <span class="header-section-number">10.2.1.3</span> Graphs - Boxplot and violin plot<a class="anchor" aria-label="anchor" href="#graphs---boxplot-and-violin-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_boxplot</span><span class="op">(</span>col<span class="op">=</span><span class="st">"black"</span>,  </span>
@@ -2960,7 +2934,7 @@
 <h4>
 <span class="header-section-number">10.2.1.4</span> Graphs - Density plot<a class="anchor" aria-label="anchor" href="#graphs---density-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_density</span><span class="op">(</span>col<span class="op">=</span><span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"yellow"</span>, alpha<span class="op">=</span><span class="fl">.6</span><span class="op">)</span> <span class="op">+</span></span>
@@ -2974,23 +2948,19 @@
 <h4>
 <span class="header-section-number">10.2.1.5</span> Graphs - Cumulative Frequency plot<a class="anchor" aria-label="anchor" href="#graphs---cumulative-frequency-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="descriptive-statistics.html#cb123-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb123-2"><a href="descriptive-statistics.html#cb123-2" tabindex="-1"></a>    <span class="fu">group_by</span>(bp1) <span class="sc">%&gt;%</span> </span>
-<span id="cb123-3"><a href="descriptive-statistics.html#cb123-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb123-4"><a href="descriptive-statistics.html#cb123-4" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb123-5"><a href="descriptive-statistics.html#cb123-5" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">cum =</span> <span class="fu">cumsum</span>(n)<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb123-6"><a href="descriptive-statistics.html#cb123-6" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> cum, <span class="at">x =</span> bp1)) <span class="sc">+</span></span>
-<span id="cb123-7"><a href="descriptive-statistics.html#cb123-7" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">col=</span><span class="dv">3</span>, <span class="at">size=</span><span class="fl">1.2</span>)<span class="sc">+</span></span>
-<span id="cb123-8"><a href="descriptive-statistics.html#cb123-8" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Cumulative Frequency Plot of Blood Pressure before  intervention"</span>,</span>
-<span id="cb123-9"><a href="descriptive-statistics.html#cb123-9" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"BP1"</span>,</span>
-<span id="cb123-10"><a href="descriptive-statistics.html#cb123-10" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Cumulative Frequency"</span>)<span class="sc">+</span></span>
-<span id="cb123-11"><a href="descriptive-statistics.html#cb123-11" tabindex="-1"></a>    <span class="fu">theme_light</span>() </span>
-<span id="cb123-12"><a href="descriptive-statistics.html#cb123-12" tabindex="-1"></a>Warning<span class="sc">:</span> Using <span class="st">`</span><span class="at">size</span><span class="st">`</span> aesthetic <span class="cf">for</span> lines was deprecated <span class="cf">in</span> ggplot2</span>
-<span id="cb123-13"><a href="descriptive-statistics.html#cb123-13" tabindex="-1"></a><span class="dv">3</span>.<span class="dv">4</span>.<span class="fl">0.</span></span>
-<span id="cb123-14"><a href="descriptive-statistics.html#cb123-14" tabindex="-1"></a>ℹ Please use <span class="st">`</span><span class="at">linewidth</span><span class="st">`</span> instead.</span>
-<span id="cb123-15"><a href="descriptive-statistics.html#cb123-15" tabindex="-1"></a>This warning is displayed once every <span class="dv">8</span> hours.</span>
-<span id="cb123-16"><a href="descriptive-statistics.html#cb123-16" tabindex="-1"></a>Call <span class="st">`</span><span class="at">lifecycle::last_lifecycle_warnings()</span><span class="st">`</span> to see where</span>
-<span id="cb123-17"><a href="descriptive-statistics.html#cb123-17" tabindex="-1"></a>this warning was generated.</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">summarize</span><span class="op">(</span>n <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>cum <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">*</span><span class="fl">100</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">cum</span>, x <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_line</span><span class="op">(</span>col<span class="op">=</span><span class="fl">3</span>, linewidth<span class="op">=</span><span class="fl">1.2</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span></span>
+<span>        title <span class="op">=</span> <span class="st">"Cumulative Frequency Plot of Blood Pressure before  intervention"</span>,</span>
+<span>        x <span class="op">=</span> <span class="st">"BP1"</span>,</span>
+<span>        y <span class="op">=</span> <span class="st">"Cumulative Frequency"</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics_files/figure-html/unnamed-chunk-21-1.png" width="576"></div>
 </div>
 </div>
@@ -3002,7 +2972,7 @@
 <h4>
 <span class="header-section-number">10.2.2.1</span> Measures of Central tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -3099,25 +3069,31 @@
 </tr>
 </table></div>
 <p>To illustrate graphing multiple continuous variables we use the 2 bp variables</p>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bps</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="va">newdrug</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="va">bp1</span>, <span class="va">bp2</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">bp1</span>, <span class="va">bp2</span><span class="op">)</span>,names_to <span class="op">=</span> <span class="st">"measure"</span>, values_to <span class="op">=</span> <span class="st">"bp"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">mutate</span><span class="op">(</span>measure <span class="op">=</span> <span class="fu">fct_recode</span><span class="op">(</span><span class="va">measure</span>, </span>
-<span>                                <span class="st">"Pre-Treatment"</span> <span class="op">=</span> <span class="st">"bp1"</span>,</span>
-<span>                                <span class="st">"Post-Treatment"</span> <span class="op">=</span> <span class="st">"bp2"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="descriptive-statistics.html#cb126-1" tabindex="-1"></a>bps <span class="sc">%&gt;%</span> </span>
-<span id="cb126-2"><a href="descriptive-statistics.html#cb126-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> measure, <span class="at">x =</span> bp, <span class="at">fill =</span> measure)) <span class="sc">+</span></span>
-<span id="cb126-3"><a href="descriptive-statistics.html#cb126-3" tabindex="-1"></a>    ggridges<span class="sc">::</span><span class="fu">geom_density_ridges2</span>( <span class="at">col=</span><span class="st">"black"</span>, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">scale=</span><span class="dv">1</span>, </span>
-<span id="cb126-4"><a href="descriptive-statistics.html#cb126-4" tabindex="-1"></a>                                    <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
-<span id="cb126-5"><a href="descriptive-statistics.html#cb126-5" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Blood pressure (mmHg)"</span>, </span>
-<span id="cb126-6"><a href="descriptive-statistics.html#cb126-6" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Density"</span>, </span>
-<span id="cb126-7"><a href="descriptive-statistics.html#cb126-7" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Blood Pressure"</span>) <span class="sc">+</span></span>
-<span id="cb126-8"><a href="descriptive-statistics.html#cb126-8" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb126-9"><a href="descriptive-statistics.html#cb126-9" tabindex="-1"></a>Picking joint bandwidth of <span class="fl">1.52</span></span></code></pre></div>
+<span>    <span class="fu">pivot_longer</span><span class="op">(</span></span>
+<span>        cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">bp1</span>, <span class="va">bp2</span><span class="op">)</span>,</span>
+<span>        names_to <span class="op">=</span> <span class="st">"measure"</span>, </span>
+<span>        values_to <span class="op">=</span> <span class="st">"bp"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">mutate</span><span class="op">(</span></span>
+<span>        measure <span class="op">=</span> <span class="fu">fct_recode</span><span class="op">(</span></span>
+<span>            <span class="va">measure</span>, <span class="st">"Pre-Treatment"</span> <span class="op">=</span> <span class="st">"bp1"</span>, <span class="st">"Post-Treatment"</span> <span class="op">=</span> <span class="st">"bp2"</span></span>
+<span>            <span class="op">)</span></span>
+<span>        <span class="op">)</span></span></code></pre></div>
+<p>Next we create multiple density plots</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="descriptive-statistics.html#cb24-1" tabindex="-1"></a>bps <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="descriptive-statistics.html#cb24-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> measure, <span class="at">x =</span> bp, <span class="at">fill =</span> measure)) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="descriptive-statistics.html#cb24-3" tabindex="-1"></a>    ggridges<span class="sc">::</span><span class="fu">geom_density_ridges2</span>( <span class="at">col=</span><span class="st">"black"</span>, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">scale=</span><span class="dv">1</span>, </span>
+<span id="cb24-4"><a href="descriptive-statistics.html#cb24-4" tabindex="-1"></a>                                    <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="descriptive-statistics.html#cb24-5" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Blood pressure (mmHg)"</span>, </span>
+<span id="cb24-6"><a href="descriptive-statistics.html#cb24-6" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Density"</span>, </span>
+<span id="cb24-7"><a href="descriptive-statistics.html#cb24-7" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Blood Pressure"</span>) <span class="sc">+</span></span>
+<span id="cb24-8"><a href="descriptive-statistics.html#cb24-8" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb24-9"><a href="descriptive-statistics.html#cb24-9" tabindex="-1"></a>Picking joint bandwidth of <span class="fl">1.52</span></span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics_files/figure-html/unnamed-chunk-24-1.png" width="576"></div>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bps</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">measure</span>, x <span class="op">=</span> <span class="va">bp</span>, fill <span class="op">=</span> <span class="va">measure</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu">geom_boxplot</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -3127,7 +3103,7 @@
 <span>    <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics_files/figure-html/unnamed-chunk-25-1.png" width="576"></div>
-<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bps</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">measure</span>, x <span class="op">=</span> <span class="va">bp</span>, fill <span class="op">=</span> <span class="va">measure</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu">geom_violin</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -3146,7 +3122,7 @@
 <span class="header-section-number">10.3.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
 </h3>
 <p>We do this with one variable.</p>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">treat</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">summarize</span><span class="op">(</span>mean.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>,</span>
@@ -3199,45 +3175,12 @@
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">112</td>
 </tr>
 </table></div>
-<p>Alternatively we can use</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="descriptive-statistics.html#cb130-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb130-2"><a href="descriptive-statistics.html#cb130-2" tabindex="-1"></a>    <span class="fu">select</span>(<span class="fu">where</span>(is.numeric), treat) <span class="sc">%&gt;%</span> </span>
-<span id="cb130-3"><a href="descriptive-statistics.html#cb130-3" tabindex="-1"></a>    psych<span class="sc">::</span><span class="fu">describeBy</span>(<span class="at">group =</span> <span class="st">"treat"</span>)</span>
-<span id="cb130-4"><a href="descriptive-statistics.html#cb130-4" tabindex="-1"></a></span>
-<span id="cb130-5"><a href="descriptive-statistics.html#cb130-5" tabindex="-1"></a> Descriptive statistics by group </span>
-<span id="cb130-6"><a href="descriptive-statistics.html#cb130-6" tabindex="-1"></a>treat<span class="sc">:</span> Control</span>
-<span id="cb130-7"><a href="descriptive-statistics.html#cb130-7" tabindex="-1"></a>       vars  n  mean   sd median trimmed  mad  min   max</span>
-<span id="cb130-8"><a href="descriptive-statistics.html#cb130-8" tabindex="-1"></a>age       <span class="dv">1</span> <span class="dv">22</span> <span class="fl">62.09</span> <span class="fl">6.57</span>   <span class="fl">63.0</span>   <span class="fl">62.17</span> <span class="fl">5.19</span> <span class="fl">48.0</span>  <span class="fl">75.0</span></span>
-<span id="cb130-9"><a href="descriptive-statistics.html#cb130-9" tabindex="-1"></a>bp1       <span class="dv">2</span> <span class="dv">22</span> <span class="fl">97.13</span> <span class="fl">3.56</span>   <span class="fl">97.4</span>   <span class="fl">97.28</span> <span class="fl">2.59</span> <span class="fl">89.8</span> <span class="fl">103.4</span></span>
-<span id="cb130-10"><a href="descriptive-statistics.html#cb130-10" tabindex="-1"></a>bp2       <span class="dv">3</span> <span class="dv">22</span> <span class="fl">92.19</span> <span class="fl">3.25</span>   <span class="fl">91.9</span>   <span class="fl">91.94</span> <span class="fl">2.52</span> <span class="fl">86.2</span>  <span class="fl">99.7</span></span>
-<span id="cb130-11"><a href="descriptive-statistics.html#cb130-11" tabindex="-1"></a>bpdiff    <span class="dv">4</span> <span class="dv">22</span>  <span class="fl">4.95</span> <span class="fl">2.25</span>    <span class="fl">4.8</span>    <span class="fl">4.86</span> <span class="fl">1.70</span>  <span class="fl">0.5</span>  <span class="fl">11.1</span></span>
-<span id="cb130-12"><a href="descriptive-statistics.html#cb130-12" tabindex="-1"></a>treat<span class="sc">*</span>    <span class="dv">5</span> <span class="dv">22</span>  <span class="fl">1.00</span> <span class="fl">0.00</span>    <span class="fl">1.0</span>    <span class="fl">1.00</span> <span class="fl">0.00</span>  <span class="fl">1.0</span>   <span class="fl">1.0</span></span>
-<span id="cb130-13"><a href="descriptive-statistics.html#cb130-13" tabindex="-1"></a>       range  skew kurtosis   se</span>
-<span id="cb130-14"><a href="descriptive-statistics.html#cb130-14" tabindex="-1"></a>age     <span class="fl">27.0</span> <span class="sc">-</span><span class="fl">0.17</span>    <span class="sc">-</span><span class="fl">0.37</span> <span class="fl">1.40</span></span>
-<span id="cb130-15"><a href="descriptive-statistics.html#cb130-15" tabindex="-1"></a>bp1     <span class="fl">13.6</span> <span class="sc">-</span><span class="fl">0.33</span>    <span class="sc">-</span><span class="fl">0.39</span> <span class="fl">0.76</span></span>
-<span id="cb130-16"><a href="descriptive-statistics.html#cb130-16" tabindex="-1"></a>bp2     <span class="fl">13.5</span>  <span class="fl">0.66</span>     <span class="fl">0.03</span> <span class="fl">0.69</span></span>
-<span id="cb130-17"><a href="descriptive-statistics.html#cb130-17" tabindex="-1"></a>bpdiff  <span class="fl">10.6</span>  <span class="fl">0.56</span>     <span class="fl">0.82</span> <span class="fl">0.48</span></span>
-<span id="cb130-18"><a href="descriptive-statistics.html#cb130-18" tabindex="-1"></a>treat<span class="sc">*</span>   <span class="fl">0.0</span>   <span class="cn">NaN</span>      <span class="cn">NaN</span> <span class="fl">0.00</span></span>
-<span id="cb130-19"><a href="descriptive-statistics.html#cb130-19" tabindex="-1"></a><span class="sc">---------------------------------------------</span> </span>
-<span id="cb130-20"><a href="descriptive-statistics.html#cb130-20" tabindex="-1"></a>treat<span class="sc">:</span> Newdrug</span>
-<span id="cb130-21"><a href="descriptive-statistics.html#cb130-21" tabindex="-1"></a>       vars  n  mean   sd median trimmed  mad  min   max</span>
-<span id="cb130-22"><a href="descriptive-statistics.html#cb130-22" tabindex="-1"></a>age       <span class="dv">1</span> <span class="dv">28</span> <span class="fl">61.00</span> <span class="fl">6.54</span>  <span class="fl">62.50</span>   <span class="fl">61.58</span> <span class="fl">5.19</span> <span class="fl">45.0</span>  <span class="fl">70.0</span></span>
-<span id="cb130-23"><a href="descriptive-statistics.html#cb130-23" tabindex="-1"></a>bp1       <span class="dv">2</span> <span class="dv">28</span> <span class="fl">99.22</span> <span class="fl">6.05</span>  <span class="fl">98.25</span>   <span class="fl">98.99</span> <span class="fl">4.15</span> <span class="fl">87.5</span> <span class="fl">111.7</span></span>
-<span id="cb130-24"><a href="descriptive-statistics.html#cb130-24" tabindex="-1"></a>bp2       <span class="dv">3</span> <span class="dv">28</span> <span class="fl">85.78</span> <span class="fl">3.29</span>  <span class="fl">85.35</span>   <span class="fl">85.67</span> <span class="fl">2.22</span> <span class="fl">78.0</span>  <span class="fl">94.2</span></span>
-<span id="cb130-25"><a href="descriptive-statistics.html#cb130-25" tabindex="-1"></a>bpdiff    <span class="dv">4</span> <span class="dv">28</span> <span class="fl">13.44</span> <span class="fl">5.73</span>  <span class="fl">12.45</span>   <span class="fl">13.17</span> <span class="fl">4.37</span>  <span class="fl">3.8</span>  <span class="fl">26.3</span></span>
-<span id="cb130-26"><a href="descriptive-statistics.html#cb130-26" tabindex="-1"></a>treat<span class="sc">*</span>    <span class="dv">5</span> <span class="dv">28</span>  <span class="fl">2.00</span> <span class="fl">0.00</span>   <span class="fl">2.00</span>    <span class="fl">2.00</span> <span class="fl">0.00</span>  <span class="fl">2.0</span>   <span class="fl">2.0</span></span>
-<span id="cb130-27"><a href="descriptive-statistics.html#cb130-27" tabindex="-1"></a>       range  skew kurtosis   se</span>
-<span id="cb130-28"><a href="descriptive-statistics.html#cb130-28" tabindex="-1"></a>age     <span class="fl">25.0</span> <span class="sc">-</span><span class="fl">0.92</span>     <span class="fl">0.14</span> <span class="fl">1.24</span></span>
-<span id="cb130-29"><a href="descriptive-statistics.html#cb130-29" tabindex="-1"></a>bp1     <span class="fl">24.2</span>  <span class="fl">0.54</span>    <span class="sc">-</span><span class="fl">0.37</span> <span class="fl">1.14</span></span>
-<span id="cb130-30"><a href="descriptive-statistics.html#cb130-30" tabindex="-1"></a>bp2     <span class="fl">16.2</span>  <span class="fl">0.38</span>     <span class="fl">0.96</span> <span class="fl">0.62</span></span>
-<span id="cb130-31"><a href="descriptive-statistics.html#cb130-31" tabindex="-1"></a>bpdiff  <span class="fl">22.5</span>  <span class="fl">0.65</span>    <span class="sc">-</span><span class="fl">0.25</span> <span class="fl">1.08</span></span>
-<span id="cb130-32"><a href="descriptive-statistics.html#cb130-32" tabindex="-1"></a>treat<span class="sc">*</span>   <span class="fl">0.0</span>   <span class="cn">NaN</span>      <span class="cn">NaN</span> <span class="fl">0.00</span></span></code></pre></div>
 </div>
 <div id="graph---histogram-boxplot-density-plot-and-cumlative-frequency" class="section level3" number="10.3.2">
 <h3>
 <span class="header-section-number">10.3.2</span> Graph - Histogram, Boxplot, Density plot and cumlative frequency<a class="anchor" aria-label="anchor" href="#graph---histogram-boxplot-density-plot-and-cumlative-frequency"><i class="fas fa-link"></i></a>
 </h3>
-<p>The graphs are similar to the aboveso we skip them.</p>
+<p>The graphs are similar to the above so we skip them.</p>
 </div>
 </div>
 <div id="continuous-by-multiple-categorical-variables" class="section level2" number="10.4">
@@ -3249,21 +3192,20 @@
 <span class="header-section-number">10.4.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>This csn be done as below.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="descriptive-statistics.html#cb131-1" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> </span>
-<span id="cb131-2"><a href="descriptive-statistics.html#cb131-2" tabindex="-1"></a>    <span class="fu">group_by</span>(treat, sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb131-3"><a href="descriptive-statistics.html#cb131-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean.bp1 =</span> <span class="fu">mean</span>(bp1),</span>
-<span id="cb131-4"><a href="descriptive-statistics.html#cb131-4" tabindex="-1"></a>              <span class="at">sd.bp1 =</span> <span class="fu">sd</span>(bp1),</span>
-<span id="cb131-5"><a href="descriptive-statistics.html#cb131-5" tabindex="-1"></a>              <span class="at">var.bp1 =</span> <span class="fu">var</span>(bp1),</span>
-<span id="cb131-6"><a href="descriptive-statistics.html#cb131-6" tabindex="-1"></a>              <span class="at">se.mean.bp1 =</span> <span class="fu">sd</span>(bp1)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
-<span id="cb131-7"><a href="descriptive-statistics.html#cb131-7" tabindex="-1"></a>              <span class="at">median.bp1 =</span> <span class="fu">median</span>(bp1),</span>
-<span id="cb131-8"><a href="descriptive-statistics.html#cb131-8" tabindex="-1"></a>              <span class="at">min.bp1 =</span> <span class="fu">min</span>(bp1),</span>
-<span id="cb131-9"><a href="descriptive-statistics.html#cb131-9" tabindex="-1"></a>              <span class="at">max.bp1 =</span> <span class="fu">max</span>(bp1)) <span class="sc">%&gt;%</span> </span>
-<span id="cb131-10"><a href="descriptive-statistics.html#cb131-10" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
-<span id="cb131-11"><a href="descriptive-statistics.html#cb131-11" tabindex="-1"></a><span class="st">`</span><span class="at">summarise()</span><span class="st">`</span> has grouped output by <span class="st">'treat'</span>. You can</span>
-<span id="cb131-12"><a href="descriptive-statistics.html#cb131-12" tabindex="-1"></a>override using the <span class="st">`</span><span class="at">.groups</span><span class="st">`</span> argument.</span></code></pre></div>
-<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-29">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">treat</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">summarize</span><span class="op">(</span>mean.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>,</span>
+<span>              sd.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>,</span>
+<span>              var.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>,</span>
+<span>              se.mean.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>              median.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>,</span>
+<span>              min.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>,</span>
+<span>              max.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>,</span>
+<span>              .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-28">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-29">Table 10.8: </span> </caption>
+<span id="tab:unnamed-chunk-28">Table 10.8: </span> </caption>
 <col>
 <col>
 <col>
@@ -3333,39 +3275,15 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></div>
-<div class="next"><a href="analysis-of-numeric-data.html"><span class="header-section-number">11</span> Analysis of numeric data</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#descriptive-statistics"><span class="header-section-number">10</span> Descriptive Statistics</a></li>
-<li>
-<a class="nav-link" href="#categorical-variable"><span class="header-section-number">10.1</span> Categorical Variable</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#single-caregorical-variable"><span class="header-section-number">10.1.1</span> Single Caregorical Variable</a></li>
-<li><a class="nav-link" href="#two-categorical-variables"><span class="header-section-number">10.1.2</span> Two categorical Variables</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#continuous-variables"><span class="header-section-number">10.2</span> Continuous variables</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#single-continuous-variable"><span class="header-section-number">10.2.1</span> Single continuous variable</a></li>
-<li><a class="nav-link" href="#multiple-continuous-variables"><span class="header-section-number">10.2.2</span> Multiple Continuous variables</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#continuous-by-single-categorical-variable"><span class="header-section-number">10.3</span> Continuous by single categorical variable</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#summary"><span class="header-section-number">10.3.1</span> Summary</a></li>
-<li><a class="nav-link" href="#graph---histogram-boxplot-density-plot-and-cumlative-frequency"><span class="header-section-number">10.3.2</span> Graph - Histogram, Boxplot, Density plot and cumlative frequency</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#continuous-by-multiple-categorical-variables"><span class="header-section-number">10.4</span> Continuous by multiple categorical variables</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#summary-1"><span class="header-section-number">10.4.1</span> Summary</a></li></ul>
-</li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/sbnguah/MedStatsBook/blob/master/Descriptive-Statistics.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/sbnguah/MedStatsBook/edit/master/Descriptive-Statistics.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
@@ -3385,34 +3303,6 @@
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>

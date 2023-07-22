@@ -109,6 +109,7 @@ df_blood %>%
     broom::tidy(conf.int=T)
 ```
 
+
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-7">
 <caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-7) </caption><col><col><col><col><col><col><col><tr>
@@ -120,6 +121,7 @@ df_blood %>%
 </table>
 
 ```
+
 
 The table above gives us the values of the intercept (b) as 1.625 and the slope 
 (a) as 2.778. We can thus say that based on our data there is an increase of 
@@ -152,6 +154,7 @@ df_blood <-
 df_blood %>% head()
 ```
 
+
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-8">
 <caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-8) </caption><col><col><col><col><col><col><col><col><tr>
@@ -172,6 +175,7 @@ df_blood %>% head()
 
 ```
 
+
 Next we implement the linear regression
 
 
@@ -180,6 +184,7 @@ df_blood %>%
     lm(hct ~ wbc.cat, data=.) %>% 
     broom::tidy(conf.int=T)
 ```
+
 
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-9">
@@ -192,6 +197,7 @@ df_blood %>%
 </table>
 
 ```
+
 
 The interpretation here is slightly different from that with a single continuous 
 variable.
@@ -215,6 +221,7 @@ df_blood %$%
     broom::tidy()
 ```
 
+
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-10">
 <caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-10) </caption><col><col><col><col><col><col><col><col><col><col><tr>
@@ -224,6 +231,7 @@ df_blood %$%
 </table>
 
 ```
+
 
 A close look shows the two analysis produce identical results. The t-statistic, 
 p-value, 95% confidence interval of the difference and the sample estimates are 
@@ -254,6 +262,7 @@ the coefficients, their confidence interval and p-values.
 df_blood %>% lm(hct ~ hb, data=.) %>% broom::tidy(conf.int=T) 
 ```
 
+
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-11">
 <caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-11) </caption><col><col><col><col><col><col><col><tr>
@@ -266,6 +275,7 @@ df_blood %>% lm(hct ~ hb, data=.) %>% broom::tidy(conf.int=T)
 
 ```
 
+
 The output above shows a significant relationship between hb and hct 
 ($\beta$ = 2.778, 95%CI: 2.644 to 2.932, p=<.001). Previously, we learned that 
 a confounder should be related to both the outcome and exposure variable. In our 
@@ -276,6 +286,7 @@ This is done below
 ```r
 df_blood %>% lm(hct ~ wbc, data=.) %>% broom::tidy(conf.int=T) 
 ```
+
 
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-12">
@@ -288,6 +299,7 @@ df_blood %>% lm(hct ~ wbc, data=.) %>% broom::tidy(conf.int=T)
 </table>
 
 ```
+
 
 Interestingly it appears so. There seem to be a significant reduction in wbc 
 count with increasing hct. The question then arises: 
@@ -302,6 +314,7 @@ the hb as well. This is done below
 df_blood %>% lm(wbc ~ hb, data=.) %>% broom::tidy(conf.int=T) 
 ```
 
+
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-13">
 <caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-13) </caption><col><col><col><col><col><col><col><tr>
@@ -313,6 +326,7 @@ df_blood %>% lm(wbc ~ hb, data=.) %>% broom::tidy(conf.int=T)
 </table>
 
 ```
+
 
 The result above indicates a significant reduction in wbc with increasing hb. 
 By this result we have demonstrated the relationship between three variables 
@@ -327,6 +341,7 @@ formula as below
 df_blood %>% lm(hct ~ hb + wbc, data=.) %>% broom::tidy(conf.int=T) 
 ```
 
+
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-14">
 <caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-14) </caption><col><col><col><col><col><col><col><tr>
@@ -340,6 +355,7 @@ df_blood %>% lm(hct ~ hb + wbc, data=.) %>% broom::tidy(conf.int=T)
 </table>
 
 ```
+
 
 Both coeffcients generated above (hb and wbc) are adjusted for each other. First 
 we compare the crude effect of hb ($\beta$ = 2.778, 95%CI: 2.644 to 2.932, p<.001) 
@@ -368,6 +384,7 @@ To answer this question we preform a linear regression as below:
 df_blood %>% lm(hct ~ hb + wbc.cat, data=.) %>% broom::tidy(conf.int=T) 
 ```
 
+
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-15">
 <caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-15) </caption><col><col><col><col><col><col><col><tr>
@@ -381,6 +398,7 @@ df_blood %>% lm(hct ~ hb + wbc.cat, data=.) %>% broom::tidy(conf.int=T)
 </table>
 
 ```
+
 
 The regression output has three coefficients. First is the (intercept), the 
 apparent value of the hct for the "Low" wbc when the Hb is 0. To determine the 
@@ -434,6 +452,7 @@ Fitting this linear regression is done in R as below.
 df_blood %>% lm(hct ~ hb*wbc.cat, data=.) %>% broom::tidy(conf.int=T) 
 ```
 
+
 ```{=html}
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-17">
 <caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-17) </caption><col><col><col><col><col><col><col><tr>
@@ -449,6 +468,7 @@ df_blood %>% lm(hct ~ hb*wbc.cat, data=.) %>% broom::tidy(conf.int=T)
 </table>
 
 ```
+
 
 Four coefficients are generated. The `(Intercept)` is the intercept for the "Low" 
 wbc group. The hb coefficient represents the slope for the line representing 

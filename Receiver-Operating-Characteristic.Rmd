@@ -1,5 +1,5 @@
 
-# Receiver Operating Characteristic (ROC)
+# Receiver Operating Characteristic
 ```{r include=F, echo=F}
 library(summarytools)
 library(tidyverse)
