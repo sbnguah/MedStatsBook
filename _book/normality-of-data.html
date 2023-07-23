@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 12 Normality of data | Medical Statistics using R</title>
+<meta name="author" content="Samuel Blay Nguah">
+<meta name="description" content="Many of the test statistical tests, specifically the parametric tests are done on the premise that numeric data is normally distributed. Unfortunately, this is not always so. In this chapter, we...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="Chapter 12 Normality of data | Medical Statistics using R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://medstastwithr.netlify.app/normality-of-data.html">
+<meta property="og:description" content="Many of the test statistical tests, specifically the parametric tests are done on the premise that numeric data is normally distributed. Unfortunately, this is not always so. In this chapter, we...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 12 Normality of data | Medical Statistics using R">
+<meta name="twitter:description" content="Many of the test statistical tests, specifically the parametric tests are done on the premise that numeric data is normally distributed. Unfortunately, this is not always so. In this chapter, we...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Medical Statistics using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
+<li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
+<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
+<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">6</span> Data Structures in R</a></li>
+<li><a class="" href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics-of-catergorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Catergorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
+<li><a class="active" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">14</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">15</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">16</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">17</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">18</span> Receiver Operating Characteristic</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">19</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">20</span> Logistic Regression</a></li>
+<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">21</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">22</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">23</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">24</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">25</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">26</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">27</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">28</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">29</span> Sharing your book</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/sbnguah/MedStatsBook">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="normality-of-data" class="section level1" number="12">
+<h1>
+<span class="header-section-number">12</span> Normality of data<a class="anchor" aria-label="anchor" href="#normality-of-data"><i class="fas fa-link"></i></a>
+</h1>
+<p>Many of the test statistical tests, specifically the parametric tests are done
+on the premise that numeric data is normally distributed. Unfortunately, this
+is not always so. In this chapter, we look at what is normally distributed data
+and how we can tell if our data is normally distributed. For this section, we
+will use the <code>hb</code> variable from the <code>mps.dta</code> data.</p>
+<div id="the-normal-distribution" class="section level2" number="12.1">
+<h2>
+<span class="header-section-number">12.1</span> The normal distribution<a class="anchor" aria-label="anchor" href="#the-normal-distribution"><i class="fas fa-link"></i></a>
+</h2>
+<p>The normal distribution, also called the Gaussian Distribution or a bell curve,
+is defined by two main statistics. These are the mean and standard deviation.
+The wider the standard deviation, the broader the curve. An example of the
+normal distribution is shown below:</p>
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">2000</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">df_temp</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu">geom_histogram</span><span class="op">(</span></span>
+<span>        <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="fu">after_stat</span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>        bins<span class="op">=</span><span class="fl">10</span>, fill <span class="op">=</span> <span class="st">"snow"</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">stat_function</span><span class="op">(</span></span>
+<span>        fun <span class="op">=</span> <span class="va">dnorm</span>, </span>
+<span>        args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>            mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">df_temp</span><span class="op">$</span><span class="va">x</span>, na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>, </span>
+<span>            sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">df_temp</span><span class="op">$</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"blue"</span>,</span>
+<span>            linewidth <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Normality_files/figure-html/unnamed-chunk-2-1.png" width="576"></div>
+<p>These are some features of the normal distribution:</p>
+<ul>
+<li>It is symmetrical.</li>
+<li>The mean, median and mode are the same.</li>
+<li>Approximately 68% of the data falls within one standard deviation of the mean.</li>
+<li>Approximately 95% of the data falls within two standard deviations of the mean</li>
+<li>Approximately 99.7% of the data fall within three standard deviations of the mean.</li>
+</ul>
+<p>The normal distribution with a mean of 1 and a standard deviation of 1 is called
+the standard normal distribution.</p>
+</div>
+<div id="evaluating-normality" class="section level2" number="12.2">
+<h2>
+<span class="header-section-number">12.2</span> Evaluating normality<a class="anchor" aria-label="anchor" href="#evaluating-normality"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are two main modalities for evaluating normality. These are graphical and
+formal hypothesis testing.</p>
+<div id="graphical-evaluation" class="section level3" number="12.2.1">
+<h3>
+<span class="header-section-number">12.2.1</span> Graphical evaluation<a class="anchor" aria-label="anchor" href="#graphical-evaluation"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Histogram</strong>: Probably the most well know modality here is the histogram.
+Below we first read the data and keep only the <code>hb</code> variable:</p>
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">&lt;-</span> <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta</a></span><span class="op">(</span><span class="st">"./Data/mps.dta"</span><span class="op">)</span></span></code></pre></div>
+<p>We then draw the histogram of the <code>hb</code>.</p>
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">drop_na</span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hb</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">10</span>, fill <span class="op">=</span> <span class="st">'white'</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Histogram of HB"</span>, y <span class="op">=</span> <span class="st">"Frequency"</span>, x <span class="op">=</span> <span class="st">'Hb (g/dL'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Normality_files/figure-html/unnamed-chunk-4-1.png" width="576"></div>
+<p>There is near symmetry with a slightly heavier left tail.</p>
+<p><strong>Boxplot</strong>: Our next graphical modality is the boxplot as drawn below.</p>
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">drop_na</span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hb</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_boxplot</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">'white'</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Boxplot of HB"</span>, y <span class="op">=</span> <span class="st">"Frequency"</span>, x <span class="op">=</span> <span class="st">'Hb (g/dL'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Normality_files/figure-html/unnamed-chunk-5-1.png" width="576"></div>
+<p>The same conclusion of good symmetry and a slightly heavier lower tail is seen
+here.</p>
+<p><strong>Q-Q plot</strong>: Finally, the Q-Q plot with a line. This graphical modality plots
+the actual values of the data against a theoretical normal distribution. Thus,
+if all the dots were to be in a straight line and along the line drawn that will
+the ideal normal distribution. We therefore use this principle to determine if
+our data is for instance heave at the tails, indicating skewness. The Q-Q plot
+of our data is as done below:</p>
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">drop_na</span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html">ggqqplot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"hb"</span>,title <span class="op">=</span> <span class="st">"Q-Q plot of the HB"</span>, conf.int <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Normality_files/figure-html/unnamed-chunk-6-1.png" width="576"></div>
+<p>It is seen that apart from a few points mainly on the right tail the rest
+pretty much follow the line.</p>
+</div>
+<div id="statistical-tests-for-normality" class="section level3" number="12.2.2">
+<h3>
+<span class="header-section-number">12.2.2</span> Statistical tests for normality<a class="anchor" aria-label="anchor" href="#statistical-tests-for-normality"><i class="fas fa-link"></i></a>
+</h3>
+<p>Formal statistical tests are available for testing.
+H0: The data is sampled from a normally distributed population.
+Ha: The data is not sampled from a normally distributed population
+There are a few of these tests but we will be concentrating on the Shapiro-Wilk
+tests. It is never advisable to do different tests together
+as they use different algorithms and may produce different results and
+conclusions.</p>
+<p><strong>Shapiro-Wilk test</strong>: Below we perform the Shapiro-wilk test for normality.</p>
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%$%</span> </span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-7">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:unnamed-chunk-7">Table 12.1: </span> </caption>
+<col>
+<col>
+<col>
+<tr>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">method</th>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.994</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.108</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Shapiro-Wilk normality test</td>
+</tr>
+</table></div>
+<p>A p-value greater than 0.05 indicates we reject the Null hypothesis and thus
+conclude out data comes from a normally distributed population.</p>
+</div>
+</div>
+<div id="conclusion" class="section level2" number="12.3">
+<h2>
+<span class="header-section-number">12.3</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"><i class="fas fa-link"></i></a>
+</h2>
+<p>In conclusion, it can be seen from the graphical presentations as well as the
+formal test that the data we have is coming from a normally distributed
+population.</p>
+<p>The various test can give contradictory results and so I recommend evaluating
+the normality of a population, one should first plot the histogram, and Q-Q plot,
+and then perform one formal test, and combine these results before making the
+judgement that numeric data is or is not normally distributed.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></div>
+<div class="next"><a href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#normality-of-data"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="nav-link" href="#the-normal-distribution"><span class="header-section-number">12.1</span> The normal distribution</a></li>
+<li>
+<a class="nav-link" href="#evaluating-normality"><span class="header-section-number">12.2</span> Evaluating normality</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#graphical-evaluation"><span class="header-section-number">12.2.1</span> Graphical evaluation</a></li>
+<li><a class="nav-link" href="#statistical-tests-for-normality"><span class="header-section-number">12.2.2</span> Statistical tests for normality</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#conclusion"><span class="header-section-number">12.3</span> Conclusion</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/sbnguah/MedStatsBook/blob/master/Normality.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/sbnguah/MedStatsBook/edit/master/Normality.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-23.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

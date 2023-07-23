@@ -18,6 +18,7 @@ rmd_files: [
     "Data-Cleaning.Rmd",
     "Descriptive-Statistics-Categorical.Rmd",
     "Descriptive-Statistics-Continuous.Rmd",
+    "Normality.Rmd",
     "Analysis-of-continuous-data.Rmd",
     "Risk-and-Odds.Rmd",
     "Confounding-and-Interaction.Rmd",

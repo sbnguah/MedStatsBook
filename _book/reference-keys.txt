@@ -108,6 +108,12 @@ summary
 graph---histogram-boxplot-density-plot-and-cumlative-frequency
 continuous-by-multiple-categorical-variables
 summary-1
+normality-of-data
+the-normal-distribution
+evaluating-normality
+graphical-evaluation
+statistical-tests-for-normality
+conclusion
 analysis-of-numeric-data
 confidence-interval-of-a-mean
 comparing-the-mean-to-a-hypothesised-value

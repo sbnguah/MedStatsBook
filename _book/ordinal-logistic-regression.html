@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 21 Ordinal logistic regression | Medical Statistics using R</title>
+<title>Chapter 22 Ordinal logistic regression | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="21.1 Importing data In this presentation we analyse a dataset using ordinal logistic regression. We begin by reading in the data and selecting our desired subset. dataF &lt;-  ...">
+<meta name="description" content="22.1 Importing data In this presentation we analyse a dataset using ordinal logistic regression. We begin by reading in the data and selecting our desired subset. dataF &lt;-  ...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 21 Ordinal logistic regression | Medical Statistics using R">
+<meta property="og:title" content="Chapter 22 Ordinal logistic regression | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/ordinal-logistic-regression.html">
-<meta property="og:description" content="21.1 Importing data In this presentation we analyse a dataset using ordinal logistic regression. We begin by reading in the data and selecting our desired subset. dataF &lt;-  ...">
+<meta property="og:description" content="22.1 Importing data In this presentation we analyse a dataset using ordinal logistic regression. We begin by reading in the data and selecting our desired subset. dataF &lt;-  ...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 21 Ordinal logistic regression | Medical Statistics using R">
-<meta name="twitter:description" content="21.1 Importing data In this presentation we analyse a dataset using ordinal logistic regression. We begin by reading in the data and selecting our desired subset. dataF &lt;-  ...">
+<meta name="twitter:title" content="Chapter 22 Ordinal logistic regression | Medical Statistics using R">
+<meta name="twitter:description" content="22.1 Importing data In this presentation we analyse a dataset using ordinal logistic regression. We begin by reading in the data and selecting our desired subset. dataF &lt;-  ...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -79,23 +79,24 @@
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
 <li><a class="" href="descriptive-statistics-of-catergorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Catergorical Data</a></li>
 <li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
-<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">12</span> Analysis of numeric data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">13</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">14</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">15</span> Diagnostic Tests</a></li>
-<li><a class="" href="agreement.html"><span class="header-section-number">16</span> Agreement</a></li>
-<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">17</span> Receiver Operating Characteristic</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">18</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">19</span> Logistic Regression</a></li>
-<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">20</span> Analysis of Variance</a></li>
-<li><a class="active" href="ordinal-logistic-regression.html"><span class="header-section-number">21</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">22</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">23</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">24</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">25</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">26</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">27</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">28</span> Sharing your book</a></li>
+<li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">14</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">15</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">16</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">17</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">18</span> Receiver Operating Characteristic</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">19</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">20</span> Logistic Regression</a></li>
+<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">21</span> Analysis of Variance</a></li>
+<li><a class="active" href="ordinal-logistic-regression.html"><span class="header-section-number">22</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">23</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">24</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">25</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">26</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">27</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">28</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">29</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -103,91 +104,91 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ordinal-logistic-regression" class="section level1" number="21">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ordinal-logistic-regression" class="section level1" number="22">
 <h1>
-<span class="header-section-number">21</span> Ordinal logistic regression<a class="anchor" aria-label="anchor" href="#ordinal-logistic-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22</span> Ordinal logistic regression<a class="anchor" aria-label="anchor" href="#ordinal-logistic-regression"><i class="fas fa-link"></i></a>
 </h1>
-<div id="importing-data" class="section level2" number="21.1">
+<div id="importing-data" class="section level2" number="22.1">
 <h2>
-<span class="header-section-number">21.1</span> Importing data<a class="anchor" aria-label="anchor" href="#importing-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.1</span> Importing data<a class="anchor" aria-label="anchor" href="#importing-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this presentation we analyse a dataset using ordinal logistic regression.
 We begin by reading in the data and selecting our desired subset.</p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dataF</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/dput.html">dget</a></span><span class="op">(</span><span class="st">"./Data/anemia_data"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="va">sid</span>, <span class="va">anemia_cat</span>, <span class="va">community</span>, <span class="va">fever</span>, <span class="va">sex</span>,</span>
 <span>           <span class="va">famsize</span>, <span class="va">moccup2</span>, <span class="va">foccup2</span>, <span class="va">hosp_visit</span><span class="op">)</span></span></code></pre></div>
 <p>We then view a summary of the data</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="ordinal-logistic-regression.html#cb212-1" tabindex="-1"></a>dataF <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span>
-<span id="cb212-2"><a href="ordinal-logistic-regression.html#cb212-2" tabindex="-1"></a>Rows<span class="sc">:</span> <span class="dv">476</span></span>
-<span id="cb212-3"><a href="ordinal-logistic-regression.html#cb212-3" tabindex="-1"></a>Columns<span class="sc">:</span> <span class="dv">9</span></span>
-<span id="cb212-4"><a href="ordinal-logistic-regression.html#cb212-4" tabindex="-1"></a><span class="sc">$</span> sid        <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, …</span>
-<span id="cb212-5"><a href="ordinal-logistic-regression.html#cb212-5" tabindex="-1"></a><span class="sc">$</span> anemia_cat <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Mild, Moderate, Normal, Severe, Mild, M…</span>
-<span id="cb212-6"><a href="ordinal-logistic-regression.html#cb212-6" tabindex="-1"></a><span class="sc">$</span> community  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Kasei, Kasei, Kasei, Kasei, Kasei, Kase…</span>
-<span id="cb212-7"><a href="ordinal-logistic-regression.html#cb212-7" tabindex="-1"></a><span class="sc">$</span> fever      <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Yes, Yes, Yes, Yes, Yes, No, No, Yes, Y…</span>
-<span id="cb212-8"><a href="ordinal-logistic-regression.html#cb212-8" tabindex="-1"></a><span class="sc">$</span> sex        <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Female, Female, Female, Male, Male, Fem…</span>
-<span id="cb212-9"><a href="ordinal-logistic-regression.html#cb212-9" tabindex="-1"></a><span class="sc">$</span> famsize    <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>,…</span>
-<span id="cb212-10"><a href="ordinal-logistic-regression.html#cb212-10" tabindex="-1"></a><span class="sc">$</span> moccup2    <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Farmer, Farmer, Other, Other, Farmer, F…</span>
-<span id="cb212-11"><a href="ordinal-logistic-regression.html#cb212-11" tabindex="-1"></a><span class="sc">$</span> foccup2    <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Farmer, Farmer, Other, Farmer, Farmer, …</span>
-<span id="cb212-12"><a href="ordinal-logistic-regression.html#cb212-12" tabindex="-1"></a><span class="sc">$</span> hosp_visit <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> No, No, No, Yes, Yes, No, No, No, No, Y…</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="ordinal-logistic-regression.html#cb219-1" tabindex="-1"></a>dataF <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span>
+<span id="cb219-2"><a href="ordinal-logistic-regression.html#cb219-2" tabindex="-1"></a>Rows<span class="sc">:</span> <span class="dv">476</span></span>
+<span id="cb219-3"><a href="ordinal-logistic-regression.html#cb219-3" tabindex="-1"></a>Columns<span class="sc">:</span> <span class="dv">9</span></span>
+<span id="cb219-4"><a href="ordinal-logistic-regression.html#cb219-4" tabindex="-1"></a><span class="sc">$</span> sid        <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, …</span>
+<span id="cb219-5"><a href="ordinal-logistic-regression.html#cb219-5" tabindex="-1"></a><span class="sc">$</span> anemia_cat <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Mild, Moderate, Normal, Severe, Mild, M…</span>
+<span id="cb219-6"><a href="ordinal-logistic-regression.html#cb219-6" tabindex="-1"></a><span class="sc">$</span> community  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Kasei, Kasei, Kasei, Kasei, Kasei, Kase…</span>
+<span id="cb219-7"><a href="ordinal-logistic-regression.html#cb219-7" tabindex="-1"></a><span class="sc">$</span> fever      <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Yes, Yes, Yes, Yes, Yes, No, No, Yes, Y…</span>
+<span id="cb219-8"><a href="ordinal-logistic-regression.html#cb219-8" tabindex="-1"></a><span class="sc">$</span> sex        <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Female, Female, Female, Male, Male, Fem…</span>
+<span id="cb219-9"><a href="ordinal-logistic-regression.html#cb219-9" tabindex="-1"></a><span class="sc">$</span> famsize    <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>,…</span>
+<span id="cb219-10"><a href="ordinal-logistic-regression.html#cb219-10" tabindex="-1"></a><span class="sc">$</span> moccup2    <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Farmer, Farmer, Other, Other, Farmer, F…</span>
+<span id="cb219-11"><a href="ordinal-logistic-regression.html#cb219-11" tabindex="-1"></a><span class="sc">$</span> foccup2    <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> Farmer, Farmer, Other, Farmer, Farmer, …</span>
+<span id="cb219-12"><a href="ordinal-logistic-regression.html#cb219-12" tabindex="-1"></a><span class="sc">$</span> hosp_visit <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> No, No, No, Yes, Yes, No, No, No, No, Y…</span></code></pre></div>
 <p>Note that the <code>anemia_cat</code> variable is an ordered factor variable.
 For completeness the single missing observation for the variable <code>hosp_adm</code>
 will be recoded to <code>No</code>.</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="ordinal-logistic-regression.html#cb213-1" tabindex="-1"></a>dataF <span class="ot">&lt;-</span> dataF <span class="sc">%&gt;%</span> </span>
-<span id="cb213-2"><a href="ordinal-logistic-regression.html#cb213-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">hosp_visit =</span> forcats<span class="sc">::</span><span class="fu">fct_explicit_na</span>(hosp_visit, <span class="at">na_level =</span> <span class="st">"No"</span>))</span>
-<span id="cb213-3"><a href="ordinal-logistic-regression.html#cb213-3" tabindex="-1"></a>Warning<span class="sc">:</span> There was <span class="dv">1</span> warning <span class="cf">in</span> <span class="st">`</span><span class="at">mutate()</span><span class="st">`</span>.</span>
-<span id="cb213-4"><a href="ordinal-logistic-regression.html#cb213-4" tabindex="-1"></a>ℹ In argument<span class="sc">:</span> <span class="st">`</span><span class="at">hosp_visit =</span></span>
-<span id="cb213-5"><a href="ordinal-logistic-regression.html#cb213-5" tabindex="-1"></a><span class="at">  forcats::fct_explicit_na(hosp_visit, na_level = "No")</span><span class="st">`</span>.</span>
-<span id="cb213-6"><a href="ordinal-logistic-regression.html#cb213-6" tabindex="-1"></a>Caused by warning<span class="sc">:</span></span>
-<span id="cb213-7"><a href="ordinal-logistic-regression.html#cb213-7" tabindex="-1"></a><span class="sc">!</span> <span class="st">`</span><span class="at">fct_explicit_na()</span><span class="st">`</span> was deprecated <span class="cf">in</span> forcats <span class="dv">1</span>.<span class="dv">0</span>.<span class="fl">0.</span></span>
-<span id="cb213-8"><a href="ordinal-logistic-regression.html#cb213-8" tabindex="-1"></a>ℹ Please use <span class="st">`</span><span class="at">fct_na_value_to_level()</span><span class="st">`</span> instead.</span>
-<span id="cb213-9"><a href="ordinal-logistic-regression.html#cb213-9" tabindex="-1"></a><span class="fu">summary</span>(dataF)</span>
-<span id="cb213-10"><a href="ordinal-logistic-regression.html#cb213-10" tabindex="-1"></a>      sid           anemia_cat       community   fever    </span>
-<span id="cb213-11"><a href="ordinal-logistic-regression.html#cb213-11" tabindex="-1"></a> Min.   <span class="sc">:</span>  <span class="fl">1.0</span>   Normal  <span class="sc">:</span> <span class="dv">92</span>   Asuogya   <span class="sc">:</span> <span class="dv">61</span>   No <span class="sc">:</span><span class="dv">160</span>  </span>
-<span id="cb213-12"><a href="ordinal-logistic-regression.html#cb213-12" tabindex="-1"></a> 1st Qu.<span class="sc">:</span><span class="fl">119.8</span>   Mild    <span class="sc">:</span><span class="dv">143</span>   Sunkwae   <span class="sc">:</span> <span class="dv">62</span>   Yes<span class="sc">:</span><span class="dv">316</span>  </span>
-<span id="cb213-13"><a href="ordinal-logistic-regression.html#cb213-13" tabindex="-1"></a> Median <span class="sc">:</span><span class="fl">240.5</span>   Moderate<span class="sc">:</span><span class="dv">226</span>   Dromankoma<span class="sc">:</span><span class="dv">229</span>            </span>
-<span id="cb213-14"><a href="ordinal-logistic-regression.html#cb213-14" tabindex="-1"></a> Mean   <span class="sc">:</span><span class="fl">240.2</span>   Severe  <span class="sc">:</span> <span class="dv">15</span>   Kasei     <span class="sc">:</span><span class="dv">124</span>            </span>
-<span id="cb213-15"><a href="ordinal-logistic-regression.html#cb213-15" tabindex="-1"></a> 3rd Qu.<span class="sc">:</span><span class="fl">360.2</span>                                            </span>
-<span id="cb213-16"><a href="ordinal-logistic-regression.html#cb213-16" tabindex="-1"></a> Max.   <span class="sc">:</span><span class="fl">501.0</span>                                            </span>
-<span id="cb213-17"><a href="ordinal-logistic-regression.html#cb213-17" tabindex="-1"></a>     sex         famsize         moccup2      foccup2   </span>
-<span id="cb213-18"><a href="ordinal-logistic-regression.html#cb213-18" tabindex="-1"></a> Male  <span class="sc">:</span><span class="dv">252</span>   Min.   <span class="sc">:</span> <span class="fl">0.000</span>   Farmer<span class="sc">:</span><span class="dv">314</span>   Farmer<span class="sc">:</span><span class="dv">355</span>  </span>
-<span id="cb213-19"><a href="ordinal-logistic-regression.html#cb213-19" tabindex="-1"></a> Female<span class="sc">:</span><span class="dv">224</span>   1st Qu.<span class="sc">:</span> <span class="fl">4.000</span>   Other <span class="sc">:</span><span class="dv">162</span>   Other <span class="sc">:</span><span class="dv">121</span>  </span>
-<span id="cb213-20"><a href="ordinal-logistic-regression.html#cb213-20" tabindex="-1"></a>              Median <span class="sc">:</span> <span class="fl">5.000</span>                            </span>
-<span id="cb213-21"><a href="ordinal-logistic-regression.html#cb213-21" tabindex="-1"></a>              Mean   <span class="sc">:</span> <span class="fl">5.151</span>                            </span>
-<span id="cb213-22"><a href="ordinal-logistic-regression.html#cb213-22" tabindex="-1"></a>              3rd Qu.<span class="sc">:</span> <span class="fl">6.000</span>                            </span>
-<span id="cb213-23"><a href="ordinal-logistic-regression.html#cb213-23" tabindex="-1"></a>              Max.   <span class="sc">:</span><span class="fl">11.000</span>                            </span>
-<span id="cb213-24"><a href="ordinal-logistic-regression.html#cb213-24" tabindex="-1"></a> hosp_visit</span>
-<span id="cb213-25"><a href="ordinal-logistic-regression.html#cb213-25" tabindex="-1"></a> No <span class="sc">:</span><span class="dv">320</span>   </span>
-<span id="cb213-26"><a href="ordinal-logistic-regression.html#cb213-26" tabindex="-1"></a> Yes<span class="sc">:</span><span class="dv">156</span>   </span>
-<span id="cb213-27"><a href="ordinal-logistic-regression.html#cb213-27" tabindex="-1"></a>           </span>
-<span id="cb213-28"><a href="ordinal-logistic-regression.html#cb213-28" tabindex="-1"></a>           </span>
-<span id="cb213-29"><a href="ordinal-logistic-regression.html#cb213-29" tabindex="-1"></a>           </span>
-<span id="cb213-30"><a href="ordinal-logistic-regression.html#cb213-30" tabindex="-1"></a>           </span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="ordinal-logistic-regression.html#cb220-1" tabindex="-1"></a>dataF <span class="ot">&lt;-</span> dataF <span class="sc">%&gt;%</span> </span>
+<span id="cb220-2"><a href="ordinal-logistic-regression.html#cb220-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">hosp_visit =</span> forcats<span class="sc">::</span><span class="fu">fct_explicit_na</span>(hosp_visit, <span class="at">na_level =</span> <span class="st">"No"</span>))</span>
+<span id="cb220-3"><a href="ordinal-logistic-regression.html#cb220-3" tabindex="-1"></a>Warning<span class="sc">:</span> There was <span class="dv">1</span> warning <span class="cf">in</span> <span class="st">`</span><span class="at">mutate()</span><span class="st">`</span>.</span>
+<span id="cb220-4"><a href="ordinal-logistic-regression.html#cb220-4" tabindex="-1"></a>ℹ In argument<span class="sc">:</span> <span class="st">`</span><span class="at">hosp_visit =</span></span>
+<span id="cb220-5"><a href="ordinal-logistic-regression.html#cb220-5" tabindex="-1"></a><span class="at">  forcats::fct_explicit_na(hosp_visit, na_level = "No")</span><span class="st">`</span>.</span>
+<span id="cb220-6"><a href="ordinal-logistic-regression.html#cb220-6" tabindex="-1"></a>Caused by warning<span class="sc">:</span></span>
+<span id="cb220-7"><a href="ordinal-logistic-regression.html#cb220-7" tabindex="-1"></a><span class="sc">!</span> <span class="st">`</span><span class="at">fct_explicit_na()</span><span class="st">`</span> was deprecated <span class="cf">in</span> forcats <span class="dv">1</span>.<span class="dv">0</span>.<span class="fl">0.</span></span>
+<span id="cb220-8"><a href="ordinal-logistic-regression.html#cb220-8" tabindex="-1"></a>ℹ Please use <span class="st">`</span><span class="at">fct_na_value_to_level()</span><span class="st">`</span> instead.</span>
+<span id="cb220-9"><a href="ordinal-logistic-regression.html#cb220-9" tabindex="-1"></a><span class="fu">summary</span>(dataF)</span>
+<span id="cb220-10"><a href="ordinal-logistic-regression.html#cb220-10" tabindex="-1"></a>      sid           anemia_cat       community   fever    </span>
+<span id="cb220-11"><a href="ordinal-logistic-regression.html#cb220-11" tabindex="-1"></a> Min.   <span class="sc">:</span>  <span class="fl">1.0</span>   Normal  <span class="sc">:</span> <span class="dv">92</span>   Asuogya   <span class="sc">:</span> <span class="dv">61</span>   No <span class="sc">:</span><span class="dv">160</span>  </span>
+<span id="cb220-12"><a href="ordinal-logistic-regression.html#cb220-12" tabindex="-1"></a> 1st Qu.<span class="sc">:</span><span class="fl">119.8</span>   Mild    <span class="sc">:</span><span class="dv">143</span>   Sunkwae   <span class="sc">:</span> <span class="dv">62</span>   Yes<span class="sc">:</span><span class="dv">316</span>  </span>
+<span id="cb220-13"><a href="ordinal-logistic-regression.html#cb220-13" tabindex="-1"></a> Median <span class="sc">:</span><span class="fl">240.5</span>   Moderate<span class="sc">:</span><span class="dv">226</span>   Dromankoma<span class="sc">:</span><span class="dv">229</span>            </span>
+<span id="cb220-14"><a href="ordinal-logistic-regression.html#cb220-14" tabindex="-1"></a> Mean   <span class="sc">:</span><span class="fl">240.2</span>   Severe  <span class="sc">:</span> <span class="dv">15</span>   Kasei     <span class="sc">:</span><span class="dv">124</span>            </span>
+<span id="cb220-15"><a href="ordinal-logistic-regression.html#cb220-15" tabindex="-1"></a> 3rd Qu.<span class="sc">:</span><span class="fl">360.2</span>                                            </span>
+<span id="cb220-16"><a href="ordinal-logistic-regression.html#cb220-16" tabindex="-1"></a> Max.   <span class="sc">:</span><span class="fl">501.0</span>                                            </span>
+<span id="cb220-17"><a href="ordinal-logistic-regression.html#cb220-17" tabindex="-1"></a>     sex         famsize         moccup2      foccup2   </span>
+<span id="cb220-18"><a href="ordinal-logistic-regression.html#cb220-18" tabindex="-1"></a> Male  <span class="sc">:</span><span class="dv">252</span>   Min.   <span class="sc">:</span> <span class="fl">0.000</span>   Farmer<span class="sc">:</span><span class="dv">314</span>   Farmer<span class="sc">:</span><span class="dv">355</span>  </span>
+<span id="cb220-19"><a href="ordinal-logistic-regression.html#cb220-19" tabindex="-1"></a> Female<span class="sc">:</span><span class="dv">224</span>   1st Qu.<span class="sc">:</span> <span class="fl">4.000</span>   Other <span class="sc">:</span><span class="dv">162</span>   Other <span class="sc">:</span><span class="dv">121</span>  </span>
+<span id="cb220-20"><a href="ordinal-logistic-regression.html#cb220-20" tabindex="-1"></a>              Median <span class="sc">:</span> <span class="fl">5.000</span>                            </span>
+<span id="cb220-21"><a href="ordinal-logistic-regression.html#cb220-21" tabindex="-1"></a>              Mean   <span class="sc">:</span> <span class="fl">5.151</span>                            </span>
+<span id="cb220-22"><a href="ordinal-logistic-regression.html#cb220-22" tabindex="-1"></a>              3rd Qu.<span class="sc">:</span> <span class="fl">6.000</span>                            </span>
+<span id="cb220-23"><a href="ordinal-logistic-regression.html#cb220-23" tabindex="-1"></a>              Max.   <span class="sc">:</span><span class="fl">11.000</span>                            </span>
+<span id="cb220-24"><a href="ordinal-logistic-regression.html#cb220-24" tabindex="-1"></a> hosp_visit</span>
+<span id="cb220-25"><a href="ordinal-logistic-regression.html#cb220-25" tabindex="-1"></a> No <span class="sc">:</span><span class="dv">320</span>   </span>
+<span id="cb220-26"><a href="ordinal-logistic-regression.html#cb220-26" tabindex="-1"></a> Yes<span class="sc">:</span><span class="dv">156</span>   </span>
+<span id="cb220-27"><a href="ordinal-logistic-regression.html#cb220-27" tabindex="-1"></a>           </span>
+<span id="cb220-28"><a href="ordinal-logistic-regression.html#cb220-28" tabindex="-1"></a>           </span>
+<span id="cb220-29"><a href="ordinal-logistic-regression.html#cb220-29" tabindex="-1"></a>           </span>
+<span id="cb220-30"><a href="ordinal-logistic-regression.html#cb220-30" tabindex="-1"></a>           </span></code></pre></div>
 </div>
-<div id="model-specification" class="section level2" number="21.2">
+<div id="model-specification" class="section level2" number="22.2">
 <h2>
-<span class="header-section-number">21.2</span> Model specification<a class="anchor" aria-label="anchor" href="#model-specification"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.2</span> Model specification<a class="anchor" aria-label="anchor" href="#model-specification"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now we begin the ordinal regression by fixing the first model, the Null model.</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="ordinal-logistic-regression.html#cb214-1" tabindex="-1"></a>Model_0 <span class="ot">&lt;-</span> ordinal<span class="sc">::</span><span class="fu">clm</span>(anemia_cat <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> dataF, <span class="at">link =</span> <span class="st">"logit"</span>)</span>
-<span id="cb214-2"><a href="ordinal-logistic-regression.html#cb214-2" tabindex="-1"></a><span class="fu">summary</span>(Model_0)</span>
-<span id="cb214-3"><a href="ordinal-logistic-regression.html#cb214-3" tabindex="-1"></a>formula<span class="sc">:</span> anemia_cat <span class="sc">~</span> <span class="dv">1</span></span>
-<span id="cb214-4"><a href="ordinal-logistic-regression.html#cb214-4" tabindex="-1"></a>data<span class="sc">:</span>    dataF</span>
-<span id="cb214-5"><a href="ordinal-logistic-regression.html#cb214-5" tabindex="-1"></a></span>
-<span id="cb214-6"><a href="ordinal-logistic-regression.html#cb214-6" tabindex="-1"></a> link  threshold nobs logLik  AIC     niter max.grad</span>
-<span id="cb214-7"><a href="ordinal-logistic-regression.html#cb214-7" tabindex="-1"></a> logit flexible  <span class="dv">476</span>  <span class="sc">-</span><span class="fl">543.39</span> <span class="fl">1092.77</span> <span class="dv">7</span>(<span class="dv">0</span>)  <span class="fl">2.15e-13</span></span>
-<span id="cb214-8"><a href="ordinal-logistic-regression.html#cb214-8" tabindex="-1"></a> cond.H </span>
-<span id="cb214-9"><a href="ordinal-logistic-regression.html#cb214-9" tabindex="-1"></a> <span class="fl">1.4e+01</span></span>
-<span id="cb214-10"><a href="ordinal-logistic-regression.html#cb214-10" tabindex="-1"></a></span>
-<span id="cb214-11"><a href="ordinal-logistic-regression.html#cb214-11" tabindex="-1"></a>Threshold coefficients<span class="sc">:</span></span>
-<span id="cb214-12"><a href="ordinal-logistic-regression.html#cb214-12" tabindex="-1"></a>                Estimate Std. Error z value</span>
-<span id="cb214-13"><a href="ordinal-logistic-regression.html#cb214-13" tabindex="-1"></a>Normal<span class="sc">|</span>Mild     <span class="sc">-</span><span class="fl">1.42885</span>    <span class="fl">0.11608</span> <span class="sc">-</span><span class="fl">12.310</span></span>
-<span id="cb214-14"><a href="ordinal-logistic-regression.html#cb214-14" tabindex="-1"></a>Mild<span class="sc">|</span>Moderate   <span class="sc">-</span><span class="fl">0.02521</span>    <span class="fl">0.09168</span>  <span class="sc">-</span><span class="fl">0.275</span></span>
-<span id="cb214-15"><a href="ordinal-logistic-regression.html#cb214-15" tabindex="-1"></a>Moderate<span class="sc">|</span>Severe  <span class="fl">3.42535</span>    <span class="fl">0.26237</span>  <span class="fl">13.056</span></span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="ordinal-logistic-regression.html#cb221-1" tabindex="-1"></a>Model_0 <span class="ot">&lt;-</span> ordinal<span class="sc">::</span><span class="fu">clm</span>(anemia_cat <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> dataF, <span class="at">link =</span> <span class="st">"logit"</span>)</span>
+<span id="cb221-2"><a href="ordinal-logistic-regression.html#cb221-2" tabindex="-1"></a><span class="fu">summary</span>(Model_0)</span>
+<span id="cb221-3"><a href="ordinal-logistic-regression.html#cb221-3" tabindex="-1"></a>formula<span class="sc">:</span> anemia_cat <span class="sc">~</span> <span class="dv">1</span></span>
+<span id="cb221-4"><a href="ordinal-logistic-regression.html#cb221-4" tabindex="-1"></a>data<span class="sc">:</span>    dataF</span>
+<span id="cb221-5"><a href="ordinal-logistic-regression.html#cb221-5" tabindex="-1"></a></span>
+<span id="cb221-6"><a href="ordinal-logistic-regression.html#cb221-6" tabindex="-1"></a> link  threshold nobs logLik  AIC     niter max.grad</span>
+<span id="cb221-7"><a href="ordinal-logistic-regression.html#cb221-7" tabindex="-1"></a> logit flexible  <span class="dv">476</span>  <span class="sc">-</span><span class="fl">543.39</span> <span class="fl">1092.77</span> <span class="dv">7</span>(<span class="dv">0</span>)  <span class="fl">2.15e-13</span></span>
+<span id="cb221-8"><a href="ordinal-logistic-regression.html#cb221-8" tabindex="-1"></a> cond.H </span>
+<span id="cb221-9"><a href="ordinal-logistic-regression.html#cb221-9" tabindex="-1"></a> <span class="fl">1.4e+01</span></span>
+<span id="cb221-10"><a href="ordinal-logistic-regression.html#cb221-10" tabindex="-1"></a></span>
+<span id="cb221-11"><a href="ordinal-logistic-regression.html#cb221-11" tabindex="-1"></a>Threshold coefficients<span class="sc">:</span></span>
+<span id="cb221-12"><a href="ordinal-logistic-regression.html#cb221-12" tabindex="-1"></a>                Estimate Std. Error z value</span>
+<span id="cb221-13"><a href="ordinal-logistic-regression.html#cb221-13" tabindex="-1"></a>Normal<span class="sc">|</span>Mild     <span class="sc">-</span><span class="fl">1.42885</span>    <span class="fl">0.11608</span> <span class="sc">-</span><span class="fl">12.310</span></span>
+<span id="cb221-14"><a href="ordinal-logistic-regression.html#cb221-14" tabindex="-1"></a>Mild<span class="sc">|</span>Moderate   <span class="sc">-</span><span class="fl">0.02521</span>    <span class="fl">0.09168</span>  <span class="sc">-</span><span class="fl">0.275</span></span>
+<span id="cb221-15"><a href="ordinal-logistic-regression.html#cb221-15" tabindex="-1"></a>Moderate<span class="sc">|</span>Severe  <span class="fl">3.42535</span>    <span class="fl">0.26237</span>  <span class="fl">13.056</span></span></code></pre></div>
 <p>Subsequently we introduce the fever variable as independent and express the
 results as OR with 95%CI</p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Model_1</span> <span class="op">&lt;-</span> <span class="fu">ordinal</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ordinal/man/clm.html">clm</a></span><span class="op">(</span><span class="va">anemia_cat</span> <span class="op">~</span> <span class="va">fever</span>, data <span class="op">=</span> <span class="va">dataF</span>, link <span class="op">=</span> <span class="st">"logit"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">Model_1</span>, conf.int <span class="op">=</span> <span class="cn">TRUE</span>, exponentiate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
@@ -197,91 +198,91 @@ results as OR with 95%CI</p>
 <span>              <span class="st">"conf.low"</span>, <span class="st">"conf.high"</span><span class="op">)</span>, </span>
 <span>        digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="tabwid">
-<style>.cl-a0983130{}.cl-a08b591a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a08b5942{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(153, 153, 153, 1.00);background-color:transparent;}.cl-a08f95d4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a08f95de{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a08faf4c{width:1.454in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf56{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf57{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf60{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf61{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf6a{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf6b{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf74{width:1.454in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf75{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf7e{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf7f{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf88{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf89{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf8a{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf92{width:1.454in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf93{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf9c{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf9d{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08faf9e{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08fafa6{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08fafa7{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08fafa8{width:1.454in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08fafb0{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08fafb1{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08fafba{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08fafbb{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08fafc4{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a08fafc5{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-a0983130">
+<style>.cl-9eb1fc82{}.cl-9ea49786{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9ea497b8{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(153, 153, 153, 1.00);background-color:transparent;}.cl-9ea97062{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9ea9706c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9ea98f84{width:1.454in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98f8e{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98f98{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fa2{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fa3{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fac{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fb6{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fb7{width:1.454in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fb8{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fc0{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fc1{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fc2{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fca{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fcb{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fd4{width:1.454in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fd5{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fd6{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fde{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fdf{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fe8{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fe9{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98fea{width:1.454in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98ff2{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98ffc{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98ffd{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea98ffe{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea99010{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ea99011{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-9eb1fc82">
 <thead>
 <tr style="overflow-wrap:break-word;">
-<th class="cl-a08faf4c"><p class="cl-a08f95d4"><span class="cl-a08b591a">term</span></p></th>
-<th class="cl-a08faf56"><p class="cl-a08f95de"><span class="cl-a08b591a">estimate</span></p></th>
-<th class="cl-a08faf57"><p class="cl-a08f95de"><span class="cl-a08b591a">std.error</span></p></th>
-<th class="cl-a08faf60"><p class="cl-a08f95de"><span class="cl-a08b591a">statistic</span></p></th>
-<th class="cl-a08faf60"><p class="cl-a08f95de"><span class="cl-a08b591a">p.value</span></p></th>
-<th class="cl-a08faf61"><p class="cl-a08f95de"><span class="cl-a08b591a">conf.low</span></p></th>
-<th class="cl-a08faf6a"><p class="cl-a08f95de"><span class="cl-a08b591a">conf.high</span></p></th>
-<th class="cl-a08faf6b"><p class="cl-a08f95d4"><span class="cl-a08b591a">coef.type</span></p></th>
+<th class="cl-9ea98f84"><p class="cl-9ea97062"><span class="cl-9ea49786">term</span></p></th>
+<th class="cl-9ea98f8e"><p class="cl-9ea9706c"><span class="cl-9ea49786">estimate</span></p></th>
+<th class="cl-9ea98f98"><p class="cl-9ea9706c"><span class="cl-9ea49786">std.error</span></p></th>
+<th class="cl-9ea98fa2"><p class="cl-9ea9706c"><span class="cl-9ea49786">statistic</span></p></th>
+<th class="cl-9ea98fa2"><p class="cl-9ea9706c"><span class="cl-9ea49786">p.value</span></p></th>
+<th class="cl-9ea98fa3"><p class="cl-9ea9706c"><span class="cl-9ea49786">conf.low</span></p></th>
+<th class="cl-9ea98fac"><p class="cl-9ea9706c"><span class="cl-9ea49786">conf.high</span></p></th>
+<th class="cl-9ea98fb6"><p class="cl-9ea97062"><span class="cl-9ea49786">coef.type</span></p></th>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<th class="cl-a08faf74"><p class="cl-a08f95d4"><span class="cl-a08b5942">character</span></p></th>
-<th class="cl-a08faf75"><p class="cl-a08f95de"><span class="cl-a08b5942">numeric</span></p></th>
-<th class="cl-a08faf7e"><p class="cl-a08f95de"><span class="cl-a08b5942">numeric</span></p></th>
-<th class="cl-a08faf7f"><p class="cl-a08f95de"><span class="cl-a08b5942">numeric</span></p></th>
-<th class="cl-a08faf7f"><p class="cl-a08f95de"><span class="cl-a08b5942">numeric</span></p></th>
-<th class="cl-a08faf88"><p class="cl-a08f95de"><span class="cl-a08b5942">numeric</span></p></th>
-<th class="cl-a08faf89"><p class="cl-a08f95de"><span class="cl-a08b5942">numeric</span></p></th>
-<th class="cl-a08faf8a"><p class="cl-a08f95d4"><span class="cl-a08b5942">character</span></p></th>
+<th class="cl-9ea98fb7"><p class="cl-9ea97062"><span class="cl-9ea497b8">character</span></p></th>
+<th class="cl-9ea98fb8"><p class="cl-9ea9706c"><span class="cl-9ea497b8">numeric</span></p></th>
+<th class="cl-9ea98fc0"><p class="cl-9ea9706c"><span class="cl-9ea497b8">numeric</span></p></th>
+<th class="cl-9ea98fc1"><p class="cl-9ea9706c"><span class="cl-9ea497b8">numeric</span></p></th>
+<th class="cl-9ea98fc1"><p class="cl-9ea9706c"><span class="cl-9ea497b8">numeric</span></p></th>
+<th class="cl-9ea98fc2"><p class="cl-9ea9706c"><span class="cl-9ea497b8">numeric</span></p></th>
+<th class="cl-9ea98fca"><p class="cl-9ea9706c"><span class="cl-9ea497b8">numeric</span></p></th>
+<th class="cl-9ea98fcb"><p class="cl-9ea97062"><span class="cl-9ea497b8">character</span></p></th>
 </tr>
 </thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a08faf92"><p class="cl-a08f95d4"><span class="cl-a08b591a">Normal|Mild</span></p></td>
-<td class="cl-a08faf93"><p class="cl-a08f95de"><span class="cl-a08b591a">0.306</span></p></td>
-<td class="cl-a08faf9c"><p class="cl-a08f95de"><span class="cl-a08b591a">0.163</span></p></td>
-<td class="cl-a08faf9d"><p class="cl-a08f95de"><span class="cl-a08b591a">-7.268</span></p></td>
-<td class="cl-a08faf9d"><p class="cl-a08f95de"><span class="cl-a08b591a">0.000</span></p></td>
-<td class="cl-a08faf9e"><p class="cl-a08f95de"><span class="cl-a08b591a"></span></p></td>
-<td class="cl-a08fafa6"><p class="cl-a08f95de"><span class="cl-a08b591a"></span></p></td>
-<td class="cl-a08fafa7"><p class="cl-a08f95d4"><span class="cl-a08b591a">intercept</span></p></td>
+<td class="cl-9ea98fd4"><p class="cl-9ea97062"><span class="cl-9ea49786">Normal|Mild</span></p></td>
+<td class="cl-9ea98fd5"><p class="cl-9ea9706c"><span class="cl-9ea49786">0.306</span></p></td>
+<td class="cl-9ea98fd6"><p class="cl-9ea9706c"><span class="cl-9ea49786">0.163</span></p></td>
+<td class="cl-9ea98fde"><p class="cl-9ea9706c"><span class="cl-9ea49786">-7.268</span></p></td>
+<td class="cl-9ea98fde"><p class="cl-9ea9706c"><span class="cl-9ea49786">0.000</span></p></td>
+<td class="cl-9ea98fdf"><p class="cl-9ea9706c"><span class="cl-9ea49786"></span></p></td>
+<td class="cl-9ea98fe8"><p class="cl-9ea9706c"><span class="cl-9ea49786"></span></p></td>
+<td class="cl-9ea98fe9"><p class="cl-9ea97062"><span class="cl-9ea49786">intercept</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a08faf92"><p class="cl-a08f95d4"><span class="cl-a08b591a">Mild|Moderate</span></p></td>
-<td class="cl-a08faf93"><p class="cl-a08f95de"><span class="cl-a08b591a">1.257</span></p></td>
-<td class="cl-a08faf9c"><p class="cl-a08f95de"><span class="cl-a08b591a">0.152</span></p></td>
-<td class="cl-a08faf9d"><p class="cl-a08f95de"><span class="cl-a08b591a">1.505</span></p></td>
-<td class="cl-a08faf9d"><p class="cl-a08f95de"><span class="cl-a08b591a">0.132</span></p></td>
-<td class="cl-a08faf9e"><p class="cl-a08f95de"><span class="cl-a08b591a"></span></p></td>
-<td class="cl-a08fafa6"><p class="cl-a08f95de"><span class="cl-a08b591a"></span></p></td>
-<td class="cl-a08fafa7"><p class="cl-a08f95d4"><span class="cl-a08b591a">intercept</span></p></td>
+<td class="cl-9ea98fd4"><p class="cl-9ea97062"><span class="cl-9ea49786">Mild|Moderate</span></p></td>
+<td class="cl-9ea98fd5"><p class="cl-9ea9706c"><span class="cl-9ea49786">1.257</span></p></td>
+<td class="cl-9ea98fd6"><p class="cl-9ea9706c"><span class="cl-9ea49786">0.152</span></p></td>
+<td class="cl-9ea98fde"><p class="cl-9ea9706c"><span class="cl-9ea49786">1.505</span></p></td>
+<td class="cl-9ea98fde"><p class="cl-9ea9706c"><span class="cl-9ea49786">0.132</span></p></td>
+<td class="cl-9ea98fdf"><p class="cl-9ea9706c"><span class="cl-9ea49786"></span></p></td>
+<td class="cl-9ea98fe8"><p class="cl-9ea9706c"><span class="cl-9ea49786"></span></p></td>
+<td class="cl-9ea98fe9"><p class="cl-9ea97062"><span class="cl-9ea49786">intercept</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a08faf92"><p class="cl-a08f95d4"><span class="cl-a08b591a">Moderate|Severe</span></p></td>
-<td class="cl-a08faf93"><p class="cl-a08f95de"><span class="cl-a08b591a">40.111</span></p></td>
-<td class="cl-a08faf9c"><p class="cl-a08f95de"><span class="cl-a08b591a">0.293</span></p></td>
-<td class="cl-a08faf9d"><p class="cl-a08f95de"><span class="cl-a08b591a">12.601</span></p></td>
-<td class="cl-a08faf9d"><p class="cl-a08f95de"><span class="cl-a08b591a">0.000</span></p></td>
-<td class="cl-a08faf9e"><p class="cl-a08f95de"><span class="cl-a08b591a"></span></p></td>
-<td class="cl-a08fafa6"><p class="cl-a08f95de"><span class="cl-a08b591a"></span></p></td>
-<td class="cl-a08fafa7"><p class="cl-a08f95d4"><span class="cl-a08b591a">intercept</span></p></td>
+<td class="cl-9ea98fd4"><p class="cl-9ea97062"><span class="cl-9ea49786">Moderate|Severe</span></p></td>
+<td class="cl-9ea98fd5"><p class="cl-9ea9706c"><span class="cl-9ea49786">40.111</span></p></td>
+<td class="cl-9ea98fd6"><p class="cl-9ea9706c"><span class="cl-9ea49786">0.293</span></p></td>
+<td class="cl-9ea98fde"><p class="cl-9ea9706c"><span class="cl-9ea49786">12.601</span></p></td>
+<td class="cl-9ea98fde"><p class="cl-9ea9706c"><span class="cl-9ea49786">0.000</span></p></td>
+<td class="cl-9ea98fdf"><p class="cl-9ea9706c"><span class="cl-9ea49786"></span></p></td>
+<td class="cl-9ea98fe8"><p class="cl-9ea9706c"><span class="cl-9ea49786"></span></p></td>
+<td class="cl-9ea98fe9"><p class="cl-9ea97062"><span class="cl-9ea49786">intercept</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a08fafa8"><p class="cl-a08f95d4"><span class="cl-a08b591a">feverYes</span></p></td>
-<td class="cl-a08fafb0"><p class="cl-a08f95de"><span class="cl-a08b591a">1.461</span></p></td>
-<td class="cl-a08fafb1"><p class="cl-a08f95de"><span class="cl-a08b591a">0.181</span></p></td>
-<td class="cl-a08fafba"><p class="cl-a08f95de"><span class="cl-a08b591a">2.090</span></p></td>
-<td class="cl-a08fafba"><p class="cl-a08f95de"><span class="cl-a08b591a">0.037</span></p></td>
-<td class="cl-a08fafbb"><p class="cl-a08f95de"><span class="cl-a08b591a">1.024</span></p></td>
-<td class="cl-a08fafc4"><p class="cl-a08f95de"><span class="cl-a08b591a">2.086</span></p></td>
-<td class="cl-a08fafc5"><p class="cl-a08f95d4"><span class="cl-a08b591a">location</span></p></td>
+<td class="cl-9ea98fea"><p class="cl-9ea97062"><span class="cl-9ea49786">feverYes</span></p></td>
+<td class="cl-9ea98ff2"><p class="cl-9ea9706c"><span class="cl-9ea49786">1.461</span></p></td>
+<td class="cl-9ea98ffc"><p class="cl-9ea9706c"><span class="cl-9ea49786">0.181</span></p></td>
+<td class="cl-9ea98ffd"><p class="cl-9ea9706c"><span class="cl-9ea49786">2.090</span></p></td>
+<td class="cl-9ea98ffd"><p class="cl-9ea9706c"><span class="cl-9ea49786">0.037</span></p></td>
+<td class="cl-9ea98ffe"><p class="cl-9ea9706c"><span class="cl-9ea49786">1.024</span></p></td>
+<td class="cl-9ea99010"><p class="cl-9ea9706c"><span class="cl-9ea49786">2.086</span></p></td>
+<td class="cl-9ea99011"><p class="cl-9ea97062"><span class="cl-9ea49786">location</span></p></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <p>Results indictes a significant association between fever and the degree of anemaia (OR=1.46, 95%CI: 1.02 to 2.09). Performing an anova test to see if there exist a difference between the 2 models yields.</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="ordinal-logistic-regression.html#cb216-1" tabindex="-1"></a><span class="fu">anova</span>(Model_0, Model_1)</span>
-<span id="cb216-2"><a href="ordinal-logistic-regression.html#cb216-2" tabindex="-1"></a>Likelihood ratio tests of cumulative link models<span class="sc">:</span></span>
-<span id="cb216-3"><a href="ordinal-logistic-regression.html#cb216-3" tabindex="-1"></a> </span>
-<span id="cb216-4"><a href="ordinal-logistic-regression.html#cb216-4" tabindex="-1"></a>        formula<span class="sc">:</span>           link<span class="sc">:</span> threshold<span class="sc">:</span></span>
-<span id="cb216-5"><a href="ordinal-logistic-regression.html#cb216-5" tabindex="-1"></a>Model_0 anemia_cat <span class="sc">~</span> <span class="dv">1</span>     logit flexible  </span>
-<span id="cb216-6"><a href="ordinal-logistic-regression.html#cb216-6" tabindex="-1"></a>Model_1 anemia_cat <span class="sc">~</span> fever logit flexible  </span>
-<span id="cb216-7"><a href="ordinal-logistic-regression.html#cb216-7" tabindex="-1"></a></span>
-<span id="cb216-8"><a href="ordinal-logistic-regression.html#cb216-8" tabindex="-1"></a>        no.par    AIC  logLik LR.stat df <span class="fu">Pr</span>(<span class="sc">&gt;</span>Chisq)  </span>
-<span id="cb216-9"><a href="ordinal-logistic-regression.html#cb216-9" tabindex="-1"></a>Model_0      <span class="dv">3</span> <span class="fl">1092.8</span> <span class="sc">-</span><span class="fl">543.39</span>                        </span>
-<span id="cb216-10"><a href="ordinal-logistic-regression.html#cb216-10" tabindex="-1"></a>Model_1      <span class="dv">4</span> <span class="fl">1090.4</span> <span class="sc">-</span><span class="fl">541.20</span>  <span class="fl">4.3658</span>  <span class="dv">1</span>    <span class="fl">0.03667</span> <span class="sc">*</span></span>
-<span id="cb216-11"><a href="ordinal-logistic-regression.html#cb216-11" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb216-12"><a href="ordinal-logistic-regression.html#cb216-12" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  </span>
-<span id="cb216-13"><a href="ordinal-logistic-regression.html#cb216-13" tabindex="-1"></a><span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="ordinal-logistic-regression.html#cb223-1" tabindex="-1"></a><span class="fu">anova</span>(Model_0, Model_1)</span>
+<span id="cb223-2"><a href="ordinal-logistic-regression.html#cb223-2" tabindex="-1"></a>Likelihood ratio tests of cumulative link models<span class="sc">:</span></span>
+<span id="cb223-3"><a href="ordinal-logistic-regression.html#cb223-3" tabindex="-1"></a> </span>
+<span id="cb223-4"><a href="ordinal-logistic-regression.html#cb223-4" tabindex="-1"></a>        formula<span class="sc">:</span>           link<span class="sc">:</span> threshold<span class="sc">:</span></span>
+<span id="cb223-5"><a href="ordinal-logistic-regression.html#cb223-5" tabindex="-1"></a>Model_0 anemia_cat <span class="sc">~</span> <span class="dv">1</span>     logit flexible  </span>
+<span id="cb223-6"><a href="ordinal-logistic-regression.html#cb223-6" tabindex="-1"></a>Model_1 anemia_cat <span class="sc">~</span> fever logit flexible  </span>
+<span id="cb223-7"><a href="ordinal-logistic-regression.html#cb223-7" tabindex="-1"></a></span>
+<span id="cb223-8"><a href="ordinal-logistic-regression.html#cb223-8" tabindex="-1"></a>        no.par    AIC  logLik LR.stat df <span class="fu">Pr</span>(<span class="sc">&gt;</span>Chisq)  </span>
+<span id="cb223-9"><a href="ordinal-logistic-regression.html#cb223-9" tabindex="-1"></a>Model_0      <span class="dv">3</span> <span class="fl">1092.8</span> <span class="sc">-</span><span class="fl">543.39</span>                        </span>
+<span id="cb223-10"><a href="ordinal-logistic-regression.html#cb223-10" tabindex="-1"></a>Model_1      <span class="dv">4</span> <span class="fl">1090.4</span> <span class="sc">-</span><span class="fl">541.20</span>  <span class="fl">4.3658</span>  <span class="dv">1</span>    <span class="fl">0.03667</span> <span class="sc">*</span></span>
+<span id="cb223-11"><a href="ordinal-logistic-regression.html#cb223-11" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb223-12"><a href="ordinal-logistic-regression.html#cb223-12" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  </span>
+<span id="cb223-13"><a href="ordinal-logistic-regression.html#cb223-13" tabindex="-1"></a><span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div>
 <p>The results indicates adding fever to the Null model significantly improves the null model.</p>
 <p>Next we add the community variable</p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Model_2</span> <span class="op">&lt;-</span> </span>
 <span>     <span class="fu">ordinal</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ordinal/man/clm.html">clm</a></span><span class="op">(</span><span class="va">anemia_cat</span> <span class="op">~</span> <span class="va">fever</span> <span class="op">+</span> <span class="va">community</span>, data <span class="op">=</span> <span class="va">dataF</span>, link <span class="op">=</span> <span class="st">"logit"</span><span class="op">)</span></span>
 <span></span>
@@ -292,161 +293,161 @@ results as OR with 95%CI</p>
 <span>              <span class="st">"conf.low"</span>, <span class="st">"conf.high"</span><span class="op">)</span>, </span>
 <span>        digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="tabwid">
-<style>.cl-a0fe9d94{}.cl-a0f38ddc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a0f38de6{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(153, 153, 153, 1.00);background-color:transparent;}.cl-a0f7bd76{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a0f7bd8a{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a0f7d4c8{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d4d2{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d4dc{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d4dd{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d4de{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d4e6{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d4f0{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d4f1{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d4fa{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d4fb{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d504{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d505{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d506{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d50e{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d50f{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d518{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d519{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d522{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d523{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d52c{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d536{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d537{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d538{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d540{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d541{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d542{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d54a{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d554{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d555{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d55e{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d55f{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d568{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d569{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d56a{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d57c{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d586{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d587{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d588{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d589{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d590{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d591{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a0f7d59a{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-a0fe9d94">
+<style>.cl-9f27a6b2{}.cl-9f1aa020{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9f1aa034{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(153, 153, 153, 1.00);background-color:transparent;}.cl-9f20115e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9f201172{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9f2029fa{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a04{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a05{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a0e{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a0f{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a18{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a19{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a1a{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a22{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a23{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a24{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a2c{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a36{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a40{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a41{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a4a{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a4b{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a4c{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a54{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a55{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a5e{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a5f{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a68{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a69{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a72{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a7c{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a7d{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a86{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a87{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a90{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a9a{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202a9b{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202aa4{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202aa5{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202aae{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202ab8{width:1.941in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202ab9{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202ac2{width:0.854in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202ac3{width:0.829in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202acc{width:0.846in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202acd{width:0.905in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9f202ad6{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-9f27a6b2">
 <thead>
 <tr style="overflow-wrap:break-word;">
-<th class="cl-a0f7d4c8"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">term</span></p></th>
-<th class="cl-a0f7d4d2"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">estimate</span></p></th>
-<th class="cl-a0f7d4dc"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">std.error</span></p></th>
-<th class="cl-a0f7d4dd"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">statistic</span></p></th>
-<th class="cl-a0f7d4dd"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">p.value</span></p></th>
-<th class="cl-a0f7d4de"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">conf.low</span></p></th>
-<th class="cl-a0f7d4e6"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">conf.high</span></p></th>
-<th class="cl-a0f7d4f0"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">coef.type</span></p></th>
+<th class="cl-9f2029fa"><p class="cl-9f20115e"><span class="cl-9f1aa020">term</span></p></th>
+<th class="cl-9f202a04"><p class="cl-9f201172"><span class="cl-9f1aa020">estimate</span></p></th>
+<th class="cl-9f202a05"><p class="cl-9f201172"><span class="cl-9f1aa020">std.error</span></p></th>
+<th class="cl-9f202a0e"><p class="cl-9f201172"><span class="cl-9f1aa020">statistic</span></p></th>
+<th class="cl-9f202a0e"><p class="cl-9f201172"><span class="cl-9f1aa020">p.value</span></p></th>
+<th class="cl-9f202a0f"><p class="cl-9f201172"><span class="cl-9f1aa020">conf.low</span></p></th>
+<th class="cl-9f202a18"><p class="cl-9f201172"><span class="cl-9f1aa020">conf.high</span></p></th>
+<th class="cl-9f202a19"><p class="cl-9f20115e"><span class="cl-9f1aa020">coef.type</span></p></th>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<th class="cl-a0f7d4f1"><p class="cl-a0f7bd76"><span class="cl-a0f38de6">character</span></p></th>
-<th class="cl-a0f7d4fa"><p class="cl-a0f7bd8a"><span class="cl-a0f38de6">numeric</span></p></th>
-<th class="cl-a0f7d4fb"><p class="cl-a0f7bd8a"><span class="cl-a0f38de6">numeric</span></p></th>
-<th class="cl-a0f7d504"><p class="cl-a0f7bd8a"><span class="cl-a0f38de6">numeric</span></p></th>
-<th class="cl-a0f7d504"><p class="cl-a0f7bd8a"><span class="cl-a0f38de6">numeric</span></p></th>
-<th class="cl-a0f7d505"><p class="cl-a0f7bd8a"><span class="cl-a0f38de6">numeric</span></p></th>
-<th class="cl-a0f7d506"><p class="cl-a0f7bd8a"><span class="cl-a0f38de6">numeric</span></p></th>
-<th class="cl-a0f7d50e"><p class="cl-a0f7bd76"><span class="cl-a0f38de6">character</span></p></th>
+<th class="cl-9f202a1a"><p class="cl-9f20115e"><span class="cl-9f1aa034">character</span></p></th>
+<th class="cl-9f202a22"><p class="cl-9f201172"><span class="cl-9f1aa034">numeric</span></p></th>
+<th class="cl-9f202a23"><p class="cl-9f201172"><span class="cl-9f1aa034">numeric</span></p></th>
+<th class="cl-9f202a24"><p class="cl-9f201172"><span class="cl-9f1aa034">numeric</span></p></th>
+<th class="cl-9f202a24"><p class="cl-9f201172"><span class="cl-9f1aa034">numeric</span></p></th>
+<th class="cl-9f202a2c"><p class="cl-9f201172"><span class="cl-9f1aa034">numeric</span></p></th>
+<th class="cl-9f202a36"><p class="cl-9f201172"><span class="cl-9f1aa034">numeric</span></p></th>
+<th class="cl-9f202a40"><p class="cl-9f20115e"><span class="cl-9f1aa034">character</span></p></th>
 </tr>
 </thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a0f7d50f"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">Normal|Mild</span></p></td>
-<td class="cl-a0f7d518"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.191</span></p></td>
-<td class="cl-a0f7d519"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.286</span></p></td>
-<td class="cl-a0f7d522"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">-5.789</span></p></td>
-<td class="cl-a0f7d522"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.000</span></p></td>
-<td class="cl-a0f7d523"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc"></span></p></td>
-<td class="cl-a0f7d52c"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc"></span></p></td>
-<td class="cl-a0f7d536"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">intercept</span></p></td>
+<td class="cl-9f202a41"><p class="cl-9f20115e"><span class="cl-9f1aa020">Normal|Mild</span></p></td>
+<td class="cl-9f202a4a"><p class="cl-9f201172"><span class="cl-9f1aa020">0.191</span></p></td>
+<td class="cl-9f202a4b"><p class="cl-9f201172"><span class="cl-9f1aa020">0.286</span></p></td>
+<td class="cl-9f202a4c"><p class="cl-9f201172"><span class="cl-9f1aa020">-5.789</span></p></td>
+<td class="cl-9f202a4c"><p class="cl-9f201172"><span class="cl-9f1aa020">0.000</span></p></td>
+<td class="cl-9f202a54"><p class="cl-9f201172"><span class="cl-9f1aa020"></span></p></td>
+<td class="cl-9f202a55"><p class="cl-9f201172"><span class="cl-9f1aa020"></span></p></td>
+<td class="cl-9f202a5e"><p class="cl-9f20115e"><span class="cl-9f1aa020">intercept</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a0f7d50f"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">Mild|Moderate</span></p></td>
-<td class="cl-a0f7d518"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.808</span></p></td>
-<td class="cl-a0f7d519"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.274</span></p></td>
-<td class="cl-a0f7d522"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">-0.775</span></p></td>
-<td class="cl-a0f7d522"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.438</span></p></td>
-<td class="cl-a0f7d523"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc"></span></p></td>
-<td class="cl-a0f7d52c"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc"></span></p></td>
-<td class="cl-a0f7d536"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">intercept</span></p></td>
+<td class="cl-9f202a41"><p class="cl-9f20115e"><span class="cl-9f1aa020">Mild|Moderate</span></p></td>
+<td class="cl-9f202a4a"><p class="cl-9f201172"><span class="cl-9f1aa020">0.808</span></p></td>
+<td class="cl-9f202a4b"><p class="cl-9f201172"><span class="cl-9f1aa020">0.274</span></p></td>
+<td class="cl-9f202a4c"><p class="cl-9f201172"><span class="cl-9f1aa020">-0.775</span></p></td>
+<td class="cl-9f202a4c"><p class="cl-9f201172"><span class="cl-9f1aa020">0.438</span></p></td>
+<td class="cl-9f202a54"><p class="cl-9f201172"><span class="cl-9f1aa020"></span></p></td>
+<td class="cl-9f202a55"><p class="cl-9f201172"><span class="cl-9f1aa020"></span></p></td>
+<td class="cl-9f202a5e"><p class="cl-9f20115e"><span class="cl-9f1aa020">intercept</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a0f7d50f"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">Moderate|Severe</span></p></td>
-<td class="cl-a0f7d518"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">27.058</span></p></td>
-<td class="cl-a0f7d519"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.367</span></p></td>
-<td class="cl-a0f7d522"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">8.985</span></p></td>
-<td class="cl-a0f7d522"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.000</span></p></td>
-<td class="cl-a0f7d523"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc"></span></p></td>
-<td class="cl-a0f7d52c"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc"></span></p></td>
-<td class="cl-a0f7d536"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">intercept</span></p></td>
+<td class="cl-9f202a41"><p class="cl-9f20115e"><span class="cl-9f1aa020">Moderate|Severe</span></p></td>
+<td class="cl-9f202a4a"><p class="cl-9f201172"><span class="cl-9f1aa020">27.058</span></p></td>
+<td class="cl-9f202a4b"><p class="cl-9f201172"><span class="cl-9f1aa020">0.367</span></p></td>
+<td class="cl-9f202a4c"><p class="cl-9f201172"><span class="cl-9f1aa020">8.985</span></p></td>
+<td class="cl-9f202a4c"><p class="cl-9f201172"><span class="cl-9f1aa020">0.000</span></p></td>
+<td class="cl-9f202a54"><p class="cl-9f201172"><span class="cl-9f1aa020"></span></p></td>
+<td class="cl-9f202a55"><p class="cl-9f201172"><span class="cl-9f1aa020"></span></p></td>
+<td class="cl-9f202a5e"><p class="cl-9f20115e"><span class="cl-9f1aa020">intercept</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a0f7d537"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">feverYes</span></p></td>
-<td class="cl-a0f7d538"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">1.373</span></p></td>
-<td class="cl-a0f7d540"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.183</span></p></td>
-<td class="cl-a0f7d541"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">1.728</span></p></td>
-<td class="cl-a0f7d541"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.084</span></p></td>
-<td class="cl-a0f7d542"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.958</span></p></td>
-<td class="cl-a0f7d54a"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">1.966</span></p></td>
-<td class="cl-a0f7d554"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">location</span></p></td>
+<td class="cl-9f202a5f"><p class="cl-9f20115e"><span class="cl-9f1aa020">feverYes</span></p></td>
+<td class="cl-9f202a68"><p class="cl-9f201172"><span class="cl-9f1aa020">1.373</span></p></td>
+<td class="cl-9f202a69"><p class="cl-9f201172"><span class="cl-9f1aa020">0.183</span></p></td>
+<td class="cl-9f202a72"><p class="cl-9f201172"><span class="cl-9f1aa020">1.728</span></p></td>
+<td class="cl-9f202a72"><p class="cl-9f201172"><span class="cl-9f1aa020">0.084</span></p></td>
+<td class="cl-9f202a7c"><p class="cl-9f201172"><span class="cl-9f1aa020">0.958</span></p></td>
+<td class="cl-9f202a7d"><p class="cl-9f201172"><span class="cl-9f1aa020">1.966</span></p></td>
+<td class="cl-9f202a86"><p class="cl-9f20115e"><span class="cl-9f1aa020">location</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a0f7d50f"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">communitySunkwae</span></p></td>
-<td class="cl-a0f7d518"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">1.179</span></p></td>
-<td class="cl-a0f7d519"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.343</span></p></td>
-<td class="cl-a0f7d522"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.479</span></p></td>
-<td class="cl-a0f7d522"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.632</span></p></td>
-<td class="cl-a0f7d523"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.602</span></p></td>
-<td class="cl-a0f7d52c"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">2.314</span></p></td>
-<td class="cl-a0f7d536"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">location</span></p></td>
+<td class="cl-9f202a41"><p class="cl-9f20115e"><span class="cl-9f1aa020">communitySunkwae</span></p></td>
+<td class="cl-9f202a4a"><p class="cl-9f201172"><span class="cl-9f1aa020">1.179</span></p></td>
+<td class="cl-9f202a4b"><p class="cl-9f201172"><span class="cl-9f1aa020">0.343</span></p></td>
+<td class="cl-9f202a4c"><p class="cl-9f201172"><span class="cl-9f1aa020">0.479</span></p></td>
+<td class="cl-9f202a4c"><p class="cl-9f201172"><span class="cl-9f1aa020">0.632</span></p></td>
+<td class="cl-9f202a54"><p class="cl-9f201172"><span class="cl-9f1aa020">0.602</span></p></td>
+<td class="cl-9f202a55"><p class="cl-9f201172"><span class="cl-9f1aa020">2.314</span></p></td>
+<td class="cl-9f202a5e"><p class="cl-9f20115e"><span class="cl-9f1aa020">location</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a0f7d555"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">communityDromankoma</span></p></td>
-<td class="cl-a0f7d55e"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.626</span></p></td>
-<td class="cl-a0f7d55f"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.268</span></p></td>
-<td class="cl-a0f7d568"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">-1.747</span></p></td>
-<td class="cl-a0f7d568"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.081</span></p></td>
-<td class="cl-a0f7d569"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.368</span></p></td>
-<td class="cl-a0f7d56a"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">1.054</span></p></td>
-<td class="cl-a0f7d57c"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">location</span></p></td>
+<td class="cl-9f202a87"><p class="cl-9f20115e"><span class="cl-9f1aa020">communityDromankoma</span></p></td>
+<td class="cl-9f202a90"><p class="cl-9f201172"><span class="cl-9f1aa020">0.626</span></p></td>
+<td class="cl-9f202a9a"><p class="cl-9f201172"><span class="cl-9f1aa020">0.268</span></p></td>
+<td class="cl-9f202a9b"><p class="cl-9f201172"><span class="cl-9f1aa020">-1.747</span></p></td>
+<td class="cl-9f202a9b"><p class="cl-9f201172"><span class="cl-9f1aa020">0.081</span></p></td>
+<td class="cl-9f202aa4"><p class="cl-9f201172"><span class="cl-9f1aa020">0.368</span></p></td>
+<td class="cl-9f202aa5"><p class="cl-9f201172"><span class="cl-9f1aa020">1.054</span></p></td>
+<td class="cl-9f202aae"><p class="cl-9f20115e"><span class="cl-9f1aa020">location</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-a0f7d586"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">communityKasei</span></p></td>
-<td class="cl-a0f7d587"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.463</span></p></td>
-<td class="cl-a0f7d588"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.289</span></p></td>
-<td class="cl-a0f7d589"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">-2.659</span></p></td>
-<td class="cl-a0f7d589"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.008</span></p></td>
-<td class="cl-a0f7d590"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.261</span></p></td>
-<td class="cl-a0f7d591"><p class="cl-a0f7bd8a"><span class="cl-a0f38ddc">0.813</span></p></td>
-<td class="cl-a0f7d59a"><p class="cl-a0f7bd76"><span class="cl-a0f38ddc">location</span></p></td>
+<td class="cl-9f202ab8"><p class="cl-9f20115e"><span class="cl-9f1aa020">communityKasei</span></p></td>
+<td class="cl-9f202ab9"><p class="cl-9f201172"><span class="cl-9f1aa020">0.463</span></p></td>
+<td class="cl-9f202ac2"><p class="cl-9f201172"><span class="cl-9f1aa020">0.289</span></p></td>
+<td class="cl-9f202ac3"><p class="cl-9f201172"><span class="cl-9f1aa020">-2.659</span></p></td>
+<td class="cl-9f202ac3"><p class="cl-9f201172"><span class="cl-9f1aa020">0.008</span></p></td>
+<td class="cl-9f202acc"><p class="cl-9f201172"><span class="cl-9f1aa020">0.261</span></p></td>
+<td class="cl-9f202acd"><p class="cl-9f201172"><span class="cl-9f1aa020">0.813</span></p></td>
+<td class="cl-9f202ad6"><p class="cl-9f20115e"><span class="cl-9f1aa020">location</span></p></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 </div>
-<div id="checking-proportioinal-odds-assumption-for-the-model" class="section level2" number="21.3">
+<div id="checking-proportioinal-odds-assumption-for-the-model" class="section level2" number="22.3">
 <h2>
-<span class="header-section-number">21.3</span> Checking proportioinal odds assumption for the model<a class="anchor" aria-label="anchor" href="#checking-proportioinal-odds-assumption-for-the-model"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.3</span> Checking proportioinal odds assumption for the model<a class="anchor" aria-label="anchor" href="#checking-proportioinal-odds-assumption-for-the-model"><i class="fas fa-link"></i></a>
 </h2>
 <p>Here we check the proportional odd assumption for out second model</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="ordinal-logistic-regression.html#cb218-1" tabindex="-1"></a>ordinal<span class="sc">::</span><span class="fu">nominal_test</span>(Model_2)</span>
-<span id="cb218-2"><a href="ordinal-logistic-regression.html#cb218-2" tabindex="-1"></a>Tests of nominal effects</span>
-<span id="cb218-3"><a href="ordinal-logistic-regression.html#cb218-3" tabindex="-1"></a></span>
-<span id="cb218-4"><a href="ordinal-logistic-regression.html#cb218-4" tabindex="-1"></a>formula<span class="sc">:</span> anemia_cat <span class="sc">~</span> fever <span class="sc">+</span> community</span>
-<span id="cb218-5"><a href="ordinal-logistic-regression.html#cb218-5" tabindex="-1"></a>          Df  logLik    AIC     LRT <span class="fu">Pr</span>(<span class="sc">&gt;</span>Chi)   </span>
-<span id="cb218-6"><a href="ordinal-logistic-regression.html#cb218-6" tabindex="-1"></a><span class="sc">&lt;</span>none<span class="sc">&gt;</span>       <span class="sc">-</span><span class="fl">534.53</span> <span class="fl">1083.1</span>                    </span>
-<span id="cb218-7"><a href="ordinal-logistic-regression.html#cb218-7" tabindex="-1"></a>fever      <span class="dv">2</span> <span class="sc">-</span><span class="fl">534.34</span> <span class="fl">1086.7</span>  <span class="fl">0.3792</span> <span class="fl">0.827302</span>   </span>
-<span id="cb218-8"><a href="ordinal-logistic-regression.html#cb218-8" tabindex="-1"></a>community  <span class="dv">6</span> <span class="sc">-</span><span class="fl">525.17</span> <span class="fl">1076.3</span> <span class="fl">18.7124</span> <span class="fl">0.004678</span> <span class="sc">**</span></span>
-<span id="cb218-9"><a href="ordinal-logistic-regression.html#cb218-9" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb218-10"><a href="ordinal-logistic-regression.html#cb218-10" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  </span>
-<span id="cb218-11"><a href="ordinal-logistic-regression.html#cb218-11" tabindex="-1"></a><span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="ordinal-logistic-regression.html#cb225-1" tabindex="-1"></a>ordinal<span class="sc">::</span><span class="fu">nominal_test</span>(Model_2)</span>
+<span id="cb225-2"><a href="ordinal-logistic-regression.html#cb225-2" tabindex="-1"></a>Tests of nominal effects</span>
+<span id="cb225-3"><a href="ordinal-logistic-regression.html#cb225-3" tabindex="-1"></a></span>
+<span id="cb225-4"><a href="ordinal-logistic-regression.html#cb225-4" tabindex="-1"></a>formula<span class="sc">:</span> anemia_cat <span class="sc">~</span> fever <span class="sc">+</span> community</span>
+<span id="cb225-5"><a href="ordinal-logistic-regression.html#cb225-5" tabindex="-1"></a>          Df  logLik    AIC     LRT <span class="fu">Pr</span>(<span class="sc">&gt;</span>Chi)   </span>
+<span id="cb225-6"><a href="ordinal-logistic-regression.html#cb225-6" tabindex="-1"></a><span class="sc">&lt;</span>none<span class="sc">&gt;</span>       <span class="sc">-</span><span class="fl">534.53</span> <span class="fl">1083.1</span>                    </span>
+<span id="cb225-7"><a href="ordinal-logistic-regression.html#cb225-7" tabindex="-1"></a>fever      <span class="dv">2</span> <span class="sc">-</span><span class="fl">534.34</span> <span class="fl">1086.7</span>  <span class="fl">0.3792</span> <span class="fl">0.827302</span>   </span>
+<span id="cb225-8"><a href="ordinal-logistic-regression.html#cb225-8" tabindex="-1"></a>community  <span class="dv">6</span> <span class="sc">-</span><span class="fl">525.17</span> <span class="fl">1076.3</span> <span class="fl">18.7124</span> <span class="fl">0.004678</span> <span class="sc">**</span></span>
+<span id="cb225-9"><a href="ordinal-logistic-regression.html#cb225-9" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb225-10"><a href="ordinal-logistic-regression.html#cb225-10" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  </span>
+<span id="cb225-11"><a href="ordinal-logistic-regression.html#cb225-11" tabindex="-1"></a><span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div>
 <p>The significant p-value for the <code>community</code> variable indicates a breech of the proportional odd assumption</p>
 </div>
-<div id="prediction" class="section level2" number="21.4">
+<div id="prediction" class="section level2" number="22.4">
 <h2>
-<span class="header-section-number">21.4</span> Prediction<a class="anchor" aria-label="anchor" href="#prediction"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4</span> Prediction<a class="anchor" aria-label="anchor" href="#prediction"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this section we will use the model created above to predict an observation being in a specific anemia severity group. First we bigin by forming the prediction data we call <code>newData</code>.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="ordinal-logistic-regression.html#cb219-1" tabindex="-1"></a>NewData <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">community =</span> <span class="fu">levels</span>(dataF<span class="sc">$</span>community),</span>
-<span id="cb219-2"><a href="ordinal-logistic-regression.html#cb219-2" tabindex="-1"></a>                       <span class="at">fever =</span> <span class="fu">levels</span>(dataF<span class="sc">$</span>fever))</span>
-<span id="cb219-3"><a href="ordinal-logistic-regression.html#cb219-3" tabindex="-1"></a>NewData</span>
-<span id="cb219-4"><a href="ordinal-logistic-regression.html#cb219-4" tabindex="-1"></a>   community fever</span>
-<span id="cb219-5"><a href="ordinal-logistic-regression.html#cb219-5" tabindex="-1"></a><span class="dv">1</span>    Asuogya    No</span>
-<span id="cb219-6"><a href="ordinal-logistic-regression.html#cb219-6" tabindex="-1"></a><span class="dv">2</span>    Sunkwae    No</span>
-<span id="cb219-7"><a href="ordinal-logistic-regression.html#cb219-7" tabindex="-1"></a><span class="dv">3</span> Dromankoma    No</span>
-<span id="cb219-8"><a href="ordinal-logistic-regression.html#cb219-8" tabindex="-1"></a><span class="dv">4</span>      Kasei    No</span>
-<span id="cb219-9"><a href="ordinal-logistic-regression.html#cb219-9" tabindex="-1"></a><span class="dv">5</span>    Asuogya   Yes</span>
-<span id="cb219-10"><a href="ordinal-logistic-regression.html#cb219-10" tabindex="-1"></a><span class="dv">6</span>    Sunkwae   Yes</span>
-<span id="cb219-11"><a href="ordinal-logistic-regression.html#cb219-11" tabindex="-1"></a><span class="dv">7</span> Dromankoma   Yes</span>
-<span id="cb219-12"><a href="ordinal-logistic-regression.html#cb219-12" tabindex="-1"></a><span class="dv">8</span>      Kasei   Yes</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="ordinal-logistic-regression.html#cb226-1" tabindex="-1"></a>NewData <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">community =</span> <span class="fu">levels</span>(dataF<span class="sc">$</span>community),</span>
+<span id="cb226-2"><a href="ordinal-logistic-regression.html#cb226-2" tabindex="-1"></a>                       <span class="at">fever =</span> <span class="fu">levels</span>(dataF<span class="sc">$</span>fever))</span>
+<span id="cb226-3"><a href="ordinal-logistic-regression.html#cb226-3" tabindex="-1"></a>NewData</span>
+<span id="cb226-4"><a href="ordinal-logistic-regression.html#cb226-4" tabindex="-1"></a>   community fever</span>
+<span id="cb226-5"><a href="ordinal-logistic-regression.html#cb226-5" tabindex="-1"></a><span class="dv">1</span>    Asuogya    No</span>
+<span id="cb226-6"><a href="ordinal-logistic-regression.html#cb226-6" tabindex="-1"></a><span class="dv">2</span>    Sunkwae    No</span>
+<span id="cb226-7"><a href="ordinal-logistic-regression.html#cb226-7" tabindex="-1"></a><span class="dv">3</span> Dromankoma    No</span>
+<span id="cb226-8"><a href="ordinal-logistic-regression.html#cb226-8" tabindex="-1"></a><span class="dv">4</span>      Kasei    No</span>
+<span id="cb226-9"><a href="ordinal-logistic-regression.html#cb226-9" tabindex="-1"></a><span class="dv">5</span>    Asuogya   Yes</span>
+<span id="cb226-10"><a href="ordinal-logistic-regression.html#cb226-10" tabindex="-1"></a><span class="dv">6</span>    Sunkwae   Yes</span>
+<span id="cb226-11"><a href="ordinal-logistic-regression.html#cb226-11" tabindex="-1"></a><span class="dv">7</span> Dromankoma   Yes</span>
+<span id="cb226-12"><a href="ordinal-logistic-regression.html#cb226-12" tabindex="-1"></a><span class="dv">8</span>      Kasei   Yes</span></code></pre></div>
 <p>We now predict the probability that the specific predictor combination falls within the specific outcome category (anemia category)</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="ordinal-logistic-regression.html#cb220-1" tabindex="-1"></a>(preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(Model_2, <span class="at">newdata =</span> NewData, <span class="at">type =</span> <span class="st">"prob"</span>))</span>
-<span id="cb220-2"><a href="ordinal-logistic-regression.html#cb220-2" tabindex="-1"></a><span class="sc">$</span>fit</span>
-<span id="cb220-3"><a href="ordinal-logistic-regression.html#cb220-3" tabindex="-1"></a>     Normal      Mild  Moderate     Severe</span>
-<span id="cb220-4"><a href="ordinal-logistic-regression.html#cb220-4" tabindex="-1"></a><span class="dv">1</span> <span class="fl">0.1601782</span> <span class="fl">0.2868320</span> <span class="fl">0.5173493</span> <span class="fl">0.03564053</span></span>
-<span id="cb220-5"><a href="ordinal-logistic-regression.html#cb220-5" tabindex="-1"></a><span class="dv">2</span> <span class="fl">0.1392894</span> <span class="fl">0.2675468</span> <span class="fl">0.5514246</span> <span class="fl">0.04173921</span></span>
-<span id="cb220-6"><a href="ordinal-logistic-regression.html#cb220-6" tabindex="-1"></a><span class="dv">3</span> <span class="fl">0.2335081</span> <span class="fl">0.3300308</span> <span class="fl">0.4138463</span> <span class="fl">0.02261481</span></span>
-<span id="cb220-7"><a href="ordinal-logistic-regression.html#cb220-7" tabindex="-1"></a><span class="dv">4</span> <span class="fl">0.2915487</span> <span class="fl">0.3440404</span> <span class="fl">0.3475709</span> <span class="fl">0.01684010</span></span>
-<span id="cb220-8"><a href="ordinal-logistic-regression.html#cb220-8" tabindex="-1"></a><span class="dv">5</span> <span class="fl">0.1220012</span> <span class="fl">0.2486393</span> <span class="fl">0.5810802</span> <span class="fl">0.04827929</span></span>
-<span id="cb220-9"><a href="ordinal-logistic-regression.html#cb220-9" tabindex="-1"></a><span class="dv">6</span> <span class="fl">0.1054658</span> <span class="fl">0.2277287</span> <span class="fl">0.6103913</span> <span class="fl">0.05641416</span></span>
-<span id="cb220-10"><a href="ordinal-logistic-regression.html#cb220-10" tabindex="-1"></a><span class="dv">7</span> <span class="fl">0.1816335</span> <span class="fl">0.3030775</span> <span class="fl">0.4845071</span> <span class="fl">0.03078186</span></span>
-<span id="cb220-11"><a href="ordinal-logistic-regression.html#cb220-11" tabindex="-1"></a><span class="dv">8</span> <span class="fl">0.2306604</span> <span class="fl">0.3289444</span> <span class="fl">0.4174245</span> <span class="fl">0.02297070</span></span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="ordinal-logistic-regression.html#cb227-1" tabindex="-1"></a>(preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(Model_2, <span class="at">newdata =</span> NewData, <span class="at">type =</span> <span class="st">"prob"</span>))</span>
+<span id="cb227-2"><a href="ordinal-logistic-regression.html#cb227-2" tabindex="-1"></a><span class="sc">$</span>fit</span>
+<span id="cb227-3"><a href="ordinal-logistic-regression.html#cb227-3" tabindex="-1"></a>     Normal      Mild  Moderate     Severe</span>
+<span id="cb227-4"><a href="ordinal-logistic-regression.html#cb227-4" tabindex="-1"></a><span class="dv">1</span> <span class="fl">0.1601782</span> <span class="fl">0.2868320</span> <span class="fl">0.5173493</span> <span class="fl">0.03564053</span></span>
+<span id="cb227-5"><a href="ordinal-logistic-regression.html#cb227-5" tabindex="-1"></a><span class="dv">2</span> <span class="fl">0.1392894</span> <span class="fl">0.2675468</span> <span class="fl">0.5514246</span> <span class="fl">0.04173921</span></span>
+<span id="cb227-6"><a href="ordinal-logistic-regression.html#cb227-6" tabindex="-1"></a><span class="dv">3</span> <span class="fl">0.2335081</span> <span class="fl">0.3300308</span> <span class="fl">0.4138463</span> <span class="fl">0.02261481</span></span>
+<span id="cb227-7"><a href="ordinal-logistic-regression.html#cb227-7" tabindex="-1"></a><span class="dv">4</span> <span class="fl">0.2915487</span> <span class="fl">0.3440404</span> <span class="fl">0.3475709</span> <span class="fl">0.01684010</span></span>
+<span id="cb227-8"><a href="ordinal-logistic-regression.html#cb227-8" tabindex="-1"></a><span class="dv">5</span> <span class="fl">0.1220012</span> <span class="fl">0.2486393</span> <span class="fl">0.5810802</span> <span class="fl">0.04827929</span></span>
+<span id="cb227-9"><a href="ordinal-logistic-regression.html#cb227-9" tabindex="-1"></a><span class="dv">6</span> <span class="fl">0.1054658</span> <span class="fl">0.2277287</span> <span class="fl">0.6103913</span> <span class="fl">0.05641416</span></span>
+<span id="cb227-10"><a href="ordinal-logistic-regression.html#cb227-10" tabindex="-1"></a><span class="dv">7</span> <span class="fl">0.1816335</span> <span class="fl">0.3030775</span> <span class="fl">0.4845071</span> <span class="fl">0.03078186</span></span>
+<span id="cb227-11"><a href="ordinal-logistic-regression.html#cb227-11" tabindex="-1"></a><span class="dv">8</span> <span class="fl">0.2306604</span> <span class="fl">0.3289444</span> <span class="fl">0.4174245</span> <span class="fl">0.02297070</span></span></code></pre></div>
 <p>For better visualiszation we bind the original data with the predictions</p>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">bind_cols</span><span class="op">(</span><span class="va">NewData</span>, <span class="va">preds</span><span class="op">$</span><span class="va">fit</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kbl.html">kbl</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Probabilities"</span>, booktabs <span class="op">=</span> <span class="cn">T</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_classic.html">kable_classic</a></span><span class="op">(</span>full_width <span class="op">=</span> <span class="cn">F</span>, html_font <span class="op">=</span> <span class="st">"Cambria"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"striped"</span>, <span class="st">"hover"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class=" lightable-classic table table-striped table-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-12">Table 18.2: </span>Probabilities
+<span id="tab:unnamed-chunk-12">Table 19.2: </span>Probabilities
 </caption>
 <thead><tr>
 <th style="text-align:left;">
@@ -632,41 +633,41 @@ Yes
 </tbody>
 </table></div>
 </div>
-<div id="visualising-the-model" class="section level2" number="21.5">
+<div id="visualising-the-model" class="section level2" number="22.5">
 <h2>
-<span class="header-section-number">21.5</span> Visualising the model<a class="anchor" aria-label="anchor" href="#visualising-the-model"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.5</span> Visualising the model<a class="anchor" aria-label="anchor" href="#visualising-the-model"><i class="fas fa-link"></i></a>
 </h2>
 <p>Below we visualize the model by using the <code>MASS</code> and <code>effects</code> packages. We begin by fitting the model again with <code>polr</code> function.</p>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pol_model.1</span> <span class="op">&lt;-</span> <span class="fu">MASS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MASS/man/polr.html">polr</a></span><span class="op">(</span><span class="va">anemia_cat</span> <span class="op">~</span> <span class="va">community</span>, data <span class="op">=</span> <span class="va">dataF</span><span class="op">)</span></span>
 <span><span class="va">pol_model.2</span> <span class="op">&lt;-</span> <span class="fu">MASS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MASS/man/polr.html">polr</a></span><span class="op">(</span><span class="va">anemia_cat</span> <span class="op">~</span> <span class="va">fever</span><span class="op">*</span><span class="va">community</span>, data <span class="op">=</span> <span class="va">dataF</span><span class="op">)</span></span></code></pre></div>
 <p>And the we visualise the probablitly of having the various forms of anemia giving one belongs to the various groups.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="ordinal-logistic-regression.html#cb223-1" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> effects<span class="sc">::</span><span class="fu">Effect</span>(<span class="at">focal.predictors =</span> <span class="st">"community"</span>, <span class="at">mod=</span>pol_model<span class="fl">.1</span>)</span>
-<span id="cb223-2"><a href="ordinal-logistic-regression.html#cb223-2" tabindex="-1"></a></span>
-<span id="cb223-3"><a href="ordinal-logistic-regression.html#cb223-3" tabindex="-1"></a>Re<span class="sc">-</span>fitting to get Hessian</span>
-<span id="cb223-4"><a href="ordinal-logistic-regression.html#cb223-4" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> effects<span class="sc">::</span><span class="fu">Effect</span>(<span class="at">focal.predictors =</span> <span class="fu">c</span>(<span class="st">"community"</span>, <span class="st">"fever"</span>), <span class="at">mod=</span>pol_model<span class="fl">.2</span>)</span>
-<span id="cb223-5"><a href="ordinal-logistic-regression.html#cb223-5" tabindex="-1"></a></span>
-<span id="cb223-6"><a href="ordinal-logistic-regression.html#cb223-6" tabindex="-1"></a>Re<span class="sc">-</span>fitting to get Hessian</span>
-<span id="cb223-7"><a href="ordinal-logistic-regression.html#cb223-7" tabindex="-1"></a><span class="fu">plot</span>(M1)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="ordinal-logistic-regression.html#cb230-1" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> effects<span class="sc">::</span><span class="fu">Effect</span>(<span class="at">focal.predictors =</span> <span class="st">"community"</span>, <span class="at">mod=</span>pol_model<span class="fl">.1</span>)</span>
+<span id="cb230-2"><a href="ordinal-logistic-regression.html#cb230-2" tabindex="-1"></a></span>
+<span id="cb230-3"><a href="ordinal-logistic-regression.html#cb230-3" tabindex="-1"></a>Re<span class="sc">-</span>fitting to get Hessian</span>
+<span id="cb230-4"><a href="ordinal-logistic-regression.html#cb230-4" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> effects<span class="sc">::</span><span class="fu">Effect</span>(<span class="at">focal.predictors =</span> <span class="fu">c</span>(<span class="st">"community"</span>, <span class="st">"fever"</span>), <span class="at">mod=</span>pol_model<span class="fl">.2</span>)</span>
+<span id="cb230-5"><a href="ordinal-logistic-regression.html#cb230-5" tabindex="-1"></a></span>
+<span id="cb230-6"><a href="ordinal-logistic-regression.html#cb230-6" tabindex="-1"></a>Re<span class="sc">-</span>fitting to get Hessian</span>
+<span id="cb230-7"><a href="ordinal-logistic-regression.html#cb230-7" tabindex="-1"></a><span class="fu">plot</span>(M1)</span></code></pre></div>
 <div class="inline-figure"><img src="Ordinal-Logistic-Regression_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">M2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Ordinal-Logistic-Regression_files/figure-html/unnamed-chunk-14-2.png" width="672"></div>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="analysis-of-variance.html"><span class="header-section-number">20</span> Analysis of Variance</a></div>
-<div class="next"><a href="survival-analysis.html"><span class="header-section-number">22</span> Survival analysis</a></div>
+<div class="prev"><a href="analysis-of-variance.html"><span class="header-section-number">21</span> Analysis of Variance</a></div>
+<div class="next"><a href="survival-analysis.html"><span class="header-section-number">23</span> Survival analysis</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ordinal-logistic-regression"><span class="header-section-number">21</span> Ordinal logistic regression</a></li>
-<li><a class="nav-link" href="#importing-data"><span class="header-section-number">21.1</span> Importing data</a></li>
-<li><a class="nav-link" href="#model-specification"><span class="header-section-number">21.2</span> Model specification</a></li>
-<li><a class="nav-link" href="#checking-proportioinal-odds-assumption-for-the-model"><span class="header-section-number">21.3</span> Checking proportioinal odds assumption for the model</a></li>
-<li><a class="nav-link" href="#prediction"><span class="header-section-number">21.4</span> Prediction</a></li>
-<li><a class="nav-link" href="#visualising-the-model"><span class="header-section-number">21.5</span> Visualising the model</a></li>
+<li><a class="nav-link" href="#ordinal-logistic-regression"><span class="header-section-number">22</span> Ordinal logistic regression</a></li>
+<li><a class="nav-link" href="#importing-data"><span class="header-section-number">22.1</span> Importing data</a></li>
+<li><a class="nav-link" href="#model-specification"><span class="header-section-number">22.2</span> Model specification</a></li>
+<li><a class="nav-link" href="#checking-proportioinal-odds-assumption-for-the-model"><span class="header-section-number">22.3</span> Checking proportioinal odds assumption for the model</a></li>
+<li><a class="nav-link" href="#prediction"><span class="header-section-number">22.4</span> Prediction</a></li>
+<li><a class="nav-link" href="#visualising-the-model"><span class="header-section-number">22.5</span> Visualising the model</a></li>
 </ul>
 
       <div class="book-extra">
@@ -684,7 +685,7 @@ Yes
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-22.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

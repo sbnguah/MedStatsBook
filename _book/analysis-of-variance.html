@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 20 Analysis of Variance | Medical Statistics using R</title>
+<title>Chapter 21 Analysis of Variance | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="20.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition especially in adults. To treat this condition persons with hypertension are often given...">
+<meta name="description" content="21.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition especially in adults. To treat this condition persons with hypertension are often given...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 20 Analysis of Variance | Medical Statistics using R">
+<meta property="og:title" content="Chapter 21 Analysis of Variance | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/analysis-of-variance.html">
-<meta property="og:description" content="20.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition especially in adults. To treat this condition persons with hypertension are often given...">
+<meta property="og:description" content="21.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition especially in adults. To treat this condition persons with hypertension are often given...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 20 Analysis of Variance | Medical Statistics using R">
-<meta name="twitter:description" content="20.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition especially in adults. To treat this condition persons with hypertension are often given...">
+<meta name="twitter:title" content="Chapter 21 Analysis of Variance | Medical Statistics using R">
+<meta name="twitter:description" content="21.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition especially in adults. To treat this condition persons with hypertension are often given...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -79,23 +79,24 @@
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
 <li><a class="" href="descriptive-statistics-of-catergorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Catergorical Data</a></li>
 <li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
-<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">12</span> Analysis of numeric data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">13</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">14</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">15</span> Diagnostic Tests</a></li>
-<li><a class="" href="agreement.html"><span class="header-section-number">16</span> Agreement</a></li>
-<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">17</span> Receiver Operating Characteristic</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">18</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">19</span> Logistic Regression</a></li>
-<li><a class="active" href="analysis-of-variance.html"><span class="header-section-number">20</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">21</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">22</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">23</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">24</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">25</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">26</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">27</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">28</span> Sharing your book</a></li>
+<li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">14</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">15</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">16</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">17</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">18</span> Receiver Operating Characteristic</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">19</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">20</span> Logistic Regression</a></li>
+<li><a class="active" href="analysis-of-variance.html"><span class="header-section-number">21</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">22</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">23</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">24</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">25</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">26</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">27</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">28</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">29</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -103,13 +104,13 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-variance" class="section level1" number="20">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-variance" class="section level1" number="21">
 <h1>
-<span class="header-section-number">20</span> Analysis of Variance<a class="anchor" aria-label="anchor" href="#analysis-of-variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21</span> Analysis of Variance<a class="anchor" aria-label="anchor" href="#analysis-of-variance"><i class="fas fa-link"></i></a>
 </h1>
-<div id="introduction-5" class="section level2" number="20.1">
+<div id="introduction-5" class="section level2" number="21.1">
 <h2>
-<span class="header-section-number">20.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-5"><i class="fas fa-link"></i></a>
 </h2>
 <p>Hypertension, an elevated blood pressure beyond normal, is a very common medical
 condition especially in adults. To treat this condition persons with hypertension
@@ -126,7 +127,7 @@ the data are <code>disease</code> representing other diseases present in the pat
 2, 3 representing Asthma, Diabetes Mellitus (DM) and Obesity, and systolic
 representing the drop in systolic blood pressure a week after starting the drug.</p>
 <p>We first read in the data and summarise it.</p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_syst</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">".\\Data\\systolic.txt"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span></span>
@@ -136,29 +137,29 @@ representing the drop in systolic blood pressure a week after starting the drug.
 <span>            labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Asthma"</span>, <span class="st">"DM"</span>, <span class="st">"Obesity"</span><span class="op">)</span></span>
 <span>        <span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="analysis-of-variance.html#cb204-1" tabindex="-1"></a>df_syst <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb204-2"><a href="analysis-of-variance.html#cb204-2" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb204-3"><a href="analysis-of-variance.html#cb204-3" tabindex="-1"></a>df_syst  </span>
-<span id="cb204-4"><a href="analysis-of-variance.html#cb204-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">58</span> x <span class="dv">3</span>  </span>
-<span id="cb204-5"><a href="analysis-of-variance.html#cb204-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">3</span>  </span>
-<span id="cb204-6"><a href="analysis-of-variance.html#cb204-6" tabindex="-1"></a></span>
-<span id="cb204-7"><a href="analysis-of-variance.html#cb204-7" tabindex="-1"></a><span class="sc">------------------------------------------------------------------------------------</span></span>
-<span id="cb204-8"><a href="analysis-of-variance.html#cb204-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values            <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
-<span id="cb204-9"><a href="analysis-of-variance.html#cb204-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">-------------------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb204-10"><a href="analysis-of-variance.html#cb204-10" tabindex="-1"></a><span class="dv">1</span>    drug        <span class="fl">1.</span> A                      <span class="dv">15</span> (<span class="fl">25.9</span>%)           <span class="dv">58</span>         <span class="dv">0</span>        </span>
-<span id="cb204-11"><a href="analysis-of-variance.html#cb204-11" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> B                      <span class="dv">15</span> (<span class="fl">25.9</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb204-12"><a href="analysis-of-variance.html#cb204-12" tabindex="-1"></a>                 <span class="fl">3.</span> C                      <span class="dv">12</span> (<span class="fl">20.7</span>%)                               </span>
-<span id="cb204-13"><a href="analysis-of-variance.html#cb204-13" tabindex="-1"></a>                 <span class="fl">4.</span> D                      <span class="dv">16</span> (<span class="fl">27.6</span>%)                               </span>
-<span id="cb204-14"><a href="analysis-of-variance.html#cb204-14" tabindex="-1"></a></span>
-<span id="cb204-15"><a href="analysis-of-variance.html#cb204-15" tabindex="-1"></a><span class="dv">2</span>    disease     <span class="fl">1.</span> Asthma                 <span class="dv">19</span> (<span class="fl">32.8</span>%)           <span class="dv">58</span>         <span class="dv">0</span>        </span>
-<span id="cb204-16"><a href="analysis-of-variance.html#cb204-16" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> DM                     <span class="dv">19</span> (<span class="fl">32.8</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb204-17"><a href="analysis-of-variance.html#cb204-17" tabindex="-1"></a>                 <span class="fl">3.</span> Obesity                <span class="dv">20</span> (<span class="fl">34.5</span>%)                               </span>
-<span id="cb204-18"><a href="analysis-of-variance.html#cb204-18" tabindex="-1"></a></span>
-<span id="cb204-19"><a href="analysis-of-variance.html#cb204-19" tabindex="-1"></a><span class="dv">3</span>    systolic    <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">18.9</span> (<span class="fl">12.8</span>)   <span class="dv">32</span> distinct values   <span class="dv">58</span>         <span class="dv">0</span>        </span>
-<span id="cb204-20"><a href="analysis-of-variance.html#cb204-20" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                               (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb204-21"><a href="analysis-of-variance.html#cb204-21" tabindex="-1"></a>                 <span class="sc">-</span><span class="dv">6</span> <span class="sc">&lt;</span> <span class="dv">21</span> <span class="sc">&lt;</span> <span class="dv">44</span>                                                       </span>
-<span id="cb204-22"><a href="analysis-of-variance.html#cb204-22" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">19</span> (<span class="fl">0.7</span>)                                                </span>
-<span id="cb204-23"><a href="analysis-of-variance.html#cb204-23" tabindex="-1"></a><span class="sc">------------------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="analysis-of-variance.html#cb211-1" tabindex="-1"></a>df_syst <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb211-2"><a href="analysis-of-variance.html#cb211-2" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb211-3"><a href="analysis-of-variance.html#cb211-3" tabindex="-1"></a>df_syst  </span>
+<span id="cb211-4"><a href="analysis-of-variance.html#cb211-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">58</span> x <span class="dv">3</span>  </span>
+<span id="cb211-5"><a href="analysis-of-variance.html#cb211-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">3</span>  </span>
+<span id="cb211-6"><a href="analysis-of-variance.html#cb211-6" tabindex="-1"></a></span>
+<span id="cb211-7"><a href="analysis-of-variance.html#cb211-7" tabindex="-1"></a><span class="sc">------------------------------------------------------------------------------------</span></span>
+<span id="cb211-8"><a href="analysis-of-variance.html#cb211-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values            <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
+<span id="cb211-9"><a href="analysis-of-variance.html#cb211-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">-------------------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb211-10"><a href="analysis-of-variance.html#cb211-10" tabindex="-1"></a><span class="dv">1</span>    drug        <span class="fl">1.</span> A                      <span class="dv">15</span> (<span class="fl">25.9</span>%)           <span class="dv">58</span>         <span class="dv">0</span>        </span>
+<span id="cb211-11"><a href="analysis-of-variance.html#cb211-11" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> B                      <span class="dv">15</span> (<span class="fl">25.9</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb211-12"><a href="analysis-of-variance.html#cb211-12" tabindex="-1"></a>                 <span class="fl">3.</span> C                      <span class="dv">12</span> (<span class="fl">20.7</span>%)                               </span>
+<span id="cb211-13"><a href="analysis-of-variance.html#cb211-13" tabindex="-1"></a>                 <span class="fl">4.</span> D                      <span class="dv">16</span> (<span class="fl">27.6</span>%)                               </span>
+<span id="cb211-14"><a href="analysis-of-variance.html#cb211-14" tabindex="-1"></a></span>
+<span id="cb211-15"><a href="analysis-of-variance.html#cb211-15" tabindex="-1"></a><span class="dv">2</span>    disease     <span class="fl">1.</span> Asthma                 <span class="dv">19</span> (<span class="fl">32.8</span>%)           <span class="dv">58</span>         <span class="dv">0</span>        </span>
+<span id="cb211-16"><a href="analysis-of-variance.html#cb211-16" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> DM                     <span class="dv">19</span> (<span class="fl">32.8</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb211-17"><a href="analysis-of-variance.html#cb211-17" tabindex="-1"></a>                 <span class="fl">3.</span> Obesity                <span class="dv">20</span> (<span class="fl">34.5</span>%)                               </span>
+<span id="cb211-18"><a href="analysis-of-variance.html#cb211-18" tabindex="-1"></a></span>
+<span id="cb211-19"><a href="analysis-of-variance.html#cb211-19" tabindex="-1"></a><span class="dv">3</span>    systolic    <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">18.9</span> (<span class="fl">12.8</span>)   <span class="dv">32</span> distinct values   <span class="dv">58</span>         <span class="dv">0</span>        </span>
+<span id="cb211-20"><a href="analysis-of-variance.html#cb211-20" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                               (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb211-21"><a href="analysis-of-variance.html#cb211-21" tabindex="-1"></a>                 <span class="sc">-</span><span class="dv">6</span> <span class="sc">&lt;</span> <span class="dv">21</span> <span class="sc">&lt;</span> <span class="dv">44</span>                                                       </span>
+<span id="cb211-22"><a href="analysis-of-variance.html#cb211-22" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">19</span> (<span class="fl">0.7</span>)                                                </span>
+<span id="cb211-23"><a href="analysis-of-variance.html#cb211-23" tabindex="-1"></a><span class="sc">------------------------------------------------------------------------------------</span></span></code></pre></div>
 <p>As the data analyst the investigator asks you to tell him from the data which
 drug has the highest blood pressure lowering effect, the best and worst
 performing drugs in this regard. Recollect that if there were only two drugs we
@@ -167,7 +168,7 @@ would most likely to performing a Student t-test for this.</p>
 the t-test. This is where the Analysis of Variance (anova) in its simplest form
 kicks in. First we visualize the distribution of the SBP lowering effect in all
 four drugs in the boxplot below:</p>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_syst</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">drug</span>, y <span class="op">=</span> <span class="va">systolic</span>, color <span class="op">=</span> <span class="va">drug</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
@@ -177,7 +178,7 @@ four drugs in the boxplot below:</p>
 <span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Analysis-of-Variance_files/figure-html/unnamed-chunk-5-1.png" width="576"></div>
 <p>Summarizing the change in SBP by the drugs administered we have</p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_syst</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">drug</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/get_summary_stats.html">get_summary_stats</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"common"</span><span class="op">)</span></span></code></pre></div>
@@ -266,9 +267,9 @@ lowering effect appears to be A, followed by B, D and C in that order. How do we
 know if we can say for sure that B is better than A, which in turn is better
 than D etc? To answer this question we perform an anova.</p>
 </div>
-<div id="fitting-the-anova" class="section level2" number="20.2">
+<div id="fitting-the-anova" class="section level2" number="21.2">
 <h2>
-<span class="header-section-number">20.2</span> Fitting the anova<a class="anchor" aria-label="anchor" href="#fitting-the-anova"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.2</span> Fitting the anova<a class="anchor" aria-label="anchor" href="#fitting-the-anova"><i class="fas fa-link"></i></a>
 </h2>
 <p>The analysis of variance is a parametric test used to compare means for more
 than two groups. It tests the null hypothesis</p>
@@ -283,7 +284,7 @@ blood pressures that the the effect of drug A is quite similar to that of B.
 Also, both A and B are quite different from C and D. C and D on the other hand
 have similar effect. With this preliminary finding at the back of our minds we
 fit a linear regression model as below.</p>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_syst</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">systolic</span> <span class="op">~</span> <span class="va">drug</span>, data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-7">
 <caption style="caption-side: top; text-align: center;">
@@ -323,9 +324,9 @@ fit a linear regression model as below.</p>
 very small indicating at least one of our means significantly differ from the
 rest.</p>
 </div>
-<div id="postestimation-pairwise-comparison" class="section level2" number="20.3">
+<div id="postestimation-pairwise-comparison" class="section level2" number="21.3">
 <h2>
-<span class="header-section-number">20.3</span> Postestimation pairwise comparison<a class="anchor" aria-label="anchor" href="#postestimation-pairwise-comparison"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.3</span> Postestimation pairwise comparison<a class="anchor" aria-label="anchor" href="#postestimation-pairwise-comparison"><i class="fas fa-link"></i></a>
 </h2>
 <p>We have made the point that anova only tell us at least one of the means is
 significantly different from the others. To pick up which drug’s mean effect(s)
@@ -347,7 +348,7 @@ and Benjamini &amp; Yekutieli (2001) (“BY”), respectively. A pass-through op
 </blockquote>
 <p>Below we determine the p-values for the multiple comparison of the various drugs
 using the “holm” method</p>
-<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_syst</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/pairwise.t.test.html">pairwise.t.test</a></span><span class="op">(</span></span>
 <span>        x <span class="op">=</span> <span class="va">systolic</span>, g <span class="op">=</span> <span class="va">drug</span>, data <span class="op">=</span> <span class="va">.</span>, p.adjust.methods <span class="op">=</span> <span class="st">"holm"</span></span>
@@ -355,7 +356,7 @@ using the “holm” method</p>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-8">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-8">Table 12.2: </span> </caption>
+<span id="tab:unnamed-chunk-8">Table 13.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -404,14 +405,14 @@ and D, B and C, and B and D. Also there isn’t a significant difference between
 and D (p-value: 0.50216). An arguably more informative way of showing these
 pairwise difference can be obtained in R by the use of the Tukey’s
 post-estimation test.</p>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_syst</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">systolic</span> <span class="op">~</span> <span class="va">drug</span>, data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-9">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-9">Table 12.3: </span> </caption>
+<span id="tab:unnamed-chunk-9">Table 13.2: </span> </caption>
 <col>
 <col>
 <col>
@@ -492,9 +493,9 @@ no evidence that one does better than the other. C and D on the other hand have
 significantly smaller SBP lowering effect compared to A and B. Drugs C and D
 don’t perform significantly different from each other.</p>
 </div>
-<div id="kruskal-wallis-test" class="section level2" number="20.4">
+<div id="kruskal-wallis-test" class="section level2" number="21.4">
 <h2>
-<span class="header-section-number">20.4</span> Kruskal Wallis Test<a class="anchor" aria-label="anchor" href="#kruskal-wallis-test"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4</span> Kruskal Wallis Test<a class="anchor" aria-label="anchor" href="#kruskal-wallis-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the beginning of this section we noted that anova is a parametric test.
 Therefore it requires approximately normally distributed dependent data to work
@@ -507,7 +508,7 @@ Ha: At least one of the population distributions (or centre) differ from the
 rest.</p>
 </blockquote>
 <p>Below we use this on the systolic blood pressure and drug used as before</p>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_syst</span> <span class="op">%$%</span> <span class="fu"><a href="https://rdrr.io/r/stats/kruskal.test.html">kruskal.test</a></span><span class="op">(</span><span class="va">systolic</span>, <span class="va">drug</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-10">
 <caption style="caption-side: top; text-align: center;">
@@ -534,37 +535,37 @@ of the drug is significantly different from the others. This conclusion is not
 different from that derived with the analysis of variance. At least the centre
 of one of the systolic blood pressure is significantly different from another</p>
 </div>
-<div id="assumptions-1" class="section level2" number="20.5">
+<div id="assumptions-1" class="section level2" number="21.5">
 <h2>
-<span class="header-section-number">20.5</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.5</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions-1"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="one-way-anova" class="section level2" number="20.6">
+<div id="one-way-anova" class="section level2" number="21.6">
 <h2>
-<span class="header-section-number">20.6</span> One-way ANOVA<a class="anchor" aria-label="anchor" href="#one-way-anova"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.6</span> One-way ANOVA<a class="anchor" aria-label="anchor" href="#one-way-anova"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="two-way-anova" class="section level2" number="20.7">
+<div id="two-way-anova" class="section level2" number="21.7">
 <h2>
-<span class="header-section-number">20.7</span> Two-way ANOVA<a class="anchor" aria-label="anchor" href="#two-way-anova"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.7</span> Two-way ANOVA<a class="anchor" aria-label="anchor" href="#two-way-anova"><i class="fas fa-link"></i></a>
 </h2>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="logistic-regression.html"><span class="header-section-number">19</span> Logistic Regression</a></div>
-<div class="next"><a href="ordinal-logistic-regression.html"><span class="header-section-number">21</span> Ordinal logistic regression</a></div>
+<div class="prev"><a href="logistic-regression.html"><span class="header-section-number">20</span> Logistic Regression</a></div>
+<div class="next"><a href="ordinal-logistic-regression.html"><span class="header-section-number">22</span> Ordinal logistic regression</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#analysis-of-variance"><span class="header-section-number">20</span> Analysis of Variance</a></li>
-<li><a class="nav-link" href="#introduction-5"><span class="header-section-number">20.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#fitting-the-anova"><span class="header-section-number">20.2</span> Fitting the anova</a></li>
-<li><a class="nav-link" href="#postestimation-pairwise-comparison"><span class="header-section-number">20.3</span> Postestimation pairwise comparison</a></li>
-<li><a class="nav-link" href="#kruskal-wallis-test"><span class="header-section-number">20.4</span> Kruskal Wallis Test</a></li>
-<li><a class="nav-link" href="#assumptions-1"><span class="header-section-number">20.5</span> Assumptions</a></li>
-<li><a class="nav-link" href="#one-way-anova"><span class="header-section-number">20.6</span> One-way ANOVA</a></li>
-<li><a class="nav-link" href="#two-way-anova"><span class="header-section-number">20.7</span> Two-way ANOVA</a></li>
+<li><a class="nav-link" href="#analysis-of-variance"><span class="header-section-number">21</span> Analysis of Variance</a></li>
+<li><a class="nav-link" href="#introduction-5"><span class="header-section-number">21.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#fitting-the-anova"><span class="header-section-number">21.2</span> Fitting the anova</a></li>
+<li><a class="nav-link" href="#postestimation-pairwise-comparison"><span class="header-section-number">21.3</span> Postestimation pairwise comparison</a></li>
+<li><a class="nav-link" href="#kruskal-wallis-test"><span class="header-section-number">21.4</span> Kruskal Wallis Test</a></li>
+<li><a class="nav-link" href="#assumptions-1"><span class="header-section-number">21.5</span> Assumptions</a></li>
+<li><a class="nav-link" href="#one-way-anova"><span class="header-section-number">21.6</span> One-way ANOVA</a></li>
+<li><a class="nav-link" href="#two-way-anova"><span class="header-section-number">21.7</span> Two-way ANOVA</a></li>
 </ul>
 
       <div class="book-extra">
@@ -582,7 +583,7 @@ of one of the systolic blood pressure is significantly different from another</p
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-22.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
