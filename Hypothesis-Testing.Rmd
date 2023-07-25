@@ -1,0 +1,195 @@
+
+```{r echo = F}
+library(huxtable)
+library(tidyverse)
+library(magrittr)
+```
+
+# Hypothesis-Testing
+
+## Population and sample
+### Population
+A population in a statistical sense is different from the general sense. The 
+population is a collection of items, people, places etc. that the investigator 
+is generally interested in and wants to study. This population tends to be 
+large necessitating the investigator to pick just a representative sample to 
+study a particular property. For example:
+
+1. To determine the proportion of Ghanaians who are males we may pick a representative sample to do that but the study population is all "Ghanaians".
+1. To determine the proportion of defective items produced by a factory we sample some of the items but the actual population involves all items produced and possibly those yet to be produced.
+
+Therefore, the statistical definition for a population could include items, 
+places or persons not even born or non-existent.
+
+### Sample
+This is part of the population selected by whatever method, usually because the 
+whole population is too large or unavailable to be studied. There are many ways 
+to select the sample from the population. The sample is thus usually smaller 
+than the population.
+
+## Descriptive versus Inferential Statistics
+In almost every research the idea is to determine a specific parameter in the 
+population. For instance, to determine the proportion of children under the age 
+of 18 years on a specific flight (e.g. British Airways (BA) from London to 
+Johannesburg) we start by randomly selecting a sample of BA flights between 
+these two destinations. Next, we determine the ages of those on these selected 
+flights and finally come up with the proportion of those with ages less than 18 
+years. Bear in mind the population includes future flights and so the population 
+parameter can almost never be obtained. However, the sample proportion 
+(statistic) determined above could be a good estimate of the population parameter.
+
+Descriptive statistics involve statistical manipulations done on a specific 
+sample whereas inferential statistics is the manipulations used to estimate the 
+population parameter from the sample statistic. Using the example above, 
+determining the proportion of under-18-year-old persons on our chosen flights 
+falls under descriptive statistics whereas estimating the population proportion 
+of under-18-year-old persons who fly BA along that route from our sample 
+statistic is by the use of inferential statistics.
+
+## Sample variation
+The Mid-upper arm circumference of children under five is a measure of how thin 
+a child is and a quick way of determining his/her nutritional status. In a 
+population of 2000 children, the mean and median mid-upper arm circumferences 
+were to be determined independently by a group of 10 students. They decided to 
+take a random sample of 10 children each to estimate these parameters. Each 
+column of `students` shows the measurements made by each student in his/her sample 
+chosen. We first read in the data.
+
+```{r}
+df_students <- read.delim("./Data/students.txt", sep = " ")
+```
+
+
+And visualise it 
+
+```{r}
+df_students
+```
+
+Next we determine the mean and median values obtained by each student
+
+```{r}
+df_students %>% 
+    summarize(across(X1:X10, ~mean(.)))
+```
+
+It is obvious that despite all the data coming from the same population 
+the means obtained were different each time. In effect despite using the 
+same population, since choosing a sample is a random process the descriptive 
+statistic(s) obtained each time a sample is chosen from a population will vary. 
+The differences (variation) in the statistics obtained (mean and median MUAC) 
+for instance with every sample is described as sample variation. If these 
+statistics vary then how can we determine the population parameter? This is what 
+inferential statistics is all about, estimating the population parameter from 
+the sample statistic.
+
+## Hypothesis testing
+The collection of scientific data is usually preceded by an idea one wants to 
+prove or disprove. As humans, we often have preconceived ideas or opinions of 
+the expected results of a study. This subconscious thinking is brought to light 
+by formally setting a hypothesis and testing it. This section deals with 
+formalising the steps involved in this process and how it affects our study 
+design, data collection, analysis, and presentation of results.
+
+### Stating the hypothesis.
+Standing in the window one morning Mr Osei wondered (again) if the number of 
+women using the services of the bank next door are the same as that of men. 
+There is a vibrant market nearby which has mainly women trading their wares. 
+The proximity of the market to the bank may have given him this impression. Now 
+he has taken the decision to investigate this. Subconsciously he is wondering if:
+
+>The proportion of men using the services of the bank is the same as that of women.
+
+Conversely, he could also be wondering if :
+
+>The proportion of men using banking services is different from that of women.
+
+Bear in mind this second line of thinking includes men using the services more 
+compared to women or vice versa. These competing ideas give rise to the 
+following hypothesis:
+
+>**Null hypothesis (H0)**: The proportion of men using the services of the bank next door is not different from that of women.
+
+Or alternatively
+
+>**Alternate Hypothesis (Ha)**: There is a difference in the proportion of men and women using banking services.
+
+These two hypotheses are describing Mr Osei's idea but in an opposing manner. 
+The null and alternate hypotheses can then be tested through a well-designed 
+study. For some statistical and technical reasons, the null hypothesis is often 
+preferred in this regard.
+
+### Testing the Hypothesis
+After the hypothesis has been stated the next objective is to collect evidence 
+(data) to either prove or disprove it. It is obvious that the customers (study 
+population) include future ones and so this assertion can never be completely 
+determined if all customers are to be enumerated. Hence Mr Osei decides to pick 
+a sample of the customers. Out of this sample, he needs to determine if he has 
+enough evidence to disprove his null hypothesis. If he thinks he does he can 
+conclude that 
+
+>*"There is enough evidence to say the proportion of men and women using the bank's services are not the same"*. 
+
+In other words, they are different in proportions. If on the other hand, he does 
+not come up with significant evidence against his null hypothesis he can 
+conclude that
+
+>*"There is insufficient evidence to conclude the proportion of men using the bank's services is the same as women".*
+
+### Type I error
+We recollect from earlier on in this chapter that since there are many ways of 
+choosing a sample from a population the results tend to differ from sample to 
+sample. This we called sample variability. Due to sample variability, sample 
+statistics usually differ from the population parameter.
+
+In the example involving Mr Osei and the bank customers, he proceeded to collect 
+the sexes of 250 systematically selected samples of customers and came up with 
+the following results. There were 112(44.8%) males and 138(55.2%) females in his 
+sample. We note here that this is a sample and by inference, another sample 
+could give an entirely different result (sample variability).
+
+So, the question is do we think we have enough evidence to reject H0? Do we think 
+this difference in proportion is significant evidence against the notion that the 
+proportions are the same? It is obvious that we can never be entirely sure if our 
+rejection of H0 is right or wrong. However, we can conclude that the smaller the 
+proportion of males in our obtained sample the higher the chance that the null 
+hypothesis (that the proportions are the same) is false. In hypothesis testing a 
+type I error is said to have been made if the null hypothesis is rejected when in 
+fact it is true. We can therefore say that a type I error is made if H0 is wrongly 
+rejected. 
+
+In our example above Mr Osei would be making a type I error if he concludes 
+based on his data obtained that the proportions of men and women are not the 
+same when in fact they are in the population.
+
+### The Significance Level
+The significance level, usually denoted by alpha ($\alpha$) is the probability 
+of making a type I error. It is usually set by the investigator and has a direct 
+bearing on the sample size of a study.
+
+### Type II error
+Conversely, a type II error is said to have been made if the researcher fails to 
+reject the null hypothesis when in fact it is false. Applied to our situation a 
+type II error could be committed if Mr Osei based on his stated result above 
+decides there is insufficient evidence to conclude the proportion of the two 
+sexes differs when in fact they do differ in the population of bank users.
+
+
+The two types of errors mentioned above always increase at the expense of the 
+other. That is as type I error rises type II error falls and vice versa.
+
+### Power
+The probability of committing a type II error is called beta ($\beta$). The 
+probability of not committing a type II error is called the Power of the test. 
+That is 
+
+>p(Type II error) = $\beta$  and $Power = 1 - \beta$
+
+Power of a statistical test therefore measures its ability to reject the null 
+hypothesis when it is false and hence make the right decision.
+
+
+
+
+
+

@@ -34,7 +34,6 @@ The following object is masked from 'package:ggplot2':
 
     theme_grey
 
-#StandWithUkraine
 
 Attaching package: 'gtsummary'
 

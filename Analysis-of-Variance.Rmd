@@ -83,7 +83,7 @@ lowering effect appears to be A, followed by B, D and C in that order. How do we
 know if we can say for sure that B is better than A, which in turn is better 
 than D etc? To answer this question we perform an anova.
 
-## Fitting the anova
+## One way analysis of variance
 The analysis of variance is a parametric test used to compare means for more 
 than two groups. It tests the null hypothesis
 
@@ -107,14 +107,14 @@ From the anova output above we have a p-value of the order 0.000057! This is
 very small indicating at least one of our means significantly differ from the 
 rest.
 
-## Postestimation pairwise comparison
+### Postestimation pairwise comparison
 We have made the point that anova only tell us at least one of the means is 
 significantly different from the others. To pick up which drug's mean effect(s) 
 differ from the others we use post-estimation tests. An example is the 
 Pairwise t-test.
 
 So why don't we just do multiple T-tests and present the results as such? This 
-is because the t-test is not designed for this. The signicance level is only 
+is because the t-test is not designed for this. The significance level is only 
 set up for single comparisons not multiple meaning the p-values obtained for 
 such comparison will be invalid. Many authors have come up with ways of 
 correcting these p-values with the common one implemented in R listed below. The 
@@ -165,6 +165,16 @@ no evidence that one does better than the other. C and D on the other hand have
 significantly smaller SBP lowering effect compared to A and B. Drugs C and D 
 don't perform significantly different from each other.
 
+## Two-Way Analysis of variance
+
+
+
+## Repeated masure analysis of variance
+
+## Analysis of covariance
+
+## Multivariate Analysis of variance
+
 ## Kruskal Wallis Test
 In the beginning of this section we noted that anova is a parametric test. 
 Therefore it requires approximately normally distributed dependent data to work 
@@ -189,10 +199,9 @@ of one of the systolic blood pressure is significantly different from another
 
 
 
-
-
 ## Assumptions
 
-## One-way ANOVA
 
-## Two-way ANOVA
+
+
+
