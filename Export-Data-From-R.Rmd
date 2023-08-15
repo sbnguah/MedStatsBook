@@ -1,0 +1,8 @@
+# Exporting Data from R 
+
+```{r echo = F, include=F, meassage = F, warning=F}
+library(huxtable)
+library(tidyverse)
+library(magrittr)
+```
+

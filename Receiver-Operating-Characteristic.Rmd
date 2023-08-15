@@ -7,23 +7,23 @@ library(huxtable)
 library(magrittr)
 ```
 
-Up until now we have dealt with tests that are categorized as either positive or 
+Up until now, we have dealt with tests that are categorized as either positive or 
 negative. However, many tests are quantitative rather than qualitative. For 
-instance the blood urea and nitrogen, serum cholesterol and serum protein among 
+instance, the blood urea and nitrogen, serum cholesterol and serum protein among 
 many others are measured on a continuous scale often ranging from 0 to infinity. 
 Such tests pose different challenges as we often need a cut-off point to 
 determine which range of values can be considered "normal" or "abnormal". As we
 have learned above the sensitivity and specificity of a test are often used to 
-defines how good it is. For tests on a continuous scale the sensitivity and 
+define how good it is. For tests on a continuous scale the sensitivity and 
 specificity change depending on the cut-off provided for the measure.
 
-In this section we use the lbw.csv data collected in a study conducted in a 
-cohort of 350 newborns in Ghana. The identification of babies born with weight 
-of less than 2.5kgs is important because of the special needs they require. In 
-many under developed countries however the unavailability of a reliable weighing 
+In this section, we use the lbw.csv data collected in a study conducted in a 
+cohort of 350 newborns in Ghana. The identification of babies born with a weight 
+of less than 2.5 kg is important because of the special needs they require. In 
+many underdeveloped countries, however, the unavailability of a reliable weighing 
 scale makes this a challenge. This has prompted the search for other surrogate 
-measures easily available in rural areas for determining if a baby is low birth 
-weight (<2.5kgs). The aim of the study was to determine how well the length or 
+measures easily available in rural areas for determining if a baby is a low birth 
+weight (<2.5kgs). The study aimed to determine how well the length or 
 chest circumference of a baby could be used as a surrogate indicator for low 
 birth weight in newborns. If they turn out to be good tests they can easily be 
 deployed in any rural area as the only instrument needed here would be a 
@@ -31,7 +31,7 @@ measuring tape. The variables collected include their study ID (sid), birth
 weight (bweight), sex (gender), chest circumference (chc) and length
 of baby (lgth).
 
-First we read in the data after clearing the workspace
+First, we read the data after clearing the workspace
 
 ```{r message = FALSE}
 df_lbw <- 
@@ -59,7 +59,7 @@ be used extensively in this section.
 As mentioned above when one has a gold standard which is bivariate (indicating 
 presence or absence) and a quantitative test, the sensitivity and specificity of 
 the test depends on the cut-off chosen. For our `lbw.csv` data our gold standard 
-for a low birth weight baby is the the birth weight categorised into low birth 
+for a low birth weight baby is the birth weight categorised into low birth 
 weight (LBW) or normal birth weight (NBW). Two continuous measures, the chest 
 circumference and the length of the baby were used as our tests.
 
@@ -70,7 +70,7 @@ specificity we generate some arbitrary cut-offs.
 cut.off <- c(28, 42, 44, 46, 47, 49, 50, 51, 61)
 ```
 
-From these cut-offs we generate the categories from the length of the babies 
+From these cut-offs, we generate the categories from the length of the babies 
 and tabulate the resultant categorical variable.
 
 ```{r}
@@ -90,7 +90,7 @@ df_lbw %>%
     gtsummary::bold_labels()
 ```
 
-Next we determine the sensitivities and specificities at the various cut-offs by 
+Next, we determine the sensitivities and specificities at the various cut-offs by 
 using the `roc()` function from the `pROC` package. Since this package requires 
 an ordered categorical variable we convert `lgthcat` into an ordered factor 
 variable. And then go ahead to impute the relevant information into the `roc()` 

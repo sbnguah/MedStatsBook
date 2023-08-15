@@ -1,0 +1,10 @@
+                          "color" "Black" "colored" "White"
+"sex"    "make"   "sympt"                                  
+"Female" "Round"  "Cough"             253       261     257
+                  "Fever"             236       239     264
+         "Square" "Cough"             227       253     237
+                  "Fever"             275       240     258
+"Male"   "Round"  "Cough"             246       244     259
+                  "Fever"             246       263     232
+         "Square" "Cough"             258       255     250
+                  "Fever"             259       245     243

@@ -1,0 +1,51 @@
+id,mother_alive,mother_hiv,father_alive,father_hiv
+1,Yes,Don't Know,Alive,Don't Know
+2,Yes,Don't Know,Alive,Don't Know
+3,No,Positive,Alive,Don't Know
+4,Yes,Positive,Alive,Positive
+5,Yes,Positive,Alive,Positive
+6,Yes,Positive,Alive,Don't Know
+7,No,Positive,Dead,Positive
+8,Yes,Positive,Dead,Positive
+9,Yes,Positive,Alive,Positive
+10,Yes,Positive,Alive,Positive
+11,Yes,Positive,Dead,Positive
+12,Yes,Positive,Alive,Don't Know
+13,Yes,Positive,Alive,Negative
+14,Yes,Positive,Dead,Don't Know
+15,No,Don't Know,Alive,Don't Know
+16,Yes,Don't Know,Alive,Don't Know
+17,Yes,Positive,Alive,Don't Know
+18,Yes,Don't Know,Alive,Don't Know
+19,Yes,Don't Know,Dead,Don't Know
+20,Yes,Positive,Dead,Don't Know
+21,Yes,Positive,Alive,Positive
+22,Yes,Don't Know,,Don't Know
+23,Yes,Don't Know,,Don't Know
+24,Yes,Don't Know,Dead,Don't Know
+25,No,Positive,Alive,Negative
+26,Yes,Positive,Alive,Don't Know
+27,Yes,Positive,Dead,
+28,Yes,Don't Know,Alive,Don't Know
+29,No,Don't Know,Alive,Don't Know
+30,No,Don't Know,Alive,Don't Know
+31,Yes,Don't Know,Alive,Don't Know
+32,Yes,Positive,Alive,Don't Know
+33,Yes,Positive,Alive,Don't Know
+34,Yes,Positive,Alive,Positive
+35,Yes,Positive,,Don't Know
+36,Yes,Positive,Alive,
+37,Yes,Positive,Alive,Positive
+38,Yes,Positive,Alive,Don't Know
+39,Yes,Positive,Alive,Positive
+40,Yes,Don't Know,Dead,Don't Know
+41,No,Don't Know,Alive,Negative
+42,Yes,Positive,Alive,Don't Know
+43,No,Positive,Alive,Don't Know
+44,Yes,Positive,Alive,Don't Know
+45,Yes,Don't Know,Alive,Don't Know
+46,Yes,Positive,Alive,Don't Know
+47,Yes,Positive,Dead,Don't Know
+48,Yes,Positive,Alive,Don't Know
+49,Yes,Positive,Dead,Don't Know
+50,Yes,Positive,Alive,Negative

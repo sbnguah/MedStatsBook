@@ -1,10 +1,12 @@
-
-
 # Risk and Odds 
+
+
+
+
 The analysis of the effects above depends mainly on the p-values and confidence 
 intervals of difference in proportions. There is a more common and often better 
-way of expressing these using Risk and Odds. In this chapter we will use the 
-`ANCData.txt` data to illustrate these. First we read in the data
+way of expressing these using Risk and Odds. In this chapter, we will use the 
+`ANCData.txt` data to illustrate these. First, we read the data
 
 
 ```r
@@ -47,7 +49,7 @@ No   Variable   Stats / Values   Freqs (% of Valid)   Valid      Missing
 
 ## Risk
 Risk is defined as the probability of having an outcome. Therefore, if in a 
-population of 100, 35 develop diabetes mellitus after a specified period of 
+the population of 100, 35 develop diabetes mellitus after a specified period of 
 follow-up, the risk of developing diabetes in the population is
 
 $$\frac{35}{100} = 0.35$$
@@ -69,23 +71,23 @@ df_anc %>%
 
 
 ```{=html}
-<div id="kcmcboybqr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kcmcboybqr table {
+<div id="kwhzzxaldh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kwhzzxaldh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kcmcboybqr thead, #kcmcboybqr tbody, #kcmcboybqr tfoot, #kcmcboybqr tr, #kcmcboybqr td, #kcmcboybqr th {
+#kwhzzxaldh thead, #kwhzzxaldh tbody, #kwhzzxaldh tfoot, #kwhzzxaldh tr, #kwhzzxaldh td, #kwhzzxaldh th {
   border-style: none;
 }
 
-#kcmcboybqr p {
+#kwhzzxaldh p {
   margin: 0;
   padding: 0;
 }
 
-#kcmcboybqr .gt_table {
+#kwhzzxaldh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -111,12 +113,12 @@ df_anc %>%
   border-left-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_caption {
+#kwhzzxaldh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kcmcboybqr .gt_title {
+#kwhzzxaldh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -128,7 +130,7 @@ df_anc %>%
   border-bottom-width: 0;
 }
 
-#kcmcboybqr .gt_subtitle {
+#kwhzzxaldh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -140,7 +142,7 @@ df_anc %>%
   border-top-width: 0;
 }
 
-#kcmcboybqr .gt_heading {
+#kwhzzxaldh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -152,13 +154,13 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_bottom_border {
+#kwhzzxaldh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_col_headings {
+#kwhzzxaldh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -173,7 +175,7 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_col_heading {
+#kwhzzxaldh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -193,7 +195,7 @@ df_anc %>%
   overflow-x: hidden;
 }
 
-#kcmcboybqr .gt_column_spanner_outer {
+#kwhzzxaldh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -205,15 +207,15 @@ df_anc %>%
   padding-right: 4px;
 }
 
-#kcmcboybqr .gt_column_spanner_outer:first-child {
+#kwhzzxaldh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kcmcboybqr .gt_column_spanner_outer:last-child {
+#kwhzzxaldh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kcmcboybqr .gt_column_spanner {
+#kwhzzxaldh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -225,11 +227,11 @@ df_anc %>%
   width: 100%;
 }
 
-#kcmcboybqr .gt_spanner_row {
+#kwhzzxaldh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kcmcboybqr .gt_group_heading {
+#kwhzzxaldh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -255,7 +257,7 @@ df_anc %>%
   text-align: left;
 }
 
-#kcmcboybqr .gt_empty_group_heading {
+#kwhzzxaldh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -270,15 +272,15 @@ df_anc %>%
   vertical-align: middle;
 }
 
-#kcmcboybqr .gt_from_md > :first-child {
+#kwhzzxaldh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kcmcboybqr .gt_from_md > :last-child {
+#kwhzzxaldh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kcmcboybqr .gt_row {
+#kwhzzxaldh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -297,7 +299,7 @@ df_anc %>%
   overflow-x: hidden;
 }
 
-#kcmcboybqr .gt_stub {
+#kwhzzxaldh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -310,7 +312,7 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#kcmcboybqr .gt_stub_row_group {
+#kwhzzxaldh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -324,15 +326,15 @@ df_anc %>%
   vertical-align: top;
 }
 
-#kcmcboybqr .gt_row_group_first td {
+#kwhzzxaldh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kcmcboybqr .gt_row_group_first th {
+#kwhzzxaldh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kcmcboybqr .gt_summary_row {
+#kwhzzxaldh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -342,16 +344,16 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#kcmcboybqr .gt_first_summary_row {
+#kwhzzxaldh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_first_summary_row.thick {
+#kwhzzxaldh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kcmcboybqr .gt_last_summary_row {
+#kwhzzxaldh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -361,7 +363,7 @@ df_anc %>%
   border-bottom-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_grand_summary_row {
+#kwhzzxaldh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -371,7 +373,7 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#kcmcboybqr .gt_first_grand_summary_row {
+#kwhzzxaldh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -381,7 +383,7 @@ df_anc %>%
   border-top-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_last_grand_summary_row_top {
+#kwhzzxaldh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -391,11 +393,11 @@ df_anc %>%
   border-bottom-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_striped {
+#kwhzzxaldh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kcmcboybqr .gt_table_body {
+#kwhzzxaldh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -404,7 +406,7 @@ df_anc %>%
   border-bottom-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_footnotes {
+#kwhzzxaldh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -418,7 +420,7 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_footnote {
+#kwhzzxaldh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -427,7 +429,7 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#kcmcboybqr .gt_sourcenotes {
+#kwhzzxaldh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -441,7 +443,7 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#kcmcboybqr .gt_sourcenote {
+#kwhzzxaldh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -449,63 +451,63 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#kcmcboybqr .gt_left {
+#kwhzzxaldh .gt_left {
   text-align: left;
 }
 
-#kcmcboybqr .gt_center {
+#kwhzzxaldh .gt_center {
   text-align: center;
 }
 
-#kcmcboybqr .gt_right {
+#kwhzzxaldh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kcmcboybqr .gt_font_normal {
+#kwhzzxaldh .gt_font_normal {
   font-weight: normal;
 }
 
-#kcmcboybqr .gt_font_bold {
+#kwhzzxaldh .gt_font_bold {
   font-weight: bold;
 }
 
-#kcmcboybqr .gt_font_italic {
+#kwhzzxaldh .gt_font_italic {
   font-style: italic;
 }
 
-#kcmcboybqr .gt_super {
+#kwhzzxaldh .gt_super {
   font-size: 65%;
 }
 
-#kcmcboybqr .gt_footnote_marks {
+#kwhzzxaldh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kcmcboybqr .gt_asterisk {
+#kwhzzxaldh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kcmcboybqr .gt_indent_1 {
+#kwhzzxaldh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kcmcboybqr .gt_indent_2 {
+#kwhzzxaldh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kcmcboybqr .gt_indent_3 {
+#kwhzzxaldh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kcmcboybqr .gt_indent_4 {
+#kwhzzxaldh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kcmcboybqr .gt_indent_5 {
+#kwhzzxaldh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -671,7 +673,7 @@ The output shows a table of the variables in question, the OR with its 95%
 confidence interval and both p-values determine by the chi-squared test and the 
 Fisher's test. With a confidence interval of the odds ratio not containing the 
 null value 1, and small p-values from both methods it can be concluded that the 
-odds of death in mothers who used the new anc method is about half (0.5) of 
+odds of death in mothers who used the new ANC method is about half (0.5) of 
 those who used the old method and the probability of obtaining an OR this values 
 if the null was true, is low (p-value = 0.019). Therefore, the use of the new 
 anc method is associated with significantly better perinatal outcomes compared 

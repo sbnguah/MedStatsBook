@@ -1,11 +1,12 @@
 
-```{r echo = F}
+# Hypothesis-Testing
+
+```{r echo = F, include=F, meassage = F, warning=F}
 library(huxtable)
 library(tidyverse)
 library(magrittr)
 ```
 
-# Hypothesis-Testing
 
 ## Population and sample
 ### Population
@@ -18,7 +19,7 @@ study a particular property. For example:
 1. To determine the proportion of Ghanaians who are males we may pick a representative sample to do that but the study population is all "Ghanaians".
 1. To determine the proportion of defective items produced by a factory we sample some of the items but the actual population involves all items produced and possibly those yet to be produced.
 
-Therefore, the statistical definition for a population could include items, 
+Therefore, the statistical definition of a population could include items, 
 places or persons not even born or non-existent.
 
 ### Sample
@@ -35,16 +36,16 @@ Johannesburg) we start by randomly selecting a sample of BA flights between
 these two destinations. Next, we determine the ages of those on these selected 
 flights and finally come up with the proportion of those with ages less than 18 
 years. Bear in mind the population includes future flights and so the population 
-parameter can almost never be obtained. However, the sample proportion 
+parameter can rarely be obtained. However, the sample proportion 
 (statistic) determined above could be a good estimate of the population parameter.
 
 Descriptive statistics involve statistical manipulations done on a specific 
-sample whereas inferential statistics is the manipulations used to estimate the 
+sample whereas inferential statistics is the manipulation used to estimate the 
 population parameter from the sample statistic. Using the example above, 
 determining the proportion of under-18-year-old persons on our chosen flights 
 falls under descriptive statistics whereas estimating the population proportion 
 of under-18-year-old persons who fly BA along that route from our sample 
-statistic is by the use of inferential statistics.
+the statistic is by the use of inferential statistics.
 
 ## Sample variation
 The Mid-upper arm circumference of children under five is a measure of how thin 
@@ -53,7 +54,7 @@ population of 2000 children, the mean and median mid-upper arm circumferences
 were to be determined independently by a group of 10 students. They decided to 
 take a random sample of 10 children each to estimate these parameters. Each 
 column of `students` shows the measurements made by each student in his/her sample 
-chosen. We first read in the data.
+chosen. We first read the data.
 
 ```{r}
 df_students <- read.delim("./Data/students.txt", sep = " ")
@@ -66,7 +67,7 @@ And visualise it
 df_students
 ```
 
-Next we determine the mean and median values obtained by each student
+Next, we determine the mean and median values obtained by each student
 
 ```{r}
 df_students %>% 
@@ -78,7 +79,7 @@ the means obtained were different each time. In effect despite using the
 same population, since choosing a sample is a random process the descriptive 
 statistic(s) obtained each time a sample is chosen from a population will vary. 
 The differences (variation) in the statistics obtained (mean and median MUAC) 
-for instance with every sample is described as sample variation. If these 
+for instance, with every sample is described as sample variation. If these 
 statistics vary then how can we determine the population parameter? This is what 
 inferential statistics is all about, estimating the population parameter from 
 the sample statistic.
@@ -96,7 +97,7 @@ Standing in the window one morning Mr Osei wondered (again) if the number of
 women using the services of the bank next door are the same as that of men. 
 There is a vibrant market nearby which has mainly women trading their wares. 
 The proximity of the market to the bank may have given him this impression. Now 
-he has taken the decision to investigate this. Subconsciously he is wondering if:
+he has decided to investigate this. Subconsciously he is wondering if:
 
 >The proportion of men using the services of the bank is the same as that of women.
 
@@ -150,7 +151,7 @@ could give an entirely different result (sample variability).
 
 So, the question is do we think we have enough evidence to reject H0? Do we think 
 this difference in proportion is significant evidence against the notion that the 
-proportions are the same? It is obvious that we can never be entirely sure if our 
+proportions are the same? We can never be entirely sure if our 
 rejection of H0 is right or wrong. However, we can conclude that the smaller the 
 proportion of males in our obtained sample the higher the chance that the null 
 hypothesis (that the proportions are the same) is false. In hypothesis testing a 
@@ -159,7 +160,7 @@ fact it is true. We can therefore say that a type I error is made if H0 is wrong
 rejected. 
 
 In our example above Mr Osei would be making a type I error if he concludes 
-based on his data obtained that the proportions of men and women are not the 
+based on the data obtained that the proportions of men and women are not the 
 same when in fact they are in the population.
 
 ### The Significance Level
@@ -172,7 +173,7 @@ Conversely, a type II error is said to have been made if the researcher fails to
 reject the null hypothesis when in fact it is false. Applied to our situation a 
 type II error could be committed if Mr Osei based on his stated result above 
 decides there is insufficient evidence to conclude the proportion of the two 
-sexes differs when in fact they do differ in the population of bank users.
+sexes differ when in fact they do differ in the population of bank users.
 
 
 The two types of errors mentioned above always increase at the expense of the 
@@ -185,7 +186,7 @@ That is
 
 >p(Type II error) = $\beta$  and $Power = 1 - \beta$
 
-Power of a statistical test therefore measures its ability to reject the null 
+The power of a statistical test, therefore, measures its ability to reject the null 
 hypothesis when it is false and hence make the right decision.
 
 

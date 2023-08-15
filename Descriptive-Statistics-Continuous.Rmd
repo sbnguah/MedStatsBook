@@ -1,4 +1,4 @@
-```{r echo=FALSE}
+```{r echo=FALSE, message=F}
 library(tidyverse)
 library(magrittr)
 library(huxtable)
@@ -7,7 +7,7 @@ library(gtsummary)
 
 # Descriptive Statistics of Continuous Data
 
-For this section we will use the `NewDrug_clean.dta` dataset
+For this section, we will use the `NewDrug_clean.dta` dataset
 
 ```{r comment=NA}
 newdrug <-  
@@ -21,9 +21,9 @@ newdrug %>% summary()
 
 ### Single continuous variable
 
-#### Measures of Central tendency & Dispersion
+#### Measures of Central Tendency & Dispersion
 
-These include mean and median and displayed below
+These include mean and median and are displayed below
 
 ```{r comment=NA}
 newdrug %>% 
@@ -133,7 +133,7 @@ bps <-
         )
 ```
 
-Next we create multiple density plots
+Next, we create multiple density plots
 
 ```{r comment=NA, fig.width = 6, fig.height=4}
 bps %>% 
@@ -168,7 +168,7 @@ bps %>%
     
 ```
 
-## Continuous by single categorical variable
+## Continuous by a single categorical variable
 ### Summary
 
 We do this with one variable.
@@ -186,12 +186,12 @@ newdrug %>%
 ```
 
 
-### Graph - Histogram, Boxplot, Density plot and cumlative frequency
+### Graph - Histogram, Boxplot, Density plot and cumulative frequency
 The graphs are similar to the above so we skip them. 
 
 ## Continuous by multiple categorical variables
 ### Summary
-This csn be done as below.
+This can be done as below.
 
 ```{r comment=NA}
 newdrug %>% 
@@ -206,7 +206,7 @@ newdrug %>%
               .groups = "drop") 
 ```
 
-And this can be presented in a boxplot as below
+And this can be presented in a boxplot below
 
 ```{r fig.width=6, fig.height=4}
 newdrug %>% 

@@ -1,0 +1,53 @@
+# Importing data into R
+
+```{r echo = F, include=F, meassage = F, warning=F}
+library(huxtable)
+library(tidyverse)
+library(magrittr)
+```
+
+In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In R, a data frame is the data structure desirable for data analysis. With the advent of the `tidy data`, a tibble is not the predominant data structure being used. For this section, we will read the data below but from different formats.
+
+```{r echo =FALSE}
+tibble(
+    name = c("Ama", "Yakubu", "John"), 
+    sex = c("Female", "Male", "Male"),
+    age = c(12, 9, 4),
+    school = c("JHS", "Primary", "Creche")
+    )
+```
+
+## Direct entry into 
+We first use the `data.frame` function from the base package to create the data frame.
+
+```{r}
+data.frame(
+    name = c("Ama", "Yakubu", "John"), 
+    sex = c("Female", "Male", "Male"),
+    age = c(12, 9, 4),
+    school = c("JHS", "Primary", "Creche")
+    )
+```
+
+
+Below we first describe how to manually enter data into R. We aim to create a tibble by using the `tibble` function.
+
+```{r}
+tibble(
+    name = c("Ama", "Yakubu", "John"), 
+    sex = c("Female", "Male", "Male"),
+    age = c(12, 9, 4),
+    school = c("JHS", "Primary", "Creche")
+    )
+```
+
+
+## Text files
+
+## Microsoft Excel
+
+## SPSS files
+
+## dbf files
+
+## Other files

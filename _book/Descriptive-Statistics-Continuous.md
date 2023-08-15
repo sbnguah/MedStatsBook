@@ -1,50 +1,11 @@
 
 ```
-── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
-── Conflicts ────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-
-Attaching package: 'magrittr'
-
-
-The following object is masked from 'package:purrr':
-
-    set_names
-
-
-The following object is masked from 'package:tidyr':
-
-    extract
 Warning: package 'huxtable' was built under R version 4.3.1
-
-Attaching package: 'huxtable'
-
-The following object is masked from 'package:dplyr':
-
-    add_rownames
-
-The following object is masked from 'package:ggplot2':
-
-    theme_grey
-
-
-Attaching package: 'gtsummary'
-
-The following object is masked from 'package:huxtable':
-
-    as_flextable
 ```
 
 # Descriptive Statistics of Continuous Data
 
-For this section we will use the `NewDrug_clean.dta` dataset
+For this section, we will use the `NewDrug_clean.dta` dataset
 
 
 ```r
@@ -73,9 +34,9 @@ newdrug %>% summary()
 
 ### Single continuous variable
 
-#### Measures of Central tendency & Dispersion
+#### Measures of Central Tendency & Dispersion
 
-These include mean and median and displayed below
+These include mean and median and are displayed below
 
 
 ```r
@@ -254,7 +215,7 @@ bps <-
         )
 ```
 
-Next we create multiple density plots
+Next, we create multiple density plots
 
 
 ```r
@@ -298,7 +259,7 @@ bps %>%
 
 <img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-14-1.png" width="576" />
 
-## Continuous by single categorical variable
+## Continuous by a single categorical variable
 ### Summary
 
 We do this with one variable.
@@ -331,12 +292,12 @@ newdrug %>%
 
 
 
-### Graph - Histogram, Boxplot, Density plot and cumlative frequency
+### Graph - Histogram, Boxplot, Density plot and cumulative frequency
 The graphs are similar to the above so we skip them. 
 
 ## Continuous by multiple categorical variables
 ### Summary
-This csn be done as below.
+This can be done as below.
 
 
 ```r
@@ -370,7 +331,7 @@ newdrug %>%
 ```
 
 
-And this can be presented in a boxplot as below
+And this can be presented in a boxplot below
 
 
 ```r

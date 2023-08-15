@@ -121,7 +121,7 @@ Similarly squaring the vector meant the resulting vector Z has elements that are
 the squares of X.
 
 ## Matrices
-Matrices are vectors arranged in two dimensions made up of rows and columnns 
+Matrices are vectors arranged in two dimensions made up of rows and columns 
 (r,c). Below is an example of a 3 x 5 matrix (matrix with three rows and five 
 columns)
 
@@ -133,7 +133,7 @@ C =\begin{bmatrix}
 \end{bmatrix}
 $$
 
-There a number of ways matrices can be created in R. Below is just one of them. 
+There are several ways matrices can be created in R. Below is just one of them. 
 First, we can create vectors and combine them by row using `rbind()`. We begin 
 by creating three vectors and naming them with the desired row names of the 
 matrix
@@ -171,14 +171,14 @@ Row3    5    4    3    4    8
 ```
 
 ## Arrays
-An array is a vector with more than two dimensions. It can be created by assigning dimensions to a vector or using the `array()` function. The creation of a three dimentional array is illustrated below.
+An array is a vector with more than two dimensions. It can be created by assigning dimensions to a vector or using the `array()` function. The creation of a three-dimensional array is illustrated below.
 
 
 ```r
 Y <- array(X, 
            dim = c(2,3,2), 
            dimnames = list(
-               Sex = c("M","F"), 
+               Sex = c("M", "F"), 
                Color = c("red", "blue", "green"), 
                Age=c("<30yrs",">=30yrs")
                )
@@ -201,10 +201,8 @@ class(Y)
 [1] "array"
 ```
 
-
-
 All mathematical manipulations applicable to vectors are also applicable to 
-matrices and arrays. Matrices, however can be used in matrix algebra in the 
+matrices and arrays. Matrices, however, can be used in matrix algebra in the 
 field of mathematics and statistics. This is beyond the scope of this book and 
 will not be discussed further.
 
@@ -213,10 +211,10 @@ will not be discussed further.
 
 A data frame is the most important object in R. It's used for numerous 
 statistical manipulations. Compared to matrices and arrays which have columns 
-that are of the same class, data frames can have various columns being of 
+that are of the same class, data frames can have various columns of 
 different classes. Most standard statistical datasets are manipulated in R as 
 data frames. An example data frame can be created in R using the function 
-`data.frame()`. Todo this we first create four different vectors sex, age, 
+`data.frame()`. To do this we first create four different vectors sex, age, 
 colour and old.
 
 
@@ -246,7 +244,7 @@ df1
 10 Female   7  Blue  TRUE
 ```
 
-Next we check the structure of the data frame with the function `str()`. 
+Next, we check the structure of the data frame with the function `str()`. 
 
 
 ```r
@@ -266,7 +264,7 @@ the classes of the various variables, giving a few examples per variable.
 In R, a list is a set of different elements of objects put together. It is 
 similar to a data frame but the components can be made up of objects other than 
 a vector. These include matrices, arrays, data frames etc. Below we create a 
-list called `list1` made up of three elements and using the `list()` function. 
+list called `list1` made up of three elements by using the `list()` function. 
 The first is a data frame called `DF`. The second is a numeric vector of length 
 5 called `Vec` and the last is a character called `Color`.
 

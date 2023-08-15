@@ -72,6 +72,8 @@ df_temp %>%
             sd = sd(df_temp$x)), col = "blue",
             linewidth = 1.5) +
     labs(x = NULL, y = NULL) +
+    scale_x_continuous(labels = NULL)+
+    scale_y_continuous(labels = NULL)+
     theme_minimal()
 ```
 
@@ -195,6 +197,6 @@ population.
 The various test can give contradictory results and so I recommend evaluating 
 the normality of a population, one should first plot the histogram, and Q-Q plot, 
 and then perform one formal test, and combine these results before making the 
-judgement that numeric data is or is not normally distributed.  
+the judgement that numeric data is or is not normally distributed.  
 
 

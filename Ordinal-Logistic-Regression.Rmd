@@ -6,8 +6,8 @@ library(tidyverse)
 
 ## Importing data
 
-In this presentation we analyse a dataset using ordinal logistic regression. 
-We begin by reading in the data and selecting our desired subset.
+In this presentation, we analyse a dataset using ordinal logistic regression. 
+We begin by reading the data and selecting our desired subset.
 
 ```{r comment = NA}
 dataF <- 
@@ -42,7 +42,7 @@ Model_0 <- ordinal::clm(anemia_cat ~ 1, data = dataF, link = "logit")
 summary(Model_0)
 ```
 
-Subsequently we introduce the fever variable as independent and express the 
+Subsequently, we introduce the fever variable as independent and express the 
 results as OR with 95%CI
 
 ```{r comment=NA}
@@ -56,15 +56,15 @@ broom::tidy(Model_1, conf.int = TRUE, exponentiate = TRUE)%>%
         digits = 3)
 ```
 
-Results indictes a significant association between fever and the degree of anemaia (OR=1.46, 95%CI: 1.02 to 2.09). Performing an anova test to see if there exist a difference between the 2 models yields.
+Results indicate a significant association between fever and the degree of anaemia (OR=1.46, 95%CI: 1.02 to 2.09). Performing an ANOVA test to see if there exists a difference between the 2 models.
 
 ```{r comment = NA}
 anova(Model_0, Model_1)
 ```
 
-The results indicates adding fever to the Null model significantly improves the null model.
+The results indicate adding fever to the Null model significantly improves the null model.
 
-Next we add the community variable
+Next, we add the community variable
 
 ```{r comment = NA}
 Model_2 <- 
@@ -78,18 +78,18 @@ broom::tidy(Model_2, conf.int = TRUE, exponentiate = TRUE)%>%
         digits = 3)
 ```
 
-## Checking proportioinal odds assumption for the model
+## Checking proportional odds assumption for the model
 
-Here we check the proportional odd assumption for out second model
+Here we check the proportional odd assumption for our second model
 
 ```{r comment = NA}
 ordinal::nominal_test(Model_2)
 ```
 
-The significant p-value for the `community` variable indicates a breech of the proportional odd assumption
+The significant p-value for the `community` variable indicates a breach of the proportional odd assumption
 
 ## Prediction
-In this section we will use the model created above to predict an observation being in a specific anemia severity group. First we bigin by forming the prediction data we call `newData`.
+In this section, we will use the model created above to predict an observation in a specific anaemia severity group. First, we begin by forming the prediction data we call `newData`.
 
 ```{r comment = NA}
 NewData <- expand.grid(community = levels(dataF$community),
@@ -97,13 +97,13 @@ NewData <- expand.grid(community = levels(dataF$community),
 NewData
 ```
 
-We now predict the probability that the specific predictor combination falls within the specific outcome category (anemia category)
+We now predict the probability that the specific predictor combination falls within the specific outcome category (anaemia category)
 
 ```{r comment=NA}
 (preds <- predict(Model_2, newdata = NewData, type = "prob"))
 ```
 
-For better visualiszation we bind the original data with the predictions
+For better visualisation, we bind the original data with the predictions
 
 ```{r comment=NA}
 bind_cols(NewData, preds$fit) %>% 
@@ -121,7 +121,7 @@ pol_model.1 <- MASS::polr(anemia_cat ~ community, data = dataF)
 pol_model.2 <- MASS::polr(anemia_cat ~ fever*community, data = dataF)
 ```
 
-And the we visualise the probablitly of having the various forms of anemia giving one belongs to the various groups.
+And then we visualise the probability of having various forms of anaemia giving one belonging to the various groups.
 
 
 ```{r  comment = NA}

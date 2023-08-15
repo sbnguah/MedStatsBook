@@ -1,3 +1,5 @@
+# Risk and Odds 
+
 ```{r echo =F, include=F}
 library(tidyverse)
 library(magrittr)
@@ -5,11 +7,11 @@ library(huxtable)
 library(gtsummary)
 ```
 
-# Risk and Odds 
+
 The analysis of the effects above depends mainly on the p-values and confidence 
 intervals of difference in proportions. There is a more common and often better 
-way of expressing these using Risk and Odds. In this chapter we will use the 
-`ANCData.txt` data to illustrate these. First we read in the data
+way of expressing these using Risk and Odds. In this chapter, we will use the 
+`ANCData.txt` data to illustrate these. First, we read the data
 
 ```{r}
 df_anc <- 
@@ -37,7 +39,7 @@ options(huxtable.knit_print_df = T)
 
 ## Risk
 Risk is defined as the probability of having an outcome. Therefore, if in a 
-population of 100, 35 develop diabetes mellitus after a specified period of 
+the population of 100, 35 develop diabetes mellitus after a specified period of 
 follow-up, the risk of developing diabetes in the population is
 
 $$\frac{35}{100} = 0.35$$
@@ -143,7 +145,7 @@ The output shows a table of the variables in question, the OR with its 95%
 confidence interval and both p-values determine by the chi-squared test and the 
 Fisher's test. With a confidence interval of the odds ratio not containing the 
 null value 1, and small p-values from both methods it can be concluded that the 
-odds of death in mothers who used the new anc method is about half (0.5) of 
+odds of death in mothers who used the new ANC method is about half (0.5) of 
 those who used the old method and the probability of obtaining an OR this values 
 if the null was true, is low (p-value = 0.019). Therefore, the use of the new 
 anc method is associated with significantly better perinatal outcomes compared 

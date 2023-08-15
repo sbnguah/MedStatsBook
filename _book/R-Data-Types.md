@@ -13,7 +13,7 @@ class(4.2)
 [1] "numeric"
 ```
 
-As we expected it is a *numeric* variable. Next we determine the class of data 
+As we expected it is a *numeric* variable. Next, we determine the class of data 
 ”A”
 
 ```r
@@ -21,7 +21,8 @@ class("A")
 [1] "character"
 ```
 
-R classifies this as a character data type. Finally what about FALSE?
+R classifies this as a character data type. Finally, what about FALSE?
+
 
 ```r
 class(FALSE)
@@ -48,7 +49,7 @@ is.integer(X)
 [1] FALSE
 ```
 
-It is not! Next we covert it to an integer, this time calling it Y. Then find 
+It is not! Next, we convert it to an integer, this time calling it Y. Then find 
 out if it is. 
 
 
@@ -451,7 +452,7 @@ It is worth noting here that there is a function in R, `difftime()` specifically
 designed for finding time differences.
 
 The functions `weekdays()`, `months()` and `quarters()` extract as "character" 
-data type the days, months and quarters from date objects respectively.
+datatype the days, months and quarters from date objects respectively.
 
 
 ```r
@@ -478,7 +479,7 @@ NA*2
 [1] NA
 ```
 
-The function `is.na()` produces a logical indicating if a value is missing.
+The function `is.na()` produces a logical that indicates if a value is missing.
 
 ```r
 is.na(2)

@@ -1,25 +1,25 @@
 # Data Cleaning
-Data to be analysed has be ”cleaned” first of abnormal or invalid values. This 
+Data to be analysed has to be ”cleaned” first of abnormal or invalid values. This 
 should be done with the understanding of the data at hand, how it was collected 
 in the first place and with very little prejudice or bias. This is a critical 
 stage of the analysis where any arbitrary deletion or insertion of data could 
 significantly alter the conclusions.
 
-It therefore goes without saying that all modifications done at the data 
+It, therefore, goes without saying that all modifications done at the data 
 cleaning stage must have sound statistical, clinical as well as commonsensical 
 reasons to it. Also, the whole process of data cleaning should be well 
-documented and appropriately stored for future references. In this regard it is 
-not good practice to edit the data in softwares such as Microsoft Excel though 
-it may appear easy and tempting. This is because such softwares do not keep an 
+documented and appropriately stored for future reference. In this regard, it is 
+not good practice to edit the data in software such as Microsoft Excel though 
+it may appear easy and tempting. This is because such software does not keep an 
 audit trail.
 
 ## Data dictionary or codebook
 
-For a well collected and managed data there should always be a dictionary. The 
+For well-collected and managed data, there should always be a dictionary. The 
 dictionary outlines for every variable in the dataset its variable name, the 
-meaning of the variable,the source of the variable (from the questionnaire, data 
-collection sheet, etc.), the valid ranges or codes and the format. This is is an 
-invaluable tool in determine wrong and abnormal entries. It is also sometimes 
+meaning of the variable, the source of the variable (from the questionnaire, data 
+collection sheet, etc.), the valid ranges or codes and the format. This is an 
+invaluable tool for determining wrong and abnormal entries. It is also sometimes 
 referred to as the codebook. 
 
 A typical example is the one below. This is the data dictionary for the 
@@ -41,7 +41,7 @@ blood3 <- readxl::read_xls("./Data/blood_donors_2.xls")
 ```
 
 ## Visualising the data in **R**
-Next we visualize the data
+Next, we visualize the data
 
 
 ```r
@@ -63,7 +63,7 @@ blood3
 ```
 
 To visualise all the data we can use the `print()` or `View()` functions. Note 
-that this might not be the best if yiou have a relatively big data. Below I 
+that this might not be the best if you have relatively big data. Below I 
 use the `as.data.frame()` function to display the whole data. 
 
 
@@ -170,7 +170,7 @@ No   Variable    Stats / Values            Freqs (% of Valid)   Graph           
 
 ## Cleaning individual variables
 We note that all the variables are of type "double". `sex` and `bldgrp` 
-however should be factors. This is done and subsequently summarized below.
+however, should be factors. This is done and subsequently summarized below.
 
 
 ```r
@@ -228,7 +228,7 @@ No   Variable    Stats / Values            Freqs (% of Valid)   Graph           
                                            99 : 1 ( 4.0%)                                               
 --------------------------------------------------------------------------------------------------------
 ```
-## Cheking for duplicated records
+## Checking for duplicated records
 We begin official data cleaning by checking if we have duplicate records in our
 data
 
@@ -243,7 +243,7 @@ No duplicate combinations found of: id, hb, hct, sex, bldgrp, pdonor
 ```
 
 ## Cleaning individual variables
-Next we begin to sort the variables one by one. We begin with the study id 
+Next, we begin to sort the variables one by one. We begin with the study id 
 variable. We begin by looking for duplicated study ids.
 
 
@@ -256,7 +256,7 @@ blood3 %>% janitor::get_dupes(id)
 2    14          2  16.4  48.8 Female <NA>        2
 ```
 
-Study id 14 is duplicated! Next we visually inspect the study ids
+Study id 14 is duplicated! Next, we visually inspect the study ids
 
 
 ```r
@@ -266,7 +266,7 @@ blood3$id
 ```
 
 It looks like the study ids are in numeric order from 1 to 25 but 14 is duplicated while 15 is
-missing. We solve this by writing a new study id variable. Afterwards we check to see if there are
+missing. We solve this by writing a new study id variable. Afterwards, we check to see if there are
 any more duplicates.
 
 
@@ -282,8 +282,8 @@ No duplicate combinations found of: id
 #   hct <dbl>, sex <fct>, bldgrp <fct>, pdonor <dbl>
 ```
 
-Next we inspect the `hb` variable with a summary and a boxplot. We observe from 
-the summary none of the hemoglobin observations is missing. The boxplot of 
+Next, we inspect the `hb` variable with a summary and a boxplot. We observe from 
+the summary none of the haemoglobin observations is missing. The boxplot of 
 the `hb` is as shown in A below. We observe 4 are outliers and one looks very
 extreme.
 
@@ -354,7 +354,7 @@ blood3 %>%
 
 <img src="Data-Cleaning_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
-Next we focus on the `hct` variable. It is of note that it has *99* which represents 'missing'. We
+Next, we focus on the `hct` variable. It is of note that it has *99* which represents 'missing'. We
 therefore remove that as below
 
 
@@ -364,7 +364,7 @@ blood3 <-
     mutate(hct = ifelse(hct >90, NA, hct))
 ```
 
-And draw the boxplot as below
+And draw the boxplot below
 
 
 ```r
@@ -379,8 +379,8 @@ blood3 %>%
 
 <img src="Data-Cleaning_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
-Because we know the hematocrit has a relationship with the hemoglobin, we use a scatter plot to
-visulie and possibly pick up suspicious data.
+Because we know the hematocrit has a relationship with the haemoglobin, we use a scatter plot to
+visualise and possibly pick up suspicious data.
 
 
 ```r
@@ -396,7 +396,7 @@ blood3 %>%
 
 <img src="Data-Cleaning_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
-Next we inspect the `sex` variable
+Next, we inspect the `sex` variable
 
 
 ```r
@@ -433,7 +433,7 @@ blood3 %>%
 3 <NA>       5
 ```
 
-Next we sort out the `bldgrp` variable
+Next, we sort out the `bldgrp` variable
 
 
 ```r
@@ -469,7 +469,7 @@ blood3 %>% count(bldgrp)
 5 <NA>       2
 ```
 
-Next we sort out the `pdonor`
+Next, we sort out the `pdonor`
 
 
 ```r
@@ -480,7 +480,7 @@ blood3 <-
 
 ## Visualising the cleaned data
 
-Finally we summarize the data as below
+Finally, we summarize the data below
 
 
 ```r
@@ -529,7 +529,7 @@ No   Variable    Stats / Values           Freqs (% of Valid)   Graph          Va
 ```
 ## Generating new variables
 Often after cleaning individual variables a data analyst will be required to 
-generate new variables from the old ones. SWe will put this into practice by 
+generate new variables from the old ones. We will put this into practice by 
 generating the presence of Anemia if the hb is less than 11g/dl. 
 
 

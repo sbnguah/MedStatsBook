@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 21 Linear Regression | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="21.1 Introduction Regression plays a key part in modern day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
+<meta name="description" content="21.1 Introduction Regression plays a key part in modern-day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Chapter 21 Linear Regression | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/linear-regression.html">
-<meta property="og:description" content="21.1 Introduction Regression plays a key part in modern day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
+<meta property="og:description" content="21.1 Introduction Regression plays a key part in modern-day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 21 Linear Regression | Medical Statistics using R">
-<meta name="twitter:description" content="21.1 Introduction Regression plays a key part in modern day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
+<meta name="twitter:description" content="21.1 Introduction Regression plays a key part in modern-day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -72,12 +72,12 @@
 <li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
 <li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
-<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
-<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">6</span> Data Structures in R</a></li>
-<li><a class="" href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></li>
+<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
+<li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
+<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
 <li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-catergorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Catergorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
 <li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
 <li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
@@ -114,16 +114,15 @@
 <h2>
 <span class="header-section-number">21.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-3"><i class="fas fa-link"></i></a>
 </h2>
-<p>Regression plays a key part in modern day statistics. R has advanced regression
+<p>Regression plays a key part in modern-day statistics. R has advanced regression
 functions that includes; <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> (for fitting linear models), <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> (for fitting
 generalized linear models), <code><a href="https://rdrr.io/r/stats/nls.html">nls()</a></code> (for fitting nonlinear models) and <code>coxph()</code>
 (for fitting a Cox proportional hazards regression model).</p>
-<p>In statistical analysis it often arises that the the relationship between two
+<p>In statistical analysis, it often arises that the relationship between two
 continuous variables be expressed as a rate of rise per each unit of the other.
-For instance one can ask:</p>
+For instance, one can ask:</p>
 <blockquote>
-<p>On the average, how many units of rise in the blood hematocrit occurs for each
-unit rise in blood hemoglobin content?</p>
+<p>On average, how many units of rise in the blood hematocrit occurs for each unit rise in blood haemoglobin content?</p>
 </blockquote>
 <p>Readers who are conversant with this may guess the answer to be approximately 3.</p>
 </div>
@@ -133,8 +132,8 @@ unit rise in blood hemoglobin content?</p>
 </h2>
 <p>The basic idea behind linear regression is to have a formula where our dependent
 variable can be derived from our independent variable(s). Simply put if I am
-given one’s hb can I predict the persons hct? To do this we come up with a
-formula of the form
+given one’s hb can I predict the person’s hct? To do this we come up with a
+formula for the form
 <span class="math display">\[Y = aX + b\]</span>
 Where <span class="math inline">\(Y\)</span> is the dependent variable (hct), <span class="math inline">\(a\)</span> is the slope of the straight line
 we draw through the points, <span class="math inline">\(X\)</span> is the independent variable (hb) and <span class="math inline">\(b\)</span> is the
@@ -144,7 +143,7 @@ visualize the relationship between the two variables. A plot of the hct versus
 the hb is shown below after importing the data</p>
 <div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"./Data/blood.csv"</span><span class="op">)</span></span></code></pre></div>
-<p>And then summarize the data as below</p>
+<p>And then summarize the data below</p>
 <div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="linear-regression.html#cb221-1" tabindex="-1"></a>df_blood <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
 <span id="cb221-2"><a href="linear-regression.html#cb221-2" tabindex="-1"></a>Data Frame Summary  </span>
 <span id="cb221-3"><a href="linear-regression.html#cb221-3" tabindex="-1"></a>df_blood  </span>
@@ -242,10 +241,10 @@ the hb is shown below after importing the data</p>
 </table></div>
 <p>The table above gives us the values of the intercept (b) as 1.625 and the slope
 (a) as 2.778. We can thus say that based on our data there is an increase of
-approximately 2.788 in hematocrit for each unit rise in Hb. Also the hct of the
-person with an Hb of 0 (if there is anything like it) will be 1.625. However, it
+approximately 2.788 in hematocrit for each unit rise in Hb. Also, the hct of the
+person with a Hb of 0 (if there is anything like it) will be 1.625. However, it
 is never a good idea to extrapolate this formula beyond the range of the data at
-hand. For instance predicting the hct of anyone with an hb of 200 is not
+hand. For instance, predicting the hct of anyone with an hb of 200 is not
 statistically and common sensically right.</p>
 <p><strong>Conclusion</strong>: For each unit rise in blood hb the hematocrit rises by about 2.8%
 in our sample. Extrapolating this onto the general population we are 95% certain
@@ -259,9 +258,8 @@ significantly different from a slope of 0. This is evident by the small p-value
 </h2>
 <p>Previously we implemented linear regression with one continuous independent
 variable. Here we implement linear regression with a categorical independent
-variable. In the blood data set we do not have a categorical variable but we
-generate one by categorising those with high wbc (&gt;11.0 x 109/ml) as “High” and
-the others “Low”.</p>
+variable. In the blood data set, we do not have a categorical variable but we
+generate one by categorising those with high wbc (&gt;11.0 x 109/ml) as “High” and the others as “Low”.</p>
 <div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">&lt;-</span></span>
 <span>    <span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
@@ -351,7 +349,7 @@ the others “Low”.</p>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Low</td>
 </tr>
 </table></div>
-<p>Next we implement the linear regression</p>
+<p>Next, we implement the linear regression</p>
 <div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -404,17 +402,17 @@ with “Low” wbc therefore is 27.055.</li>
 with “High” and “Low” wbc.cat categories. Therefore the difference in mean hct
 for those with “High” and “Low” wbcs is -4.705.</li>
 <li>The mean of the hct for those with “High” wbc.cat is the therefore
-<code>(Intercept)</code> plus the coeffcient of the <code>wbc.catHigh</code>. That is
+<code>(Intercept)</code> plus the coefficient of the <code>wbc.catHigh</code>. That is
 <span class="math inline">\(27.055 + (-4:405) = 22:35\)</span>.</li>
 </ol>
-<p>For comparative purposes we perform the analysis with the t.test() function below:</p>
+<p>For comparative purposes, we perform the analysis with the t.test() function below:</p>
 <div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc.cat</span>, var.equal<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-10">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-10">Table 11.3: </span> </caption>
+<span id="tab:unnamed-chunk-10">Table 11.2: </span> </caption>
 <col>
 <col>
 <col>
@@ -450,12 +448,12 @@ for those with “High” and “Low” wbcs is -4.705.</li>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">two.sided</td>
 </tr>
 </table></div>
-<p>A close look shows the two analysis produce identical results. The t-statistic,
+<p>A close look shows the two analyses produce identical results. The t-statistic,
 p-value, 95% confidence interval of the difference and the sample estimates are
 all identical. The question then arises: If we can easily derive this from the
 <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function why go through this hassle of fitting a linear regression
 model? The reason is regression opens a whole new world in statistics without
-which many manipulations will be very diffcult if not impossible to achieve.</p>
+which many manipulations will be very difficult if not impossible to achieve.</p>
 <p><strong>Conclusion</strong>: The mean hct for those with “Low” wbc.cat is 27.0 with a 95%
 confidence interval of (25.1 to 29.0). The difference in hct between those with
 “High” and “Low” wbc is -4.7 with a 95% confidence interval of (-7.3 to -2.1).
@@ -468,10 +466,10 @@ p-value = 0.001.</p>
 </h2>
 <p>Previously we have dealt with identifying and reporting a confounder or
 confounding in categorical data analysis. The effect used then was the odds
-ratio. In this subsection we deal with confounding in linear regression using
-the regression coeffcient often represented by <span class="math inline">\(\beta\)</span> as the effect.</p>
+ratio. In this subsection, we deal with confounding in linear regression using
+the regression coefficient often represented by <span class="math inline">\(\beta\)</span> as the effect.</p>
 <p>Previously we have identified a significant linear relationship between the
-blood hb and hct. For illustrative purposes we present it again but showing just
+blood hb and hct. For illustrative purposes, we present it again but show just
 the coefficients, their confidence interval and p-values.</p>
 <div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
@@ -516,7 +514,7 @@ the coefficients, their confidence interval and p-values.</p>
 <p>The output above shows a significant relationship between hb and hct
 (<span class="math inline">\(\beta\)</span> = 2.778, 95%CI: 2.644 to 2.932, p=&lt;.001). Previously, we learned that
 a confounder should be related to both the outcome and exposure variable. In our
-preliminary analysis we decided to see if wbc is also related to the hct.
+preliminary analysis, we decided to see if wbc is also related to the hct.
 This is done below</p>
 <div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
@@ -558,7 +556,7 @@ This is done below</p>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.104</td>
 </tr>
 </table></div>
-<p>Interestingly it appears so. There seem to be a significant reduction in wbc
+<p>Interestingly it appears so. There seems to be a significant reduction in wbc
 count with increasing hct. The question then arises:</p>
 <blockquote>
 <p>Is the effect of the wbc being confounded by that of the hb?</p>
@@ -606,9 +604,9 @@ the hb as well. This is done below</p>
 </tr>
 </table></div>
 <p>The result above indicates a significant reduction in wbc with increasing hb.
-By this result we have demonstrated the relationship between three variables
+By this result, we have demonstrated the relationship between three variables
 necessary for confounding to exist.</p>
-<p>Next we determine the adjusted coefficients for comparison to the crude ones.
+<p>Next, we determine the adjusted coefficients for comparison to the crude ones.
 To do so we put both variables as independent variables in the linear regression
 formula as below</p>
 <div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
@@ -660,20 +658,20 @@ formula as below</p>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.031</td>
 </tr>
 </table></div>
-<p>Both coeffcients generated above (hb and wbc) are adjusted for each other. First
+<p>Both coefficients generated above (hb and wbc) are adjusted for each other. First
 we compare the crude effect of hb (<span class="math inline">\(\beta\)</span> = 2.778, 95%CI: 2.644 to 2.932, p&lt;.001)
 to the adjusted effect (<span class="math inline">\(\beta\)</span> = 2.783, 95%CI: 2.621 to 2.946, p&lt;.001). It is
 obvious there is literally no confounding of the relationship between hb and hct
-by wbc because the coefficient remain literally the same.</p>
-<p>Next we compare the crude relationship between wbc and hct (<span class="math inline">\(\beta\)</span> = -0.255,
+by wbc because the coefficient remains literally the same.</p>
+<p>Next, we compare the crude relationship between wbc and hct (<span class="math inline">\(\beta\)</span> = -0.255,
 95%CI: -0.405 to -0.104, p=0.001) to the adjusted relationship (<span class="math inline">\(\beta\)</span> = -0.002,
 95%CI: -0.035 to 0.031, p=0.895). We observe there is a very significant change
 from the significant negative crude relationship to literally no relationship
 between them. Thus we conclude that hb is a confounder to the relationship
 between the hct and wbc.</p>
-<div id="regression-with-a-continuous-and-categorical-independent-variables" class="section level3" number="21.4.1">
+<div id="regression-with-continuous-and-categorical-independent-variables" class="section level3" number="21.4.1">
 <h3>
-<span class="header-section-number">21.4.1</span> Regression with a continuous and categorical independent variables<a class="anchor" aria-label="anchor" href="#regression-with-a-continuous-and-categorical-independent-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.1</span> Regression with continuous and categorical independent variables<a class="anchor" aria-label="anchor" href="#regression-with-continuous-and-categorical-independent-variables"><i class="fas fa-link"></i></a>
 </h3>
 <p>In this section we perform a linear regression involving three variables; hct,
 hb and wbc.cat. This type of linear regression is done to answer questions like:</p>
@@ -681,12 +679,12 @@ hb and wbc.cat. This type of linear regression is done to answer questions like:
 <p>Is the rate of change in hct with each unit rise in hb the same for those with
 “High” or “Low” wbc.cat?</p>
 </blockquote>
-<p>To answer this question we preform a linear regression as below:</p>
+<p>To answer this question we perform a linear regression as below:</p>
 <div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span> <span class="op">+</span> <span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-15">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-15">Table 11.4: </span> </caption>
+<span id="tab:unnamed-chunk-15">Table 11.3: </span> </caption>
 <col>
 <col>
 <col>
@@ -735,7 +733,7 @@ hb and wbc.cat. This type of linear regression is done to answer questions like:
 apparent value of the hct for the “Low” wbc when the Hb is 0. To determine the
 value of the intercept for the persons with High wbc we add the intercept term
 to the coefficient of <code>wbc.catHigh</code>.</p>
-<p>For both lines the slope is the coefficient of hb. Thus the intercept for the
+<p>For both lines, the slope is the coefficient of hb. Thus the intercept for the
 “Low” wbc is 2.300622, that for the High wbc is <span class="math inline">\(2.300622 + -0.435617 = 1.865005\)</span>
 and the common slope for both lines 2.735240. This is represented graphically
 below</p>
@@ -755,21 +753,21 @@ below</p>
 <span>        values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Low"</span> <span class="op">=</span> <span class="st">"red"</span>, <span class="st">"High"</span> <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Linear-Regression_files/figure-html/unnamed-chunk-16-1.png" width="576"></div>
-<p><strong>Conclusion</strong>: From our data the hct of persons with High WBC count is about
-0.4% lower than those with Low WBC assuming the two rises at the same rate in
+<p><strong>Conclusion</strong>: From our data, the hct of persons with High WBC count is about
+0.4% lower than those with Low WBC assuming the two rise at the same rate in
 both groups. This difference however is not statistically significantly different
 from 0 (p = 0.128). Thus we do not have enough evidence that there is a
-difference in the the levels of hct depending on the level of one’s WBC.</p>
+difference in the levels of hct depending on the level of one’s WBC.</p>
 </div>
 </div>
-<div id="regression-with-a-continuous-and-categorical-independent-variables-with-interaction" class="section level2" number="21.5">
+<div id="regression-with-continuous-and-categorical-independent-variables-with-interaction" class="section level2" number="21.5">
 <h2>
-<span class="header-section-number">21.5</span> Regression with a continuous and categorical independent variables with interaction<a class="anchor" aria-label="anchor" href="#regression-with-a-continuous-and-categorical-independent-variables-with-interaction"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.5</span> Regression with continuous and categorical independent variables with interaction<a class="anchor" aria-label="anchor" href="#regression-with-continuous-and-categorical-independent-variables-with-interaction"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the analysis above we assumed the slopes of the two lines are the same.
-However this is usually not the case. To determine the individual slopes as well
-as their intercepts we need it a linear regression with an interaction term.
-For this analysis we seek to answer the question:</p>
+However, this is usually not the case. To determine the individual slopes as well
+as their intercepts we need a linear regression with an interaction term.
+For this analysis, we seek to answer the question:</p>
 <blockquote>
 <p>Are the rate of rise in hct with every rise in hb significantly different for
 persons with High compared to those with Low WBC?.</p>
@@ -836,7 +834,7 @@ persons with High compared to those with Low WBC?.</p>
 <p>Four coefficients are generated. The <code>(Intercept)</code> is the intercept for the “Low”
 wbc group. The hb coefficient represents the slope for the line representing
 those with “Low” wbc. The intercept for “High” WBC is the sum of <code>(Intercept)</code>
-and <code>wbc.catHigh</code> (<span class="math inline">\(1.93925961 + 0.19624236 = 2.135502\)</span>). Finally the slope of
+and <code>wbc.catHigh</code> (<span class="math inline">\(1.93925961 + 0.19624236 = 2.135502\)</span>). Finally, the slope of
 the regression line for “High” wbc is the sum of the coefficients <code>hb</code> and
 <code>hb:wbc.catHigh</code> (<span class="math inline">\(2.77516971 + -0.07604741 = 2.699122\)</span>).</p>
 <p>This is graphically shown below</p>
@@ -856,17 +854,16 @@ the regression line for “High” wbc is the sum of the coefficients <code>hb</
 <span id="cb234-14"><a href="linear-regression.html#cb234-14" tabindex="-1"></a>Call <span class="st">`</span><span class="at">lifecycle::last_lifecycle_warnings()</span><span class="st">`</span> to see where</span>
 <span id="cb234-15"><a href="linear-regression.html#cb234-15" tabindex="-1"></a>this warning was generated.</span></code></pre></div>
 <div class="inline-figure"><img src="Linear-Regression_files/figure-html/unnamed-chunk-18-1.png" width="576"></div>
-<p>It is obvious from above that the slopes (rate of rise of hct with respect
-to a unit rise in hb) are different for the two groups. That for the High WBC
-group is lower. However, is this decrease in rate of rise a real effect or just
+<p>It is obvious from above that the slopes (rate of rise of hct concerninga unit rise in hb) are different for the two groups. That for the High WBC
+group is lower. However, is this decrease in the rate of rise a real effect or just
 a chance observation? To answer this question we need to use inferential
 statistics.</p>
 <p>We now concern ourselves with the line <code>hb:wbc.catHigh</code> which indicates the
 difference in slopes between the two. It appears the slope for the “High” wbc
 group is about -0.076 (95%CI: -0.394 to 0.242, p=0.633) less than the “Low” wbc
 group. This difference however is not statistically significant.</p>
-<p><strong>Conclusion</strong>: As the confidence interval contains the null value of 0, and the
-probability that this difference could have arisen by chance in relatively high
+<p><strong>Conclusion</strong>: As the confidence interval contains the null value of 0 and the
+probability that this difference could have arisen by chance is relatively high
 (0.633), we conclude that we do not have significant evidence of a difference in
 slopes between those with “High” and “Low” WBCs.</p>
 </div>
@@ -922,9 +919,9 @@ slopes between those with “High” and “Low” WBCs.</p>
 <li><a class="nav-link" href="#regression-with-single-continuous-independent-variable"><span class="header-section-number">21.2</span> Regression with single continuous independent variable</a></li>
 <li><a class="nav-link" href="#regression-with-single-categorical-independent-variable"><span class="header-section-number">21.3</span> Regression with single categorical independent variable</a></li>
 <li>
-<a class="nav-link" href="#regression-with-two-continuous-independent-variables"><span class="header-section-number">21.4</span> Regression with two continuous independent variables</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#regression-with-a-continuous-and-categorical-independent-variables"><span class="header-section-number">21.4.1</span> Regression with a continuous and categorical independent variables</a></li></ul>
+<a class="nav-link" href="#regression-with-two-continuous-independent-variables"><span class="header-section-number">21.4</span> Regression with two continuous independent variables</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#regression-with-continuous-and-categorical-independent-variables"><span class="header-section-number">21.4.1</span> Regression with continuous and categorical independent variables</a></li></ul>
 </li>
-<li><a class="nav-link" href="#regression-with-a-continuous-and-categorical-independent-variables-with-interaction"><span class="header-section-number">21.5</span> Regression with a continuous and categorical independent variables with interaction</a></li>
+<li><a class="nav-link" href="#regression-with-continuous-and-categorical-independent-variables-with-interaction"><span class="header-section-number">21.5</span> Regression with continuous and categorical independent variables with interaction</a></li>
 <li><a class="nav-link" href="#assumptions"><span class="header-section-number">21.6</span> Assumptions</a></li>
 </ul>
 
@@ -943,7 +940,7 @@ slopes between those with “High” and “Low” WBCs.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-25.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

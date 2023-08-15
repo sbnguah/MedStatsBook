@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 6 Data Structures in R | Medical Statistics using R</title>
+<title>Chapter 5 Data Structures in R | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
 <meta name="description" content="We have introduced R and described variable types in research and R. Data structures are the composite of the various atomic types described in the preceding chapter. Different data structures in...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 6 Data Structures in R | Medical Statistics using R">
+<meta property="og:title" content="Chapter 5 Data Structures in R | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/data-structures-in-r.html">
 <meta property="og:description" content="We have introduced R and described variable types in research and R. Data structures are the composite of the various atomic types described in the preceding chapter. Different data structures in...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 6 Data Structures in R | Medical Statistics using R">
+<meta name="twitter:title" content="Chapter 5 Data Structures in R | Medical Statistics using R">
 <meta name="twitter:description" content="We have introduced R and described variable types in research and R. Data structures are the composite of the various atomic types described in the preceding chapter. Different data structures in...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -72,12 +72,12 @@
 <li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
 <li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
-<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
-<li><a class="active" href="data-structures-in-r.html"><span class="header-section-number">6</span> Data Structures in R</a></li>
-<li><a class="" href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></li>
+<li><a class="active" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
+<li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
+<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
 <li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-catergorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Catergorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
 <li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
 <li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
@@ -106,9 +106,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-structures-in-r" class="section level1" number="6">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-structures-in-r" class="section level1" number="5">
 <h1>
-<span class="header-section-number">6</span> Data Structures in R<a class="anchor" aria-label="anchor" href="#data-structures-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5</span> Data Structures in R<a class="anchor" aria-label="anchor" href="#data-structures-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>We have introduced R and described variable types in research and R. Data
 structures are the composite of the various atomic types described in the
@@ -116,9 +116,9 @@ preceding chapter.</p>
 <p>Different data structures in R include Vector, Matrix, Array, List, Data frame
 and Time-series. Most data needs to be in a specific structure to perform
 appropriate further analysis.</p>
-<div id="vectors" class="section level2" number="6.1">
+<div id="vectors" class="section level2" number="5.1">
 <h2>
-<span class="header-section-number">6.1</span> Vectors<a class="anchor" aria-label="anchor" href="#vectors"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.1</span> Vectors<a class="anchor" aria-label="anchor" href="#vectors"><i class="fas fa-link"></i></a>
 </h2>
 <p>A vector is the simplest data structure in R. It is made up of a collection of
 like data types mentioned in the preceding chapter. There are numerous functions
@@ -179,11 +179,11 @@ vector will be divided by 2. First, we create a vector of numbers 1 to 10</p>
 Similarly squaring the vector meant the resulting vector Z has elements that are
 the squares of X.</p>
 </div>
-<div id="matrices" class="section level2" number="6.2">
+<div id="matrices" class="section level2" number="5.2">
 <h2>
-<span class="header-section-number">6.2</span> Matrices<a class="anchor" aria-label="anchor" href="#matrices"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2</span> Matrices<a class="anchor" aria-label="anchor" href="#matrices"><i class="fas fa-link"></i></a>
 </h2>
-<p>Matrices are vectors arranged in two dimensions made up of rows and columnns
+<p>Matrices are vectors arranged in two dimensions made up of rows and columns
 (r,c). Below is an example of a 3 x 5 matrix (matrix with three rows and five
 columns)</p>
 <p><span class="math display">\[
@@ -193,7 +193,7 @@ C =\begin{bmatrix}
 5 &amp; 4 &amp; 3 &amp; 4 &amp; 8
 \end{bmatrix}
 \]</span></p>
-<p>There a number of ways matrices can be created in R. Below is just one of them.
+<p>There are several ways matrices can be created in R. Below is just one of them.
 First, we can create vectors and combine them by row using <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code>. We begin
 by creating three vectors and naming them with the desired row names of the
 matrix</p>
@@ -217,15 +217,15 @@ ahead to name the columns of the matrix using the function <code><a href="https:
 <span id="cb54-5"><a href="data-structures-in-r.html#cb54-5" tabindex="-1"></a>Row2    <span class="dv">3</span>    <span class="dv">4</span>    <span class="dv">5</span>    <span class="dv">6</span>    <span class="dv">7</span></span>
 <span id="cb54-6"><a href="data-structures-in-r.html#cb54-6" tabindex="-1"></a>Row3    <span class="dv">5</span>    <span class="dv">4</span>    <span class="dv">3</span>    <span class="dv">4</span>    <span class="dv">8</span></span></code></pre></div>
 </div>
-<div id="arrays" class="section level2" number="6.3">
+<div id="arrays" class="section level2" number="5.3">
 <h2>
-<span class="header-section-number">6.3</span> Arrays<a class="anchor" aria-label="anchor" href="#arrays"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3</span> Arrays<a class="anchor" aria-label="anchor" href="#arrays"><i class="fas fa-link"></i></a>
 </h2>
-<p>An array is a vector with more than two dimensions. It can be created by assigning dimensions to a vector or using the <code><a href="https://rdrr.io/r/base/array.html">array()</a></code> function. The creation of a three dimentional array is illustrated below.</p>
+<p>An array is a vector with more than two dimensions. It can be created by assigning dimensions to a vector or using the <code><a href="https://rdrr.io/r/base/array.html">array()</a></code> function. The creation of a three-dimensional array is illustrated below.</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-structures-in-r.html#cb55-1" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">array</span>(X, </span>
 <span id="cb55-2"><a href="data-structures-in-r.html#cb55-2" tabindex="-1"></a>           <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>), </span>
 <span id="cb55-3"><a href="data-structures-in-r.html#cb55-3" tabindex="-1"></a>           <span class="at">dimnames =</span> <span class="fu">list</span>(</span>
-<span id="cb55-4"><a href="data-structures-in-r.html#cb55-4" tabindex="-1"></a>               <span class="at">Sex =</span> <span class="fu">c</span>(<span class="st">"M"</span>,<span class="st">"F"</span>), </span>
+<span id="cb55-4"><a href="data-structures-in-r.html#cb55-4" tabindex="-1"></a>               <span class="at">Sex =</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>), </span>
 <span id="cb55-5"><a href="data-structures-in-r.html#cb55-5" tabindex="-1"></a>               <span class="at">Color =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>), </span>
 <span id="cb55-6"><a href="data-structures-in-r.html#cb55-6" tabindex="-1"></a>               <span class="at">Age=</span><span class="fu">c</span>(<span class="st">"&lt;30yrs"</span>,<span class="st">"&gt;=30yrs"</span>)</span>
 <span id="cb55-7"><a href="data-structures-in-r.html#cb55-7" tabindex="-1"></a>               )</span>
@@ -247,20 +247,20 @@ ahead to name the columns of the matrix using the function <code><a href="https:
 <span id="cb55-23"><a href="data-structures-in-r.html#cb55-23" tabindex="-1"></a><span class="fu">class</span>(Y)</span>
 <span id="cb55-24"><a href="data-structures-in-r.html#cb55-24" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"array"</span></span></code></pre></div>
 <p>All mathematical manipulations applicable to vectors are also applicable to
-matrices and arrays. Matrices, however can be used in matrix algebra in the
+matrices and arrays. Matrices, however, can be used in matrix algebra in the
 field of mathematics and statistics. This is beyond the scope of this book and
 will not be discussed further.</p>
 </div>
-<div id="data-frame" class="section level2" number="6.4">
+<div id="data-frame" class="section level2" number="5.4">
 <h2>
-<span class="header-section-number">6.4</span> Data frame<a class="anchor" aria-label="anchor" href="#data-frame"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.4</span> Data frame<a class="anchor" aria-label="anchor" href="#data-frame"><i class="fas fa-link"></i></a>
 </h2>
 <p>A data frame is the most important object in R. It’s used for numerous
 statistical manipulations. Compared to matrices and arrays which have columns
-that are of the same class, data frames can have various columns being of
+that are of the same class, data frames can have various columns of
 different classes. Most standard statistical datasets are manipulated in R as
 data frames. An example data frame can be created in R using the function
-<code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code>. Todo this we first create four different vectors sex, age,
+<code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code>. To do this we first create four different vectors sex, age,
 colour and old.</p>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/gl.html">gl</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">2</span>, k <span class="op">=</span> <span class="fl">5</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>,<span class="st">"Female"</span><span class="op">)</span><span class="op">)</span> </span>
@@ -281,7 +281,7 @@ colour and old.</p>
 <span id="cb57-11"><a href="data-structures-in-r.html#cb57-11" tabindex="-1"></a><span class="dv">8</span>  Female   <span class="dv">8</span>  Blue  <span class="cn">TRUE</span></span>
 <span id="cb57-12"><a href="data-structures-in-r.html#cb57-12" tabindex="-1"></a><span class="dv">9</span>  Female   <span class="dv">7</span>   Red  <span class="cn">TRUE</span></span>
 <span id="cb57-13"><a href="data-structures-in-r.html#cb57-13" tabindex="-1"></a><span class="dv">10</span> Female   <span class="dv">7</span>  Blue  <span class="cn">TRUE</span></span></code></pre></div>
-<p>Next we check the structure of the data frame with the function <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code>.</p>
+<p>Next, we check the structure of the data frame with the function <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code>.</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-structures-in-r.html#cb58-1" tabindex="-1"></a><span class="fu">str</span>(df1)</span>
 <span id="cb58-2"><a href="data-structures-in-r.html#cb58-2" tabindex="-1"></a><span class="st">'data.frame'</span><span class="sc">:</span>   <span class="dv">10</span> obs. of  <span class="dv">4</span> variables<span class="sc">:</span></span>
 <span id="cb58-3"><a href="data-structures-in-r.html#cb58-3" tabindex="-1"></a> <span class="er">$</span> sex  <span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">"Male"</span>,<span class="st">"Female"</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span></span>
@@ -291,14 +291,14 @@ colour and old.</p>
 <p>The output indicates there are 4 variables and 10 records. Also, it describes
 the classes of the various variables, giving a few examples per variable.</p>
 </div>
-<div id="list" class="section level2" number="6.5">
+<div id="list" class="section level2" number="5.5">
 <h2>
-<span class="header-section-number">6.5</span> List<a class="anchor" aria-label="anchor" href="#list"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.5</span> List<a class="anchor" aria-label="anchor" href="#list"><i class="fas fa-link"></i></a>
 </h2>
 <p>In R, a list is a set of different elements of objects put together. It is
 similar to a data frame but the components can be made up of objects other than
 a vector. These include matrices, arrays, data frames etc. Below we create a
-list called <code>list1</code> made up of three elements and using the <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> function.
+list called <code>list1</code> made up of three elements by using the <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> function.
 The first is a data frame called <code>DF</code>. The second is a numeric vector of length
 5 called <code>Vec</code> and the last is a character called <code>Color</code>.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-structures-in-r.html#cb59-1" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">DF =</span> df1,  <span class="at">Vec =</span><span class="dv">1</span> <span class="sc">:</span><span class="dv">5</span>, <span class="at">Color =</span> <span class="st">"Red"</span>)</span>
@@ -322,9 +322,9 @@ The first is a data frame called <code>DF</code>. The second is a numeric vector
 <span id="cb59-19"><a href="data-structures-in-r.html#cb59-19" tabindex="-1"></a><span class="sc">$</span>Color</span>
 <span id="cb59-20"><a href="data-structures-in-r.html#cb59-20" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Red"</span></span></code></pre></div>
 </div>
-<div id="tables" class="section level2" number="6.6">
+<div id="tables" class="section level2" number="5.6">
 <h2>
-<span class="header-section-number">6.6</span> Tables<a class="anchor" aria-label="anchor" href="#tables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.6</span> Tables<a class="anchor" aria-label="anchor" href="#tables"><i class="fas fa-link"></i></a>
 </h2>
 <p>Tables are objects that display frequencies. Its use is very popular in
 statistical and mathematical literature. Tables can be constructed in many ways
@@ -372,18 +372,18 @@ Also, there were five males two of whom had pens given to them.</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></div>
-<div class="next"><a href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></div>
+<div class="prev"><a href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></div>
+<div class="next"><a href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#data-structures-in-r"><span class="header-section-number">6</span> Data Structures in R</a></li>
-<li><a class="nav-link" href="#vectors"><span class="header-section-number">6.1</span> Vectors</a></li>
-<li><a class="nav-link" href="#matrices"><span class="header-section-number">6.2</span> Matrices</a></li>
-<li><a class="nav-link" href="#arrays"><span class="header-section-number">6.3</span> Arrays</a></li>
-<li><a class="nav-link" href="#data-frame"><span class="header-section-number">6.4</span> Data frame</a></li>
-<li><a class="nav-link" href="#list"><span class="header-section-number">6.5</span> List</a></li>
-<li><a class="nav-link" href="#tables"><span class="header-section-number">6.6</span> Tables</a></li>
+<li><a class="nav-link" href="#data-structures-in-r"><span class="header-section-number">5</span> Data Structures in R</a></li>
+<li><a class="nav-link" href="#vectors"><span class="header-section-number">5.1</span> Vectors</a></li>
+<li><a class="nav-link" href="#matrices"><span class="header-section-number">5.2</span> Matrices</a></li>
+<li><a class="nav-link" href="#arrays"><span class="header-section-number">5.3</span> Arrays</a></li>
+<li><a class="nav-link" href="#data-frame"><span class="header-section-number">5.4</span> Data frame</a></li>
+<li><a class="nav-link" href="#list"><span class="header-section-number">5.5</span> List</a></li>
+<li><a class="nav-link" href="#tables"><span class="header-section-number">5.6</span> Tables</a></li>
 </ul>
 
       <div class="book-extra">
@@ -401,7 +401,7 @@ Also, there were five males two of whom had pens given to them.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-25.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

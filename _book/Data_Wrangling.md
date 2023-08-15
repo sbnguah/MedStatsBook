@@ -3,12 +3,12 @@
 
 
 
-In this chapter we begin to delve into manipulation of data in the form of a 
+In this chapter, we begin to delve into the manipulation of data in the form of a 
 data frame or tibble. In so doing, we will introduce the `tidyverse` package 
 and the various verbs (function) it provides.
 
-The `tidyverse` package is not just a single package but a composit of a group 
-of packages. There include among others the `dplyr` package. Most of the function 
+The `tidyverse` package is not just a single package but a composite of a group 
+of packages. These include among others the `dplyr` package. Most of the function 
 we will be employing in this chapter comes from `dplyr`.
 
 
@@ -33,7 +33,7 @@ df_blood
 # ℹ 15 more rows
 ```
 
-The output shows we have a 25 row and 6 column tibble. 
+The output shows we have a 25-row and 6-column tibble. 
 
 ## Renaming variables
 Below we rename the variables `hb` to `hemog` and `id` to `studyid` using he 
@@ -78,9 +78,9 @@ df_blood %>%
 ```
 
 ## Subsetting data
-In this subsection we demonstrate the use of the `filter` and `select` function 
+In this subsection, we demonstrate the use of the `filter` and `select` function 
 to select specific records and variables in a tibble. Below we filter to select 
-all records with `hb` > 12g/dl and the keep only the `id`, `hb` and `sex`
+all records with `hb` > 12g/dl and keep only the `id`, `hb` and `sex`
 columns.
 
 ```r
@@ -99,9 +99,9 @@ df_blood %>%
 ```
 
 ## Generating new variables
-To enerate new variables we use the `mutate` function. Based on our knowledge 
-that the hemotocrit is approximately three times the hemoglobn we generate a 
-new variable, `hb_from_hct`. 
+To generate new variables we use the `mutate` function. Based on our knowledge 
+that the hematocrit is approximately three times the haemoglobin we generate 
+a new variable, `hb_from_hct`. 
 
 ```r
 df_blood %>% 
@@ -125,7 +125,7 @@ df_blood %>%
 
 ## Aggregating data
 Data can be aggregated in R using the `summarize` function. Below we determine 
-the mean and standard deviation of the hemoglobin for the patient in the data.
+the mean and standard deviation of the haemoglobin for the patient in the data.
 
 ```r
 df_blood %>% 
@@ -136,7 +136,7 @@ df_blood %>%
 1    11.0  2.89
 ```
 
-Grouping the data by the bldgrp before the aggregation yields the aggregated 
+Grouping the data by the "bldgrp" before the aggregation yields the aggregated 
 means and standard deviations for the various blood groups.
 
 ```r
@@ -274,7 +274,7 @@ dataB
 4 C001    56.8   209
 ```
 
-We can determine the change in weight only by matching the before and after 
+We can determine the weight change only by matching the before and after 
 weight of each individual. This is where merging is very useful. Below, we 
 merge the two data into one. This is done below.
 

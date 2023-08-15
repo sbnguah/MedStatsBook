@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 18 Diagnostic Tests | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="Scientific testing for the presence of various disease conditions or processes is very common in everyday life. This could range from the complex testing for the presence of strange diseases to...">
+<meta name="description" content="Scientific testing for the presence of various disease conditions or processes is very common in everyday life. This could range from complex testing for the presence of strange diseases to newly...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Chapter 18 Diagnostic Tests | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/diagnostic-tests.html">
-<meta property="og:description" content="Scientific testing for the presence of various disease conditions or processes is very common in everyday life. This could range from the complex testing for the presence of strange diseases to...">
+<meta property="og:description" content="Scientific testing for the presence of various disease conditions or processes is very common in everyday life. This could range from complex testing for the presence of strange diseases to newly...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 18 Diagnostic Tests | Medical Statistics using R">
-<meta name="twitter:description" content="Scientific testing for the presence of various disease conditions or processes is very common in everyday life. This could range from the complex testing for the presence of strange diseases to...">
+<meta name="twitter:description" content="Scientific testing for the presence of various disease conditions or processes is very common in everyday life. This could range from complex testing for the presence of strange diseases to newly...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -72,12 +72,12 @@
 <li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
 <li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
-<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
-<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">6</span> Data Structures in R</a></li>
-<li><a class="" href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></li>
+<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
+<li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
+<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
 <li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-catergorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Catergorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
 <li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
 <li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
@@ -111,21 +111,20 @@
 <span class="header-section-number">18</span> Diagnostic Tests<a class="anchor" aria-label="anchor" href="#diagnostic-tests"><i class="fas fa-link"></i></a>
 </h1>
 <p>Scientific testing for the presence of various disease conditions or processes
-is very common in everyday life. This could range from the complex testing for
+is very common in everyday life. This could range from complex testing for
 the presence of strange diseases to newly manufactured electrical gadgets for
 defects. Very often there is a Gold Standard test, one that is deemed to
-perfectly determine the presence or absence of the condition. However there is
-always the search for alternative test often because they are cheaper or easier
+perfectly determine the presence or absence of the condition. However, there is
+always the search for alternative tests often because they are cheaper or easier
 to use compared to the Gold standard.</p>
-<p>In a study to diagnose malaria in children attending an outpatient clinic in
-Ghana, children with a clinical suspicion of malaria were tested using three
-methods. First a blood film reported as a count of the malaria parasites
+<p>In a study to diagnose malaria in children attending an outpatient clinic in Ghana, children with a clinical suspicion of malaria were tested using three
+methods. First, a blood film reported as a count of the malaria parasites
 (Gold standard) was done. Two rapid diagnostic kits, called here RDT.1 and RDT.2
 were also done concurrently and reported as positive (1) or negative (0). These
 were done for 100 patients and recorded in <code>malaria.csv</code>. Our task is to
 evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
-<p>First we read in the data</p>
-<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<p>First, we read the data</p>
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_malaria</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu">read_csv</span><span class="op">(</span><span class="st">"./Data/malaria.txt"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span></span>
@@ -141,32 +140,32 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
 <span>            <span class="op">)</span></span>
 <span>        <span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
-<p>Summary of the data is as shown below</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="diagnostic-tests.html#cb201-1" tabindex="-1"></a>df_malaria <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb201-2"><a href="diagnostic-tests.html#cb201-2" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb201-3"><a href="diagnostic-tests.html#cb201-3" tabindex="-1"></a>df_malaria  </span>
-<span id="cb201-4"><a href="diagnostic-tests.html#cb201-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">100</span> x <span class="dv">4</span>  </span>
-<span id="cb201-5"><a href="diagnostic-tests.html#cb201-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">44</span>  </span>
-<span id="cb201-6"><a href="diagnostic-tests.html#cb201-6" tabindex="-1"></a></span>
-<span id="cb201-7"><a href="diagnostic-tests.html#cb201-7" tabindex="-1"></a><span class="sc">-----------------------------------------------------------------------------------------</span></span>
-<span id="cb201-8"><a href="diagnostic-tests.html#cb201-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values                 <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
-<span id="cb201-9"><a href="diagnostic-tests.html#cb201-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">------------------------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb201-10"><a href="diagnostic-tests.html#cb201-10" tabindex="-1"></a><span class="dv">1</span>    mps         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">3365.2</span> (<span class="fl">23683.3</span>)   <span class="dv">53</span> distinct values   <span class="dv">100</span>        <span class="dv">0</span>        </span>
-<span id="cb201-11"><a href="diagnostic-tests.html#cb201-11" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                    (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb201-12"><a href="diagnostic-tests.html#cb201-12" tabindex="-1"></a>                 <span class="dv">0</span> <span class="sc">&lt;</span> <span class="fl">62.5</span> <span class="sc">&lt;</span> <span class="dv">236155</span>                                                       </span>
-<span id="cb201-13"><a href="diagnostic-tests.html#cb201-13" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">413.8</span> (<span class="dv">7</span>)                                                    </span>
-<span id="cb201-14"><a href="diagnostic-tests.html#cb201-14" tabindex="-1"></a></span>
-<span id="cb201-15"><a href="diagnostic-tests.html#cb201-15" tabindex="-1"></a><span class="dv">2</span>    rdt<span class="fl">.1</span>       <span class="fl">1.</span> Positive                    <span class="dv">52</span> (<span class="fl">52.0</span>%)           <span class="dv">100</span>        <span class="dv">0</span>        </span>
-<span id="cb201-16"><a href="diagnostic-tests.html#cb201-16" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Negative                    <span class="dv">48</span> (<span class="fl">48.0</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb201-17"><a href="diagnostic-tests.html#cb201-17" tabindex="-1"></a></span>
-<span id="cb201-18"><a href="diagnostic-tests.html#cb201-18" tabindex="-1"></a><span class="dv">3</span>    rdt<span class="fl">.2</span>       <span class="fl">1.</span> Positive                    <span class="dv">51</span> (<span class="fl">51.0</span>%)           <span class="dv">100</span>        <span class="dv">0</span>        </span>
-<span id="cb201-19"><a href="diagnostic-tests.html#cb201-19" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Negative                    <span class="dv">49</span> (<span class="fl">49.0</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb201-20"><a href="diagnostic-tests.html#cb201-20" tabindex="-1"></a></span>
-<span id="cb201-21"><a href="diagnostic-tests.html#cb201-21" tabindex="-1"></a><span class="dv">4</span>    gold        <span class="fl">1.</span> Positive                    <span class="dv">54</span> (<span class="fl">54.0</span>%)           <span class="dv">100</span>        <span class="dv">0</span>        </span>
-<span id="cb201-22"><a href="diagnostic-tests.html#cb201-22" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Negative                    <span class="dv">46</span> (<span class="fl">46.0</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb201-23"><a href="diagnostic-tests.html#cb201-23" tabindex="-1"></a><span class="sc">-----------------------------------------------------------------------------------------</span></span></code></pre></div>
+<p>The summary of the data is shown below</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="diagnostic-tests.html#cb202-1" tabindex="-1"></a>df_malaria <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb202-2"><a href="diagnostic-tests.html#cb202-2" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb202-3"><a href="diagnostic-tests.html#cb202-3" tabindex="-1"></a>df_malaria  </span>
+<span id="cb202-4"><a href="diagnostic-tests.html#cb202-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">100</span> x <span class="dv">4</span>  </span>
+<span id="cb202-5"><a href="diagnostic-tests.html#cb202-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">44</span>  </span>
+<span id="cb202-6"><a href="diagnostic-tests.html#cb202-6" tabindex="-1"></a></span>
+<span id="cb202-7"><a href="diagnostic-tests.html#cb202-7" tabindex="-1"></a><span class="sc">-----------------------------------------------------------------------------------------</span></span>
+<span id="cb202-8"><a href="diagnostic-tests.html#cb202-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values                 <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
+<span id="cb202-9"><a href="diagnostic-tests.html#cb202-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">------------------------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb202-10"><a href="diagnostic-tests.html#cb202-10" tabindex="-1"></a><span class="dv">1</span>    mps         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">3365.2</span> (<span class="fl">23683.3</span>)   <span class="dv">53</span> distinct values   <span class="dv">100</span>        <span class="dv">0</span>        </span>
+<span id="cb202-11"><a href="diagnostic-tests.html#cb202-11" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                    (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb202-12"><a href="diagnostic-tests.html#cb202-12" tabindex="-1"></a>                 <span class="dv">0</span> <span class="sc">&lt;</span> <span class="fl">62.5</span> <span class="sc">&lt;</span> <span class="dv">236155</span>                                                       </span>
+<span id="cb202-13"><a href="diagnostic-tests.html#cb202-13" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">413.8</span> (<span class="dv">7</span>)                                                    </span>
+<span id="cb202-14"><a href="diagnostic-tests.html#cb202-14" tabindex="-1"></a></span>
+<span id="cb202-15"><a href="diagnostic-tests.html#cb202-15" tabindex="-1"></a><span class="dv">2</span>    rdt<span class="fl">.1</span>       <span class="fl">1.</span> Positive                    <span class="dv">52</span> (<span class="fl">52.0</span>%)           <span class="dv">100</span>        <span class="dv">0</span>        </span>
+<span id="cb202-16"><a href="diagnostic-tests.html#cb202-16" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Negative                    <span class="dv">48</span> (<span class="fl">48.0</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb202-17"><a href="diagnostic-tests.html#cb202-17" tabindex="-1"></a></span>
+<span id="cb202-18"><a href="diagnostic-tests.html#cb202-18" tabindex="-1"></a><span class="dv">3</span>    rdt<span class="fl">.2</span>       <span class="fl">1.</span> Positive                    <span class="dv">51</span> (<span class="fl">51.0</span>%)           <span class="dv">100</span>        <span class="dv">0</span>        </span>
+<span id="cb202-19"><a href="diagnostic-tests.html#cb202-19" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Negative                    <span class="dv">49</span> (<span class="fl">49.0</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb202-20"><a href="diagnostic-tests.html#cb202-20" tabindex="-1"></a></span>
+<span id="cb202-21"><a href="diagnostic-tests.html#cb202-21" tabindex="-1"></a><span class="dv">4</span>    gold        <span class="fl">1.</span> Positive                    <span class="dv">54</span> (<span class="fl">54.0</span>%)           <span class="dv">100</span>        <span class="dv">0</span>        </span>
+<span id="cb202-22"><a href="diagnostic-tests.html#cb202-22" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Negative                    <span class="dv">46</span> (<span class="fl">46.0</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb202-23"><a href="diagnostic-tests.html#cb202-23" tabindex="-1"></a><span class="sc">-----------------------------------------------------------------------------------------</span></span></code></pre></div>
 <p>And then tabulate rdt.1 and the Gold Standard as</p>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_malaria</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_cross.html">tbl_cross</a></span><span class="op">(</span></span>
 <span>        col <span class="op">=</span> <span class="va">gold</span>,</span>
@@ -177,23 +176,23 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
 <span>        <span class="op">)</span></span>
 <span>    <span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/bold_italicize_labels_levels.html">bold_labels</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="wgttcvssoj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wgttcvssoj table {
+<div id="xtljmfizzw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xtljmfizzw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wgttcvssoj thead, #wgttcvssoj tbody, #wgttcvssoj tfoot, #wgttcvssoj tr, #wgttcvssoj td, #wgttcvssoj th {
+#xtljmfizzw thead, #xtljmfizzw tbody, #xtljmfizzw tfoot, #xtljmfizzw tr, #xtljmfizzw td, #xtljmfizzw th {
   border-style: none;
 }
 
-#wgttcvssoj p {
+#xtljmfizzw p {
   margin: 0;
   padding: 0;
 }
 
-#wgttcvssoj .gt_table {
+#xtljmfizzw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -219,12 +218,12 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-left-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_caption {
+#xtljmfizzw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wgttcvssoj .gt_title {
+#xtljmfizzw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -236,7 +235,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-bottom-width: 0;
 }
 
-#wgttcvssoj .gt_subtitle {
+#xtljmfizzw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -248,7 +247,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-top-width: 0;
 }
 
-#wgttcvssoj .gt_heading {
+#xtljmfizzw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -260,13 +259,13 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-right-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_bottom_border {
+#xtljmfizzw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_col_headings {
+#xtljmfizzw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -281,7 +280,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-right-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_col_heading {
+#xtljmfizzw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -301,7 +300,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   overflow-x: hidden;
 }
 
-#wgttcvssoj .gt_column_spanner_outer {
+#xtljmfizzw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -313,15 +312,15 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   padding-right: 4px;
 }
 
-#wgttcvssoj .gt_column_spanner_outer:first-child {
+#xtljmfizzw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wgttcvssoj .gt_column_spanner_outer:last-child {
+#xtljmfizzw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wgttcvssoj .gt_column_spanner {
+#xtljmfizzw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -333,11 +332,11 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   width: 100%;
 }
 
-#wgttcvssoj .gt_spanner_row {
+#xtljmfizzw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wgttcvssoj .gt_group_heading {
+#xtljmfizzw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -363,7 +362,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   text-align: left;
 }
 
-#wgttcvssoj .gt_empty_group_heading {
+#xtljmfizzw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -378,15 +377,15 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   vertical-align: middle;
 }
 
-#wgttcvssoj .gt_from_md > :first-child {
+#xtljmfizzw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wgttcvssoj .gt_from_md > :last-child {
+#xtljmfizzw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wgttcvssoj .gt_row {
+#xtljmfizzw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -405,7 +404,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   overflow-x: hidden;
 }
 
-#wgttcvssoj .gt_stub {
+#xtljmfizzw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -418,7 +417,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_stub_row_group {
+#xtljmfizzw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -432,15 +431,15 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   vertical-align: top;
 }
 
-#wgttcvssoj .gt_row_group_first td {
+#xtljmfizzw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wgttcvssoj .gt_row_group_first th {
+#xtljmfizzw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wgttcvssoj .gt_summary_row {
+#xtljmfizzw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -450,16 +449,16 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_first_summary_row {
+#xtljmfizzw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_first_summary_row.thick {
+#xtljmfizzw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wgttcvssoj .gt_last_summary_row {
+#xtljmfizzw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -469,7 +468,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_grand_summary_row {
+#xtljmfizzw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -479,7 +478,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_first_grand_summary_row {
+#xtljmfizzw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -489,7 +488,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-top-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_last_grand_summary_row_top {
+#xtljmfizzw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -499,11 +498,11 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_striped {
+#xtljmfizzw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wgttcvssoj .gt_table_body {
+#xtljmfizzw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -512,7 +511,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_footnotes {
+#xtljmfizzw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -526,7 +525,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-right-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_footnote {
+#xtljmfizzw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -535,7 +534,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_sourcenotes {
+#xtljmfizzw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -549,7 +548,7 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   border-right-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_sourcenote {
+#xtljmfizzw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -557,63 +556,63 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_left {
+#xtljmfizzw .gt_left {
   text-align: left;
 }
 
-#wgttcvssoj .gt_center {
+#xtljmfizzw .gt_center {
   text-align: center;
 }
 
-#wgttcvssoj .gt_right {
+#xtljmfizzw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wgttcvssoj .gt_font_normal {
+#xtljmfizzw .gt_font_normal {
   font-weight: normal;
 }
 
-#wgttcvssoj .gt_font_bold {
+#xtljmfizzw .gt_font_bold {
   font-weight: bold;
 }
 
-#wgttcvssoj .gt_font_italic {
+#xtljmfizzw .gt_font_italic {
   font-style: italic;
 }
 
-#wgttcvssoj .gt_super {
+#xtljmfizzw .gt_super {
   font-size: 65%;
 }
 
-#wgttcvssoj .gt_footnote_marks {
+#xtljmfizzw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wgttcvssoj .gt_asterisk {
+#xtljmfizzw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wgttcvssoj .gt_indent_1 {
+#xtljmfizzw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wgttcvssoj .gt_indent_2 {
+#xtljmfizzw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wgttcvssoj .gt_indent_3 {
+#xtljmfizzw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wgttcvssoj .gt_indent_4 {
+#xtljmfizzw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wgttcvssoj .gt_indent_5 {
+#xtljmfizzw .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -659,16 +658,16 @@ evaluate RDT.1’s ability to accurately and reliably diagnose malaria.</p>
 </tbody>
 </table></div>
 </div>
-<p>The table above decomposes the the test results into 4 distinct categories.</p>
+<p>The table above decomposes the test results into 4 distinct categories.</p>
 <ol style="list-style-type: decimal">
 <li>Those who had both RDT.1 and the gold standard positive (True positive) were 50.</li>
 <li>The group with both RDT.1 and Gold standard negative (True Negative) were 44.</li>
-<li>The group that apparently showed a positive RDT.1 results when they actually are negative by the Gold standard (False positive) were 2.</li>
-<li>Finally the last group, those whose RDT.1 result were negative but are actually positive
+<li>The group that showed a positive RDT.1 results when they are negative by the Gold standard (False positive) were 2.</li>
+<li>Finally the last group, those whose RDT.1 results were negative but are positive
 judging by the Gold standard (False negative) were 4.</li>
 </ol>
 <p>We operationalise these by extracting relevant portions of the table below</p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tp</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
 <span><span class="va">tn</span> <span class="op">&lt;-</span> <span class="fl">44</span></span>
 <span><span class="va">fp</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
@@ -678,51 +677,51 @@ judging by the Gold standard (False negative) were 4.</li>
 <span class="header-section-number">18.1</span> True prevalence of the disease<a class="anchor" aria-label="anchor" href="#true-prevalence-of-the-disease"><i class="fas fa-link"></i></a>
 </h2>
 <p>The true prevalence of the disease is the proportion of the diseased individuals
-observed in the study population as determine by the gold standard. This is
+observed in the study population as determined by the gold standard. This is
 mathematically given by
 <span class="math display">\[True~prevalence = \frac{tp + fn}{tp + tn + fp + fn}\]</span></p>
 <p>And determined with our data as</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="diagnostic-tests.html#cb204-1" tabindex="-1"></a>true.prevalence <span class="ot">&lt;-</span> (tp<span class="sc">+</span>fn)<span class="sc">/</span>(tp<span class="sc">+</span>tn<span class="sc">+</span>fp<span class="sc">+</span>fn)</span>
-<span id="cb204-2"><a href="diagnostic-tests.html#cb204-2" tabindex="-1"></a>true.prevalence</span>
-<span id="cb204-3"><a href="diagnostic-tests.html#cb204-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.54</span></span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="diagnostic-tests.html#cb205-1" tabindex="-1"></a>true.prevalence <span class="ot">&lt;-</span> (tp<span class="sc">+</span>fn)<span class="sc">/</span>(tp<span class="sc">+</span>tn<span class="sc">+</span>fp<span class="sc">+</span>fn)</span>
+<span id="cb205-2"><a href="diagnostic-tests.html#cb205-2" tabindex="-1"></a>true.prevalence</span>
+<span id="cb205-3"><a href="diagnostic-tests.html#cb205-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.54</span></span></code></pre></div>
 </div>
 <div id="apparent-prevalence-of-the-disease" class="section level2" number="18.2">
 <h2>
 <span class="header-section-number">18.2</span> Apparent prevalence of the disease<a class="anchor" aria-label="anchor" href="#apparent-prevalence-of-the-disease"><i class="fas fa-link"></i></a>
 </h2>
 <p>The apparent prevalence of the disease is the proportion of the diseased
-individuals observed in the study population as determine by the RDT.1 test.
+individuals observed in the study population as determined by the RDT.1 test.
 This is mathematically given by
 <span class="math display">\[Apparent~prevalence = \frac{tp + fp}{tp + tn + fp + fn}\]</span>
 And determined with our data by</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="diagnostic-tests.html#cb205-1" tabindex="-1"></a>apparent.prevalence<span class="ot">&lt;-</span>(tp<span class="sc">+</span>fp)<span class="sc">/</span>(tp<span class="sc">+</span>tn<span class="sc">+</span>fp<span class="sc">+</span>fn)</span>
-<span id="cb205-2"><a href="diagnostic-tests.html#cb205-2" tabindex="-1"></a>apparent.prevalence</span>
-<span id="cb205-3"><a href="diagnostic-tests.html#cb205-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.52</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="diagnostic-tests.html#cb206-1" tabindex="-1"></a>apparent.prevalence<span class="ot">&lt;-</span>(tp<span class="sc">+</span>fp)<span class="sc">/</span>(tp<span class="sc">+</span>tn<span class="sc">+</span>fp<span class="sc">+</span>fn)</span>
+<span id="cb206-2"><a href="diagnostic-tests.html#cb206-2" tabindex="-1"></a>apparent.prevalence</span>
+<span id="cb206-3"><a href="diagnostic-tests.html#cb206-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.52</span></span></code></pre></div>
 </div>
 <div id="sensitivity-of-a-test" class="section level2" number="18.3">
 <h2>
 <span class="header-section-number">18.3</span> Sensitivity of a test<a class="anchor" aria-label="anchor" href="#sensitivity-of-a-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>The sensitivity of a test defines as the proportion of individuals with the
-disease who are correctly identified by the test applied. It ranges form 0, a completely useless test to 1,a perfect test. Mathematically this is defined as</p>
+disease who are correctly identified by the test applied. It ranges from 0, a completely useless test to 1, a perfect test. Mathematically this is defined as</p>
 <p><span class="math display">\[Sensitivity = \frac{tp}{tp + fn}\]</span>
-And is determined as below</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="diagnostic-tests.html#cb206-1" tabindex="-1"></a>sensitivity <span class="ot">&lt;-</span> tp<span class="sc">/</span>(tp<span class="sc">+</span>fn)</span>
-<span id="cb206-2"><a href="diagnostic-tests.html#cb206-2" tabindex="-1"></a>sensitivity</span>
-<span id="cb206-3"><a href="diagnostic-tests.html#cb206-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9259259</span></span></code></pre></div>
+And is determined below</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="diagnostic-tests.html#cb207-1" tabindex="-1"></a>sensitivity <span class="ot">&lt;-</span> tp<span class="sc">/</span>(tp<span class="sc">+</span>fn)</span>
+<span id="cb207-2"><a href="diagnostic-tests.html#cb207-2" tabindex="-1"></a>sensitivity</span>
+<span id="cb207-3"><a href="diagnostic-tests.html#cb207-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9259259</span></span></code></pre></div>
 </div>
 <div id="specificity-of-a-test" class="section level2" number="18.4">
 <h2>
 <span class="header-section-number">18.4</span> Specificity of a test<a class="anchor" aria-label="anchor" href="#specificity-of-a-test"><i class="fas fa-link"></i></a>
 </h2>
-<p>The specificity of a test is defined as proportion of individuals without the
-disease who are correctly identified by the test used. It ranges form 0, a
+<p>The specificity of a test is defined as the proportion of individuals without the
+disease who are correctly identified by the test used. It ranges from 0, a
 completely useless test to 1, a perfect test. Mathematically this is defined as
 <span class="math display">\[Specificity = \frac{tn}{tn + fp}\]</span></p>
 <p>And determine as below</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="diagnostic-tests.html#cb207-1" tabindex="-1"></a>specificity<span class="ot">&lt;-</span>tn<span class="sc">/</span>(tn<span class="sc">+</span>fp)</span>
-<span id="cb207-2"><a href="diagnostic-tests.html#cb207-2" tabindex="-1"></a>specificity</span>
-<span id="cb207-3"><a href="diagnostic-tests.html#cb207-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9565217</span></span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="diagnostic-tests.html#cb208-1" tabindex="-1"></a>specificity<span class="ot">&lt;-</span>tn<span class="sc">/</span>(tn<span class="sc">+</span>fp)</span>
+<span id="cb208-2"><a href="diagnostic-tests.html#cb208-2" tabindex="-1"></a>specificity</span>
+<span id="cb208-3"><a href="diagnostic-tests.html#cb208-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9565217</span></span></code></pre></div>
 </div>
 <div id="predictive-value-of-a-test" class="section level2" number="18.5">
 <h2>
@@ -732,15 +731,15 @@ completely useless test to 1, a perfect test. Mathematically this is defined as
 <h3>
 <span class="header-section-number">18.5.1</span> Positive predictive value of a test<a class="anchor" aria-label="anchor" href="#positive-predictive-value-of-a-test"><i class="fas fa-link"></i></a>
 </h3>
-<p>The positive predictive value (ppv) of a test is defined as the proportion of
+<p>The positive predictive value (PPV) of a test is defined as the proportion of
 individuals with a positive test result who have the disease. This is a more
 useful measure compared to the sensitivity and specificity because it indicates
 how much weight one has to put on a positive test result when confronted with
 one. Mathematically it is defined as:</p>
 <p><span class="math display">\[PPV = \frac{tp}{tp + fp}\]</span></p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="diagnostic-tests.html#cb208-1" tabindex="-1"></a>ppv <span class="ot">&lt;-</span> tp<span class="sc">/</span>(tp<span class="sc">+</span>fp)</span>
-<span id="cb208-2"><a href="diagnostic-tests.html#cb208-2" tabindex="-1"></a>ppv</span>
-<span id="cb208-3"><a href="diagnostic-tests.html#cb208-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9615385</span></span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="diagnostic-tests.html#cb209-1" tabindex="-1"></a>ppv <span class="ot">&lt;-</span> tp<span class="sc">/</span>(tp<span class="sc">+</span>fp)</span>
+<span id="cb209-2"><a href="diagnostic-tests.html#cb209-2" tabindex="-1"></a>ppv</span>
+<span id="cb209-3"><a href="diagnostic-tests.html#cb209-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9615385</span></span></code></pre></div>
 </div>
 <div id="negative-predictive-value-of-a-test" class="section level3" number="18.5.2">
 <h3>
@@ -752,10 +751,10 @@ the ppv this is a more useful measure compared to the sensitivity and
 specificity as it indicates how much weight one has to put on a negative test
 result when confronted with one. Mathematically it is defined as:
 <span class="math display">\[NPV = \frac{tn}{tn + fn}\]</span>
-And determined as below</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="diagnostic-tests.html#cb209-1" tabindex="-1"></a>npv <span class="ot">&lt;-</span> tn<span class="sc">/</span>(tn<span class="sc">+</span>fn)</span>
-<span id="cb209-2"><a href="diagnostic-tests.html#cb209-2" tabindex="-1"></a>npv</span>
-<span id="cb209-3"><a href="diagnostic-tests.html#cb209-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9166667</span></span></code></pre></div>
+And determined below</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="diagnostic-tests.html#cb210-1" tabindex="-1"></a>npv <span class="ot">&lt;-</span> tn<span class="sc">/</span>(tn<span class="sc">+</span>fn)</span>
+<span id="cb210-2"><a href="diagnostic-tests.html#cb210-2" tabindex="-1"></a>npv</span>
+<span id="cb210-3"><a href="diagnostic-tests.html#cb210-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9166667</span></span></code></pre></div>
 </div>
 </div>
 <div id="likelihood-ratio-of-a-test" class="section level2" number="18.6">
@@ -763,7 +762,7 @@ And determined as below</p>
 <span class="header-section-number">18.6</span> Likelihood ratio of a test<a class="anchor" aria-label="anchor" href="#likelihood-ratio-of-a-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>The likelihood ratio of a test is another way of expressing its usefulness.
-Unlike the previous statistics about tests the likelihood ratios stretch beyond
+Unlike the previous statistics about tests, the likelihood ratios stretch beyond
 0 to 1. A likelihood ratio of 1 indicates a useless (non-discriminatory) test.</p>
 <div id="the-positive-likelihood-ratio-lr" class="section level3" number="18.6.1">
 <h3>
@@ -775,9 +774,9 @@ higher the positive likelihood the better the test.</p>
 <p>This is mathematically equivalent to</p>
 <p><span class="math display">\[LR+ = \frac{Sensitivity}{1-Specificity}\]</span></p>
 <p>Applying this to our data so far we have</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="diagnostic-tests.html#cb210-1" tabindex="-1"></a>pLR <span class="ot">&lt;-</span> sensitivity<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>specificity)</span>
-<span id="cb210-2"><a href="diagnostic-tests.html#cb210-2" tabindex="-1"></a>pLR</span>
-<span id="cb210-3"><a href="diagnostic-tests.html#cb210-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">21.2963</span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="diagnostic-tests.html#cb211-1" tabindex="-1"></a>pLR <span class="ot">&lt;-</span> sensitivity<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>specificity)</span>
+<span id="cb211-2"><a href="diagnostic-tests.html#cb211-2" tabindex="-1"></a>pLR</span>
+<span id="cb211-3"><a href="diagnostic-tests.html#cb211-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">21.2963</span></span></code></pre></div>
 </div>
 <div id="negative-liklihood-ratio-lr-" class="section level3" number="18.6.2">
 <h3>
@@ -790,95 +789,55 @@ likelihood the better the test.</p>
 <p>Computationally this is equivalent to
 <span class="math display">\[LR+ = \frac{1-Sensitivity}{Specificity}\]</span>
 Applying this to our data so far we have</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="diagnostic-tests.html#cb211-1" tabindex="-1"></a>nLR<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">-</span>sensitivity)<span class="sc">/</span>specificity</span>
-<span id="cb211-2"><a href="diagnostic-tests.html#cb211-2" tabindex="-1"></a>nLR</span>
-<span id="cb211-3"><a href="diagnostic-tests.html#cb211-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.07744108</span></span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="diagnostic-tests.html#cb212-1" tabindex="-1"></a>nLR<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">-</span>sensitivity)<span class="sc">/</span>specificity</span>
+<span id="cb212-2"><a href="diagnostic-tests.html#cb212-2" tabindex="-1"></a>nLR</span>
+<span id="cb212-3"><a href="diagnostic-tests.html#cb212-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.07744108</span></span></code></pre></div>
 </div>
 </div>
 <div id="summary-2" class="section level2" number="18.7">
 <h2>
 <span class="header-section-number">18.7</span> Summary<a class="anchor" aria-label="anchor" href="#summary-2"><i class="fas fa-link"></i></a>
 </h2>
-<p>Fortunately all these can be obtained in one go using the <code>epi.tests()</code> function
+<p>Fortunately, all these can be obtained in one go using the <code>epi.tests()</code> function
 from the <code>epiR</code>package. The function however requires a table formatted in a
-specific way. Below we creat the table</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="diagnostic-tests.html#cb212-1" tabindex="-1"></a>table.test <span class="ot">&lt;-</span> </span>
-<span id="cb212-2"><a href="diagnostic-tests.html#cb212-2" tabindex="-1"></a>    df_malaria <span class="sc">%$%</span></span>
-<span id="cb212-3"><a href="diagnostic-tests.html#cb212-3" tabindex="-1"></a>    <span class="fu">table</span>(rdt<span class="fl">.1</span>, gold)</span>
-<span id="cb212-4"><a href="diagnostic-tests.html#cb212-4" tabindex="-1"></a></span>
-<span id="cb212-5"><a href="diagnostic-tests.html#cb212-5" tabindex="-1"></a>table.test</span>
-<span id="cb212-6"><a href="diagnostic-tests.html#cb212-6" tabindex="-1"></a>          gold</span>
-<span id="cb212-7"><a href="diagnostic-tests.html#cb212-7" tabindex="-1"></a>rdt<span class="fl">.1</span>      Positive Negative</span>
-<span id="cb212-8"><a href="diagnostic-tests.html#cb212-8" tabindex="-1"></a>  Positive       <span class="dv">50</span>        <span class="dv">2</span></span>
-<span id="cb212-9"><a href="diagnostic-tests.html#cb212-9" tabindex="-1"></a>  Negative        <span class="dv">4</span>       <span class="dv">44</span></span></code></pre></div>
+specific way. Below we create the table</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="diagnostic-tests.html#cb213-1" tabindex="-1"></a>table.test <span class="ot">&lt;-</span> </span>
+<span id="cb213-2"><a href="diagnostic-tests.html#cb213-2" tabindex="-1"></a>    df_malaria <span class="sc">%$%</span></span>
+<span id="cb213-3"><a href="diagnostic-tests.html#cb213-3" tabindex="-1"></a>    <span class="fu">table</span>(rdt<span class="fl">.1</span>, gold)</span>
+<span id="cb213-4"><a href="diagnostic-tests.html#cb213-4" tabindex="-1"></a></span>
+<span id="cb213-5"><a href="diagnostic-tests.html#cb213-5" tabindex="-1"></a>table.test</span>
+<span id="cb213-6"><a href="diagnostic-tests.html#cb213-6" tabindex="-1"></a>          gold</span>
+<span id="cb213-7"><a href="diagnostic-tests.html#cb213-7" tabindex="-1"></a>rdt<span class="fl">.1</span>      Positive Negative</span>
+<span id="cb213-8"><a href="diagnostic-tests.html#cb213-8" tabindex="-1"></a>  Positive       <span class="dv">50</span>        <span class="dv">2</span></span>
+<span id="cb213-9"><a href="diagnostic-tests.html#cb213-9" tabindex="-1"></a>  Negative        <span class="dv">4</span>       <span class="dv">44</span></span></code></pre></div>
 <p>And then we evaluate the test</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="diagnostic-tests.html#cb213-1" tabindex="-1"></a>table.test <span class="sc">%&gt;%</span> epiR<span class="sc">::</span><span class="fu">epi.tests</span>()</span>
-<span id="cb213-2"><a href="diagnostic-tests.html#cb213-2" tabindex="-1"></a>          Outcome <span class="sc">+</span>    Outcome <span class="sc">-</span>      Total</span>
-<span id="cb213-3"><a href="diagnostic-tests.html#cb213-3" tabindex="-1"></a>Test <span class="sc">+</span>           <span class="dv">50</span>            <span class="dv">2</span>         <span class="dv">52</span></span>
-<span id="cb213-4"><a href="diagnostic-tests.html#cb213-4" tabindex="-1"></a>Test <span class="sc">-</span>            <span class="dv">4</span>           <span class="dv">44</span>         <span class="dv">48</span></span>
-<span id="cb213-5"><a href="diagnostic-tests.html#cb213-5" tabindex="-1"></a>Total            <span class="dv">54</span>           <span class="dv">46</span>        <span class="dv">100</span></span>
-<span id="cb213-6"><a href="diagnostic-tests.html#cb213-6" tabindex="-1"></a></span>
-<span id="cb213-7"><a href="diagnostic-tests.html#cb213-7" tabindex="-1"></a>Point estimates and <span class="dv">95</span>% CIs<span class="sc">:</span></span>
-<span id="cb213-8"><a href="diagnostic-tests.html#cb213-8" tabindex="-1"></a><span class="sc">--------------------------------------------------------------</span></span>
-<span id="cb213-9"><a href="diagnostic-tests.html#cb213-9" tabindex="-1"></a>Apparent prevalence <span class="sc">*</span>                  <span class="fl">0.52</span> (<span class="fl">0.42</span>, <span class="fl">0.62</span>)</span>
-<span id="cb213-10"><a href="diagnostic-tests.html#cb213-10" tabindex="-1"></a>True prevalence <span class="sc">*</span>                      <span class="fl">0.54</span> (<span class="fl">0.44</span>, <span class="fl">0.64</span>)</span>
-<span id="cb213-11"><a href="diagnostic-tests.html#cb213-11" tabindex="-1"></a>Sensitivity <span class="sc">*</span>                          <span class="fl">0.93</span> (<span class="fl">0.82</span>, <span class="fl">0.98</span>)</span>
-<span id="cb213-12"><a href="diagnostic-tests.html#cb213-12" tabindex="-1"></a>Specificity <span class="sc">*</span>                          <span class="fl">0.96</span> (<span class="fl">0.85</span>, <span class="fl">0.99</span>)</span>
-<span id="cb213-13"><a href="diagnostic-tests.html#cb213-13" tabindex="-1"></a>Positive predictive value <span class="sc">*</span>            <span class="fl">0.96</span> (<span class="fl">0.87</span>, <span class="fl">1.00</span>)</span>
-<span id="cb213-14"><a href="diagnostic-tests.html#cb213-14" tabindex="-1"></a>Negative predictive value <span class="sc">*</span>            <span class="fl">0.92</span> (<span class="fl">0.80</span>, <span class="fl">0.98</span>)</span>
-<span id="cb213-15"><a href="diagnostic-tests.html#cb213-15" tabindex="-1"></a>Positive likelihood ratio              <span class="fl">21.30</span> (<span class="fl">5.48</span>, <span class="fl">82.77</span>)</span>
-<span id="cb213-16"><a href="diagnostic-tests.html#cb213-16" tabindex="-1"></a>Negative likelihood ratio              <span class="fl">0.08</span> (<span class="fl">0.03</span>, <span class="fl">0.20</span>)</span>
-<span id="cb213-17"><a href="diagnostic-tests.html#cb213-17" tabindex="-1"></a>False T<span class="sc">+</span> proportion <span class="cf">for</span> true D<span class="sc">-</span> <span class="er">*</span>      <span class="fl">0.04</span> (<span class="fl">0.01</span>, <span class="fl">0.15</span>)</span>
-<span id="cb213-18"><a href="diagnostic-tests.html#cb213-18" tabindex="-1"></a>False T<span class="sc">-</span> proportion <span class="cf">for</span> true D<span class="sc">+</span> <span class="er">*</span>      <span class="fl">0.07</span> (<span class="fl">0.02</span>, <span class="fl">0.18</span>)</span>
-<span id="cb213-19"><a href="diagnostic-tests.html#cb213-19" tabindex="-1"></a>False T<span class="sc">+</span> proportion <span class="cf">for</span> T<span class="sc">+</span> <span class="er">*</span>           <span class="fl">0.04</span> (<span class="fl">0.00</span>, <span class="fl">0.13</span>)</span>
-<span id="cb213-20"><a href="diagnostic-tests.html#cb213-20" tabindex="-1"></a>False T<span class="sc">-</span> proportion <span class="cf">for</span> T<span class="sc">-</span> <span class="er">*</span>           <span class="fl">0.08</span> (<span class="fl">0.02</span>, <span class="fl">0.20</span>)</span>
-<span id="cb213-21"><a href="diagnostic-tests.html#cb213-21" tabindex="-1"></a>Correctly classified proportion <span class="sc">*</span>      <span class="fl">0.94</span> (<span class="fl">0.87</span>, <span class="fl">0.98</span>)</span>
-<span id="cb213-22"><a href="diagnostic-tests.html#cb213-22" tabindex="-1"></a><span class="sc">--------------------------------------------------------------</span></span>
-<span id="cb213-23"><a href="diagnostic-tests.html#cb213-23" tabindex="-1"></a><span class="er">*</span> Exact CIs</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="diagnostic-tests.html#cb214-1" tabindex="-1"></a>table.test <span class="sc">%&gt;%</span> epiR<span class="sc">::</span><span class="fu">epi.tests</span>()</span>
+<span id="cb214-2"><a href="diagnostic-tests.html#cb214-2" tabindex="-1"></a>          Outcome <span class="sc">+</span>    Outcome <span class="sc">-</span>      Total</span>
+<span id="cb214-3"><a href="diagnostic-tests.html#cb214-3" tabindex="-1"></a>Test <span class="sc">+</span>           <span class="dv">50</span>            <span class="dv">2</span>         <span class="dv">52</span></span>
+<span id="cb214-4"><a href="diagnostic-tests.html#cb214-4" tabindex="-1"></a>Test <span class="sc">-</span>            <span class="dv">4</span>           <span class="dv">44</span>         <span class="dv">48</span></span>
+<span id="cb214-5"><a href="diagnostic-tests.html#cb214-5" tabindex="-1"></a>Total            <span class="dv">54</span>           <span class="dv">46</span>        <span class="dv">100</span></span>
+<span id="cb214-6"><a href="diagnostic-tests.html#cb214-6" tabindex="-1"></a></span>
+<span id="cb214-7"><a href="diagnostic-tests.html#cb214-7" tabindex="-1"></a>Point estimates and <span class="dv">95</span>% CIs<span class="sc">:</span></span>
+<span id="cb214-8"><a href="diagnostic-tests.html#cb214-8" tabindex="-1"></a><span class="sc">--------------------------------------------------------------</span></span>
+<span id="cb214-9"><a href="diagnostic-tests.html#cb214-9" tabindex="-1"></a>Apparent prevalence <span class="sc">*</span>                  <span class="fl">0.52</span> (<span class="fl">0.42</span>, <span class="fl">0.62</span>)</span>
+<span id="cb214-10"><a href="diagnostic-tests.html#cb214-10" tabindex="-1"></a>True prevalence <span class="sc">*</span>                      <span class="fl">0.54</span> (<span class="fl">0.44</span>, <span class="fl">0.64</span>)</span>
+<span id="cb214-11"><a href="diagnostic-tests.html#cb214-11" tabindex="-1"></a>Sensitivity <span class="sc">*</span>                          <span class="fl">0.93</span> (<span class="fl">0.82</span>, <span class="fl">0.98</span>)</span>
+<span id="cb214-12"><a href="diagnostic-tests.html#cb214-12" tabindex="-1"></a>Specificity <span class="sc">*</span>                          <span class="fl">0.96</span> (<span class="fl">0.85</span>, <span class="fl">0.99</span>)</span>
+<span id="cb214-13"><a href="diagnostic-tests.html#cb214-13" tabindex="-1"></a>Positive predictive value <span class="sc">*</span>            <span class="fl">0.96</span> (<span class="fl">0.87</span>, <span class="fl">1.00</span>)</span>
+<span id="cb214-14"><a href="diagnostic-tests.html#cb214-14" tabindex="-1"></a>Negative predictive value <span class="sc">*</span>            <span class="fl">0.92</span> (<span class="fl">0.80</span>, <span class="fl">0.98</span>)</span>
+<span id="cb214-15"><a href="diagnostic-tests.html#cb214-15" tabindex="-1"></a>Positive likelihood ratio              <span class="fl">21.30</span> (<span class="fl">5.48</span>, <span class="fl">82.77</span>)</span>
+<span id="cb214-16"><a href="diagnostic-tests.html#cb214-16" tabindex="-1"></a>Negative likelihood ratio              <span class="fl">0.08</span> (<span class="fl">0.03</span>, <span class="fl">0.20</span>)</span>
+<span id="cb214-17"><a href="diagnostic-tests.html#cb214-17" tabindex="-1"></a>False T<span class="sc">+</span> proportion <span class="cf">for</span> true D<span class="sc">-</span> <span class="er">*</span>      <span class="fl">0.04</span> (<span class="fl">0.01</span>, <span class="fl">0.15</span>)</span>
+<span id="cb214-18"><a href="diagnostic-tests.html#cb214-18" tabindex="-1"></a>False T<span class="sc">-</span> proportion <span class="cf">for</span> true D<span class="sc">+</span> <span class="er">*</span>      <span class="fl">0.07</span> (<span class="fl">0.02</span>, <span class="fl">0.18</span>)</span>
+<span id="cb214-19"><a href="diagnostic-tests.html#cb214-19" tabindex="-1"></a>False T<span class="sc">+</span> proportion <span class="cf">for</span> T<span class="sc">+</span> <span class="er">*</span>           <span class="fl">0.04</span> (<span class="fl">0.00</span>, <span class="fl">0.13</span>)</span>
+<span id="cb214-20"><a href="diagnostic-tests.html#cb214-20" tabindex="-1"></a>False T<span class="sc">-</span> proportion <span class="cf">for</span> T<span class="sc">-</span> <span class="er">*</span>           <span class="fl">0.08</span> (<span class="fl">0.02</span>, <span class="fl">0.20</span>)</span>
+<span id="cb214-21"><a href="diagnostic-tests.html#cb214-21" tabindex="-1"></a>Correctly classified proportion <span class="sc">*</span>      <span class="fl">0.94</span> (<span class="fl">0.87</span>, <span class="fl">0.98</span>)</span>
+<span id="cb214-22"><a href="diagnostic-tests.html#cb214-22" tabindex="-1"></a><span class="sc">--------------------------------------------------------------</span></span>
+<span id="cb214-23"><a href="diagnostic-tests.html#cb214-23" tabindex="-1"></a><span class="er">*</span> Exact CIs</span></code></pre></div>
 <p><strong>Conclusion</strong>: With the high (all above 0.9) Sensitivity, Specificity, PPV and
-NPV this appears to be a very good test. This is confirmed by the relatively
+NPV, the test appears to be a very good one. This is confirmed by the relatively
 high LR+ and low LR-.</p>
 
-<pre><code>── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
-── Conflicts ────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
-
-Attaching package: 'magrittr'
-
-
-The following object is masked from 'package:purrr':
-
-    set_names
-
-
-The following object is masked from 'package:tidyr':
-
-    extract
-Warning: package 'huxtable' was built under R version 4.3.1
-
-Attaching package: 'huxtable'
-
-The following object is masked from 'package:dplyr':
-
-    add_rownames
-
-The following object is masked from 'package:ggplot2':
-
-    theme_grey
-
-
-Attaching package: 'gtsummary'
-
-The following object is masked from 'package:huxtable':
-
-    as_flextable</code></pre>
 </div>
 </div>
   <div class="chapter-nav">
@@ -922,7 +881,7 @@ The following object is masked from 'package:huxtable':
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-25.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

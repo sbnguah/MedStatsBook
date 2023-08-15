@@ -1,29 +1,29 @@
+# Analysis of Variance
 
-```{r echo =F, include=F}
+```{r echo = F, include=F, meassage = F, warning=F}
 library(tidyverse)
 library(magrittr)
 library(huxtable)
 ```
 
-# Analysis of Variance
 ## Introduction
 Hypertension, an elevated blood pressure beyond normal, is a very common medical 
-condition especially in adults. To treat this condition persons with hypertension 
-are often given blood pressure lowering drugs. There are many types of this drug, 
-with varying blood pressure lowering effects when taken. In a study to identify 
-the blood pressure lowering effect four of such drugs, here called A, B, C and D 
+condition, especially in adults. To treat this condition, persons with hypertension 
+are often given blood pressure-lowering drugs. There are many types of this drug, 
+with varying blood pressure-lowering effects when taken. In a study to identify 
+the blood pressure-lowering effect, four drugs, here called A, B, C and D 
 were randomly administered to persons with hypertension.
-Their systolic blood pressure (SBP) were measured before and after administration 
+Their systolic blood pressure (SBP) was measured before and after administration 
 of the drugs.
 
 The drop in SBP was then recorded. The data `systolic.txt` was captured from this 
 study. The variables in the data include `drug`, the drug administered with 1, 2, 
-3, and 4 representing drugs A, B, C and D respectively. The other variables in 
+3, and 4 representing drugs A, B, C and D, respectively. The other variables in 
 the data are `disease` representing other diseases present in the patient with 1, 
 2, 3 representing Asthma, Diabetes Mellitus (DM) and Obesity, and systolic 
 representing the drop in systolic blood pressure a week after starting the drug.
 
-We first read in the data and summarise it.
+We first read the data and summarise it.
 
 ```{r}
 df_syst <- 
@@ -50,14 +50,14 @@ df_syst %>% summarytools::dfSummary(graph.col = F)
 options(huxtable.knit_print_df = T)
 ```
 
-As the data analyst the investigator asks you to tell him from the data which 
-drug has the highest blood pressure lowering effect, the best and worst 
-performing drugs in this regard. Recollect that if there were only two drugs we 
-would most likely to performing a Student t-test for this.
+As the data analyst, the investigator asks you to determine from the data which 
+drug has the highest blood pressure-lowering effect and the best and worst 
+performing drugs. Recollect that if there were only two drugs we would most 
+likely to performing a Student t-test for this.
 
-However, we have four categories and as such cannot answer these questions with 
-the t-test. This is where the Analysis of Variance (anova) in its simplest form 
-kicks in. First we visualize the distribution of the SBP lowering effect in all 
+However, we have four categories and cannot answer these questions with 
+the t-test. This is where the Analysis of Variance (ANOVA) in its simplest form 
+kicks in. First, we visualize the distribution of the SBP-lowering effect in all 
 four drugs in the boxplot below:
 
 ```{r fig.width=6, fig.height=4}
@@ -81,34 +81,36 @@ df_syst %>%
 From the figure and the summary above it is obvious the drug with the greatest 
 lowering effect appears to be A, followed by B, D and C in that order. How do we 
 know if we can say for sure that B is better than A, which in turn is better 
-than D etc? To answer this question we perform an anova.
+than D etc? To answer this question we perform an ANOVA.
 
-## One way analysis of variance
+## One-way analysis of variance
 The analysis of variance is a parametric test used to compare means for more 
 than two groups. It tests the null hypothesis
 
 > **H0**: The population means of all the groups are the same.
 > **Ha**: At least one of the population means differ from the rest.
 
-Before we do proper anova we summarise the change in SBP for the different drugs, 
+Before we do proper ANOVA we summarise the change in SBP for the different drugs, 
 presenting the data with the confidence interval of the mean.
 
 It is apparent from the confidence intervals of the mean change in systolic 
-blood pressures that the the effect of drug A is quite similar to that of B. 
+blood pressures that the effect of drug A is quite similar to that of B. 
 Also, both A and B are quite different from C and D. C and D on the other hand 
-have similar effect. With this preliminary finding at the back of our minds we 
+have similar effects. With this preliminary finding at the back of our minds, we 
 fit a linear regression model as below.
 
 ```{r}
-df_syst %>% aov(systolic ~ drug, data = .) %>% broom::tidy()
+df_syst %>% 
+    aov(systolic ~ drug, data = .) %>% 
+    broom::tidy()
 ```
 
-From the anova output above we have a p-value of the order 0.000057! This is 
-very small indicating at least one of our means significantly differ from the 
+From the ANOVA output above we have a p-value of the order 0.000057! This is 
+very small indicating at least one of our means significantly differs from the 
 rest.
 
 ### Postestimation pairwise comparison
-We have made the point that anova only tell us at least one of the means is 
+We have made the point that ANOVA only tell us at least one of the means is 
 significantly different from the others. To pick up which drug's mean effect(s) 
 differ from the others we use post-estimation tests. An example is the 
 Pairwise t-test.
@@ -120,14 +122,14 @@ such comparison will be invalid. Many authors have come up with ways of
 correcting these p-values with the common one implemented in R listed below. The 
 following is an extract from the help page of function` p.adjust()`.
 
->"The adjustment methods include the Bonferroni correction ("bonferroni") in which
+>"The adjustment methods include the Bonferroni correction ("Bonferroni") in which
 the p-values are multiplied by the number of comparisons. Less conservative cor-
-rections are also included by Holm (1979) ("holm"), Hochberg (1988) ("hochberg"),
+reactions are also included by Holm (1979) ("Holm"), Hochberg (1988) ("Hochberg"),
 Hommel (1988) ("hommel"), Benjamini & Hochberg (1995) ("BH" or its alias "fdr"),
 and Benjamini & Yekutieli (2001) ("BY"), respectively. A pass-through option
 ("none") is also included."
 
-Below we determine the p-values for the multiple comparison of the various drugs 
+Below we determine the p-values for the multiple comparisons of the various drugs 
 using the "holm" method
 
 ```{r}
@@ -141,11 +143,11 @@ df_syst %$%
 The analysis output generated above are p-values of pairwise comparison of the 
 means of the decrease in SBP for the various drugs. It can be inferred that the 
 difference in the reduction between A and B is not significant (p-value: 0.89214). 
-In other words the reduction obtained for the two drugs can be said to be 
-comparable. However there is a significant difference between both A and C, A 
+In other words, the reduction obtained for the two drugs can be said to be 
+comparable. However, there is a significant difference between both A and C, A 
 and D, B and C, and B and D. Also there isn't a significant difference between C 
 and D (p-value: 0.50216). An arguably more informative way of showing these 
-pairwise difference can be obtained in R by the use of the Tukey's 
+pairwise differences can be obtained in R by the use of Tukey's 
 post-estimation test. 
 
 ```{r}
@@ -156,46 +158,153 @@ df_syst %>%
 ```
 
 The output above shows the pairwise differences, the 95%CI of the differences 
-and the Tukey's adjusted p-values. Comparing the two methods, Holms and Tukey 
-we observe the multiple comparison p-values differ slightly. However the 
+and Tukey's adjusted p-values. Comparing the two methods, Holms and Tukey 
+we observe the multiple comparison p-values differ slightly. However, the 
 conclusions remain the same.
 
 **Conclusion**: The drugs with the highest SBP lowering effect are A and B with 
 no evidence that one does better than the other. C and D on the other hand have 
-significantly smaller SBP lowering effect compared to A and B. Drugs C and D 
-don't perform significantly different from each other.
+significantly smaller SBP lowering effects compared to A and B. Drugs C and D 
+don't perform significantly differently from each other.
 
-## Two-Way Analysis of variance
+## Two-Way Analysis of Variance
+In the above data, the are two possible independent variables that may explain the BP-lowering effect obtained. These are the `disease` and `drug` administered. For a Two-way analysis of variance, we primarily come up with three hypotheses:
+
+> **H0**: The population means of all who took the various drugs are the same.
+
+> **H0**: The population means of all who had the various diseases are the same.
+
+> **H0**: There is no significant interaction between the drug taken and the disease of the study participant in determining the mean BP change. 
+
+To evaluate this hypothesis, we perform a two-way analysis of variance with interaction. 
+
+```{r}
+df_syst %>% 
+    aov(systolic ~ drug*disease, data = .) %>% 
+    broom::tidy()
+```
+
+The analysis output indicates there is a significant difference in the means for the various drugs but not for the various diseases present in the study subjects. Also, there is no significant interaction between the drug and the disease type.  For a visual look at this effect, we plot the means below:
+
+```{r fig.width=6, fig.height=4}
+df_syst %>% 
+    aov(systolic ~ drug*disease, data = .) %>% 
+    ggeffects::ggeffect(terms = c("drug","disease")) %>% 
+    plot()
+```
+
+The plot above indicates that the systolic blood pressure among the groups of disease conditions does not seem to vary significantly for each drug given. This is reflected in the high p-value for the interaction between the drug and disease. 
+
+## Repeated measure analysis of variance
+Often in research, the investigator desires to determine the change in an outcome over repeated measures, often after a specific time interval. This involves measuring the outcome in the same study participant multiple times. Since these measurements are not independent, the methodology for the analysis is not the same as that described above. When only two measurements are made, the paired T-test suffices to use here. however, if you have more than 2 measurements on the same study participant. This is where a repeated measure is used. 
+
+For this subsection, we will use the data that involves a set of hypertension patients, whose blood pressures were measured every 2 months for a year. 
+
+```{r}
+set.seed(7)
+df_sbp <- 
+    readxl::read_xlsx("./Data/sbp_longitudinal.xlsx") %>% 
+    sample_n(50)
+```
+
+Next, we select the required variables
+
+```{r}
+df_sbp_selected <-
+    df_sbp %>%  
+    select(sid, sbp0, sbp4, sbp8, sbp12)
+```
+
+And then view the data
+
+```{r echo = F}
+options(huxtable.knit_print_df = F)
+```
+
+```{r}
+df_sbp_selected %>% summarytools::dfSummary()
+```
+
+```{r echo = F}
+options(huxtable.knit_print_df = F)
+```
+
+Next, we need to convert the data into a long format and view the first 6 records.
+
+```{r}
+df_sbp_long <- 
+    df_sbp_selected %>% 
+    pivot_longer(
+        cols = sbp0:sbp12, values_to = "bp", names_to = "period") %>% 
+    mutate(
+        period = factor(period, levels = c("sbp0", "sbp4", "sbp8", "sbp12")))
+
+df_sbp_long %>% head()
+```
+
+We first summarize the blood pressures for the four periods of measurement.
+
+```{r}
+df_sbp_long %>% 
+    group_by(period) %>% 
+    summarize(Mean = mean(bp), SD = sd(bp))
+```
 
 
+We observe that there are differences between the four means. Further, we show this graphically.
 
-## Repeated masure analysis of variance
+```{r fig.hieght=4, fig.width=6}
+df_sbp_long %>% 
+ggplot(aes(x = period, y = bp, group = sid)) +
+    geom_line(alpha =.1, col = "red") +
+    stat_summary(
+        fun.data = mean_sdl, 
+        geom="line", 
+        colour = "black", 
+        linewidth = .8, 
+        group=1, linetype = 2) +
+    labs(x = "Time Blood pressure taken",
+         y = "Blood pressure (mmHg)",
+         title = "Variation of blood pressure over the review periods",
+         subtitle = "Sampling done on all patients",
+         caption = "Source: 2010 data")+
+    theme_bw()
+```
+
+There may be an insignificant drop in BP over the period. Next, we perform a repeated measure ANOVA to determine differences between the means for the various review periods.
+
+```{r}
+aov(bp ~ period + Error(sid/period), data = df_sbp_long) %>% broom::tidy()
+```
+
 
 ## Analysis of covariance
 
-## Multivariate Analysis of variance
+
+## Multivariate Analysis of Variance
 
 ## Kruskal Wallis Test
-In the beginning of this section we noted that anova is a parametric test. 
+At the beginning of this section, we noted that ANOVA is a parametric test. 
 Therefore it requires approximately normally distributed dependent data to work 
 with. So what if the data deviates significantly from normality? Under those 
-conditions we use the Kruskal Wallis test, the non-parametric equivalent of the 
-one way ANOVA. This tests the null hypothesis 
+conditions we use the Kruskal-Wallis test, the non-parametric equivalent of the 
+one-way ANOVA. This tests the null hypothesis 
 
-> H0: The population distribution (or centre) of all the groups are the same.
-> Ha: At least one of the population distributions (or centre) differ from the 
+> H0: The population distribution (or centre) of all the groups is the same.
+> Ha: At least one of the population distributions (or centre) differs from the 
 rest.
 
-Below we use this on the systolic blood pressure and drug used as before
+Below we use this on the systolic blood pressure and drug used before
 
 ```{r}
 df_syst %$% kruskal.test(systolic, drug) %>% broom::tidy()
 ```
 
-With the small p-value we conclude that the centre of at least one of the effect 
+With the small p-value, we conclude that the centre of at least one of the effects 
 of the drug is significantly different from the others. This conclusion is not 
-different from that derived with the analysis of variance. At least the centre 
+different from that derived from the analysis of variance. At least the centre 
 of one of the systolic blood pressure is significantly different from another
+
 
 
 

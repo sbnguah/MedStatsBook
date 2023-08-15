@@ -8,22 +8,21 @@ library(huxtable)
 ```
 
 Scientific testing for the presence of various disease conditions or processes 
-is very common in everyday life. This could range from the complex testing for 
+is very common in everyday life. This could range from complex testing for 
 the presence of strange diseases to newly manufactured electrical gadgets for 
 defects. Very often there is a Gold Standard test, one that is deemed to 
-perfectly determine the presence or absence of the condition. However there is
-always the search for alternative test often because they are cheaper or easier 
+perfectly determine the presence or absence of the condition. However, there is
+always the search for alternative tests often because they are cheaper or easier 
 to use compared to the Gold standard.
 
-In a study to diagnose malaria in children attending an outpatient clinic in 
-Ghana, children with a clinical suspicion of malaria were tested using three 
-methods. First a blood film reported as a count of the malaria parasites 
+In a study to diagnose malaria in children attending an outpatient clinic in Ghana, children with a clinical suspicion of malaria were tested using three 
+methods. First, a blood film reported as a count of the malaria parasites 
 (Gold standard) was done. Two rapid diagnostic kits, called here RDT.1 and RDT.2 
 were also done concurrently and reported as positive (1) or negative (0). These 
 were done for 100 patients and recorded in `malaria.csv`. Our task is to 
 evaluate RDT.1's ability to accurately and reliably diagnose malaria.
 
-First we read in the data
+First, we read the data
 
 ```{r message=F}
 df_malaria <- 
@@ -43,7 +42,7 @@ df_malaria <-
     )
 ```
 
-Summary of the data is as shown below
+The summary of the data is shown below
 
 ```{r include=F}
 options(huxtable.knit_print_df = F)
@@ -74,12 +73,12 @@ df_malaria %>%
     gtsummary::bold_labels()
 ```
 
-The table above decomposes the the test results into 4 distinct categories.
+The table above decomposes the test results into 4 distinct categories.
 
 1. Those who had both RDT.1 and the gold standard positive (True positive) were 50.
 1. The group with both RDT.1 and Gold standard negative (True Negative) were 44.
-1. The group that apparently showed a positive RDT.1 results when they actually are negative by the Gold standard (False positive) were 2.
-1. Finally the last group, those whose RDT.1 result were negative but are actually positive
+1. The group that showed a positive RDT.1 results when they are negative by the Gold standard (False positive) were 2.
+1. Finally the last group, those whose RDT.1 results were negative but are positive
 judging by the Gold standard (False negative) were 4.
 
 We operationalise these by extracting relevant portions of the table below
@@ -93,7 +92,7 @@ fn <- 4
 
 ## True prevalence of the disease
 The true prevalence of the disease is the proportion of the diseased individuals 
-observed in the study population as determine by the gold standard. This is 
+observed in the study population as determined by the gold standard. This is 
 mathematically given by
  $$True~prevalence = \frac{tp + fn}{tp + tn + fp + fn}$$
 
@@ -107,7 +106,7 @@ true.prevalence
 
 ## Apparent prevalence of the disease
 The apparent prevalence of the disease is the proportion of the diseased 
-individuals observed in the study population as determine by the RDT.1 test. 
+individuals observed in the study population as determined by the RDT.1 test. 
 This is mathematically given by
  $$Apparent~prevalence = \frac{tp + fp}{tp + tn + fp + fn}$$
 And determined with our data by
@@ -118,18 +117,18 @@ apparent.prevalence
 
 ## Sensitivity of a test
 The sensitivity of a test defines as the proportion of individuals with the 
-disease who are correctly identified by the test applied. It ranges form 0, a completely useless test to 1,a perfect test. Mathematically this is defined as
+disease who are correctly identified by the test applied. It ranges from 0, a completely useless test to 1, a perfect test. Mathematically this is defined as
 
 $$Sensitivity = \frac{tp}{tp + fn}$$
-And is determined as below
+And is determined below
 ```{r}
 sensitivity <- tp/(tp+fn)
 sensitivity
 ```
 
 ## Specificity of a test
-The specificity of a test is defined as proportion of individuals without the 
-disease who are correctly identified by the test used. It ranges form 0, a 
+The specificity of a test is defined as the proportion of individuals without the 
+disease who are correctly identified by the test used. It ranges from 0, a 
 completely useless test to 1, a perfect test. Mathematically this is defined as
 $$Specificity = \frac{tn}{tn + fp}$$
 
@@ -141,7 +140,7 @@ specificity
 
 ## Predictive value of a test
 ### Positive predictive value of a test
-The positive predictive value (ppv) of a test is defined as the proportion of 
+The positive predictive value (PPV) of a test is defined as the proportion of 
 individuals with a positive test result who have the disease. This is a more 
 useful measure compared to the sensitivity and specificity because it indicates 
 how much weight one has to put on a positive test result when confronted with 
@@ -160,7 +159,7 @@ the ppv this is a more useful measure compared to the sensitivity and
 specificity as it indicates how much weight one has to put on a negative test 
 result when confronted with one. Mathematically it is defined as:
 $$NPV = \frac{tn}{tn + fn}$$
-And determined as below
+And determined below
 
 ```{r}
 npv <- tn/(tn+fn)
@@ -170,7 +169,7 @@ npv
 
 ## Likelihood ratio of a test
 The likelihood ratio of a test is another way of expressing its usefulness. 
-Unlike the previous statistics about tests the likelihood ratios stretch beyond 
+Unlike the previous statistics about tests, the likelihood ratios stretch beyond 
 0 to 1. A likelihood ratio of 1 indicates a useless (non-discriminatory) test.
 
 ### The Positive likelihood ratio (LR+) 
@@ -205,9 +204,9 @@ nLR
 
 
 ## Summary
-Fortunately all these can be obtained in one go using the `epi.tests()` function 
+Fortunately, all these can be obtained in one go using the `epi.tests()` function 
 from the `epiR`package. The function however requires a table formatted in a 
-specific way. Below we creat the table
+specific way. Below we create the table
 
 ```{r}
 table.test <- 
@@ -224,7 +223,7 @@ table.test %>% epiR::epi.tests()
 ```
 
 **Conclusion**: With the high (all above 0.9) Sensitivity, Specificity, PPV and 
-NPV this appears to be a very good test. This is confirmed by the relatively 
+NPV, the test appears to be a very good one. This is confirmed by the relatively 
 high LR+ and low LR-.
 
 

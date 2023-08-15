@@ -1,15 +1,17 @@
-```{r echo=FALSE}
+# Agreement
+
+```{r echo=FALSE, include=F, meassage = F, warning=F}
 library(tidyverse)
 library(magrittr)
 library(huxtable)
 library(gtsummary)
 ```
 
-# Agreement
+
 
 ## Introduction
 This chapter deals with methods of evaluating the agreement between two different 
-measurements, either done by two different methods or same method but done at 
+measurements, either done by two different methods or the same method but done at 
 two different times. To understand this we need to define the terms below:
 
 1. Accuracy: 

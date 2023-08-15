@@ -38,14 +38,14 @@ The following object is masked from 'package:ggplot2':
 
 # Logistic Regression
 
-Up until now we have dealt with linear regression which requires a continuous 
+Up until now, we have dealt with linear regression which requires a continuous 
 dependent variable. However in research, especially medical research, lots of 
 outcome variables are binary such as disease present or absent, death or 
 survival and cured or not cured. Modelling binary outcome data usually requires 
 logistic regression and this is done in R using the `glm()` function with the 
 family specified as binomial.
 
-In this section we go back to the `ANCdata` used previously.
+In this section, we go back to the `ANCdata` used previously.
 
 
 ```r
@@ -83,7 +83,7 @@ No   Variable   Stats / Values   Freqs (% of Valid)   Valid      Missing
 
 ## Logistic regression with a single binary predictor
 Our mission is to determine the relationship between the anc (anc) type used for 
-managing pregnant women and outcome of the pregnancy (death). To answer this 
+managing pregnant women and the outcome of the pregnancy (death). To answer this 
 question we run a logistic regression model in its simplest form as below
 
 

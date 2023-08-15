@@ -1,0 +1,21 @@
+* Written by R;
+*  write.foreign(sas1, package = "SAS", datafile = "dd", codefile = "cc") ;
+
+PROC FORMAT;
+value SEX 
+     1 = "Female" 
+     2 = "Male" 
+;
+
+DATA  rdata ;
+INFILE  "dd" 
+     DSD 
+     LRECL= 16 ;
+INPUT
+ ID
+ SEX
+ WEIGHT
+ HEIGHT
+;
+FORMAT SEX SEX. ;
+RUN;

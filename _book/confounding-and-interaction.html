@@ -72,12 +72,12 @@
 <li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
 <li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
-<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
-<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">6</span> Data Structures in R</a></li>
-<li><a class="" href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></li>
+<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
+<li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
+<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
 <li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-catergorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Catergorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
 <li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
 <li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
@@ -125,7 +125,7 @@ sex of the <code>customer</code>, <code>liquor</code> whether the customer took 
 (spirits, brandy, etc), <code>ice</code> whether the customer was served ice in a glass,
 <code>drunk</code> whether the customer ended up being drunk, <code>food</code> whether the customer
 was served food and <code>age</code>, age in years of the customer. The task now is to
-determine from the data if really ingesting ice is associated with being drunk.</p>
+determine from the data if ingesting ice is associated with being drunk.</p>
 </div>
 <div id="effect-and-effect-size" class="section level2" number="17.2">
 <h2>
@@ -136,12 +136,12 @@ determine from the data if really ingesting ice is associated with being drunk.<
 <span class="header-section-number">17.2.1</span> Effect<a class="anchor" aria-label="anchor" href="#effect"><i class="fas fa-link"></i></a>
 </h3>
 <p>Before we begin to discuss the above problem we first look at what in
-statistical terms is meant by effect. Literally effect is defined as a change
-that occurs as a consequence of an action. In statistical terms effect is
-usually the change in one variable by another. For instance, effect could be the
+statistical terms is meant by effect. The effect is defined as a change
+that occurs as a consequence of an action. In statistical terms, the effect is
+usually the change in one variable by another. For instance, the effect could be the
 mean change in blood pressure (effect) after taking a drug (the action). Two of
 the most common ways of expressing effect in categorical data analysis are the
-odds ratio (OR) and Relative Risk (RR). These two usually determine effect by
+odds ratio (OR) and Relative Risk (RR). These two usually determine the effect by
 comparing the odds or risk in two groups and expressing the effect as the
 ratios.</p>
 </div>
@@ -151,16 +151,16 @@ ratios.</p>
 </h3>
 <p>It does not only suffice to report the effect but also its size. People would
 want to know not only if an intervention makes a difference but also how much
-difference it makes. Effect size can be in opposite direction. For instance the
+difference it makes. Effect size can be in the opposite direction. For instance, the
 difference between the blood pressure after taking a medication may be positive
 (when the pressure after taking the drug is more than before taking) or negative
-(when the pressure becomes less when drug is taken). On the other hand effects
-can be on the same side but with a difference in magnitude. On OR of 5.1 is much
-higher than 1.5 despite both indicating an increased odds of having the outcome.
+(when the pressure becomes less when the drug is taken). On the other hand, effects
+can be on the same side but with a difference in magnitude. An OR of 5.1 is much
+higher than 1.5 despite both indicating increased odds of having the outcome.
 We are going to apply this notion in determining confounders and effect
 modifiers.</p>
-<p>Now back to the waiter’s issue. First we read in the data.</p>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<p>Now back to the waiter’s issue. First, we read the data.</p>
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_drinks</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"./Data/drinks.txt"</span>, header<span class="op">=</span><span class="cn">T</span>, sep<span class="op">=</span><span class="st">"\t"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span></span>
@@ -171,48 +171,48 @@ modifiers.</p>
 <span>        sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p>And then summarize the data</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="confounding-and-interaction.html#cb187-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">huxtable.knit_print_df =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb187-2"><a href="confounding-and-interaction.html#cb187-2" tabindex="-1"></a>df_drinks <span class="sc">%&gt;%</span> </span>
-<span id="cb187-3"><a href="confounding-and-interaction.html#cb187-3" tabindex="-1"></a>    summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb187-4"><a href="confounding-and-interaction.html#cb187-4" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb187-5"><a href="confounding-and-interaction.html#cb187-5" tabindex="-1"></a>df_drinks  </span>
-<span id="cb187-6"><a href="confounding-and-interaction.html#cb187-6" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">510</span> x <span class="dv">7</span>  </span>
-<span id="cb187-7"><a href="confounding-and-interaction.html#cb187-7" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
-<span id="cb187-8"><a href="confounding-and-interaction.html#cb187-8" tabindex="-1"></a></span>
-<span id="cb187-9"><a href="confounding-and-interaction.html#cb187-9" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span>
-<span id="cb187-10"><a href="confounding-and-interaction.html#cb187-10" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values              <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
-<span id="cb187-11"><a href="confounding-and-interaction.html#cb187-11" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">---------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb187-12"><a href="confounding-and-interaction.html#cb187-12" tabindex="-1"></a><span class="dv">1</span>    id          <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">255.5</span> (<span class="fl">147.4</span>)   <span class="dv">510</span> distinct values   <span class="dv">510</span>        <span class="dv">0</span>        </span>
-<span id="cb187-13"><a href="confounding-and-interaction.html#cb187-13" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>            (Integer sequence)    (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb187-14"><a href="confounding-and-interaction.html#cb187-14" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="fl">255.5</span> <span class="sc">&lt;</span> <span class="dv">510</span>                                                       </span>
-<span id="cb187-15"><a href="confounding-and-interaction.html#cb187-15" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">254.5</span> (<span class="fl">0.6</span>)                                                </span>
-<span id="cb187-16"><a href="confounding-and-interaction.html#cb187-16" tabindex="-1"></a></span>
-<span id="cb187-17"><a href="confounding-and-interaction.html#cb187-17" tabindex="-1"></a><span class="dv">2</span>    sex         <span class="fl">1.</span> Female                   <span class="dv">256</span> (<span class="fl">50.2</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
-<span id="cb187-18"><a href="confounding-and-interaction.html#cb187-18" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Male                     <span class="dv">254</span> (<span class="fl">49.8</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb187-19"><a href="confounding-and-interaction.html#cb187-19" tabindex="-1"></a></span>
-<span id="cb187-20"><a href="confounding-and-interaction.html#cb187-20" tabindex="-1"></a><span class="dv">3</span>    liquor      <span class="fl">1.</span> No                       <span class="dv">155</span> (<span class="fl">30.4</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
-<span id="cb187-21"><a href="confounding-and-interaction.html#cb187-21" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Yes                      <span class="dv">355</span> (<span class="fl">69.6</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb187-22"><a href="confounding-and-interaction.html#cb187-22" tabindex="-1"></a></span>
-<span id="cb187-23"><a href="confounding-and-interaction.html#cb187-23" tabindex="-1"></a><span class="dv">4</span>    ice         <span class="fl">1.</span> No                       <span class="dv">191</span> (<span class="fl">37.5</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
-<span id="cb187-24"><a href="confounding-and-interaction.html#cb187-24" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Yes                      <span class="dv">319</span> (<span class="fl">62.5</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb187-25"><a href="confounding-and-interaction.html#cb187-25" tabindex="-1"></a></span>
-<span id="cb187-26"><a href="confounding-and-interaction.html#cb187-26" tabindex="-1"></a><span class="dv">5</span>    drunk       <span class="fl">1.</span> No                       <span class="dv">186</span> (<span class="fl">36.5</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
-<span id="cb187-27"><a href="confounding-and-interaction.html#cb187-27" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Yes                      <span class="dv">324</span> (<span class="fl">63.5</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb187-28"><a href="confounding-and-interaction.html#cb187-28" tabindex="-1"></a></span>
-<span id="cb187-29"><a href="confounding-and-interaction.html#cb187-29" tabindex="-1"></a><span class="dv">6</span>    age         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">35.8</span> (<span class="fl">5.1</span>)      <span class="dv">31</span> distinct values    <span class="dv">510</span>        <span class="dv">0</span>        </span>
-<span id="cb187-30"><a href="confounding-and-interaction.html#cb187-30" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb187-31"><a href="confounding-and-interaction.html#cb187-31" tabindex="-1"></a>                 <span class="dv">19</span> <span class="sc">&lt;</span> <span class="dv">36</span> <span class="sc">&lt;</span> <span class="dv">51</span>                                                          </span>
-<span id="cb187-32"><a href="confounding-and-interaction.html#cb187-32" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">7</span> (<span class="fl">0.1</span>)                                                    </span>
-<span id="cb187-33"><a href="confounding-and-interaction.html#cb187-33" tabindex="-1"></a></span>
-<span id="cb187-34"><a href="confounding-and-interaction.html#cb187-34" tabindex="-1"></a><span class="dv">7</span>    food        <span class="fl">1.</span> No                       <span class="dv">288</span> (<span class="fl">56.5</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
-<span id="cb187-35"><a href="confounding-and-interaction.html#cb187-35" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Yes                      <span class="dv">222</span> (<span class="fl">43.5</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb187-36"><a href="confounding-and-interaction.html#cb187-36" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span>
-<span id="cb187-37"><a href="confounding-and-interaction.html#cb187-37" tabindex="-1"></a></span>
-<span id="cb187-38"><a href="confounding-and-interaction.html#cb187-38" tabindex="-1"></a><span class="fu">options</span>(<span class="at">huxtable.knit_print_df =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>In this section we make use of two main functions cc() and mhor() from the
-<code>epicalc</code> package. First we determine the effect of having ice with respect to
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="confounding-and-interaction.html#cb188-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">huxtable.knit_print_df =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb188-2"><a href="confounding-and-interaction.html#cb188-2" tabindex="-1"></a>df_drinks <span class="sc">%&gt;%</span> </span>
+<span id="cb188-3"><a href="confounding-and-interaction.html#cb188-3" tabindex="-1"></a>    summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb188-4"><a href="confounding-and-interaction.html#cb188-4" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb188-5"><a href="confounding-and-interaction.html#cb188-5" tabindex="-1"></a>df_drinks  </span>
+<span id="cb188-6"><a href="confounding-and-interaction.html#cb188-6" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">510</span> x <span class="dv">7</span>  </span>
+<span id="cb188-7"><a href="confounding-and-interaction.html#cb188-7" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
+<span id="cb188-8"><a href="confounding-and-interaction.html#cb188-8" tabindex="-1"></a></span>
+<span id="cb188-9"><a href="confounding-and-interaction.html#cb188-9" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span>
+<span id="cb188-10"><a href="confounding-and-interaction.html#cb188-10" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values              <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
+<span id="cb188-11"><a href="confounding-and-interaction.html#cb188-11" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">---------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb188-12"><a href="confounding-and-interaction.html#cb188-12" tabindex="-1"></a><span class="dv">1</span>    id          <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">255.5</span> (<span class="fl">147.4</span>)   <span class="dv">510</span> distinct values   <span class="dv">510</span>        <span class="dv">0</span>        </span>
+<span id="cb188-13"><a href="confounding-and-interaction.html#cb188-13" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>            (Integer sequence)    (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb188-14"><a href="confounding-and-interaction.html#cb188-14" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="fl">255.5</span> <span class="sc">&lt;</span> <span class="dv">510</span>                                                       </span>
+<span id="cb188-15"><a href="confounding-and-interaction.html#cb188-15" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">254.5</span> (<span class="fl">0.6</span>)                                                </span>
+<span id="cb188-16"><a href="confounding-and-interaction.html#cb188-16" tabindex="-1"></a></span>
+<span id="cb188-17"><a href="confounding-and-interaction.html#cb188-17" tabindex="-1"></a><span class="dv">2</span>    sex         <span class="fl">1.</span> Female                   <span class="dv">256</span> (<span class="fl">50.2</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
+<span id="cb188-18"><a href="confounding-and-interaction.html#cb188-18" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Male                     <span class="dv">254</span> (<span class="fl">49.8</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb188-19"><a href="confounding-and-interaction.html#cb188-19" tabindex="-1"></a></span>
+<span id="cb188-20"><a href="confounding-and-interaction.html#cb188-20" tabindex="-1"></a><span class="dv">3</span>    liquor      <span class="fl">1.</span> No                       <span class="dv">155</span> (<span class="fl">30.4</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
+<span id="cb188-21"><a href="confounding-and-interaction.html#cb188-21" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Yes                      <span class="dv">355</span> (<span class="fl">69.6</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb188-22"><a href="confounding-and-interaction.html#cb188-22" tabindex="-1"></a></span>
+<span id="cb188-23"><a href="confounding-and-interaction.html#cb188-23" tabindex="-1"></a><span class="dv">4</span>    ice         <span class="fl">1.</span> No                       <span class="dv">191</span> (<span class="fl">37.5</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
+<span id="cb188-24"><a href="confounding-and-interaction.html#cb188-24" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Yes                      <span class="dv">319</span> (<span class="fl">62.5</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb188-25"><a href="confounding-and-interaction.html#cb188-25" tabindex="-1"></a></span>
+<span id="cb188-26"><a href="confounding-and-interaction.html#cb188-26" tabindex="-1"></a><span class="dv">5</span>    drunk       <span class="fl">1.</span> No                       <span class="dv">186</span> (<span class="fl">36.5</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
+<span id="cb188-27"><a href="confounding-and-interaction.html#cb188-27" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Yes                      <span class="dv">324</span> (<span class="fl">63.5</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb188-28"><a href="confounding-and-interaction.html#cb188-28" tabindex="-1"></a></span>
+<span id="cb188-29"><a href="confounding-and-interaction.html#cb188-29" tabindex="-1"></a><span class="dv">6</span>    age         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">35.8</span> (<span class="fl">5.1</span>)      <span class="dv">31</span> distinct values    <span class="dv">510</span>        <span class="dv">0</span>        </span>
+<span id="cb188-30"><a href="confounding-and-interaction.html#cb188-30" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb188-31"><a href="confounding-and-interaction.html#cb188-31" tabindex="-1"></a>                 <span class="dv">19</span> <span class="sc">&lt;</span> <span class="dv">36</span> <span class="sc">&lt;</span> <span class="dv">51</span>                                                          </span>
+<span id="cb188-32"><a href="confounding-and-interaction.html#cb188-32" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">7</span> (<span class="fl">0.1</span>)                                                    </span>
+<span id="cb188-33"><a href="confounding-and-interaction.html#cb188-33" tabindex="-1"></a></span>
+<span id="cb188-34"><a href="confounding-and-interaction.html#cb188-34" tabindex="-1"></a><span class="dv">7</span>    food        <span class="fl">1.</span> No                       <span class="dv">288</span> (<span class="fl">56.5</span>%)           <span class="dv">510</span>        <span class="dv">0</span>        </span>
+<span id="cb188-35"><a href="confounding-and-interaction.html#cb188-35" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Yes                      <span class="dv">222</span> (<span class="fl">43.5</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb188-36"><a href="confounding-and-interaction.html#cb188-36" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span>
+<span id="cb188-37"><a href="confounding-and-interaction.html#cb188-37" tabindex="-1"></a></span>
+<span id="cb188-38"><a href="confounding-and-interaction.html#cb188-38" tabindex="-1"></a><span class="fu">options</span>(<span class="at">huxtable.knit_print_df =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>In this section, we make use of two main functions cc() and mhor() from the
+<code>epicalc</code> package. First, we determine the effect of having ice concerning
 being drunk by using the odds ratio.</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_drinks</span> <span class="op">%$%</span> <span class="fu">epiDisplay</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/epiDisplay/man/cc.html">cc</a></span><span class="op">(</span><span class="va">drunk</span>, <span class="va">ice</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Confounding-and-Interaction_files/figure-html/unnamed-chunk-4-1.png" width="576"></div>
 <pre><code>
@@ -226,7 +226,7 @@ OR =  1.73
 95% CI =  1.2, 2.51  
 Chi-squared = 8.5, 1 d.f., P value = 0.004
 Fisher's exact test (2-sided) P value = 0.004 </code></pre>
-<p>It appears the waiter is right! Taking ice is associated with a significantly
+<p>It appears the waiter is right! Taking ice is associated with significantly
 higher odds of getting drunk (OR: 1.73, 95% CI: 1.17 to 2.55, p&lt;.001). This we
 all agree defies logic. The question then is: How did this arise?</p>
 </div>
@@ -235,8 +235,8 @@ all agree defies logic. The question then is: How did this arise?</p>
 <span class="header-section-number">17.2.3</span> Confounding<a class="anchor" aria-label="anchor" href="#confounding"><i class="fas fa-link"></i></a>
 </h3>
 <p>In research there often arises the situation where the observed effect of a
-variable tend to depend on another. For instance in our case the effect of ice
-in making customers drunk could be because it is associated with another item.
+variable tends to depend on another. For instance, in our case, the effect of ice
+on making customers drunk could be because it is associated with another item.
 If customers who took ice also took in some hard liquor at the same time this
 may make it seem that taking ice is associated with being drunk. This would be
 a typical case of confounding with the liquor ingestion
@@ -251,9 +251,9 @@ and outcome (drunk).</li>
 <p>The first two conditions are easily tested statistically but the last can only
 be tested with prior knowledge, often coming from epidemiological and scientific
 facts. The investigator of the bar study suspects liquor to be a confounder to
-the effect of ice so sets out to determine this. First he looks out for the
+the effect of ice so sets out to determine this. First, he looks out for the
 relationship between the suspected confounder and the outcome</p>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_drinks</span> <span class="op">%$%</span> <span class="fu">epiDisplay</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/epiDisplay/man/cc.html">cc</a></span><span class="op">(</span><span class="va">drunk</span>, <span class="va">liquor</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Confounding-and-Interaction_files/figure-html/unnamed-chunk-5-1.png" width="576"></div>
 <pre><code>
@@ -267,40 +267,40 @@ OR =  2.41
 95% CI =  1.63, 3.55  
 Chi-squared = 20.2, 1 d.f., P value = 0
 Fisher's exact test (2-sided) P value = 0 </code></pre>
-<p>Obviously having liquor is strongly associated with being drunk with an
-OR = 2.41 (95%CI: 1.6, 3.62, p&lt;.001). Next we test the association between the
+<p>Having liquor is strongly associated with being drunk with an
+OR = 2.41 (95%CI: 1.6, 3.62, p&lt;.001). Next, we test the association between the
 exposure and the possible confounder.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="confounding-and-interaction.html#cb192-1" tabindex="-1"></a>df_drinks <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">cc</span>(ice, liquor, <span class="at">graph =</span> F)</span>
-<span id="cb192-2"><a href="confounding-and-interaction.html#cb192-2" tabindex="-1"></a></span>
-<span id="cb192-3"><a href="confounding-and-interaction.html#cb192-3" tabindex="-1"></a>       liquor</span>
-<span id="cb192-4"><a href="confounding-and-interaction.html#cb192-4" tabindex="-1"></a>ice      No Yes Total</span>
-<span id="cb192-5"><a href="confounding-and-interaction.html#cb192-5" tabindex="-1"></a>  No    <span class="dv">120</span>  <span class="dv">71</span>   <span class="dv">191</span></span>
-<span id="cb192-6"><a href="confounding-and-interaction.html#cb192-6" tabindex="-1"></a>  Yes    <span class="dv">35</span> <span class="dv">284</span>   <span class="dv">319</span></span>
-<span id="cb192-7"><a href="confounding-and-interaction.html#cb192-7" tabindex="-1"></a>  Total <span class="dv">155</span> <span class="dv">355</span>   <span class="dv">510</span></span>
-<span id="cb192-8"><a href="confounding-and-interaction.html#cb192-8" tabindex="-1"></a></span>
-<span id="cb192-9"><a href="confounding-and-interaction.html#cb192-9" tabindex="-1"></a>OR <span class="ot">=</span>  <span class="fl">13.71</span> </span>
-<span id="cb192-10"><a href="confounding-and-interaction.html#cb192-10" tabindex="-1"></a><span class="dv">95</span>% CI <span class="ot">=</span>  <span class="fl">8.68</span>, <span class="fl">21.67</span>  </span>
-<span id="cb192-11"><a href="confounding-and-interaction.html#cb192-11" tabindex="-1"></a>Chi<span class="sc">-</span>squared <span class="ot">=</span> <span class="fl">151.85</span>, <span class="dv">1</span> d.f., P value <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb192-12"><a href="confounding-and-interaction.html#cb192-12" tabindex="-1"></a>Fisher<span class="st">'s exact test (2-sided) P value = 0 </span></span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="confounding-and-interaction.html#cb193-1" tabindex="-1"></a>df_drinks <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">cc</span>(ice, liquor, <span class="at">graph =</span> F)</span>
+<span id="cb193-2"><a href="confounding-and-interaction.html#cb193-2" tabindex="-1"></a></span>
+<span id="cb193-3"><a href="confounding-and-interaction.html#cb193-3" tabindex="-1"></a>       liquor</span>
+<span id="cb193-4"><a href="confounding-and-interaction.html#cb193-4" tabindex="-1"></a>ice      No Yes Total</span>
+<span id="cb193-5"><a href="confounding-and-interaction.html#cb193-5" tabindex="-1"></a>  No    <span class="dv">120</span>  <span class="dv">71</span>   <span class="dv">191</span></span>
+<span id="cb193-6"><a href="confounding-and-interaction.html#cb193-6" tabindex="-1"></a>  Yes    <span class="dv">35</span> <span class="dv">284</span>   <span class="dv">319</span></span>
+<span id="cb193-7"><a href="confounding-and-interaction.html#cb193-7" tabindex="-1"></a>  Total <span class="dv">155</span> <span class="dv">355</span>   <span class="dv">510</span></span>
+<span id="cb193-8"><a href="confounding-and-interaction.html#cb193-8" tabindex="-1"></a></span>
+<span id="cb193-9"><a href="confounding-and-interaction.html#cb193-9" tabindex="-1"></a>OR <span class="ot">=</span>  <span class="fl">13.71</span> </span>
+<span id="cb193-10"><a href="confounding-and-interaction.html#cb193-10" tabindex="-1"></a><span class="dv">95</span>% CI <span class="ot">=</span>  <span class="fl">8.68</span>, <span class="fl">21.67</span>  </span>
+<span id="cb193-11"><a href="confounding-and-interaction.html#cb193-11" tabindex="-1"></a>Chi<span class="sc">-</span>squared <span class="ot">=</span> <span class="fl">151.85</span>, <span class="dv">1</span> d.f., P value <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb193-12"><a href="confounding-and-interaction.html#cb193-12" tabindex="-1"></a>Fisher<span class="st">'s exact test (2-sided) P value = 0 </span></span></code></pre></div>
 <p>There is a strong association between having ice and taking hard liquor
 (OR: 13.71, 95% CI: 8.48 to 22.33, p&lt;.001). With this relationship established
 the first two conditions stated above have been fulfilled.</p>
-<p>Our next task is to determine if consumption of liquor is a confounder to the
+<p>Our next task is to determine if the consumption of liquor is a confounder of the
 effect of ice. We do this by determining the adjusted OR and comparing it to the
 crude OR (unadjusted OR). We recall from above that the crude OR is 1.73
 (95% CI = 1.17 to 2.55, p=0.004). The Mantel-Haenszel odd ratios determined by
 the mhor() function is an OR adjusted for the possible confounder. This is shown
 below</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="confounding-and-interaction.html#cb193-1" tabindex="-1"></a>df_drinks <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">mhor</span>(drunk, ice, liquor)</span>
-<span id="cb193-2"><a href="confounding-and-interaction.html#cb193-2" tabindex="-1"></a></span>
-<span id="cb193-3"><a href="confounding-and-interaction.html#cb193-3" tabindex="-1"></a>Stratified analysis by  liquor </span>
-<span id="cb193-4"><a href="confounding-and-interaction.html#cb193-4" tabindex="-1"></a>               OR lower lim. upper lim. P value</span>
-<span id="cb193-5"><a href="confounding-and-interaction.html#cb193-5" tabindex="-1"></a>liquor No    <span class="fl">1.13</span>      <span class="fl">0.497</span>       <span class="fl">2.58</span>   <span class="fl">0.848</span></span>
-<span id="cb193-6"><a href="confounding-and-interaction.html#cb193-6" tabindex="-1"></a>liquor Yes   <span class="fl">1.14</span>      <span class="fl">0.621</span>       <span class="fl">2.05</span>   <span class="fl">0.666</span></span>
-<span id="cb193-7"><a href="confounding-and-interaction.html#cb193-7" tabindex="-1"></a>M<span class="sc">-</span>H combined <span class="fl">1.14</span>      <span class="fl">0.726</span>       <span class="fl">1.78</span>   <span class="fl">0.574</span></span>
-<span id="cb193-8"><a href="confounding-and-interaction.html#cb193-8" tabindex="-1"></a></span>
-<span id="cb193-9"><a href="confounding-and-interaction.html#cb193-9" tabindex="-1"></a>M<span class="sc">-</span>H <span class="fu">Chi2</span>(<span class="dv">1</span>) <span class="ot">=</span> <span class="fl">0.32</span> , P value <span class="ot">=</span> <span class="fl">0.574</span> </span>
-<span id="cb193-10"><a href="confounding-and-interaction.html#cb193-10" tabindex="-1"></a>Homogeneity test, chi<span class="sc">-</span>squared <span class="dv">1</span> d.f. <span class="ot">=</span> <span class="dv">0</span> , P value <span class="ot">=</span> <span class="fl">0.986</span> </span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="confounding-and-interaction.html#cb194-1" tabindex="-1"></a>df_drinks <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">mhor</span>(drunk, ice, liquor)</span>
+<span id="cb194-2"><a href="confounding-and-interaction.html#cb194-2" tabindex="-1"></a></span>
+<span id="cb194-3"><a href="confounding-and-interaction.html#cb194-3" tabindex="-1"></a>Stratified analysis by  liquor </span>
+<span id="cb194-4"><a href="confounding-and-interaction.html#cb194-4" tabindex="-1"></a>               OR lower lim. upper lim. P value</span>
+<span id="cb194-5"><a href="confounding-and-interaction.html#cb194-5" tabindex="-1"></a>liquor No    <span class="fl">1.13</span>      <span class="fl">0.497</span>       <span class="fl">2.58</span>   <span class="fl">0.848</span></span>
+<span id="cb194-6"><a href="confounding-and-interaction.html#cb194-6" tabindex="-1"></a>liquor Yes   <span class="fl">1.14</span>      <span class="fl">0.621</span>       <span class="fl">2.05</span>   <span class="fl">0.666</span></span>
+<span id="cb194-7"><a href="confounding-and-interaction.html#cb194-7" tabindex="-1"></a>M<span class="sc">-</span>H combined <span class="fl">1.14</span>      <span class="fl">0.726</span>       <span class="fl">1.78</span>   <span class="fl">0.574</span></span>
+<span id="cb194-8"><a href="confounding-and-interaction.html#cb194-8" tabindex="-1"></a></span>
+<span id="cb194-9"><a href="confounding-and-interaction.html#cb194-9" tabindex="-1"></a>M<span class="sc">-</span>H <span class="fu">Chi2</span>(<span class="dv">1</span>) <span class="ot">=</span> <span class="fl">0.32</span> , P value <span class="ot">=</span> <span class="fl">0.574</span> </span>
+<span id="cb194-10"><a href="confounding-and-interaction.html#cb194-10" tabindex="-1"></a>Homogeneity test, chi<span class="sc">-</span>squared <span class="dv">1</span> d.f. <span class="ot">=</span> <span class="dv">0</span> , P value <span class="ot">=</span> <span class="fl">0.986</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Confounding-and-Interaction_files/figure-html/unnamed-chunk-7-1.png" width="576"></div>
 <p>The function first stratifies the odds of getting drunk after taking ice into
 the individual groups of the possible confounding variable. It then determines
@@ -314,20 +314,20 @@ drunk after adjustment. This shows that ice on its own does not cause people to
 be drunk and the observed effect was just an issue of confounding by the
 consumption of liquor.</p>
 <p>Above we have shown the relationship between the three variables involved in
-demonstrating confounding effect of liquor on the effect of taking ice. We can
+demonstrating the confounding effect of liquor on the effect of taking ice. We can
 then ask: Is ice a confounder to the relationship between being drunk and
 consumption of liquor? Remember the crude OR for this effect is 2.41 (95%CI:
 1.6, 3.62, p&lt;.001). To answer the question we determine the adjusted OR below.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="confounding-and-interaction.html#cb194-1" tabindex="-1"></a>df_drinks <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">mhor</span>(drunk, liquor, ice)</span>
-<span id="cb194-2"><a href="confounding-and-interaction.html#cb194-2" tabindex="-1"></a></span>
-<span id="cb194-3"><a href="confounding-and-interaction.html#cb194-3" tabindex="-1"></a>Stratified analysis by  ice </span>
-<span id="cb194-4"><a href="confounding-and-interaction.html#cb194-4" tabindex="-1"></a>               OR lower lim. upper lim.  P value</span>
-<span id="cb194-5"><a href="confounding-and-interaction.html#cb194-5" tabindex="-1"></a>ice No       <span class="fl">2.22</span>       <span class="fl">1.16</span>       <span class="fl">4.33</span> <span class="fl">0.010714</span></span>
-<span id="cb194-6"><a href="confounding-and-interaction.html#cb194-6" tabindex="-1"></a>ice Yes      <span class="fl">2.24</span>       <span class="fl">1.03</span>       <span class="fl">4.86</span> <span class="fl">0.032828</span></span>
-<span id="cb194-7"><a href="confounding-and-interaction.html#cb194-7" tabindex="-1"></a>M<span class="sc">-</span>H combined <span class="fl">2.24</span>       <span class="fl">1.41</span>       <span class="fl">3.56</span> <span class="fl">0.000589</span></span>
-<span id="cb194-8"><a href="confounding-and-interaction.html#cb194-8" tabindex="-1"></a></span>
-<span id="cb194-9"><a href="confounding-and-interaction.html#cb194-9" tabindex="-1"></a>M<span class="sc">-</span>H <span class="fu">Chi2</span>(<span class="dv">1</span>) <span class="ot">=</span> <span class="fl">11.81</span> , P value <span class="ot">=</span> <span class="fl">0.001</span> </span>
-<span id="cb194-10"><a href="confounding-and-interaction.html#cb194-10" tabindex="-1"></a>Homogeneity test, chi<span class="sc">-</span>squared <span class="dv">1</span> d.f. <span class="ot">=</span> <span class="dv">0</span> , P value <span class="ot">=</span> <span class="fl">0.981</span> </span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="confounding-and-interaction.html#cb195-1" tabindex="-1"></a>df_drinks <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">mhor</span>(drunk, liquor, ice)</span>
+<span id="cb195-2"><a href="confounding-and-interaction.html#cb195-2" tabindex="-1"></a></span>
+<span id="cb195-3"><a href="confounding-and-interaction.html#cb195-3" tabindex="-1"></a>Stratified analysis by  ice </span>
+<span id="cb195-4"><a href="confounding-and-interaction.html#cb195-4" tabindex="-1"></a>               OR lower lim. upper lim.  P value</span>
+<span id="cb195-5"><a href="confounding-and-interaction.html#cb195-5" tabindex="-1"></a>ice No       <span class="fl">2.22</span>       <span class="fl">1.16</span>       <span class="fl">4.33</span> <span class="fl">0.010714</span></span>
+<span id="cb195-6"><a href="confounding-and-interaction.html#cb195-6" tabindex="-1"></a>ice Yes      <span class="fl">2.24</span>       <span class="fl">1.03</span>       <span class="fl">4.86</span> <span class="fl">0.032828</span></span>
+<span id="cb195-7"><a href="confounding-and-interaction.html#cb195-7" tabindex="-1"></a>M<span class="sc">-</span>H combined <span class="fl">2.24</span>       <span class="fl">1.41</span>       <span class="fl">3.56</span> <span class="fl">0.000589</span></span>
+<span id="cb195-8"><a href="confounding-and-interaction.html#cb195-8" tabindex="-1"></a></span>
+<span id="cb195-9"><a href="confounding-and-interaction.html#cb195-9" tabindex="-1"></a>M<span class="sc">-</span>H <span class="fu">Chi2</span>(<span class="dv">1</span>) <span class="ot">=</span> <span class="fl">11.81</span> , P value <span class="ot">=</span> <span class="fl">0.001</span> </span>
+<span id="cb195-10"><a href="confounding-and-interaction.html#cb195-10" tabindex="-1"></a>Homogeneity test, chi<span class="sc">-</span>squared <span class="dv">1</span> d.f. <span class="ot">=</span> <span class="dv">0</span> , P value <span class="ot">=</span> <span class="fl">0.981</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Confounding-and-Interaction_files/figure-html/unnamed-chunk-8-1.png" width="576"></div>
 <p>The output shows that the adjusted OR (OR=2.24, 95%CI: 1.41 to 3.56, p&lt;.001) is
 barely different from the crude OR and also retains its significant effect. The
@@ -352,19 +352,19 @@ adjusted OR of 1.5 is a positive confounder while one that has a crude OR of
 <p>It is common knowledge among those who drink alcoholic beverages that filling
 your tummy with food often delays getting drunk when one consumes alcoholic
 beverages. The investigator of the bar data now wants to determine if this is
-actually so. If this notion is right then getting drunk after taking hard liquor
+so. If this notion is right then getting drunk after taking hard liquor
 should be dependent on whether the customer also ordered and ate some food as
 well. This is a typical example of effect modification (a term often used by
-epidemiologist) or interaction (used by statisticians). The two essentially
-means the same. By definition effect modification occurs when the effect size of
+epidemiologists) or interaction (used by statisticians). The two essentially
+means the same. By definition, effect modification occurs when the effect size of
 an exposure (liquor) on an outcome (drunk) differs depending on the level of a
 third variable (eating food). When this occurs just computing and reporting the
 overall effect is misleading.</p>
 <p>We begin our investigation for food causing an interaction in the effect of
 drinking hard liquor by determining the OR of getting drunk when one took some
-food and when one didn’t separately.</p>
+food and when one didn’t.</p>
 <p>We begin with those who ate some food.</p>
-<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_drinks</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">food</span> <span class="op">==</span> <span class="st">"Yes"</span><span class="op">)</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu">epiDisplay</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/epiDisplay/man/cc.html">cc</a></span><span class="op">(</span><span class="va">drunk</span>, <span class="va">liquor</span><span class="op">)</span></span></code></pre></div>
@@ -382,8 +382,8 @@ Chi-squared = 1.59, 1 d.f., P value = 0.208
 Fisher's exact test (2-sided) P value = 0.219 </code></pre>
 <p>There is a statistically insignificant odds of getting drunk after taking hard
 liquor when one eats as well with an OR 1.41 (95% CI: 0.8 to 2.51, p=0.208).
-Next we do same for those who did not eat</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+Next, we do the same for those who did not eat</p>
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_drinks</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">food</span> <span class="op">==</span> <span class="st">"No"</span><span class="op">)</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu">epiDisplay</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/epiDisplay/man/cc.html">cc</a></span><span class="op">(</span><span class="va">drunk</span>, <span class="va">liquor</span><span class="op">)</span></span></code></pre></div>
@@ -401,32 +401,32 @@ Chi-squared = 18.13, 1 d.f., P value = 0
 Fisher's exact test (2-sided) P value = 0 </code></pre>
 <p>The OR of getting drunk if one takes liquor and on an empty stomach is much
 higher and statistically significant (OR: 3.38, 95% CI: 1.82 to 6.26, p&lt;.001).
-We seem to have quite a substantial difference in effect of drinking liquor
+We seem to have quite a substantial difference in the effect of drinking liquor
 depending on food intake or not. To be sure if this food intake is a significant
 effect modifier we subject this to a formal test using the <code>mhor()</code> function.</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="confounding-and-interaction.html#cb199-1" tabindex="-1"></a>df_drinks <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">mhor</span>(drunk, liquor, food, <span class="at">graph =</span> F)</span>
-<span id="cb199-2"><a href="confounding-and-interaction.html#cb199-2" tabindex="-1"></a></span>
-<span id="cb199-3"><a href="confounding-and-interaction.html#cb199-3" tabindex="-1"></a>Stratified analysis by  food </span>
-<span id="cb199-4"><a href="confounding-and-interaction.html#cb199-4" tabindex="-1"></a>               OR lower lim. upper lim.  P value</span>
-<span id="cb199-5"><a href="confounding-and-interaction.html#cb199-5" tabindex="-1"></a>food No      <span class="fl">3.37</span>      <span class="fl">1.817</span>       <span class="fl">6.26</span> <span class="fl">4.16e-05</span></span>
-<span id="cb199-6"><a href="confounding-and-interaction.html#cb199-6" tabindex="-1"></a>food Yes     <span class="fl">1.41</span>      <span class="fl">0.795</span>       <span class="fl">2.51</span> <span class="fl">2.19e-01</span></span>
-<span id="cb199-7"><a href="confounding-and-interaction.html#cb199-7" tabindex="-1"></a>M<span class="sc">-</span>H combined <span class="fl">2.08</span>      <span class="fl">1.406</span>       <span class="fl">3.09</span> <span class="fl">1.78e-04</span></span>
-<span id="cb199-8"><a href="confounding-and-interaction.html#cb199-8" tabindex="-1"></a></span>
-<span id="cb199-9"><a href="confounding-and-interaction.html#cb199-9" tabindex="-1"></a>M<span class="sc">-</span>H <span class="fu">Chi2</span>(<span class="dv">1</span>) <span class="ot">=</span> <span class="fl">14.05</span> , P value <span class="ot">=</span> <span class="dv">0</span> </span>
-<span id="cb199-10"><a href="confounding-and-interaction.html#cb199-10" tabindex="-1"></a>Homogeneity test, chi<span class="sc">-</span>squared <span class="dv">1</span> d.f. <span class="ot">=</span> <span class="fl">4.65</span> , P value <span class="ot">=</span> <span class="fl">0.031</span> </span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="confounding-and-interaction.html#cb200-1" tabindex="-1"></a>df_drinks <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">mhor</span>(drunk, liquor, food, <span class="at">graph =</span> F)</span>
+<span id="cb200-2"><a href="confounding-and-interaction.html#cb200-2" tabindex="-1"></a></span>
+<span id="cb200-3"><a href="confounding-and-interaction.html#cb200-3" tabindex="-1"></a>Stratified analysis by  food </span>
+<span id="cb200-4"><a href="confounding-and-interaction.html#cb200-4" tabindex="-1"></a>               OR lower lim. upper lim.  P value</span>
+<span id="cb200-5"><a href="confounding-and-interaction.html#cb200-5" tabindex="-1"></a>food No      <span class="fl">3.37</span>      <span class="fl">1.817</span>       <span class="fl">6.26</span> <span class="fl">4.16e-05</span></span>
+<span id="cb200-6"><a href="confounding-and-interaction.html#cb200-6" tabindex="-1"></a>food Yes     <span class="fl">1.41</span>      <span class="fl">0.795</span>       <span class="fl">2.51</span> <span class="fl">2.19e-01</span></span>
+<span id="cb200-7"><a href="confounding-and-interaction.html#cb200-7" tabindex="-1"></a>M<span class="sc">-</span>H combined <span class="fl">2.08</span>      <span class="fl">1.406</span>       <span class="fl">3.09</span> <span class="fl">1.78e-04</span></span>
+<span id="cb200-8"><a href="confounding-and-interaction.html#cb200-8" tabindex="-1"></a></span>
+<span id="cb200-9"><a href="confounding-and-interaction.html#cb200-9" tabindex="-1"></a>M<span class="sc">-</span>H <span class="fu">Chi2</span>(<span class="dv">1</span>) <span class="ot">=</span> <span class="fl">14.05</span> , P value <span class="ot">=</span> <span class="dv">0</span> </span>
+<span id="cb200-10"><a href="confounding-and-interaction.html#cb200-10" tabindex="-1"></a>Homogeneity test, chi<span class="sc">-</span>squared <span class="dv">1</span> d.f. <span class="ot">=</span> <span class="fl">4.65</span> , P value <span class="ot">=</span> <span class="fl">0.031</span> </span></code></pre></div>
 <p>The stratified analysis output above shows our prior calculated stratified ORs
 as well as the combined Mantel-Haenszel OR. The Homogeneity test above tests the
 null hypothesis:</p>
 <blockquote>
 <p>H0: There is no difference between the two stratified Odds ratios.</p>
 </blockquote>
-<p>A p-value of 0.031 therefore indicates a statistically significant difference
-in effects (OR) for those who ate and those who did not. We therefore conclude
-that there is significant interaction between the food intake and getting drunk
+<p>A p-value of 0.031, therefore, indicates a statistically significant difference
+in effects (OR) for those who ate and those who did not. We, therefore, conclude
+that there is significant interaction between food intake and getting drunk
 if one takes hard liquor.</p>
-<p>In this section we have dealt with detecting a confounder or interaction variable
+<p>In this section, we have dealt with detecting a confounder or interaction variable
 in categorical data analysis. This is just scratching the surface. In subsequent
-chapters we would be dealing a lot more with these but using regression analysis.</p>
+chapters, we would be dealing a lot more with these but using regression analysis.</p>
 
 </div>
 </div>
@@ -463,7 +463,7 @@ chapters we would be dealing a lot more with these but using regression analysis
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-25.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -91,7 +91,7 @@ study population, therefore, is 23.2% to 46.9%.
 
 ### One sample proportion: Hypothesis testing
 
-Before the data on hypertension above was collected, the investigator had 
+Before the data on hypertension above was collected, the investigator  
 hypothesized that 50% of the population was hypertensive. Next, we test this 
 hypothesis. As usual, we start by setting the null hypothesis.
 
@@ -180,21 +180,19 @@ binom.test(23, 67, p=.47, alternative = "less") %>%
 
 
 
-The small p-value leads us to reject H0 and conclude there is insufficient 
-evidence to support the assertion that the prevalence of hypertension in the 
-population is at least 47%.
+The small p-value leads us to reject H0 and conclude it is insufficient 
+evidence to support the assertion that the prevalence of hypertension in the population is at least 47%.
 
 ## Two or more sample binomial test
 ### Two sample proportion: Hypothesis testing
 
 Taking it further we decide to select from a different population and sample 100 
 persons to determine the proportion of those with hypertension. In this 
-population, we came up with 52 hypertension patients out of a hundred. Our aim 
-is to compare if there is a significant difference between the proportion of 
+population, we came up with 52 hypertension patients out of a hundred. We aim to compare if there is a significant difference between the proportion of 
 hypertension patients in the two populations. To do this we use the
 `prop.test()` function in R. 
 
-First we state the null hypothesis:
+First, we state the null hypothesis:
 >H0: The population proportion of hypertension in both populations are the same.
 
 Next, we test the hypothesis. To do this we first create two vectors 
@@ -235,7 +233,7 @@ reject the null hypothesis and say there is enough evidence to conclude that
 the prevalence of hypertension is not the same in the two populations.
 
 The 95% confidence interval generated above is that of the difference between 
-the two proportions, that is 0.177. The confidence interval of 0.014 to 0.339 
+the two proportions, which is 0.177. The confidence interval of 0.014 to 0.339 
 does not include the null value 0 so we conclude that there is a difference in 
 the prevalence of hypertension between the 2 populations.
 
@@ -269,7 +267,7 @@ expected and observed frequencies in Asia and Kumasi respectively.
 
 
 ```r
-bld_grp <- c("A","B", "AB", "O")
+bld_grp <- c("A", "B", "AB", "O")
 Asia <- c(38.0, 10.0, 3.0, 49.9)
 Kumasi  <- c(226, 82, 21, 271)
 Kumasi <- round(Kumasi/sum(Kumasi)*100, 1)
@@ -315,7 +313,7 @@ df_temp %>%
         size=3.5, position = position_dodge(0.9)) +
     scale_fill_brewer(palette="Blues") + 
     labs(
-        title="Comparative distributon of Blood Groups", 
+        title="Comparative distribution of Blood Groups", 
         x = "Blood Group", 
         y = "Frequency")+
     theme_bw()
@@ -351,16 +349,16 @@ Chi-squared approximation may be incorrect
 ```
 
 
-With a p-value of 0.592 we fail to reject H0 and conclude there is no evidence 
-that the proportions of blood groups in Kumasi is different from the observed 
+With a p-value of 0.592, we fail to reject H0 and conclude there is no evidence 
+that the proportions of blood groups in Kumasi are different from the observed 
 proportions in Asia.
 
 ### Chi-squared test for independent data
-In this subsection we will use the ANCdata from the epicalc package. It can also  
+In this subsection, we will use the ANCdata from the epicalc package. It can also  
 be obtained from the list of data that comes with this book. The ANCdata 
 contains records of high-risk pregnant women in a trial to compare a new and an 
-old  method of antenatal care (anc) in two clinics (clinic). The outcome was 
-perinatal mortality, death of the baby within the first week of life (death).
+old method of antenatal care (anc) in two clinics (clinic). The outcome was 
+perinatal mortality, the death of the baby within the first week of life (death).
 
 We begin by loading the ANCdata 
 
@@ -415,23 +413,23 @@ df_anc %>%
 
 
 ```{=html}
-<div id="puhohgkrsx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#puhohgkrsx table {
+<div id="xrllnaipcc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xrllnaipcc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#puhohgkrsx thead, #puhohgkrsx tbody, #puhohgkrsx tfoot, #puhohgkrsx tr, #puhohgkrsx td, #puhohgkrsx th {
+#xrllnaipcc thead, #xrllnaipcc tbody, #xrllnaipcc tfoot, #xrllnaipcc tr, #xrllnaipcc td, #xrllnaipcc th {
   border-style: none;
 }
 
-#puhohgkrsx p {
+#xrllnaipcc p {
   margin: 0;
   padding: 0;
 }
 
-#puhohgkrsx .gt_table {
+#xrllnaipcc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -457,12 +455,12 @@ df_anc %>%
   border-left-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_caption {
+#xrllnaipcc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#puhohgkrsx .gt_title {
+#xrllnaipcc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -474,7 +472,7 @@ df_anc %>%
   border-bottom-width: 0;
 }
 
-#puhohgkrsx .gt_subtitle {
+#xrllnaipcc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -486,7 +484,7 @@ df_anc %>%
   border-top-width: 0;
 }
 
-#puhohgkrsx .gt_heading {
+#xrllnaipcc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -498,13 +496,13 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_bottom_border {
+#xrllnaipcc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_col_headings {
+#xrllnaipcc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -519,7 +517,7 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_col_heading {
+#xrllnaipcc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -539,7 +537,7 @@ df_anc %>%
   overflow-x: hidden;
 }
 
-#puhohgkrsx .gt_column_spanner_outer {
+#xrllnaipcc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -551,15 +549,15 @@ df_anc %>%
   padding-right: 4px;
 }
 
-#puhohgkrsx .gt_column_spanner_outer:first-child {
+#xrllnaipcc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#puhohgkrsx .gt_column_spanner_outer:last-child {
+#xrllnaipcc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#puhohgkrsx .gt_column_spanner {
+#xrllnaipcc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -571,11 +569,11 @@ df_anc %>%
   width: 100%;
 }
 
-#puhohgkrsx .gt_spanner_row {
+#xrllnaipcc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#puhohgkrsx .gt_group_heading {
+#xrllnaipcc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -601,7 +599,7 @@ df_anc %>%
   text-align: left;
 }
 
-#puhohgkrsx .gt_empty_group_heading {
+#xrllnaipcc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -616,15 +614,15 @@ df_anc %>%
   vertical-align: middle;
 }
 
-#puhohgkrsx .gt_from_md > :first-child {
+#xrllnaipcc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#puhohgkrsx .gt_from_md > :last-child {
+#xrllnaipcc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#puhohgkrsx .gt_row {
+#xrllnaipcc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -643,7 +641,7 @@ df_anc %>%
   overflow-x: hidden;
 }
 
-#puhohgkrsx .gt_stub {
+#xrllnaipcc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -656,7 +654,7 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#puhohgkrsx .gt_stub_row_group {
+#xrllnaipcc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -670,15 +668,15 @@ df_anc %>%
   vertical-align: top;
 }
 
-#puhohgkrsx .gt_row_group_first td {
+#xrllnaipcc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#puhohgkrsx .gt_row_group_first th {
+#xrllnaipcc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#puhohgkrsx .gt_summary_row {
+#xrllnaipcc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -688,16 +686,16 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#puhohgkrsx .gt_first_summary_row {
+#xrllnaipcc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_first_summary_row.thick {
+#xrllnaipcc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#puhohgkrsx .gt_last_summary_row {
+#xrllnaipcc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -707,7 +705,7 @@ df_anc %>%
   border-bottom-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_grand_summary_row {
+#xrllnaipcc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -717,7 +715,7 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#puhohgkrsx .gt_first_grand_summary_row {
+#xrllnaipcc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -727,7 +725,7 @@ df_anc %>%
   border-top-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_last_grand_summary_row_top {
+#xrllnaipcc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -737,11 +735,11 @@ df_anc %>%
   border-bottom-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_striped {
+#xrllnaipcc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#puhohgkrsx .gt_table_body {
+#xrllnaipcc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -750,7 +748,7 @@ df_anc %>%
   border-bottom-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_footnotes {
+#xrllnaipcc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -764,7 +762,7 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_footnote {
+#xrllnaipcc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -773,7 +771,7 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#puhohgkrsx .gt_sourcenotes {
+#xrllnaipcc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -787,7 +785,7 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#puhohgkrsx .gt_sourcenote {
+#xrllnaipcc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -795,63 +793,63 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#puhohgkrsx .gt_left {
+#xrllnaipcc .gt_left {
   text-align: left;
 }
 
-#puhohgkrsx .gt_center {
+#xrllnaipcc .gt_center {
   text-align: center;
 }
 
-#puhohgkrsx .gt_right {
+#xrllnaipcc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#puhohgkrsx .gt_font_normal {
+#xrllnaipcc .gt_font_normal {
   font-weight: normal;
 }
 
-#puhohgkrsx .gt_font_bold {
+#xrllnaipcc .gt_font_bold {
   font-weight: bold;
 }
 
-#puhohgkrsx .gt_font_italic {
+#xrllnaipcc .gt_font_italic {
   font-style: italic;
 }
 
-#puhohgkrsx .gt_super {
+#xrllnaipcc .gt_super {
   font-size: 65%;
 }
 
-#puhohgkrsx .gt_footnote_marks {
+#xrllnaipcc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#puhohgkrsx .gt_asterisk {
+#xrllnaipcc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#puhohgkrsx .gt_indent_1 {
+#xrllnaipcc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#puhohgkrsx .gt_indent_2 {
+#xrllnaipcc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#puhohgkrsx .gt_indent_3 {
+#xrllnaipcc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#puhohgkrsx .gt_indent_4 {
+#xrllnaipcc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#puhohgkrsx .gt_indent_5 {
+#xrllnaipcc .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -913,12 +911,12 @@ df_anc %>%
 <img src="Analysis-of-categorical-data_files/figure-html/unnamed-chunk-15-1.png" width="576" />
 
 The cell proportions are not uniform. The proportion of deaths in those who used 
-the old and anc methods are about 11.0% and 5.9% respectively. Is this enough 
+the old and anc methods is about 11.0% and 5.9% respectively. Is this enough 
 evidence to conclude the new is better than the old in the population? This 
 question we would have to answer using a formal statistical test.
 
 Test for independence for tabular data often entails the use of the Chi-squared 
-test and/or the Fisher's exact test. Independence here simply means when one has 
+test and/or Fisher's exact test. Independence here simply means when one has 
 one variable one cannot predict the other variable.
 
 Next, we apply the chi-squared test after we have verified that our data does 
@@ -958,7 +956,7 @@ df_anc %$%
 
 The test above yields a relatively small p-value compared to a significance 
 level of 0.05, indicating the null hypothesis of independence of the cell 
-proportions is unlikely. In other words, the cell proportions differ 
+proportions are unlikely. In other words, the cell proportions differ 
 significantly, the old method can be said to result in significantly higher 
 perinatal deaths compared to the new method.
 
@@ -979,15 +977,15 @@ No.eye <- c(4,7,12,15)
 No.studied <- c(42, 43, 46, 44)
 ```
 
-Next we determine the percentage of those with eye changes for each age group
+Next, we determine the percentage of those with eye changes for each age group
 
 
 ```r
 Perc.eye<-round(No.eye/No.studied * 100, 1)
 ```
 
-Next we form a matrix showing the number of persons with eye changes, the number 
-of persons studies and the percentage of persons with eye changes for each age 
+Next, we form a matrix showing the number of persons with eye changes, the number 
+of persons studied and the percentage of persons with eye changes for each age 
 group.
 
 
@@ -1011,7 +1009,7 @@ conditions we state the null hypothesis.
 
 >H0: There is no trend in the eye changes with increasing age
 
-Next we put it to the formal test
+Next, we put it to the formal test
 
 
 ```r
@@ -1031,7 +1029,7 @@ prop.trend.test(No.eye, No.studied) %>%
 ```
 
 
-With a p-value less that 0.05 we reject the H0 and conclude that there a 
+With a p-value less than 0.05, we reject the H0 and conclude that there a 
 significant trend (upward because we know it is) in developing eye changes with 
 increasing age.
 
@@ -1063,16 +1061,4 @@ The p-value here is quite like that obtained by the chi-squared test but not the
 same. However, the conclusion remains the same. The added advantage of using 
 `fisher.test()` is the provision of the odds ratio and its 95% confidence 
 interval. The odds ratio will be explained in subsequent sections.
-
-
-
-
-
-
-
-
-
-
-
-
 

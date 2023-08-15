@@ -4,22 +4,21 @@
 
 
 Scientific testing for the presence of various disease conditions or processes 
-is very common in everyday life. This could range from the complex testing for 
+is very common in everyday life. This could range from complex testing for 
 the presence of strange diseases to newly manufactured electrical gadgets for 
 defects. Very often there is a Gold Standard test, one that is deemed to 
-perfectly determine the presence or absence of the condition. However there is
-always the search for alternative test often because they are cheaper or easier 
+perfectly determine the presence or absence of the condition. However, there is
+always the search for alternative tests often because they are cheaper or easier 
 to use compared to the Gold standard.
 
-In a study to diagnose malaria in children attending an outpatient clinic in 
-Ghana, children with a clinical suspicion of malaria were tested using three 
-methods. First a blood film reported as a count of the malaria parasites 
+In a study to diagnose malaria in children attending an outpatient clinic in Ghana, children with a clinical suspicion of malaria were tested using three 
+methods. First, a blood film reported as a count of the malaria parasites 
 (Gold standard) was done. Two rapid diagnostic kits, called here RDT.1 and RDT.2 
 were also done concurrently and reported as positive (1) or negative (0). These 
 were done for 100 patients and recorded in `malaria.csv`. Our task is to 
 evaluate RDT.1's ability to accurately and reliably diagnose malaria.
 
-First we read in the data
+First, we read the data
 
 
 ```r
@@ -40,7 +39,7 @@ df_malaria <-
     )
 ```
 
-Summary of the data is as shown below
+The summary of the data is shown below
 
 
 
@@ -93,23 +92,23 @@ df_malaria %>%
 
 
 ```{=html}
-<div id="wgttcvssoj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wgttcvssoj table {
+<div id="xtljmfizzw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xtljmfizzw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wgttcvssoj thead, #wgttcvssoj tbody, #wgttcvssoj tfoot, #wgttcvssoj tr, #wgttcvssoj td, #wgttcvssoj th {
+#xtljmfizzw thead, #xtljmfizzw tbody, #xtljmfizzw tfoot, #xtljmfizzw tr, #xtljmfizzw td, #xtljmfizzw th {
   border-style: none;
 }
 
-#wgttcvssoj p {
+#xtljmfizzw p {
   margin: 0;
   padding: 0;
 }
 
-#wgttcvssoj .gt_table {
+#xtljmfizzw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -135,12 +134,12 @@ df_malaria %>%
   border-left-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_caption {
+#xtljmfizzw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wgttcvssoj .gt_title {
+#xtljmfizzw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -152,7 +151,7 @@ df_malaria %>%
   border-bottom-width: 0;
 }
 
-#wgttcvssoj .gt_subtitle {
+#xtljmfizzw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -164,7 +163,7 @@ df_malaria %>%
   border-top-width: 0;
 }
 
-#wgttcvssoj .gt_heading {
+#xtljmfizzw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -176,13 +175,13 @@ df_malaria %>%
   border-right-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_bottom_border {
+#xtljmfizzw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_col_headings {
+#xtljmfizzw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -197,7 +196,7 @@ df_malaria %>%
   border-right-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_col_heading {
+#xtljmfizzw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -217,7 +216,7 @@ df_malaria %>%
   overflow-x: hidden;
 }
 
-#wgttcvssoj .gt_column_spanner_outer {
+#xtljmfizzw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -229,15 +228,15 @@ df_malaria %>%
   padding-right: 4px;
 }
 
-#wgttcvssoj .gt_column_spanner_outer:first-child {
+#xtljmfizzw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wgttcvssoj .gt_column_spanner_outer:last-child {
+#xtljmfizzw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wgttcvssoj .gt_column_spanner {
+#xtljmfizzw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -249,11 +248,11 @@ df_malaria %>%
   width: 100%;
 }
 
-#wgttcvssoj .gt_spanner_row {
+#xtljmfizzw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wgttcvssoj .gt_group_heading {
+#xtljmfizzw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -279,7 +278,7 @@ df_malaria %>%
   text-align: left;
 }
 
-#wgttcvssoj .gt_empty_group_heading {
+#xtljmfizzw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -294,15 +293,15 @@ df_malaria %>%
   vertical-align: middle;
 }
 
-#wgttcvssoj .gt_from_md > :first-child {
+#xtljmfizzw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wgttcvssoj .gt_from_md > :last-child {
+#xtljmfizzw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wgttcvssoj .gt_row {
+#xtljmfizzw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -321,7 +320,7 @@ df_malaria %>%
   overflow-x: hidden;
 }
 
-#wgttcvssoj .gt_stub {
+#xtljmfizzw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -334,7 +333,7 @@ df_malaria %>%
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_stub_row_group {
+#xtljmfizzw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -348,15 +347,15 @@ df_malaria %>%
   vertical-align: top;
 }
 
-#wgttcvssoj .gt_row_group_first td {
+#xtljmfizzw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wgttcvssoj .gt_row_group_first th {
+#xtljmfizzw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wgttcvssoj .gt_summary_row {
+#xtljmfizzw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -366,16 +365,16 @@ df_malaria %>%
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_first_summary_row {
+#xtljmfizzw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_first_summary_row.thick {
+#xtljmfizzw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wgttcvssoj .gt_last_summary_row {
+#xtljmfizzw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -385,7 +384,7 @@ df_malaria %>%
   border-bottom-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_grand_summary_row {
+#xtljmfizzw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -395,7 +394,7 @@ df_malaria %>%
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_first_grand_summary_row {
+#xtljmfizzw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -405,7 +404,7 @@ df_malaria %>%
   border-top-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_last_grand_summary_row_top {
+#xtljmfizzw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -415,11 +414,11 @@ df_malaria %>%
   border-bottom-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_striped {
+#xtljmfizzw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wgttcvssoj .gt_table_body {
+#xtljmfizzw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -428,7 +427,7 @@ df_malaria %>%
   border-bottom-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_footnotes {
+#xtljmfizzw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -442,7 +441,7 @@ df_malaria %>%
   border-right-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_footnote {
+#xtljmfizzw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -451,7 +450,7 @@ df_malaria %>%
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_sourcenotes {
+#xtljmfizzw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -465,7 +464,7 @@ df_malaria %>%
   border-right-color: #D3D3D3;
 }
 
-#wgttcvssoj .gt_sourcenote {
+#xtljmfizzw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -473,63 +472,63 @@ df_malaria %>%
   padding-right: 5px;
 }
 
-#wgttcvssoj .gt_left {
+#xtljmfizzw .gt_left {
   text-align: left;
 }
 
-#wgttcvssoj .gt_center {
+#xtljmfizzw .gt_center {
   text-align: center;
 }
 
-#wgttcvssoj .gt_right {
+#xtljmfizzw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wgttcvssoj .gt_font_normal {
+#xtljmfizzw .gt_font_normal {
   font-weight: normal;
 }
 
-#wgttcvssoj .gt_font_bold {
+#xtljmfizzw .gt_font_bold {
   font-weight: bold;
 }
 
-#wgttcvssoj .gt_font_italic {
+#xtljmfizzw .gt_font_italic {
   font-style: italic;
 }
 
-#wgttcvssoj .gt_super {
+#xtljmfizzw .gt_super {
   font-size: 65%;
 }
 
-#wgttcvssoj .gt_footnote_marks {
+#xtljmfizzw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wgttcvssoj .gt_asterisk {
+#xtljmfizzw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wgttcvssoj .gt_indent_1 {
+#xtljmfizzw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wgttcvssoj .gt_indent_2 {
+#xtljmfizzw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wgttcvssoj .gt_indent_3 {
+#xtljmfizzw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wgttcvssoj .gt_indent_4 {
+#xtljmfizzw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wgttcvssoj .gt_indent_5 {
+#xtljmfizzw .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -573,12 +572,12 @@ df_malaria %>%
 ```
 
 
-The table above decomposes the the test results into 4 distinct categories.
+The table above decomposes the test results into 4 distinct categories.
 
 1. Those who had both RDT.1 and the gold standard positive (True positive) were 50.
 1. The group with both RDT.1 and Gold standard negative (True Negative) were 44.
-1. The group that apparently showed a positive RDT.1 results when they actually are negative by the Gold standard (False positive) were 2.
-1. Finally the last group, those whose RDT.1 result were negative but are actually positive
+1. The group that showed a positive RDT.1 results when they are negative by the Gold standard (False positive) were 2.
+1. Finally the last group, those whose RDT.1 results were negative but are positive
 judging by the Gold standard (False negative) were 4.
 
 We operationalise these by extracting relevant portions of the table below
@@ -593,7 +592,7 @@ fn <- 4
 
 ## True prevalence of the disease
 The true prevalence of the disease is the proportion of the diseased individuals 
-observed in the study population as determine by the gold standard. This is 
+observed in the study population as determined by the gold standard. This is 
 mathematically given by
  $$True~prevalence = \frac{tp + fn}{tp + tn + fp + fn}$$
 
@@ -609,7 +608,7 @@ true.prevalence
 
 ## Apparent prevalence of the disease
 The apparent prevalence of the disease is the proportion of the diseased 
-individuals observed in the study population as determine by the RDT.1 test. 
+individuals observed in the study population as determined by the RDT.1 test. 
 This is mathematically given by
  $$Apparent~prevalence = \frac{tp + fp}{tp + tn + fp + fn}$$
 And determined with our data by
@@ -622,10 +621,10 @@ apparent.prevalence
 
 ## Sensitivity of a test
 The sensitivity of a test defines as the proportion of individuals with the 
-disease who are correctly identified by the test applied. It ranges form 0, a completely useless test to 1,a perfect test. Mathematically this is defined as
+disease who are correctly identified by the test applied. It ranges from 0, a completely useless test to 1, a perfect test. Mathematically this is defined as
 
 $$Sensitivity = \frac{tp}{tp + fn}$$
-And is determined as below
+And is determined below
 
 ```r
 sensitivity <- tp/(tp+fn)
@@ -634,8 +633,8 @@ sensitivity
 ```
 
 ## Specificity of a test
-The specificity of a test is defined as proportion of individuals without the 
-disease who are correctly identified by the test used. It ranges form 0, a 
+The specificity of a test is defined as the proportion of individuals without the 
+disease who are correctly identified by the test used. It ranges from 0, a 
 completely useless test to 1, a perfect test. Mathematically this is defined as
 $$Specificity = \frac{tn}{tn + fp}$$
 
@@ -649,7 +648,7 @@ specificity
 
 ## Predictive value of a test
 ### Positive predictive value of a test
-The positive predictive value (ppv) of a test is defined as the proportion of 
+The positive predictive value (PPV) of a test is defined as the proportion of 
 individuals with a positive test result who have the disease. This is a more 
 useful measure compared to the sensitivity and specificity because it indicates 
 how much weight one has to put on a positive test result when confronted with 
@@ -670,7 +669,7 @@ the ppv this is a more useful measure compared to the sensitivity and
 specificity as it indicates how much weight one has to put on a negative test 
 result when confronted with one. Mathematically it is defined as:
 $$NPV = \frac{tn}{tn + fn}$$
-And determined as below
+And determined below
 
 
 ```r
@@ -682,7 +681,7 @@ npv
 
 ## Likelihood ratio of a test
 The likelihood ratio of a test is another way of expressing its usefulness. 
-Unlike the previous statistics about tests the likelihood ratios stretch beyond 
+Unlike the previous statistics about tests, the likelihood ratios stretch beyond 
 0 to 1. A likelihood ratio of 1 indicates a useless (non-discriminatory) test.
 
 ### The Positive likelihood ratio (LR+) 
@@ -721,9 +720,9 @@ nLR
 
 
 ## Summary
-Fortunately all these can be obtained in one go using the `epi.tests()` function 
+Fortunately, all these can be obtained in one go using the `epi.tests()` function 
 from the `epiR`package. The function however requires a table formatted in a 
-specific way. Below we creat the table
+specific way. Below we create the table
 
 
 ```r
@@ -768,7 +767,7 @@ Correctly classified proportion *      0.94 (0.87, 0.98)
 ```
 
 **Conclusion**: With the high (all above 0.9) Sensitivity, Specificity, PPV and 
-NPV this appears to be a very good test. This is confirmed by the relatively 
+NPV, the test appears to be a very good one. This is confirmed by the relatively 
 high LR+ and low LR-.
 
 

@@ -2,23 +2,23 @@
 # Receiver Operating Characteristic
 
 
-Up until now we have dealt with tests that are categorized as either positive or 
+Up until now, we have dealt with tests that are categorized as either positive or 
 negative. However, many tests are quantitative rather than qualitative. For 
-instance the blood urea and nitrogen, serum cholesterol and serum protein among 
+instance, the blood urea and nitrogen, serum cholesterol and serum protein among 
 many others are measured on a continuous scale often ranging from 0 to infinity. 
 Such tests pose different challenges as we often need a cut-off point to 
 determine which range of values can be considered "normal" or "abnormal". As we
 have learned above the sensitivity and specificity of a test are often used to 
-defines how good it is. For tests on a continuous scale the sensitivity and 
+define how good it is. For tests on a continuous scale the sensitivity and 
 specificity change depending on the cut-off provided for the measure.
 
-In this section we use the lbw.csv data collected in a study conducted in a 
-cohort of 350 newborns in Ghana. The identification of babies born with weight 
-of less than 2.5kgs is important because of the special needs they require. In 
-many under developed countries however the unavailability of a reliable weighing 
+In this section, we use the lbw.csv data collected in a study conducted in a 
+cohort of 350 newborns in Ghana. The identification of babies born with a weight 
+of less than 2.5 kg is important because of the special needs they require. In 
+many underdeveloped countries, however, the unavailability of a reliable weighing 
 scale makes this a challenge. This has prompted the search for other surrogate 
-measures easily available in rural areas for determining if a baby is low birth 
-weight (<2.5kgs). The aim of the study was to determine how well the length or 
+measures easily available in rural areas for determining if a baby is a low birth 
+weight (<2.5kgs). The study aimed to determine how well the length or 
 chest circumference of a baby could be used as a surrogate indicator for low 
 birth weight in newborns. If they turn out to be good tests they can easily be 
 deployed in any rural area as the only instrument needed here would be a 
@@ -26,7 +26,7 @@ measuring tape. The variables collected include their study ID (sid), birth
 weight (bweight), sex (gender), chest circumference (chc) and length
 of baby (lgth).
 
-First we read in the data after clearing the workspace
+First, we read the data after clearing the workspace
 
 
 ```r
@@ -86,7 +86,7 @@ be used extensively in this section.
 As mentioned above when one has a gold standard which is bivariate (indicating 
 presence or absence) and a quantitative test, the sensitivity and specificity of 
 the test depends on the cut-off chosen. For our `lbw.csv` data our gold standard 
-for a low birth weight baby is the the birth weight categorised into low birth 
+for a low birth weight baby is the birth weight categorised into low birth 
 weight (LBW) or normal birth weight (NBW). Two continuous measures, the chest 
 circumference and the length of the baby were used as our tests.
 
@@ -98,7 +98,7 @@ specificity we generate some arbitrary cut-offs.
 cut.off <- c(28, 42, 44, 46, 47, 49, 50, 51, 61)
 ```
 
-From these cut-offs we generate the categories from the length of the babies 
+From these cut-offs, we generate the categories from the length of the babies 
 and tabulate the resultant categorical variable.
 
 
@@ -122,23 +122,23 @@ df_lbw %>%
 
 
 ```{=html}
-<div id="diuagptzph" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#diuagptzph table {
+<div id="dqfdzklaen" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dqfdzklaen table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#diuagptzph thead, #diuagptzph tbody, #diuagptzph tfoot, #diuagptzph tr, #diuagptzph td, #diuagptzph th {
+#dqfdzklaen thead, #dqfdzklaen tbody, #dqfdzklaen tfoot, #dqfdzklaen tr, #dqfdzklaen td, #dqfdzklaen th {
   border-style: none;
 }
 
-#diuagptzph p {
+#dqfdzklaen p {
   margin: 0;
   padding: 0;
 }
 
-#diuagptzph .gt_table {
+#dqfdzklaen .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -164,12 +164,12 @@ df_lbw %>%
   border-left-color: #D3D3D3;
 }
 
-#diuagptzph .gt_caption {
+#dqfdzklaen .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#diuagptzph .gt_title {
+#dqfdzklaen .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -181,7 +181,7 @@ df_lbw %>%
   border-bottom-width: 0;
 }
 
-#diuagptzph .gt_subtitle {
+#dqfdzklaen .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -193,7 +193,7 @@ df_lbw %>%
   border-top-width: 0;
 }
 
-#diuagptzph .gt_heading {
+#dqfdzklaen .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -205,13 +205,13 @@ df_lbw %>%
   border-right-color: #D3D3D3;
 }
 
-#diuagptzph .gt_bottom_border {
+#dqfdzklaen .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#diuagptzph .gt_col_headings {
+#dqfdzklaen .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -226,7 +226,7 @@ df_lbw %>%
   border-right-color: #D3D3D3;
 }
 
-#diuagptzph .gt_col_heading {
+#dqfdzklaen .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -246,7 +246,7 @@ df_lbw %>%
   overflow-x: hidden;
 }
 
-#diuagptzph .gt_column_spanner_outer {
+#dqfdzklaen .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -258,15 +258,15 @@ df_lbw %>%
   padding-right: 4px;
 }
 
-#diuagptzph .gt_column_spanner_outer:first-child {
+#dqfdzklaen .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#diuagptzph .gt_column_spanner_outer:last-child {
+#dqfdzklaen .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#diuagptzph .gt_column_spanner {
+#dqfdzklaen .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -278,11 +278,11 @@ df_lbw %>%
   width: 100%;
 }
 
-#diuagptzph .gt_spanner_row {
+#dqfdzklaen .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#diuagptzph .gt_group_heading {
+#dqfdzklaen .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -308,7 +308,7 @@ df_lbw %>%
   text-align: left;
 }
 
-#diuagptzph .gt_empty_group_heading {
+#dqfdzklaen .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -323,15 +323,15 @@ df_lbw %>%
   vertical-align: middle;
 }
 
-#diuagptzph .gt_from_md > :first-child {
+#dqfdzklaen .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#diuagptzph .gt_from_md > :last-child {
+#dqfdzklaen .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#diuagptzph .gt_row {
+#dqfdzklaen .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -350,7 +350,7 @@ df_lbw %>%
   overflow-x: hidden;
 }
 
-#diuagptzph .gt_stub {
+#dqfdzklaen .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -363,7 +363,7 @@ df_lbw %>%
   padding-right: 5px;
 }
 
-#diuagptzph .gt_stub_row_group {
+#dqfdzklaen .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -377,15 +377,15 @@ df_lbw %>%
   vertical-align: top;
 }
 
-#diuagptzph .gt_row_group_first td {
+#dqfdzklaen .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#diuagptzph .gt_row_group_first th {
+#dqfdzklaen .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#diuagptzph .gt_summary_row {
+#dqfdzklaen .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -395,16 +395,16 @@ df_lbw %>%
   padding-right: 5px;
 }
 
-#diuagptzph .gt_first_summary_row {
+#dqfdzklaen .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#diuagptzph .gt_first_summary_row.thick {
+#dqfdzklaen .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#diuagptzph .gt_last_summary_row {
+#dqfdzklaen .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -414,7 +414,7 @@ df_lbw %>%
   border-bottom-color: #D3D3D3;
 }
 
-#diuagptzph .gt_grand_summary_row {
+#dqfdzklaen .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -424,7 +424,7 @@ df_lbw %>%
   padding-right: 5px;
 }
 
-#diuagptzph .gt_first_grand_summary_row {
+#dqfdzklaen .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -434,7 +434,7 @@ df_lbw %>%
   border-top-color: #D3D3D3;
 }
 
-#diuagptzph .gt_last_grand_summary_row_top {
+#dqfdzklaen .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -444,11 +444,11 @@ df_lbw %>%
   border-bottom-color: #D3D3D3;
 }
 
-#diuagptzph .gt_striped {
+#dqfdzklaen .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#diuagptzph .gt_table_body {
+#dqfdzklaen .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -457,7 +457,7 @@ df_lbw %>%
   border-bottom-color: #D3D3D3;
 }
 
-#diuagptzph .gt_footnotes {
+#dqfdzklaen .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -471,7 +471,7 @@ df_lbw %>%
   border-right-color: #D3D3D3;
 }
 
-#diuagptzph .gt_footnote {
+#dqfdzklaen .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -480,7 +480,7 @@ df_lbw %>%
   padding-right: 5px;
 }
 
-#diuagptzph .gt_sourcenotes {
+#dqfdzklaen .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -494,7 +494,7 @@ df_lbw %>%
   border-right-color: #D3D3D3;
 }
 
-#diuagptzph .gt_sourcenote {
+#dqfdzklaen .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -502,63 +502,63 @@ df_lbw %>%
   padding-right: 5px;
 }
 
-#diuagptzph .gt_left {
+#dqfdzklaen .gt_left {
   text-align: left;
 }
 
-#diuagptzph .gt_center {
+#dqfdzklaen .gt_center {
   text-align: center;
 }
 
-#diuagptzph .gt_right {
+#dqfdzklaen .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#diuagptzph .gt_font_normal {
+#dqfdzklaen .gt_font_normal {
   font-weight: normal;
 }
 
-#diuagptzph .gt_font_bold {
+#dqfdzklaen .gt_font_bold {
   font-weight: bold;
 }
 
-#diuagptzph .gt_font_italic {
+#dqfdzklaen .gt_font_italic {
   font-style: italic;
 }
 
-#diuagptzph .gt_super {
+#dqfdzklaen .gt_super {
   font-size: 65%;
 }
 
-#diuagptzph .gt_footnote_marks {
+#dqfdzklaen .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#diuagptzph .gt_asterisk {
+#dqfdzklaen .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#diuagptzph .gt_indent_1 {
+#dqfdzklaen .gt_indent_1 {
   text-indent: 5px;
 }
 
-#diuagptzph .gt_indent_2 {
+#dqfdzklaen .gt_indent_2 {
   text-indent: 10px;
 }
 
-#diuagptzph .gt_indent_3 {
+#dqfdzklaen .gt_indent_3 {
   text-indent: 15px;
 }
 
-#diuagptzph .gt_indent_4 {
+#dqfdzklaen .gt_indent_4 {
   text-indent: 20px;
 }
 
-#diuagptzph .gt_indent_5 {
+#dqfdzklaen .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -601,7 +601,7 @@ df_lbw %>%
 ```
 
 
-Next we determine the sensitivities and specificities at the various cut-offs by 
+Next, we determine the sensitivities and specificities at the various cut-offs by 
 using the `roc()` function from the `pROC` package. Since this package requires 
 an ordered categorical variable we convert `lgthcat` into an ordered factor 
 variable. And then go ahead to impute the relevant information into the `roc()` 

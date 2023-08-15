@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 11 Descriptive Statistics of Continuous Data | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content='For this section we will use the NewDrug_clean.dta dataset newdrug &lt;-    haven::read_dta("./Data/NewDrug_clean.dta") %&gt;%   mutate(sex = haven::as_factor(sex), treat = haven::as_factor(treat)) %&gt;% ...'>
+<meta name="description" content='For this section, we will use the NewDrug_clean.dta dataset newdrug &lt;-    haven::read_dta("./Data/NewDrug_clean.dta") %&gt;%   mutate(sex = haven::as_factor(sex), treat = haven::as_factor(treat)) %&gt;%...'>
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Chapter 11 Descriptive Statistics of Continuous Data | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/descriptive-statistics-of-continuous-data.html">
-<meta property="og:description" content='For this section we will use the NewDrug_clean.dta dataset newdrug &lt;-    haven::read_dta("./Data/NewDrug_clean.dta") %&gt;%   mutate(sex = haven::as_factor(sex), treat = haven::as_factor(treat)) %&gt;% ...'>
+<meta property="og:description" content='For this section, we will use the NewDrug_clean.dta dataset newdrug &lt;-    haven::read_dta("./Data/NewDrug_clean.dta") %&gt;%   mutate(sex = haven::as_factor(sex), treat = haven::as_factor(treat)) %&gt;%...'>
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 11 Descriptive Statistics of Continuous Data | Medical Statistics using R">
-<meta name="twitter:description" content='For this section we will use the NewDrug_clean.dta dataset newdrug &lt;-    haven::read_dta("./Data/NewDrug_clean.dta") %&gt;%   mutate(sex = haven::as_factor(sex), treat = haven::as_factor(treat)) %&gt;% ...'>
+<meta name="twitter:description" content='For this section, we will use the NewDrug_clean.dta dataset newdrug &lt;-    haven::read_dta("./Data/NewDrug_clean.dta") %&gt;%   mutate(sex = haven::as_factor(sex), treat = haven::as_factor(treat)) %&gt;%...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -72,12 +72,12 @@
 <li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
 <li><a class="" href="statistical-data-types.html"><span class="header-section-number">3</span> Statistical data types</a></li>
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
-<li><a class="" href="hello-r.html"><span class="header-section-number">5</span> Hello R</a></li>
-<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">6</span> Data Structures in R</a></li>
-<li><a class="" href="data-import-export.html"><span class="header-section-number">7</span> Data import &amp; export</a></li>
+<li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
+<li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
+<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
 <li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-catergorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Catergorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
 <li><a class="active" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
 <li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
@@ -110,37 +110,37 @@
 <h1>
 <span class="header-section-number">11</span> Descriptive Statistics of Continuous Data<a class="anchor" aria-label="anchor" href="#descriptive-statistics-of-continuous-data"><i class="fas fa-link"></i></a>
 </h1>
-<p>For this section we will use the <code>NewDrug_clean.dta</code> dataset</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="descriptive-statistics-of-continuous-data.html#cb117-1" tabindex="-1"></a>newdrug <span class="ot">&lt;-</span>  </span>
-<span id="cb117-2"><a href="descriptive-statistics-of-continuous-data.html#cb117-2" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"./Data/NewDrug_clean.dta"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb117-3"><a href="descriptive-statistics-of-continuous-data.html#cb117-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sex  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(sex), <span class="at">treat =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(treat)) <span class="sc">%&gt;%</span> </span>
-<span id="cb117-4"><a href="descriptive-statistics-of-continuous-data.html#cb117-4" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">zap_labels</span>() </span>
-<span id="cb117-5"><a href="descriptive-statistics-of-continuous-data.html#cb117-5" tabindex="-1"></a></span>
-<span id="cb117-6"><a href="descriptive-statistics-of-continuous-data.html#cb117-6" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
-<span id="cb117-7"><a href="descriptive-statistics-of-continuous-data.html#cb117-7" tabindex="-1"></a>      id                treat         age        sex   </span>
-<span id="cb117-8"><a href="descriptive-statistics-of-continuous-data.html#cb117-8" tabindex="-1"></a> Length<span class="sc">:</span><span class="dv">50</span>          Control<span class="sc">:</span><span class="dv">22</span>   Min.   <span class="sc">:</span><span class="fl">45.00</span>   F<span class="sc">:</span><span class="dv">26</span>  </span>
-<span id="cb117-9"><a href="descriptive-statistics-of-continuous-data.html#cb117-9" tabindex="-1"></a> Class <span class="sc">:</span>character   Newdrug<span class="sc">:</span><span class="dv">28</span>   1st Qu.<span class="sc">:</span><span class="fl">57.25</span>   M<span class="sc">:</span><span class="dv">24</span>  </span>
-<span id="cb117-10"><a href="descriptive-statistics-of-continuous-data.html#cb117-10" tabindex="-1"></a> Mode  <span class="sc">:</span>character                Median <span class="sc">:</span><span class="fl">63.00</span>         </span>
-<span id="cb117-11"><a href="descriptive-statistics-of-continuous-data.html#cb117-11" tabindex="-1"></a>                                 Mean   <span class="sc">:</span><span class="fl">61.48</span>         </span>
-<span id="cb117-12"><a href="descriptive-statistics-of-continuous-data.html#cb117-12" tabindex="-1"></a>                                 3rd Qu.<span class="sc">:</span><span class="fl">65.00</span>         </span>
-<span id="cb117-13"><a href="descriptive-statistics-of-continuous-data.html#cb117-13" tabindex="-1"></a>                                 Max.   <span class="sc">:</span><span class="fl">75.00</span>         </span>
-<span id="cb117-14"><a href="descriptive-statistics-of-continuous-data.html#cb117-14" tabindex="-1"></a>      bp1              bp2            bpdiff      </span>
-<span id="cb117-15"><a href="descriptive-statistics-of-continuous-data.html#cb117-15" tabindex="-1"></a> Min.   <span class="sc">:</span> <span class="fl">87.50</span>   Min.   <span class="sc">:</span><span class="fl">78.00</span>   Min.   <span class="sc">:</span> <span class="fl">0.500</span>  </span>
-<span id="cb117-16"><a href="descriptive-statistics-of-continuous-data.html#cb117-16" tabindex="-1"></a> 1st Qu.<span class="sc">:</span> <span class="fl">95.62</span>   1st Qu.<span class="sc">:</span><span class="fl">85.22</span>   1st Qu.<span class="sc">:</span> <span class="fl">4.800</span>  </span>
-<span id="cb117-17"><a href="descriptive-statistics-of-continuous-data.html#cb117-17" tabindex="-1"></a> Median <span class="sc">:</span> <span class="fl">97.70</span>   Median <span class="sc">:</span><span class="fl">88.15</span>   Median <span class="sc">:</span> <span class="fl">8.250</span>  </span>
-<span id="cb117-18"><a href="descriptive-statistics-of-continuous-data.html#cb117-18" tabindex="-1"></a> Mean   <span class="sc">:</span> <span class="fl">98.30</span>   Mean   <span class="sc">:</span><span class="fl">88.60</span>   Mean   <span class="sc">:</span> <span class="fl">9.704</span>  </span>
-<span id="cb117-19"><a href="descriptive-statistics-of-continuous-data.html#cb117-19" tabindex="-1"></a> 3rd Qu.<span class="sc">:</span> <span class="fl">99.40</span>   3rd Qu.<span class="sc">:</span><span class="fl">92.10</span>   3rd Qu.<span class="sc">:</span><span class="fl">13.700</span>  </span>
-<span id="cb117-20"><a href="descriptive-statistics-of-continuous-data.html#cb117-20" tabindex="-1"></a> Max.   <span class="sc">:</span><span class="fl">111.70</span>   Max.   <span class="sc">:</span><span class="fl">99.70</span>   Max.   <span class="sc">:</span><span class="fl">26.300</span>  </span></code></pre></div>
+<p>For this section, we will use the <code>NewDrug_clean.dta</code> dataset</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="descriptive-statistics-of-continuous-data.html#cb119-1" tabindex="-1"></a>newdrug <span class="ot">&lt;-</span>  </span>
+<span id="cb119-2"><a href="descriptive-statistics-of-continuous-data.html#cb119-2" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"./Data/NewDrug_clean.dta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-3"><a href="descriptive-statistics-of-continuous-data.html#cb119-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sex  =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(sex), <span class="at">treat =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(treat)) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-4"><a href="descriptive-statistics-of-continuous-data.html#cb119-4" tabindex="-1"></a>    haven<span class="sc">::</span><span class="fu">zap_labels</span>() </span>
+<span id="cb119-5"><a href="descriptive-statistics-of-continuous-data.html#cb119-5" tabindex="-1"></a></span>
+<span id="cb119-6"><a href="descriptive-statistics-of-continuous-data.html#cb119-6" tabindex="-1"></a>newdrug <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
+<span id="cb119-7"><a href="descriptive-statistics-of-continuous-data.html#cb119-7" tabindex="-1"></a>      id                treat         age        sex   </span>
+<span id="cb119-8"><a href="descriptive-statistics-of-continuous-data.html#cb119-8" tabindex="-1"></a> Length<span class="sc">:</span><span class="dv">50</span>          Control<span class="sc">:</span><span class="dv">22</span>   Min.   <span class="sc">:</span><span class="fl">45.00</span>   F<span class="sc">:</span><span class="dv">26</span>  </span>
+<span id="cb119-9"><a href="descriptive-statistics-of-continuous-data.html#cb119-9" tabindex="-1"></a> Class <span class="sc">:</span>character   Newdrug<span class="sc">:</span><span class="dv">28</span>   1st Qu.<span class="sc">:</span><span class="fl">57.25</span>   M<span class="sc">:</span><span class="dv">24</span>  </span>
+<span id="cb119-10"><a href="descriptive-statistics-of-continuous-data.html#cb119-10" tabindex="-1"></a> Mode  <span class="sc">:</span>character                Median <span class="sc">:</span><span class="fl">63.00</span>         </span>
+<span id="cb119-11"><a href="descriptive-statistics-of-continuous-data.html#cb119-11" tabindex="-1"></a>                                 Mean   <span class="sc">:</span><span class="fl">61.48</span>         </span>
+<span id="cb119-12"><a href="descriptive-statistics-of-continuous-data.html#cb119-12" tabindex="-1"></a>                                 3rd Qu.<span class="sc">:</span><span class="fl">65.00</span>         </span>
+<span id="cb119-13"><a href="descriptive-statistics-of-continuous-data.html#cb119-13" tabindex="-1"></a>                                 Max.   <span class="sc">:</span><span class="fl">75.00</span>         </span>
+<span id="cb119-14"><a href="descriptive-statistics-of-continuous-data.html#cb119-14" tabindex="-1"></a>      bp1              bp2            bpdiff      </span>
+<span id="cb119-15"><a href="descriptive-statistics-of-continuous-data.html#cb119-15" tabindex="-1"></a> Min.   <span class="sc">:</span> <span class="fl">87.50</span>   Min.   <span class="sc">:</span><span class="fl">78.00</span>   Min.   <span class="sc">:</span> <span class="fl">0.500</span>  </span>
+<span id="cb119-16"><a href="descriptive-statistics-of-continuous-data.html#cb119-16" tabindex="-1"></a> 1st Qu.<span class="sc">:</span> <span class="fl">95.62</span>   1st Qu.<span class="sc">:</span><span class="fl">85.22</span>   1st Qu.<span class="sc">:</span> <span class="fl">4.800</span>  </span>
+<span id="cb119-17"><a href="descriptive-statistics-of-continuous-data.html#cb119-17" tabindex="-1"></a> Median <span class="sc">:</span> <span class="fl">97.70</span>   Median <span class="sc">:</span><span class="fl">88.15</span>   Median <span class="sc">:</span> <span class="fl">8.250</span>  </span>
+<span id="cb119-18"><a href="descriptive-statistics-of-continuous-data.html#cb119-18" tabindex="-1"></a> Mean   <span class="sc">:</span> <span class="fl">98.30</span>   Mean   <span class="sc">:</span><span class="fl">88.60</span>   Mean   <span class="sc">:</span> <span class="fl">9.704</span>  </span>
+<span id="cb119-19"><a href="descriptive-statistics-of-continuous-data.html#cb119-19" tabindex="-1"></a> 3rd Qu.<span class="sc">:</span> <span class="fl">99.40</span>   3rd Qu.<span class="sc">:</span><span class="fl">92.10</span>   3rd Qu.<span class="sc">:</span><span class="fl">13.700</span>  </span>
+<span id="cb119-20"><a href="descriptive-statistics-of-continuous-data.html#cb119-20" tabindex="-1"></a> Max.   <span class="sc">:</span><span class="fl">111.70</span>   Max.   <span class="sc">:</span><span class="fl">99.70</span>   Max.   <span class="sc">:</span><span class="fl">26.300</span>  </span></code></pre></div>
 <div id="single-continuous-variable" class="section level3" number="11.0.1">
 <h3>
 <span class="header-section-number">11.0.1</span> Single continuous variable<a class="anchor" aria-label="anchor" href="#single-continuous-variable"><i class="fas fa-link"></i></a>
 </h3>
 <div id="measures-of-central-tendency-dispersion" class="section level4" number="11.0.1.1">
 <h4>
-<span class="header-section-number">11.0.1.1</span> Measures of Central tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.0.1.1</span> Measures of Central Tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion"><i class="fas fa-link"></i></a>
 </h4>
-<p>These include mean and median and displayed below</p>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<p>These include mean and median and are displayed below</p>
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">summarise</span><span class="op">(</span></span>
 <span>        mean.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>, </span>
@@ -152,7 +152,7 @@
 <span>    <span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-3">Table 10.1: </span> </caption>
+<span id="tab:unnamed-chunk-3">Table 6.2: </span> </caption>
 <col>
 <col>
 <col>
@@ -177,12 +177,12 @@
 </tr>
 </table></div>
 <p>Alternatively</p>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-4">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-4">Table 11.1: </span> </caption>
+<span id="tab:unnamed-chunk-4">Table 6.3: </span> </caption>
 <col>
 <col>
 <col>
@@ -228,12 +228,12 @@
 </tr>
 </table></div>
 <p>And to show the interquartile range we do the following.</p>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">bp1</span>, IQR <span class="op">=</span> <span class="cn">TRUE</span>,quant <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.25</span>, <span class="fl">.75</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-5">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-5">Table 11.2: </span> </caption>
+<span id="tab:unnamed-chunk-5">Table 11.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -292,7 +292,7 @@
 <h4>
 <span class="header-section-number">11.0.1.2</span> Graphs - Histogram<a class="anchor" aria-label="anchor" href="#graphs---histogram"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">7</span>, col<span class="op">=</span><span class="st">"black"</span>, alpha <span class="op">=</span> <span class="fl">.5</span>, fill <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -305,7 +305,7 @@
 <h4>
 <span class="header-section-number">11.0.1.3</span> Graphs - Boxplot and violin plot<a class="anchor" aria-label="anchor" href="#graphs---boxplot-and-violin-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_boxplot</span><span class="op">(</span>col<span class="op">=</span><span class="st">"black"</span>,  </span>
@@ -322,7 +322,7 @@
 <h4>
 <span class="header-section-number">11.0.1.4</span> Graphs - Density plot<a class="anchor" aria-label="anchor" href="#graphs---density-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">bp1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_density</span><span class="op">(</span>col<span class="op">=</span><span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"yellow"</span>, alpha<span class="op">=</span><span class="fl">.6</span><span class="op">)</span> <span class="op">+</span></span>
@@ -336,7 +336,7 @@
 <h4>
 <span class="header-section-number">11.0.1.5</span> Graphs - Cumulative Frequency plot<a class="anchor" aria-label="anchor" href="#graphs---cumulative-frequency-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">summarize</span><span class="op">(</span>n <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -360,13 +360,13 @@
 <h4>
 <span class="header-section-number">11.0.2.1</span> Measures of Central tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-10">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-10">Table 11.3: </span> </caption>
+<span id="tab:unnamed-chunk-10">Table 11.2: </span> </caption>
 <col>
 <col>
 <col>
@@ -457,7 +457,7 @@
 </tr>
 </table></div>
 <p>To illustrate graphing multiple continuous variables we use the 2 bp variables</p>
-<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bps</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="va">newdrug</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="va">bp1</span>, <span class="va">bp2</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -470,18 +470,18 @@
 <span>            <span class="va">measure</span>, <span class="st">"Pre-Treatment"</span> <span class="op">=</span> <span class="st">"bp1"</span>, <span class="st">"Post-Treatment"</span> <span class="op">=</span> <span class="st">"bp2"</span></span>
 <span>            <span class="op">)</span></span>
 <span>        <span class="op">)</span></span></code></pre></div>
-<p>Next we create multiple density plots</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="descriptive-statistics-of-continuous-data.html#cb127-1" tabindex="-1"></a>bps <span class="sc">%&gt;%</span> </span>
-<span id="cb127-2"><a href="descriptive-statistics-of-continuous-data.html#cb127-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> measure, <span class="at">x =</span> bp, <span class="at">fill =</span> measure)) <span class="sc">+</span></span>
-<span id="cb127-3"><a href="descriptive-statistics-of-continuous-data.html#cb127-3" tabindex="-1"></a>    ggridges<span class="sc">::</span><span class="fu">geom_density_ridges2</span>( <span class="at">col=</span><span class="st">"black"</span>, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">scale=</span><span class="dv">1</span>, </span>
-<span id="cb127-4"><a href="descriptive-statistics-of-continuous-data.html#cb127-4" tabindex="-1"></a>                                    <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
-<span id="cb127-5"><a href="descriptive-statistics-of-continuous-data.html#cb127-5" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Blood pressure (mmHg)"</span>, </span>
-<span id="cb127-6"><a href="descriptive-statistics-of-continuous-data.html#cb127-6" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Density"</span>, </span>
-<span id="cb127-7"><a href="descriptive-statistics-of-continuous-data.html#cb127-7" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Blood Pressure"</span>) <span class="sc">+</span></span>
-<span id="cb127-8"><a href="descriptive-statistics-of-continuous-data.html#cb127-8" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb127-9"><a href="descriptive-statistics-of-continuous-data.html#cb127-9" tabindex="-1"></a>Picking joint bandwidth of <span class="fl">1.52</span></span></code></pre></div>
+<p>Next, we create multiple density plots</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="descriptive-statistics-of-continuous-data.html#cb129-1" tabindex="-1"></a>bps <span class="sc">%&gt;%</span> </span>
+<span id="cb129-2"><a href="descriptive-statistics-of-continuous-data.html#cb129-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> measure, <span class="at">x =</span> bp, <span class="at">fill =</span> measure)) <span class="sc">+</span></span>
+<span id="cb129-3"><a href="descriptive-statistics-of-continuous-data.html#cb129-3" tabindex="-1"></a>    ggridges<span class="sc">::</span><span class="fu">geom_density_ridges2</span>( <span class="at">col=</span><span class="st">"black"</span>, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">scale=</span><span class="dv">1</span>, </span>
+<span id="cb129-4"><a href="descriptive-statistics-of-continuous-data.html#cb129-4" tabindex="-1"></a>                                    <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb129-5"><a href="descriptive-statistics-of-continuous-data.html#cb129-5" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Blood pressure (mmHg)"</span>, </span>
+<span id="cb129-6"><a href="descriptive-statistics-of-continuous-data.html#cb129-6" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Density"</span>, </span>
+<span id="cb129-7"><a href="descriptive-statistics-of-continuous-data.html#cb129-7" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Blood Pressure"</span>) <span class="sc">+</span></span>
+<span id="cb129-8"><a href="descriptive-statistics-of-continuous-data.html#cb129-8" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb129-9"><a href="descriptive-statistics-of-continuous-data.html#cb129-9" tabindex="-1"></a>Picking joint bandwidth of <span class="fl">1.52</span></span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-12-1.png" width="576"></div>
-<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bps</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">measure</span>, x <span class="op">=</span> <span class="va">bp</span>, fill <span class="op">=</span> <span class="va">measure</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu">geom_boxplot</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -491,7 +491,7 @@
 <span>    <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-13-1.png" width="576"></div>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bps</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">measure</span>, x <span class="op">=</span> <span class="va">bp</span>, fill <span class="op">=</span> <span class="va">measure</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu">geom_violin</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -500,16 +500,16 @@
 <div class="inline-figure"><img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-14-1.png" width="576"></div>
 </div>
 </div>
-<div id="continuous-by-single-categorical-variable" class="section level2" number="11.1">
+<div id="continuous-by-a-single-categorical-variable" class="section level2" number="11.1">
 <h2>
-<span class="header-section-number">11.1</span> Continuous by single categorical variable<a class="anchor" aria-label="anchor" href="#continuous-by-single-categorical-variable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.1</span> Continuous by a single categorical variable<a class="anchor" aria-label="anchor" href="#continuous-by-a-single-categorical-variable"><i class="fas fa-link"></i></a>
 </h2>
 <div id="summary" class="section level3" number="11.1.1">
 <h3>
 <span class="header-section-number">11.1.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
 </h3>
 <p>We do this with one variable.</p>
-<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">treat</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">summarize</span><span class="op">(</span>mean.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>,</span>
@@ -522,7 +522,7 @@
 <span>    <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-15">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-15">Table 11.4: </span> </caption>
+<span id="tab:unnamed-chunk-15">Table 11.3: </span> </caption>
 <col>
 <col>
 <col>
@@ -563,9 +563,9 @@
 </tr>
 </table></div>
 </div>
-<div id="graph---histogram-boxplot-density-plot-and-cumlative-frequency" class="section level3" number="11.1.2">
+<div id="graph---histogram-boxplot-density-plot-and-cumulative-frequency" class="section level3" number="11.1.2">
 <h3>
-<span class="header-section-number">11.1.2</span> Graph - Histogram, Boxplot, Density plot and cumlative frequency<a class="anchor" aria-label="anchor" href="#graph---histogram-boxplot-density-plot-and-cumlative-frequency"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.1.2</span> Graph - Histogram, Boxplot, Density plot and cumulative frequency<a class="anchor" aria-label="anchor" href="#graph---histogram-boxplot-density-plot-and-cumulative-frequency"><i class="fas fa-link"></i></a>
 </h3>
 <p>The graphs are similar to the above so we skip them.</p>
 </div>
@@ -578,8 +578,8 @@
 <h3>
 <span class="header-section-number">11.2.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>This csn be done as below.</p>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<p>This can be done as below.</p>
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">treat</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">summarize</span><span class="op">(</span>mean.bp1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bp1</span><span class="op">)</span>,</span>
@@ -592,7 +592,7 @@
 <span>              .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-16">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-16">Table 11.5: </span> </caption>
+<span id="tab:unnamed-chunk-16">Table 11.4: </span> </caption>
 <col>
 <col>
 <col>
@@ -658,8 +658,8 @@
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">112</td>
 </tr>
 </table></div>
-<p>And this can be presented in a boxplot as below</p>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<p>And this can be presented in a boxplot below</p>
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">bp1</span>, x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">treat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
@@ -670,36 +670,11 @@
 <span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-17-1.png" width="576"></div>
 
-<pre><code>Warning: package 'huxtable' was built under R version 4.3.1
-── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
-── Conflicts ────────────────────── tidyverse_conflicts() ──
-✖ dplyr::add_rownames() masks huxtable::add_rownames()
-✖ dplyr::filter()       masks stats::filter()
-✖ dplyr::lag()          masks stats::lag()
-✖ ggplot2::theme_grey() masks huxtable::theme_grey()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
-
-Attaching package: 'magrittr'
-
-
-The following object is masked from 'package:purrr':
-
-    set_names
-
-
-The following object is masked from 'package:tidyr':
-
-    extract</code></pre>
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="descriptive-statistics-of-catergorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Catergorical Data</a></div>
+<div class="prev"><a href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></div>
 <div class="next"><a href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -711,9 +686,9 @@ The following object is masked from 'package:tidyr':
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#continuous-by-single-categorical-variable"><span class="header-section-number">11.1</span> Continuous by single categorical variable</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#continuous-by-a-single-categorical-variable"><span class="header-section-number">11.1</span> Continuous by a single categorical variable</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#summary"><span class="header-section-number">11.1.1</span> Summary</a></li>
-<li><a class="nav-link" href="#graph---histogram-boxplot-density-plot-and-cumlative-frequency"><span class="header-section-number">11.1.2</span> Graph - Histogram, Boxplot, Density plot and cumlative frequency</a></li>
+<li><a class="nav-link" href="#graph---histogram-boxplot-density-plot-and-cumulative-frequency"><span class="header-section-number">11.1.2</span> Graph - Histogram, Boxplot, Density plot and cumulative frequency</a></li>
 </ul>
 </li>
 <li>
@@ -736,7 +711,7 @@ The following object is masked from 'package:tidyr':
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-07-25.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

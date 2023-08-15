@@ -1,12 +1,11 @@
+# Descriptive Statistics of Categorical Data
+
 ```{r echo=FALSE}
 library(tidyverse)
 library(magrittr)
 library(huxtable)
 library(gtsummary)
 ```
-
-
-# Descriptive Statistics of Catergorical Data
 
 For this section we use the __Titanic__ data set
  
@@ -26,13 +25,13 @@ We visualize the first 6 rows of the data
 titanic2 %>% head()
 ```
 
-And the summarize the entire as below
+And summarize the entire as below
 
 ```{r comment=NA}
 titanic2 %>% summary()
 ```
 
-### Single Caregorical Variable
+### Single Categorical Variable
 
 #### Frequencies & Proportions
 
