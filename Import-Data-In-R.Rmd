@@ -6,19 +6,10 @@ library(tidyverse)
 library(magrittr)
 ```
 
-In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In R, a data frame is the data structure desirable for data analysis. With the advent of the `tidy data`, a tibble is not the predominant data structure being used. For this section, we will read the data below but from different formats.
+In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In R, a data frame is the data structure desirable for data analysis. With the advent of the `tidy data`, a tibble is now the predominant data structure being used. For this section, we will be reading in various file formats and presenting them as a tibble.
 
-```{r echo =FALSE}
-tibble(
-    name = c("Ama", "Yakubu", "John"), 
-    sex = c("Female", "Male", "Male"),
-    age = c(12, 9, 4),
-    school = c("JHS", "Primary", "Creche")
-    )
-```
-
-## Direct entry into 
-We first use the `data.frame` function from the base package to create the data frame.
+## Direct entry into R
+We first use the `data.frame()` function from the base package to create the data frame.
 
 ```{r}
 data.frame(
@@ -41,13 +32,83 @@ tibble(
     )
 ```
 
+## R data file
+When working in R, a frequent mode of storage of data is as an .Rdata file. This preserves the structure and environment of the data. Below we will read an already saved .Rdata file.
+
+```{r}
+load(file = "./Data/data1.Rdata")
+ls()
+```
+We then visualise the first 4 rows of the single data within the loaded file called `data1_stata`
+
+```{r}
+data1_stata %>% head(n=4)
+```
+
 
 ## Text files
+The first file format that we are going to read from is a flat file or text file. These usually have the extension .txt. The data in these files could be separated by various delimiters. These include tabs, commas, spaces, etc. In this section, we will read in one with a tab delimiter as a prototype as the rest will be similar.
+
+```{r}
+read_delim(
+    file = "./Data/bpA.txt", 
+    delim = "\t", 
+    col_types = c("c", "c", "d", "d")
+    )
+```
+
+The last file to be read in this subsection is a comma-delimited text file
+
+```{r}
+read_delim(
+    file = "./Data/blood.txt", 
+    delim = ",", 
+    col_types = c("c", "d", "d", "d", "d", "d", "d")
+    ) %>% 
+    head(n=4)
+```
+
+Comma-delimited files with extension .csv can also be imported with the commnands
+
+```{r}
+read_csv(
+    file = "./Data/blood.txt",
+    col_types = c("c", "d", "d", "d", "d", "d", "d")) %>% 
+    head(n=4)
+```
 
 ## Microsoft Excel
+Probably the most common format for transferring data is Microsoft Excel. There are two versions of Excel with extensions .xls and .xlsx. Below reading in the .xlsx is demonstrated using the `readxl` package.
+
+```{r}
+readxl::read_xlsx(path = "./Data/data1.xlsx") %>% 
+    head(n=4)
+```
 
 ## SPSS files
+Files from SPSS are usually saved with the extension of .sav. Below we read an SSPSS data file using the `haven` package
 
-## dbf files
+```{r}
+haven::read_sav(file = "./Data/data1.sav") %>% 
+    head(n=4)
+```
 
-## Other files
+## Stata files
+Stata files, similar to SPSS data files can be imported using the `haven` package. This is illustrated below
+
+```{r}
+haven::read_dta(file = "./Data/data1.dta") %>% 
+    head(n=4)
+```
+
+## SAS files
+The `haven` package also offers the ability to read into R a SAS data file. This is illustrated below
+
+```{r}
+haven::read_sas(data_file = "./Data/data1.sas7bdat") %>% 
+    head(n=4)
+```
+
+## Conclusion
+
+In this section, we have learned how to import data into R from various file formats and programs. In the next section, we will learn about how to export data in R to other file formats. 

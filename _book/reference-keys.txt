@@ -217,3 +217,8 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
+direct-entry-into-r
+stata-files
+r-data-file
+sas-files
+conclusion-1
