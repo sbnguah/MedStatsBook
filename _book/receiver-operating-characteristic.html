@@ -133,48 +133,48 @@ measuring tape. The variables collected include their study ID (sid), birth
 weight (bweight), sex (gender), chest circumference (chc) and length
 of baby (lgth).</p>
 <p>First, we read the data after clearing the workspace</p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_lbw</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu">read_csv</span><span class="op">(</span><span class="st">"./Data/lbw.csv"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>gender <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>bwcat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">bweight</span> <span class="op">&lt;</span> <span class="fl">2.5</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>               <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Normal"</span>,<span class="st">"Low"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>And then summarize it</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="receiver-operating-characteristic.html#cb216-1" tabindex="-1"></a>df_lbw <span class="sc">%&gt;%</span> <span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb216-2"><a href="receiver-operating-characteristic.html#cb216-2" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb216-3"><a href="receiver-operating-characteristic.html#cb216-3" tabindex="-1"></a>df_lbw  </span>
-<span id="cb216-4"><a href="receiver-operating-characteristic.html#cb216-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">350</span> x <span class="dv">6</span>  </span>
-<span id="cb216-5"><a href="receiver-operating-characteristic.html#cb216-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
-<span id="cb216-6"><a href="receiver-operating-characteristic.html#cb216-6" tabindex="-1"></a></span>
-<span id="cb216-7"><a href="receiver-operating-characteristic.html#cb216-7" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span>
-<span id="cb216-8"><a href="receiver-operating-characteristic.html#cb216-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values              <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
-<span id="cb216-9"><a href="receiver-operating-characteristic.html#cb216-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">---------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb216-10"><a href="receiver-operating-characteristic.html#cb216-10" tabindex="-1"></a><span class="dv">1</span>    sid         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">175.5</span> (<span class="fl">101.2</span>)   <span class="dv">350</span> distinct values   <span class="dv">350</span>        <span class="dv">0</span>        </span>
-<span id="cb216-11"><a href="receiver-operating-characteristic.html#cb216-11" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb216-12"><a href="receiver-operating-characteristic.html#cb216-12" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="fl">175.5</span> <span class="sc">&lt;</span> <span class="dv">350</span>                                                       </span>
-<span id="cb216-13"><a href="receiver-operating-characteristic.html#cb216-13" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">174.5</span> (<span class="fl">0.6</span>)                                                </span>
-<span id="cb216-14"><a href="receiver-operating-characteristic.html#cb216-14" tabindex="-1"></a></span>
-<span id="cb216-15"><a href="receiver-operating-characteristic.html#cb216-15" tabindex="-1"></a><span class="dv">2</span>    bweight     <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">2.9</span> (<span class="fl">0.6</span>)       <span class="dv">33</span> distinct values    <span class="dv">350</span>        <span class="dv">0</span>        </span>
-<span id="cb216-16"><a href="receiver-operating-characteristic.html#cb216-16" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb216-17"><a href="receiver-operating-characteristic.html#cb216-17" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="fl">2.9</span> <span class="sc">&lt;</span> <span class="fl">4.5</span>                                                         </span>
-<span id="cb216-18"><a href="receiver-operating-characteristic.html#cb216-18" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">0.7</span> (<span class="fl">0.2</span>)                                                  </span>
-<span id="cb216-19"><a href="receiver-operating-characteristic.html#cb216-19" tabindex="-1"></a></span>
-<span id="cb216-20"><a href="receiver-operating-characteristic.html#cb216-20" tabindex="-1"></a><span class="dv">3</span>    gender      <span class="fl">1.</span> Female                   <span class="dv">166</span> (<span class="fl">47.4</span>%)           <span class="dv">350</span>        <span class="dv">0</span>        </span>
-<span id="cb216-21"><a href="receiver-operating-characteristic.html#cb216-21" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Male                     <span class="dv">184</span> (<span class="fl">52.6</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb216-22"><a href="receiver-operating-characteristic.html#cb216-22" tabindex="-1"></a></span>
-<span id="cb216-23"><a href="receiver-operating-characteristic.html#cb216-23" tabindex="-1"></a><span class="dv">4</span>    chc         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">31.7</span> (<span class="fl">3.2</span>)      <span class="dv">115</span> distinct values   <span class="dv">350</span>        <span class="dv">0</span>        </span>
-<span id="cb216-24"><a href="receiver-operating-characteristic.html#cb216-24" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb216-25"><a href="receiver-operating-characteristic.html#cb216-25" tabindex="-1"></a>                 <span class="dv">20</span> <span class="sc">&lt;</span> <span class="dv">32</span> <span class="sc">&lt;</span> <span class="fl">42.1</span>                                                        </span>
-<span id="cb216-26"><a href="receiver-operating-characteristic.html#cb216-26" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">4</span> (<span class="fl">0.1</span>)                                                    </span>
-<span id="cb216-27"><a href="receiver-operating-characteristic.html#cb216-27" tabindex="-1"></a></span>
-<span id="cb216-28"><a href="receiver-operating-characteristic.html#cb216-28" tabindex="-1"></a><span class="dv">5</span>    lgth        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">46.8</span> (<span class="fl">4.3</span>)      <span class="dv">109</span> distinct values   <span class="dv">350</span>        <span class="dv">0</span>        </span>
-<span id="cb216-29"><a href="receiver-operating-characteristic.html#cb216-29" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb216-30"><a href="receiver-operating-characteristic.html#cb216-30" tabindex="-1"></a>                 <span class="dv">28</span> <span class="sc">&lt;</span> <span class="dv">47</span> <span class="sc">&lt;</span> <span class="fl">60.3</span>                                                        </span>
-<span id="cb216-31"><a href="receiver-operating-characteristic.html#cb216-31" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">5.5</span> (<span class="fl">0.1</span>)                                                  </span>
-<span id="cb216-32"><a href="receiver-operating-characteristic.html#cb216-32" tabindex="-1"></a></span>
-<span id="cb216-33"><a href="receiver-operating-characteristic.html#cb216-33" tabindex="-1"></a><span class="dv">6</span>    bwcat       <span class="fl">1.</span> Normal                   <span class="dv">268</span> (<span class="fl">76.6</span>%)           <span class="dv">350</span>        <span class="dv">0</span>        </span>
-<span id="cb216-34"><a href="receiver-operating-characteristic.html#cb216-34" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Low                       <span class="dv">82</span> (<span class="fl">23.4</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb216-35"><a href="receiver-operating-characteristic.html#cb216-35" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="receiver-operating-characteristic.html#cb229-1" tabindex="-1"></a>df_lbw <span class="sc">%&gt;%</span> <span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb229-2"><a href="receiver-operating-characteristic.html#cb229-2" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb229-3"><a href="receiver-operating-characteristic.html#cb229-3" tabindex="-1"></a>df_lbw  </span>
+<span id="cb229-4"><a href="receiver-operating-characteristic.html#cb229-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">350</span> x <span class="dv">6</span>  </span>
+<span id="cb229-5"><a href="receiver-operating-characteristic.html#cb229-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
+<span id="cb229-6"><a href="receiver-operating-characteristic.html#cb229-6" tabindex="-1"></a></span>
+<span id="cb229-7"><a href="receiver-operating-characteristic.html#cb229-7" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span>
+<span id="cb229-8"><a href="receiver-operating-characteristic.html#cb229-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values              <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
+<span id="cb229-9"><a href="receiver-operating-characteristic.html#cb229-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">---------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb229-10"><a href="receiver-operating-characteristic.html#cb229-10" tabindex="-1"></a><span class="dv">1</span>    sid         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">175.5</span> (<span class="fl">101.2</span>)   <span class="dv">350</span> distinct values   <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb229-11"><a href="receiver-operating-characteristic.html#cb229-11" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb229-12"><a href="receiver-operating-characteristic.html#cb229-12" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="fl">175.5</span> <span class="sc">&lt;</span> <span class="dv">350</span>                                                       </span>
+<span id="cb229-13"><a href="receiver-operating-characteristic.html#cb229-13" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">174.5</span> (<span class="fl">0.6</span>)                                                </span>
+<span id="cb229-14"><a href="receiver-operating-characteristic.html#cb229-14" tabindex="-1"></a></span>
+<span id="cb229-15"><a href="receiver-operating-characteristic.html#cb229-15" tabindex="-1"></a><span class="dv">2</span>    bweight     <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">2.9</span> (<span class="fl">0.6</span>)       <span class="dv">33</span> distinct values    <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb229-16"><a href="receiver-operating-characteristic.html#cb229-16" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb229-17"><a href="receiver-operating-characteristic.html#cb229-17" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="fl">2.9</span> <span class="sc">&lt;</span> <span class="fl">4.5</span>                                                         </span>
+<span id="cb229-18"><a href="receiver-operating-characteristic.html#cb229-18" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">0.7</span> (<span class="fl">0.2</span>)                                                  </span>
+<span id="cb229-19"><a href="receiver-operating-characteristic.html#cb229-19" tabindex="-1"></a></span>
+<span id="cb229-20"><a href="receiver-operating-characteristic.html#cb229-20" tabindex="-1"></a><span class="dv">3</span>    gender      <span class="fl">1.</span> Female                   <span class="dv">166</span> (<span class="fl">47.4</span>%)           <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb229-21"><a href="receiver-operating-characteristic.html#cb229-21" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Male                     <span class="dv">184</span> (<span class="fl">52.6</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb229-22"><a href="receiver-operating-characteristic.html#cb229-22" tabindex="-1"></a></span>
+<span id="cb229-23"><a href="receiver-operating-characteristic.html#cb229-23" tabindex="-1"></a><span class="dv">4</span>    chc         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">31.7</span> (<span class="fl">3.2</span>)      <span class="dv">115</span> distinct values   <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb229-24"><a href="receiver-operating-characteristic.html#cb229-24" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb229-25"><a href="receiver-operating-characteristic.html#cb229-25" tabindex="-1"></a>                 <span class="dv">20</span> <span class="sc">&lt;</span> <span class="dv">32</span> <span class="sc">&lt;</span> <span class="fl">42.1</span>                                                        </span>
+<span id="cb229-26"><a href="receiver-operating-characteristic.html#cb229-26" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">4</span> (<span class="fl">0.1</span>)                                                    </span>
+<span id="cb229-27"><a href="receiver-operating-characteristic.html#cb229-27" tabindex="-1"></a></span>
+<span id="cb229-28"><a href="receiver-operating-characteristic.html#cb229-28" tabindex="-1"></a><span class="dv">5</span>    lgth        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">46.8</span> (<span class="fl">4.3</span>)      <span class="dv">109</span> distinct values   <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb229-29"><a href="receiver-operating-characteristic.html#cb229-29" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                  (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb229-30"><a href="receiver-operating-characteristic.html#cb229-30" tabindex="-1"></a>                 <span class="dv">28</span> <span class="sc">&lt;</span> <span class="dv">47</span> <span class="sc">&lt;</span> <span class="fl">60.3</span>                                                        </span>
+<span id="cb229-31"><a href="receiver-operating-characteristic.html#cb229-31" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">5.5</span> (<span class="fl">0.1</span>)                                                  </span>
+<span id="cb229-32"><a href="receiver-operating-characteristic.html#cb229-32" tabindex="-1"></a></span>
+<span id="cb229-33"><a href="receiver-operating-characteristic.html#cb229-33" tabindex="-1"></a><span class="dv">6</span>    bwcat       <span class="fl">1.</span> Normal                   <span class="dv">268</span> (<span class="fl">76.6</span>%)           <span class="dv">350</span>        <span class="dv">0</span>        </span>
+<span id="cb229-34"><a href="receiver-operating-characteristic.html#cb229-34" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Low                       <span class="dv">82</span> (<span class="fl">23.4</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb229-35"><a href="receiver-operating-characteristic.html#cb229-35" tabindex="-1"></a><span class="sc">---------------------------------------------------------------------------------------</span></span></code></pre></div>
 <p>Next, I introduce the <code>pROC</code> package. The function <code>roc()</code> from the package will
 be used extensively in this section.</p>
 <div id="sensitivity-specificity-and-cut-offs" class="section level2" number="20.1">
@@ -189,39 +189,39 @@ weight (LBW) or normal birth weight (NBW). Two continuous measures, the chest
 circumference and the length of the baby were used as our tests.</p>
 <p>To illustrate the relationship between the various cut-offs with sensitivity and
 specificity we generate some arbitrary cut-offs.</p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cut.off</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">28</span>, <span class="fl">42</span>, <span class="fl">44</span>, <span class="fl">46</span>, <span class="fl">47</span>, <span class="fl">49</span>, <span class="fl">50</span>, <span class="fl">51</span>, <span class="fl">61</span><span class="op">)</span></span></code></pre></div>
 <p>From these cut-offs, we generate the categories from the length of the babies
 and tabulate the resultant categorical variable.</p>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_lbw</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="va">df_lbw</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>lgthcat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">lgth</span>, br<span class="op">=</span><span class="va">cut.off</span>, include.lowest<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>And then count the various groups</p>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_lbw</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span></span>
 <span>        include <span class="op">=</span> <span class="va">lgthcat</span>,</span>
 <span>        digits <span class="op">=</span> <span class="va">lgthcat</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span></span>
 <span>    <span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/bold_italicize_labels_levels.html">bold_labels</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="hojyjyfmgi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hojyjyfmgi table {
+<div id="oyrsxxgtlf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#oyrsxxgtlf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hojyjyfmgi thead, #hojyjyfmgi tbody, #hojyjyfmgi tfoot, #hojyjyfmgi tr, #hojyjyfmgi td, #hojyjyfmgi th {
+#oyrsxxgtlf thead, #oyrsxxgtlf tbody, #oyrsxxgtlf tfoot, #oyrsxxgtlf tr, #oyrsxxgtlf td, #oyrsxxgtlf th {
   border-style: none;
 }
 
-#hojyjyfmgi p {
+#oyrsxxgtlf p {
   margin: 0;
   padding: 0;
 }
 
-#hojyjyfmgi .gt_table {
+#oyrsxxgtlf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -247,12 +247,12 @@ and tabulate the resultant categorical variable.</p>
   border-left-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_caption {
+#oyrsxxgtlf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hojyjyfmgi .gt_title {
+#oyrsxxgtlf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -264,7 +264,7 @@ and tabulate the resultant categorical variable.</p>
   border-bottom-width: 0;
 }
 
-#hojyjyfmgi .gt_subtitle {
+#oyrsxxgtlf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -276,7 +276,7 @@ and tabulate the resultant categorical variable.</p>
   border-top-width: 0;
 }
 
-#hojyjyfmgi .gt_heading {
+#oyrsxxgtlf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -288,13 +288,13 @@ and tabulate the resultant categorical variable.</p>
   border-right-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_bottom_border {
+#oyrsxxgtlf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_col_headings {
+#oyrsxxgtlf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -309,7 +309,7 @@ and tabulate the resultant categorical variable.</p>
   border-right-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_col_heading {
+#oyrsxxgtlf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -329,7 +329,7 @@ and tabulate the resultant categorical variable.</p>
   overflow-x: hidden;
 }
 
-#hojyjyfmgi .gt_column_spanner_outer {
+#oyrsxxgtlf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -341,15 +341,15 @@ and tabulate the resultant categorical variable.</p>
   padding-right: 4px;
 }
 
-#hojyjyfmgi .gt_column_spanner_outer:first-child {
+#oyrsxxgtlf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hojyjyfmgi .gt_column_spanner_outer:last-child {
+#oyrsxxgtlf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hojyjyfmgi .gt_column_spanner {
+#oyrsxxgtlf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -361,11 +361,11 @@ and tabulate the resultant categorical variable.</p>
   width: 100%;
 }
 
-#hojyjyfmgi .gt_spanner_row {
+#oyrsxxgtlf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hojyjyfmgi .gt_group_heading {
+#oyrsxxgtlf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -391,7 +391,7 @@ and tabulate the resultant categorical variable.</p>
   text-align: left;
 }
 
-#hojyjyfmgi .gt_empty_group_heading {
+#oyrsxxgtlf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -406,15 +406,15 @@ and tabulate the resultant categorical variable.</p>
   vertical-align: middle;
 }
 
-#hojyjyfmgi .gt_from_md > :first-child {
+#oyrsxxgtlf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hojyjyfmgi .gt_from_md > :last-child {
+#oyrsxxgtlf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hojyjyfmgi .gt_row {
+#oyrsxxgtlf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -433,7 +433,7 @@ and tabulate the resultant categorical variable.</p>
   overflow-x: hidden;
 }
 
-#hojyjyfmgi .gt_stub {
+#oyrsxxgtlf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -446,7 +446,7 @@ and tabulate the resultant categorical variable.</p>
   padding-right: 5px;
 }
 
-#hojyjyfmgi .gt_stub_row_group {
+#oyrsxxgtlf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -460,15 +460,15 @@ and tabulate the resultant categorical variable.</p>
   vertical-align: top;
 }
 
-#hojyjyfmgi .gt_row_group_first td {
+#oyrsxxgtlf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hojyjyfmgi .gt_row_group_first th {
+#oyrsxxgtlf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hojyjyfmgi .gt_summary_row {
+#oyrsxxgtlf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -478,16 +478,16 @@ and tabulate the resultant categorical variable.</p>
   padding-right: 5px;
 }
 
-#hojyjyfmgi .gt_first_summary_row {
+#oyrsxxgtlf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_first_summary_row.thick {
+#oyrsxxgtlf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hojyjyfmgi .gt_last_summary_row {
+#oyrsxxgtlf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -497,7 +497,7 @@ and tabulate the resultant categorical variable.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_grand_summary_row {
+#oyrsxxgtlf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -507,7 +507,7 @@ and tabulate the resultant categorical variable.</p>
   padding-right: 5px;
 }
 
-#hojyjyfmgi .gt_first_grand_summary_row {
+#oyrsxxgtlf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -517,7 +517,7 @@ and tabulate the resultant categorical variable.</p>
   border-top-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_last_grand_summary_row_top {
+#oyrsxxgtlf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -527,11 +527,11 @@ and tabulate the resultant categorical variable.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_striped {
+#oyrsxxgtlf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hojyjyfmgi .gt_table_body {
+#oyrsxxgtlf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -540,7 +540,7 @@ and tabulate the resultant categorical variable.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_footnotes {
+#oyrsxxgtlf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -554,7 +554,7 @@ and tabulate the resultant categorical variable.</p>
   border-right-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_footnote {
+#oyrsxxgtlf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -563,7 +563,7 @@ and tabulate the resultant categorical variable.</p>
   padding-right: 5px;
 }
 
-#hojyjyfmgi .gt_sourcenotes {
+#oyrsxxgtlf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -577,7 +577,7 @@ and tabulate the resultant categorical variable.</p>
   border-right-color: #D3D3D3;
 }
 
-#hojyjyfmgi .gt_sourcenote {
+#oyrsxxgtlf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -585,63 +585,63 @@ and tabulate the resultant categorical variable.</p>
   padding-right: 5px;
 }
 
-#hojyjyfmgi .gt_left {
+#oyrsxxgtlf .gt_left {
   text-align: left;
 }
 
-#hojyjyfmgi .gt_center {
+#oyrsxxgtlf .gt_center {
   text-align: center;
 }
 
-#hojyjyfmgi .gt_right {
+#oyrsxxgtlf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hojyjyfmgi .gt_font_normal {
+#oyrsxxgtlf .gt_font_normal {
   font-weight: normal;
 }
 
-#hojyjyfmgi .gt_font_bold {
+#oyrsxxgtlf .gt_font_bold {
   font-weight: bold;
 }
 
-#hojyjyfmgi .gt_font_italic {
+#oyrsxxgtlf .gt_font_italic {
   font-style: italic;
 }
 
-#hojyjyfmgi .gt_super {
+#oyrsxxgtlf .gt_super {
   font-size: 65%;
 }
 
-#hojyjyfmgi .gt_footnote_marks {
+#oyrsxxgtlf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hojyjyfmgi .gt_asterisk {
+#oyrsxxgtlf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hojyjyfmgi .gt_indent_1 {
+#oyrsxxgtlf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hojyjyfmgi .gt_indent_2 {
+#oyrsxxgtlf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hojyjyfmgi .gt_indent_3 {
+#oyrsxxgtlf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hojyjyfmgi .gt_indent_4 {
+#oyrsxxgtlf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hojyjyfmgi .gt_indent_5 {
+#oyrsxxgtlf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -729,7 +729,7 @@ function</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-16.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

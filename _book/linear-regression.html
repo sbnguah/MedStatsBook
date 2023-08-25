@@ -141,54 +141,54 @@ intercept or value of <span class="math inline">\(Y\)</span> if <span class="mat
 <p>The first logical step in regression analysis is to plot a scatter diagram to
 visualize the relationship between the two variables. A plot of the hct versus
 the hb is shown below after importing the data</p>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"./Data/blood.csv"</span><span class="op">)</span></span></code></pre></div>
 <p>And then summarize the data below</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="linear-regression.html#cb221-1" tabindex="-1"></a>df_blood <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb221-2"><a href="linear-regression.html#cb221-2" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb221-3"><a href="linear-regression.html#cb221-3" tabindex="-1"></a>df_blood  </span>
-<span id="cb221-4"><a href="linear-regression.html#cb221-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">50</span> x <span class="dv">7</span>  </span>
-<span id="cb221-5"><a href="linear-regression.html#cb221-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
-<span id="cb221-6"><a href="linear-regression.html#cb221-6" tabindex="-1"></a></span>
-<span id="cb221-7"><a href="linear-regression.html#cb221-7" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span>
-<span id="cb221-8"><a href="linear-regression.html#cb221-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values              <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
-<span id="cb221-9"><a href="linear-regression.html#cb221-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">---------------------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb221-10"><a href="linear-regression.html#cb221-10" tabindex="-1"></a><span class="dv">1</span>    stno        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">1025.5</span> (<span class="fl">14.6</span>)   <span class="dv">50</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb221-11"><a href="linear-regression.html#cb221-11" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb221-12"><a href="linear-regression.html#cb221-12" tabindex="-1"></a>                 <span class="dv">1001</span> <span class="sc">&lt;</span> <span class="fl">1025.5</span> <span class="sc">&lt;</span> <span class="dv">1050</span>                                                 </span>
-<span id="cb221-13"><a href="linear-regression.html#cb221-13" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">24.5</span> (<span class="dv">0</span>)                                                  </span>
-<span id="cb221-14"><a href="linear-regression.html#cb221-14" tabindex="-1"></a></span>
-<span id="cb221-15"><a href="linear-regression.html#cb221-15" tabindex="-1"></a><span class="dv">2</span>    age         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">122.4</span> (<span class="fl">30.7</span>)    <span class="dv">19</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb221-16"><a href="linear-regression.html#cb221-16" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb221-17"><a href="linear-regression.html#cb221-17" tabindex="-1"></a>                 <span class="dv">72</span> <span class="sc">&lt;</span> <span class="dv">132</span> <span class="sc">&lt;</span> <span class="dv">180</span>                                                       </span>
-<span id="cb221-18"><a href="linear-regression.html#cb221-18" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">48</span> (<span class="fl">0.3</span>)                                                  </span>
-<span id="cb221-19"><a href="linear-regression.html#cb221-19" tabindex="-1"></a></span>
-<span id="cb221-20"><a href="linear-regression.html#cb221-20" tabindex="-1"></a><span class="dv">3</span>    wgt         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">27.4</span> (<span class="fl">7.7</span>)      <span class="dv">42</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb221-21"><a href="linear-regression.html#cb221-21" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb221-22"><a href="linear-regression.html#cb221-22" tabindex="-1"></a>                 <span class="dv">17</span> <span class="sc">&lt;</span> <span class="fl">26.3</span> <span class="sc">&lt;</span> <span class="fl">59.5</span>                                                     </span>
-<span id="cb221-23"><a href="linear-regression.html#cb221-23" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">7.9</span> (<span class="fl">0.3</span>)                                                 </span>
-<span id="cb221-24"><a href="linear-regression.html#cb221-24" tabindex="-1"></a></span>
-<span id="cb221-25"><a href="linear-regression.html#cb221-25" tabindex="-1"></a><span class="dv">4</span>    hgt         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">130.5</span> (<span class="fl">11.4</span>)    <span class="dv">27</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb221-26"><a href="linear-regression.html#cb221-26" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb221-27"><a href="linear-regression.html#cb221-27" tabindex="-1"></a>                 <span class="dv">107</span> <span class="sc">&lt;</span> <span class="fl">130.5</span> <span class="sc">&lt;</span> <span class="dv">155</span>                                                    </span>
-<span id="cb221-28"><a href="linear-regression.html#cb221-28" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">15</span> (<span class="fl">0.1</span>)                                                  </span>
-<span id="cb221-29"><a href="linear-regression.html#cb221-29" tabindex="-1"></a></span>
-<span id="cb221-30"><a href="linear-regression.html#cb221-30" tabindex="-1"></a><span class="dv">5</span>    hb          <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">8.2</span> (<span class="fl">1.8</span>)       <span class="dv">36</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb221-31"><a href="linear-regression.html#cb221-31" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb221-32"><a href="linear-regression.html#cb221-32" tabindex="-1"></a>                 <span class="fl">5.3</span> <span class="sc">&lt;</span> <span class="fl">7.7</span> <span class="sc">&lt;</span> <span class="dv">12</span>                                                       </span>
-<span id="cb221-33"><a href="linear-regression.html#cb221-33" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">2.6</span> (<span class="fl">0.2</span>)                                                 </span>
-<span id="cb221-34"><a href="linear-regression.html#cb221-34" tabindex="-1"></a></span>
-<span id="cb221-35"><a href="linear-regression.html#cb221-35" tabindex="-1"></a><span class="dv">6</span>    wbc         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">13.9</span> (<span class="fl">8.8</span>)      <span class="dv">44</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb221-36"><a href="linear-regression.html#cb221-36" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb221-37"><a href="linear-regression.html#cb221-37" tabindex="-1"></a>                 <span class="fl">4.8</span> <span class="sc">&lt;</span> <span class="fl">11.4</span> <span class="sc">&lt;</span> <span class="fl">62.6</span>                                                    </span>
-<span id="cb221-38"><a href="linear-regression.html#cb221-38" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">5.7</span> (<span class="fl">0.6</span>)                                                 </span>
-<span id="cb221-39"><a href="linear-regression.html#cb221-39" tabindex="-1"></a></span>
-<span id="cb221-40"><a href="linear-regression.html#cb221-40" tabindex="-1"></a><span class="dv">7</span>    hct         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">24.4</span> (<span class="fl">5.1</span>)      <span class="dv">45</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
-<span id="cb221-41"><a href="linear-regression.html#cb221-41" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb221-42"><a href="linear-regression.html#cb221-42" tabindex="-1"></a>                 <span class="fl">15.7</span> <span class="sc">&lt;</span> <span class="dv">23</span> <span class="sc">&lt;</span> <span class="dv">35</span>                                                       </span>
-<span id="cb221-43"><a href="linear-regression.html#cb221-43" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">7.4</span> (<span class="fl">0.2</span>)                                                 </span>
-<span id="cb221-44"><a href="linear-regression.html#cb221-44" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span></code></pre></div>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="linear-regression.html#cb234-1" tabindex="-1"></a>df_blood <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb234-2"><a href="linear-regression.html#cb234-2" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb234-3"><a href="linear-regression.html#cb234-3" tabindex="-1"></a>df_blood  </span>
+<span id="cb234-4"><a href="linear-regression.html#cb234-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">50</span> x <span class="dv">7</span>  </span>
+<span id="cb234-5"><a href="linear-regression.html#cb234-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
+<span id="cb234-6"><a href="linear-regression.html#cb234-6" tabindex="-1"></a></span>
+<span id="cb234-7"><a href="linear-regression.html#cb234-7" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span>
+<span id="cb234-8"><a href="linear-regression.html#cb234-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values              <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
+<span id="cb234-9"><a href="linear-regression.html#cb234-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">---------------------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb234-10"><a href="linear-regression.html#cb234-10" tabindex="-1"></a><span class="dv">1</span>    stno        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">1025.5</span> (<span class="fl">14.6</span>)   <span class="dv">50</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb234-11"><a href="linear-regression.html#cb234-11" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb234-12"><a href="linear-regression.html#cb234-12" tabindex="-1"></a>                 <span class="dv">1001</span> <span class="sc">&lt;</span> <span class="fl">1025.5</span> <span class="sc">&lt;</span> <span class="dv">1050</span>                                                 </span>
+<span id="cb234-13"><a href="linear-regression.html#cb234-13" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">24.5</span> (<span class="dv">0</span>)                                                  </span>
+<span id="cb234-14"><a href="linear-regression.html#cb234-14" tabindex="-1"></a></span>
+<span id="cb234-15"><a href="linear-regression.html#cb234-15" tabindex="-1"></a><span class="dv">2</span>    age         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">122.4</span> (<span class="fl">30.7</span>)    <span class="dv">19</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb234-16"><a href="linear-regression.html#cb234-16" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb234-17"><a href="linear-regression.html#cb234-17" tabindex="-1"></a>                 <span class="dv">72</span> <span class="sc">&lt;</span> <span class="dv">132</span> <span class="sc">&lt;</span> <span class="dv">180</span>                                                       </span>
+<span id="cb234-18"><a href="linear-regression.html#cb234-18" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">48</span> (<span class="fl">0.3</span>)                                                  </span>
+<span id="cb234-19"><a href="linear-regression.html#cb234-19" tabindex="-1"></a></span>
+<span id="cb234-20"><a href="linear-regression.html#cb234-20" tabindex="-1"></a><span class="dv">3</span>    wgt         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">27.4</span> (<span class="fl">7.7</span>)      <span class="dv">42</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb234-21"><a href="linear-regression.html#cb234-21" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb234-22"><a href="linear-regression.html#cb234-22" tabindex="-1"></a>                 <span class="dv">17</span> <span class="sc">&lt;</span> <span class="fl">26.3</span> <span class="sc">&lt;</span> <span class="fl">59.5</span>                                                     </span>
+<span id="cb234-23"><a href="linear-regression.html#cb234-23" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">7.9</span> (<span class="fl">0.3</span>)                                                 </span>
+<span id="cb234-24"><a href="linear-regression.html#cb234-24" tabindex="-1"></a></span>
+<span id="cb234-25"><a href="linear-regression.html#cb234-25" tabindex="-1"></a><span class="dv">4</span>    hgt         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">130.5</span> (<span class="fl">11.4</span>)    <span class="dv">27</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb234-26"><a href="linear-regression.html#cb234-26" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb234-27"><a href="linear-regression.html#cb234-27" tabindex="-1"></a>                 <span class="dv">107</span> <span class="sc">&lt;</span> <span class="fl">130.5</span> <span class="sc">&lt;</span> <span class="dv">155</span>                                                    </span>
+<span id="cb234-28"><a href="linear-regression.html#cb234-28" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">15</span> (<span class="fl">0.1</span>)                                                  </span>
+<span id="cb234-29"><a href="linear-regression.html#cb234-29" tabindex="-1"></a></span>
+<span id="cb234-30"><a href="linear-regression.html#cb234-30" tabindex="-1"></a><span class="dv">5</span>    hb          <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">8.2</span> (<span class="fl">1.8</span>)       <span class="dv">36</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb234-31"><a href="linear-regression.html#cb234-31" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb234-32"><a href="linear-regression.html#cb234-32" tabindex="-1"></a>                 <span class="fl">5.3</span> <span class="sc">&lt;</span> <span class="fl">7.7</span> <span class="sc">&lt;</span> <span class="dv">12</span>                                                       </span>
+<span id="cb234-33"><a href="linear-regression.html#cb234-33" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">2.6</span> (<span class="fl">0.2</span>)                                                 </span>
+<span id="cb234-34"><a href="linear-regression.html#cb234-34" tabindex="-1"></a></span>
+<span id="cb234-35"><a href="linear-regression.html#cb234-35" tabindex="-1"></a><span class="dv">6</span>    wbc         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">13.9</span> (<span class="fl">8.8</span>)      <span class="dv">44</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb234-36"><a href="linear-regression.html#cb234-36" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb234-37"><a href="linear-regression.html#cb234-37" tabindex="-1"></a>                 <span class="fl">4.8</span> <span class="sc">&lt;</span> <span class="fl">11.4</span> <span class="sc">&lt;</span> <span class="fl">62.6</span>                                                    </span>
+<span id="cb234-38"><a href="linear-regression.html#cb234-38" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">5.7</span> (<span class="fl">0.6</span>)                                                 </span>
+<span id="cb234-39"><a href="linear-regression.html#cb234-39" tabindex="-1"></a></span>
+<span id="cb234-40"><a href="linear-regression.html#cb234-40" tabindex="-1"></a><span class="dv">7</span>    hct         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">24.4</span> (<span class="fl">5.1</span>)      <span class="dv">45</span> distinct values   <span class="dv">50</span>         <span class="dv">0</span>        </span>
+<span id="cb234-41"><a href="linear-regression.html#cb234-41" tabindex="-1"></a>     [numeric]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb234-42"><a href="linear-regression.html#cb234-42" tabindex="-1"></a>                 <span class="fl">15.7</span> <span class="sc">&lt;</span> <span class="dv">23</span> <span class="sc">&lt;</span> <span class="dv">35</span>                                                       </span>
+<span id="cb234-43"><a href="linear-regression.html#cb234-43" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="fl">7.4</span> (<span class="fl">0.2</span>)                                                 </span>
+<span id="cb234-44"><a href="linear-regression.html#cb234-44" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hb</span>, y <span class="op">=</span> <span class="va">hct</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_point</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>,<span class="op">)</span><span class="op">+</span></span>
@@ -197,13 +197,13 @@ the hb is shown below after importing the data</p>
 <span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Linear-Regression_files/figure-html/unnamed-chunk-6-1.png" width="576"></div>
 <p>We now derive these constants with the lm() function as below.</p>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-7">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-7">Table 13.1: </span> </caption>
+<span id="tab:unnamed-chunk-7">Table 6.3: </span> </caption>
 <col>
 <col>
 <col>
@@ -260,7 +260,7 @@ significantly different from a slope of 0. This is evident by the small p-value
 variable. Here we implement linear regression with a categorical independent
 variable. In the blood data set, we do not have a categorical variable but we
 generate one by categorising those with high wbc (&gt;11.0 x 109/ml) as “High” and the others as “Low”.</p>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">&lt;-</span></span>
 <span>    <span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>wbc.cat <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span><span class="va">wbc</span> <span class="op">&gt;</span> <span class="fl">11</span> <span class="op">~</span> <span class="st">"High"</span>, <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Low"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -350,13 +350,13 @@ generate one by categorising those with high wbc (&gt;11.0 x 109/ml) as “High�
 </tr>
 </table></div>
 <p>Next, we implement the linear regression</p>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-9">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-9">Table 14.2: </span> </caption>
+<span id="tab:unnamed-chunk-9">Table 6.4: </span> </caption>
 <col>
 <col>
 <col>
@@ -406,13 +406,13 @@ for those with “High” and “Low” wbcs is -4.705.</li>
 <span class="math inline">\(27.055 + (-4:405) = 22:35\)</span>.</li>
 </ol>
 <p>For comparative purposes, we perform the analysis with the t.test() function below:</p>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc.cat</span>, var.equal<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-10">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-10">Table 11.2: </span> </caption>
+<span id="tab:unnamed-chunk-10">Table 6.5: </span> </caption>
 <col>
 <col>
 <col>
@@ -471,11 +471,11 @@ the regression coefficient often represented by <span class="math inline">\(\bet
 <p>Previously we have identified a significant linear relationship between the
 blood hb and hct. For illustrative purposes, we present it again but show just
 the coefficients, their confidence interval and p-values.</p>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-11">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-11">Table 21.1: </span> </caption>
+<span id="tab:unnamed-chunk-11">Table 6.6: </span> </caption>
 <col>
 <col>
 <col>
@@ -516,11 +516,11 @@ the coefficients, their confidence interval and p-values.</p>
 a confounder should be related to both the outcome and exposure variable. In our
 preliminary analysis, we decided to see if wbc is also related to the hct.
 This is done below</p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-12">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-12">Table 21.2: </span> </caption>
+<span id="tab:unnamed-chunk-12">Table 6.7: </span> </caption>
 <col>
 <col>
 <col>
@@ -563,11 +563,11 @@ count with increasing hct. The question then arises:</p>
 </blockquote>
 <p>To begin to investigate this we must first check if wbc has a relationship with
 the hb as well. This is done below</p>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">wbc</span> <span class="op">~</span> <span class="va">hb</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-13">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-13">Table 21.3: </span> </caption>
+<span id="tab:unnamed-chunk-13">Table 6.8: </span> </caption>
 <col>
 <col>
 <col>
@@ -609,11 +609,11 @@ necessary for confounding to exist.</p>
 <p>Next, we determine the adjusted coefficients for comparison to the crude ones.
 To do so we put both variables as independent variables in the linear regression
 formula as below</p>
-<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span> <span class="op">+</span> <span class="va">wbc</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-14">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-14">Table 21.4: </span> </caption>
+<span id="tab:unnamed-chunk-14">Table 6.9: </span> </caption>
 <col>
 <col>
 <col>
@@ -680,11 +680,11 @@ hb and wbc.cat. This type of linear regression is done to answer questions like:
 “High” or “Low” wbc.cat?</p>
 </blockquote>
 <p>To answer this question we perform a linear regression as below:</p>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span> <span class="op">+</span> <span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-15">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-15">Table 11.3: </span> </caption>
+<span id="tab:unnamed-chunk-15">Table 6.10: </span> </caption>
 <col>
 <col>
 <col>
@@ -737,7 +737,7 @@ to the coefficient of <code>wbc.catHigh</code>.</p>
 “Low” wbc is 2.300622, that for the High wbc is <span class="math inline">\(2.300622 + -0.435617 = 1.865005\)</span>
 and the common slope for both lines 2.735240. This is represented graphically
 below</p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hb</span>, y <span class="op">=</span> <span class="va">hct</span>, col <span class="op">=</span> <span class="va">wbc.cat</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
@@ -773,11 +773,11 @@ For this analysis, we seek to answer the question:</p>
 persons with High compared to those with Low WBC?.</p>
 </blockquote>
 <p>Fitting this linear regression is done in R as below.</p>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span><span class="op">*</span><span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-17">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-17">Table 14.3: </span> </caption>
+<span id="tab:unnamed-chunk-17">Table 14.2: </span> </caption>
 <col>
 <col>
 <col>
@@ -838,21 +838,21 @@ and <code>wbc.catHigh</code> (<span class="math inline">\(1.93925961 + 0.1962423
 the regression line for “High” wbc is the sum of the coefficients <code>hb</code> and
 <code>hb:wbc.catHigh</code> (<span class="math inline">\(2.77516971 + -0.07604741 = 2.699122\)</span>).</p>
 <p>This is graphically shown below</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="linear-regression.html#cb234-1" tabindex="-1"></a>df_blood <span class="sc">%&gt;%</span> </span>
-<span id="cb234-2"><a href="linear-regression.html#cb234-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hb, <span class="at">y =</span> hct, <span class="at">color =</span> wbc.cat))<span class="sc">+</span></span>
-<span id="cb234-3"><a href="linear-regression.html#cb234-3" tabindex="-1"></a>    <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb234-4"><a href="linear-regression.html#cb234-4" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y<span class="sc">~</span>x, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">method =</span> lm, <span class="at">size =</span> .<span class="dv">5</span>)<span class="sc">+</span></span>
-<span id="cb234-5"><a href="linear-regression.html#cb234-5" tabindex="-1"></a>    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb234-6"><a href="linear-regression.html#cb234-6" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Hemoglobin (mg/dl)"</span>, <span class="at">y =</span> <span class="st">"Hematocrit (%)"</span>)<span class="sc">+</span></span>
-<span id="cb234-7"><a href="linear-regression.html#cb234-7" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(</span>
-<span id="cb234-8"><a href="linear-regression.html#cb234-8" tabindex="-1"></a>        <span class="at">name =</span> <span class="st">"WBC Category"</span>, </span>
-<span id="cb234-9"><a href="linear-regression.html#cb234-9" tabindex="-1"></a>        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Low"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"High"</span> <span class="ot">=</span> <span class="st">"blue"</span>)) </span>
-<span id="cb234-10"><a href="linear-regression.html#cb234-10" tabindex="-1"></a>Warning<span class="sc">:</span> Using <span class="st">`</span><span class="at">size</span><span class="st">`</span> aesthetic <span class="cf">for</span> lines was deprecated <span class="cf">in</span> ggplot2</span>
-<span id="cb234-11"><a href="linear-regression.html#cb234-11" tabindex="-1"></a><span class="dv">3</span>.<span class="dv">4</span>.<span class="fl">0.</span></span>
-<span id="cb234-12"><a href="linear-regression.html#cb234-12" tabindex="-1"></a>ℹ Please use <span class="st">`</span><span class="at">linewidth</span><span class="st">`</span> instead.</span>
-<span id="cb234-13"><a href="linear-regression.html#cb234-13" tabindex="-1"></a>This warning is displayed once every <span class="dv">8</span> hours.</span>
-<span id="cb234-14"><a href="linear-regression.html#cb234-14" tabindex="-1"></a>Call <span class="st">`</span><span class="at">lifecycle::last_lifecycle_warnings()</span><span class="st">`</span> to see where</span>
-<span id="cb234-15"><a href="linear-regression.html#cb234-15" tabindex="-1"></a>this warning was generated.</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="linear-regression.html#cb247-1" tabindex="-1"></a>df_blood <span class="sc">%&gt;%</span> </span>
+<span id="cb247-2"><a href="linear-regression.html#cb247-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hb, <span class="at">y =</span> hct, <span class="at">color =</span> wbc.cat))<span class="sc">+</span></span>
+<span id="cb247-3"><a href="linear-regression.html#cb247-3" tabindex="-1"></a>    <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb247-4"><a href="linear-regression.html#cb247-4" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y<span class="sc">~</span>x, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">method =</span> lm, <span class="at">size =</span> .<span class="dv">5</span>)<span class="sc">+</span></span>
+<span id="cb247-5"><a href="linear-regression.html#cb247-5" tabindex="-1"></a>    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb247-6"><a href="linear-regression.html#cb247-6" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Hemoglobin (mg/dl)"</span>, <span class="at">y =</span> <span class="st">"Hematocrit (%)"</span>)<span class="sc">+</span></span>
+<span id="cb247-7"><a href="linear-regression.html#cb247-7" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(</span>
+<span id="cb247-8"><a href="linear-regression.html#cb247-8" tabindex="-1"></a>        <span class="at">name =</span> <span class="st">"WBC Category"</span>, </span>
+<span id="cb247-9"><a href="linear-regression.html#cb247-9" tabindex="-1"></a>        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Low"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"High"</span> <span class="ot">=</span> <span class="st">"blue"</span>)) </span>
+<span id="cb247-10"><a href="linear-regression.html#cb247-10" tabindex="-1"></a>Warning<span class="sc">:</span> Using <span class="st">`</span><span class="at">size</span><span class="st">`</span> aesthetic <span class="cf">for</span> lines was deprecated <span class="cf">in</span> ggplot2</span>
+<span id="cb247-11"><a href="linear-regression.html#cb247-11" tabindex="-1"></a><span class="dv">3</span>.<span class="dv">4</span>.<span class="fl">0.</span></span>
+<span id="cb247-12"><a href="linear-regression.html#cb247-12" tabindex="-1"></a>ℹ Please use <span class="st">`</span><span class="at">linewidth</span><span class="st">`</span> instead.</span>
+<span id="cb247-13"><a href="linear-regression.html#cb247-13" tabindex="-1"></a>This warning is displayed once every <span class="dv">8</span> hours.</span>
+<span id="cb247-14"><a href="linear-regression.html#cb247-14" tabindex="-1"></a>Call <span class="st">`</span><span class="at">lifecycle::last_lifecycle_warnings()</span><span class="st">`</span> to see where</span>
+<span id="cb247-15"><a href="linear-regression.html#cb247-15" tabindex="-1"></a>this warning was generated.</span></code></pre></div>
 <div class="inline-figure"><img src="Linear-Regression_files/figure-html/unnamed-chunk-18-1.png" width="576"></div>
 <p>It is obvious from above that the slopes (rate of rise of hct concerninga unit rise in hb) are different for the two groups. That for the High WBC
 group is lower. However, is this decrease in the rate of rise a real effect or just
@@ -872,40 +872,40 @@ slopes between those with “High” and “Low” WBCs.</p>
 <span class="header-section-number">21.6</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions"><i class="fas fa-link"></i></a>
 </h2>
 
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="linear-regression.html#cb235-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb235-2"><a href="linear-regression.html#cb235-2" tabindex="-1"></a>── Attaching core tidyverse packages ──── tidyverse <span class="dv">2</span>.<span class="fl">0.0</span> ──</span>
-<span id="cb235-3"><a href="linear-regression.html#cb235-3" tabindex="-1"></a>✔ dplyr     <span class="dv">1</span>.<span class="fl">1.2</span>     ✔ readr     <span class="dv">2</span>.<span class="fl">1.4</span></span>
-<span id="cb235-4"><a href="linear-regression.html#cb235-4" tabindex="-1"></a>✔ forcats   <span class="dv">1</span>.<span class="fl">0.0</span>     ✔ stringr   <span class="dv">1</span>.<span class="fl">5.0</span></span>
-<span id="cb235-5"><a href="linear-regression.html#cb235-5" tabindex="-1"></a>✔ ggplot2   <span class="dv">3</span>.<span class="fl">4.2</span>     ✔ tibble    <span class="dv">3</span>.<span class="fl">2.1</span></span>
-<span id="cb235-6"><a href="linear-regression.html#cb235-6" tabindex="-1"></a>✔ lubridate <span class="dv">1</span>.<span class="fl">9.2</span>     ✔ tidyr     <span class="dv">1</span>.<span class="fl">3.0</span></span>
-<span id="cb235-7"><a href="linear-regression.html#cb235-7" tabindex="-1"></a>✔ purrr     <span class="dv">1</span>.<span class="fl">0.1</span>     </span>
-<span id="cb235-8"><a href="linear-regression.html#cb235-8" tabindex="-1"></a>── Conflicts ────────────────────── <span class="fu">tidyverse_conflicts</span>() ──</span>
-<span id="cb235-9"><a href="linear-regression.html#cb235-9" tabindex="-1"></a>✖ dplyr<span class="sc">::</span><span class="fu">filter</span>() masks stats<span class="sc">::</span><span class="fu">filter</span>()</span>
-<span id="cb235-10"><a href="linear-regression.html#cb235-10" tabindex="-1"></a>✖ dplyr<span class="sc">::</span><span class="fu">lag</span>()    masks stats<span class="sc">::</span><span class="fu">lag</span>()</span>
-<span id="cb235-11"><a href="linear-regression.html#cb235-11" tabindex="-1"></a>ℹ Use the conflicted <span class="fu">package</span> (<span class="sc">&lt;</span>http<span class="sc">:</span><span class="er">//</span>conflicted.r<span class="sc">-</span>lib.org<span class="sc">/</span><span class="er">&gt;</span>) to force all conflicts to become errors</span>
-<span id="cb235-12"><a href="linear-regression.html#cb235-12" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb235-13"><a href="linear-regression.html#cb235-13" tabindex="-1"></a></span>
-<span id="cb235-14"><a href="linear-regression.html#cb235-14" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'magrittr'</span></span>
-<span id="cb235-15"><a href="linear-regression.html#cb235-15" tabindex="-1"></a></span>
-<span id="cb235-16"><a href="linear-regression.html#cb235-16" tabindex="-1"></a>The following object is masked from <span class="st">'package:purrr'</span><span class="sc">:</span></span>
-<span id="cb235-17"><a href="linear-regression.html#cb235-17" tabindex="-1"></a></span>
-<span id="cb235-18"><a href="linear-regression.html#cb235-18" tabindex="-1"></a>    set_names</span>
-<span id="cb235-19"><a href="linear-regression.html#cb235-19" tabindex="-1"></a></span>
-<span id="cb235-20"><a href="linear-regression.html#cb235-20" tabindex="-1"></a>The following object is masked from <span class="st">'package:tidyr'</span><span class="sc">:</span></span>
-<span id="cb235-21"><a href="linear-regression.html#cb235-21" tabindex="-1"></a></span>
-<span id="cb235-22"><a href="linear-regression.html#cb235-22" tabindex="-1"></a>    extract</span>
-<span id="cb235-23"><a href="linear-regression.html#cb235-23" tabindex="-1"></a><span class="fu">library</span>(huxtable)</span>
-<span id="cb235-24"><a href="linear-regression.html#cb235-24" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'huxtable'</span> was built under R version <span class="dv">4</span>.<span class="fl">3.1</span></span>
-<span id="cb235-25"><a href="linear-regression.html#cb235-25" tabindex="-1"></a></span>
-<span id="cb235-26"><a href="linear-regression.html#cb235-26" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'huxtable'</span></span>
-<span id="cb235-27"><a href="linear-regression.html#cb235-27" tabindex="-1"></a></span>
-<span id="cb235-28"><a href="linear-regression.html#cb235-28" tabindex="-1"></a>The following object is masked from <span class="st">'package:dplyr'</span><span class="sc">:</span></span>
-<span id="cb235-29"><a href="linear-regression.html#cb235-29" tabindex="-1"></a></span>
-<span id="cb235-30"><a href="linear-regression.html#cb235-30" tabindex="-1"></a>    add_rownames</span>
-<span id="cb235-31"><a href="linear-regression.html#cb235-31" tabindex="-1"></a></span>
-<span id="cb235-32"><a href="linear-regression.html#cb235-32" tabindex="-1"></a>The following object is masked from <span class="st">'package:ggplot2'</span><span class="sc">:</span></span>
-<span id="cb235-33"><a href="linear-regression.html#cb235-33" tabindex="-1"></a></span>
-<span id="cb235-34"><a href="linear-regression.html#cb235-34" tabindex="-1"></a>    theme_grey</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="linear-regression.html#cb248-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb248-2"><a href="linear-regression.html#cb248-2" tabindex="-1"></a>── Attaching core tidyverse packages ──── tidyverse <span class="dv">2</span>.<span class="fl">0.0</span> ──</span>
+<span id="cb248-3"><a href="linear-regression.html#cb248-3" tabindex="-1"></a>✔ dplyr     <span class="dv">1</span>.<span class="fl">1.2</span>     ✔ readr     <span class="dv">2</span>.<span class="fl">1.4</span></span>
+<span id="cb248-4"><a href="linear-regression.html#cb248-4" tabindex="-1"></a>✔ forcats   <span class="dv">1</span>.<span class="fl">0.0</span>     ✔ stringr   <span class="dv">1</span>.<span class="fl">5.0</span></span>
+<span id="cb248-5"><a href="linear-regression.html#cb248-5" tabindex="-1"></a>✔ ggplot2   <span class="dv">3</span>.<span class="fl">4.2</span>     ✔ tibble    <span class="dv">3</span>.<span class="fl">2.1</span></span>
+<span id="cb248-6"><a href="linear-regression.html#cb248-6" tabindex="-1"></a>✔ lubridate <span class="dv">1</span>.<span class="fl">9.2</span>     ✔ tidyr     <span class="dv">1</span>.<span class="fl">3.0</span></span>
+<span id="cb248-7"><a href="linear-regression.html#cb248-7" tabindex="-1"></a>✔ purrr     <span class="dv">1</span>.<span class="fl">0.1</span>     </span>
+<span id="cb248-8"><a href="linear-regression.html#cb248-8" tabindex="-1"></a>── Conflicts ────────────────────── <span class="fu">tidyverse_conflicts</span>() ──</span>
+<span id="cb248-9"><a href="linear-regression.html#cb248-9" tabindex="-1"></a>✖ dplyr<span class="sc">::</span><span class="fu">filter</span>() masks stats<span class="sc">::</span><span class="fu">filter</span>()</span>
+<span id="cb248-10"><a href="linear-regression.html#cb248-10" tabindex="-1"></a>✖ dplyr<span class="sc">::</span><span class="fu">lag</span>()    masks stats<span class="sc">::</span><span class="fu">lag</span>()</span>
+<span id="cb248-11"><a href="linear-regression.html#cb248-11" tabindex="-1"></a>ℹ Use the conflicted <span class="fu">package</span> (<span class="sc">&lt;</span>http<span class="sc">:</span><span class="er">//</span>conflicted.r<span class="sc">-</span>lib.org<span class="sc">/</span><span class="er">&gt;</span>) to force all conflicts to become errors</span>
+<span id="cb248-12"><a href="linear-regression.html#cb248-12" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb248-13"><a href="linear-regression.html#cb248-13" tabindex="-1"></a></span>
+<span id="cb248-14"><a href="linear-regression.html#cb248-14" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'magrittr'</span></span>
+<span id="cb248-15"><a href="linear-regression.html#cb248-15" tabindex="-1"></a></span>
+<span id="cb248-16"><a href="linear-regression.html#cb248-16" tabindex="-1"></a>The following object is masked from <span class="st">'package:purrr'</span><span class="sc">:</span></span>
+<span id="cb248-17"><a href="linear-regression.html#cb248-17" tabindex="-1"></a></span>
+<span id="cb248-18"><a href="linear-regression.html#cb248-18" tabindex="-1"></a>    set_names</span>
+<span id="cb248-19"><a href="linear-regression.html#cb248-19" tabindex="-1"></a></span>
+<span id="cb248-20"><a href="linear-regression.html#cb248-20" tabindex="-1"></a>The following object is masked from <span class="st">'package:tidyr'</span><span class="sc">:</span></span>
+<span id="cb248-21"><a href="linear-regression.html#cb248-21" tabindex="-1"></a></span>
+<span id="cb248-22"><a href="linear-regression.html#cb248-22" tabindex="-1"></a>    extract</span>
+<span id="cb248-23"><a href="linear-regression.html#cb248-23" tabindex="-1"></a><span class="fu">library</span>(huxtable)</span>
+<span id="cb248-24"><a href="linear-regression.html#cb248-24" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'huxtable'</span> was built under R version <span class="dv">4</span>.<span class="fl">3.1</span></span>
+<span id="cb248-25"><a href="linear-regression.html#cb248-25" tabindex="-1"></a></span>
+<span id="cb248-26"><a href="linear-regression.html#cb248-26" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'huxtable'</span></span>
+<span id="cb248-27"><a href="linear-regression.html#cb248-27" tabindex="-1"></a></span>
+<span id="cb248-28"><a href="linear-regression.html#cb248-28" tabindex="-1"></a>The following object is masked from <span class="st">'package:dplyr'</span><span class="sc">:</span></span>
+<span id="cb248-29"><a href="linear-regression.html#cb248-29" tabindex="-1"></a></span>
+<span id="cb248-30"><a href="linear-regression.html#cb248-30" tabindex="-1"></a>    add_rownames</span>
+<span id="cb248-31"><a href="linear-regression.html#cb248-31" tabindex="-1"></a></span>
+<span id="cb248-32"><a href="linear-regression.html#cb248-32" tabindex="-1"></a>The following object is masked from <span class="st">'package:ggplot2'</span><span class="sc">:</span></span>
+<span id="cb248-33"><a href="linear-regression.html#cb248-33" tabindex="-1"></a></span>
+<span id="cb248-34"><a href="linear-regression.html#cb248-34" tabindex="-1"></a>    theme_grey</span></code></pre></div>
 </div>
 </div>
   <div class="chapter-nav">
@@ -940,7 +940,7 @@ slopes between those with “High” and “Low” WBCs.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-16.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -117,28 +117,28 @@ survival and cured or not cured. Modelling binary outcome data usually requires
 logistic regression and this is done in R using the <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function with the
 family specified as binomial.</p>
 <p>In this section, we go back to the <code>ANCdata</code> used previously.</p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu">readstata13</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/readstata13/man/read.dta13.html">read.dta13</a></span><span class="op">(</span><span class="st">".\\Data\\ANCdata.dta"</span><span class="op">)</span></span></code></pre></div>
 <p>And summarize as below</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="logistic-regression.html#cb237-1" tabindex="-1"></a>df_anc <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb237-2"><a href="logistic-regression.html#cb237-2" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb237-3"><a href="logistic-regression.html#cb237-3" tabindex="-1"></a>df_anc  </span>
-<span id="cb237-4"><a href="logistic-regression.html#cb237-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">755</span> x <span class="dv">3</span>  </span>
-<span id="cb237-5"><a href="logistic-regression.html#cb237-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">747</span>  </span>
-<span id="cb237-6"><a href="logistic-regression.html#cb237-6" tabindex="-1"></a></span>
-<span id="cb237-7"><a href="logistic-regression.html#cb237-7" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span>
-<span id="cb237-8"><a href="logistic-regression.html#cb237-8" tabindex="-1"></a>No   Variable   Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
-<span id="cb237-9"><a href="logistic-regression.html#cb237-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb237-10"><a href="logistic-regression.html#cb237-10" tabindex="-1"></a><span class="dv">1</span>    death      <span class="fl">1.</span> no            <span class="dv">689</span> (<span class="fl">91.3</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb237-11"><a href="logistic-regression.html#cb237-11" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> yes            <span class="dv">66</span> ( <span class="fl">8.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb237-12"><a href="logistic-regression.html#cb237-12" tabindex="-1"></a></span>
-<span id="cb237-13"><a href="logistic-regression.html#cb237-13" tabindex="-1"></a><span class="dv">2</span>    anc        <span class="fl">1.</span> old           <span class="dv">419</span> (<span class="fl">55.5</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb237-14"><a href="logistic-regression.html#cb237-14" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> new           <span class="dv">336</span> (<span class="fl">44.5</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb237-15"><a href="logistic-regression.html#cb237-15" tabindex="-1"></a></span>
-<span id="cb237-16"><a href="logistic-regression.html#cb237-16" tabindex="-1"></a><span class="dv">3</span>    clinic     <span class="fl">1.</span> A             <span class="dv">497</span> (<span class="fl">65.8</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb237-17"><a href="logistic-regression.html#cb237-17" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> B             <span class="dv">258</span> (<span class="fl">34.2</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb237-18"><a href="logistic-regression.html#cb237-18" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="logistic-regression.html#cb250-1" tabindex="-1"></a>df_anc <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb250-2"><a href="logistic-regression.html#cb250-2" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb250-3"><a href="logistic-regression.html#cb250-3" tabindex="-1"></a>df_anc  </span>
+<span id="cb250-4"><a href="logistic-regression.html#cb250-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">755</span> x <span class="dv">3</span>  </span>
+<span id="cb250-5"><a href="logistic-regression.html#cb250-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">747</span>  </span>
+<span id="cb250-6"><a href="logistic-regression.html#cb250-6" tabindex="-1"></a></span>
+<span id="cb250-7"><a href="logistic-regression.html#cb250-7" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span>
+<span id="cb250-8"><a href="logistic-regression.html#cb250-8" tabindex="-1"></a>No   Variable   Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
+<span id="cb250-9"><a href="logistic-regression.html#cb250-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb250-10"><a href="logistic-regression.html#cb250-10" tabindex="-1"></a><span class="dv">1</span>    death      <span class="fl">1.</span> no            <span class="dv">689</span> (<span class="fl">91.3</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb250-11"><a href="logistic-regression.html#cb250-11" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> yes            <span class="dv">66</span> ( <span class="fl">8.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb250-12"><a href="logistic-regression.html#cb250-12" tabindex="-1"></a></span>
+<span id="cb250-13"><a href="logistic-regression.html#cb250-13" tabindex="-1"></a><span class="dv">2</span>    anc        <span class="fl">1.</span> old           <span class="dv">419</span> (<span class="fl">55.5</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb250-14"><a href="logistic-regression.html#cb250-14" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> new           <span class="dv">336</span> (<span class="fl">44.5</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb250-15"><a href="logistic-regression.html#cb250-15" tabindex="-1"></a></span>
+<span id="cb250-16"><a href="logistic-regression.html#cb250-16" tabindex="-1"></a><span class="dv">3</span>    clinic     <span class="fl">1.</span> A             <span class="dv">497</span> (<span class="fl">65.8</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb250-17"><a href="logistic-regression.html#cb250-17" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> B             <span class="dv">258</span> (<span class="fl">34.2</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb250-18"><a href="logistic-regression.html#cb250-18" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span></code></pre></div>
 <div id="logistic-regression-with-a-single-binary-predictor" class="section level2" number="22.1">
 <h2>
 <span class="header-section-number">22.1</span> Logistic regression with a single binary predictor<a class="anchor" aria-label="anchor" href="#logistic-regression-with-a-single-binary-predictor"><i class="fas fa-link"></i></a>
@@ -146,13 +146,13 @@ family specified as binomial.</p>
 <p>Our mission is to determine the relationship between the anc (anc) type used for
 managing pregnant women and the outcome of the pregnancy (death). To answer this
 question we run a logistic regression model in its simplest form as below</p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">death</span> <span class="op">~</span> <span class="va">anc</span>, family<span class="op">=</span><span class="va">binomial</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-6">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-6">Table 10.1: </span> </caption>
+<span id="tab:unnamed-chunk-6">Table 6.2: </span> </caption>
 <col>
 <col>
 <col>
@@ -210,7 +210,7 @@ be used for linear modelling as we did using the lm() function.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-16.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
