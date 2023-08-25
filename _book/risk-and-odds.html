@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 16 Risk and Odds | Medical Statistics using R</title>
+<title>Chapter 15 Risk and Odds | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
 <meta name="description" content="The analysis of the effects above depends mainly on the p-values and confidence intervals of difference in proportions. There is a more common and often better way of expressing these using Risk...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 16 Risk and Odds | Medical Statistics using R">
+<meta property="og:title" content="Chapter 15 Risk and Odds | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/risk-and-odds.html">
 <meta property="og:description" content="The analysis of the effects above depends mainly on the p-values and confidence intervals of difference in proportions. There is a more common and often better way of expressing these using Risk...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 16 Risk and Odds | Medical Statistics using R">
+<meta name="twitter:title" content="Chapter 15 Risk and Odds | Medical Statistics using R">
 <meta name="twitter:description" content="The analysis of the effects above depends mainly on the p-values and confidence intervals of difference in proportions. There is a more common and often better way of expressing these using Risk...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -74,31 +74,30 @@
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
 <li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
 <li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
-<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
-<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
-<li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
-<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">14</span> Analysis of numeric data</a></li>
-<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">15</span> Analysis of categorical data</a></li>
-<li><a class="active" href="risk-and-odds.html"><span class="header-section-number">16</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">17</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">18</span> Diagnostic Tests</a></li>
-<li><a class="" href="agreement.html"><span class="header-section-number">19</span> Agreement</a></li>
-<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">20</span> Receiver Operating Characteristic</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">21</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">22</span> Logistic Regression</a></li>
-<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">23</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">7</span> Data wrangling</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">8</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">9</span> Descriptive Statistics of Categorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">11</span> Hypothesis-Testing</a></li>
+<li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">14</span> Analysis of categorical data</a></li>
+<li><a class="active" href="risk-and-odds.html"><span class="header-section-number">15</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">16</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">17</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">18</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">19</span> Receiver Operating Characteristic</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">20</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></li>
+<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">22</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">23</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">24</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">25</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">26</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">27</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">28</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">29</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">30</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -106,9 +105,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="risk-and-odds" class="section level1" number="16">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="risk-and-odds" class="section level1" number="15">
 <h1>
-<span class="header-section-number">16</span> Risk and Odds<a class="anchor" aria-label="anchor" href="#risk-and-odds"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15</span> Risk and Odds<a class="anchor" aria-label="anchor" href="#risk-and-odds"><i class="fas fa-link"></i></a>
 </h1>
 <p>The analysis of the effects above depends mainly on the p-values and confidence
 intervals of difference in proportions. There is a more common and often better
@@ -141,9 +140,9 @@ way of expressing these using Risk and Odds. In this chapter, we will use the
 <span id="cb196-17"><a href="risk-and-odds.html#cb196-17" tabindex="-1"></a><span class="dv">3</span>    clinic     <span class="fl">1.</span> A             <span class="dv">497</span> (<span class="fl">65.8</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
 <span id="cb196-18"><a href="risk-and-odds.html#cb196-18" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> B             <span class="dv">258</span> (<span class="fl">34.2</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
 <span id="cb196-19"><a href="risk-and-odds.html#cb196-19" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span></code></pre></div>
-<div id="risk" class="section level2" number="16.1">
+<div id="risk" class="section level2" number="15.1">
 <h2>
-<span class="header-section-number">16.1</span> Risk<a class="anchor" aria-label="anchor" href="#risk"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.1</span> Risk<a class="anchor" aria-label="anchor" href="#risk"><i class="fas fa-link"></i></a>
 </h2>
 <p>Risk is defined as the probability of having an outcome. Therefore, if in a
 the population of 100, 35 develop diabetes mellitus after a specified period of
@@ -160,23 +159,23 @@ and that for the new method is 0.06 (5.9%).</p>
 <span>        label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">death</span> <span class="op">~</span> <span class="st">"Death"</span>, anc <span class="op">=</span> <span class="st">"ANC"</span><span class="op">)</span>,</span>
 <span>        digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">bold_labels</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="kseizcrfjv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kseizcrfjv table {
+<div id="xbwsvblfze" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xbwsvblfze table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kseizcrfjv thead, #kseizcrfjv tbody, #kseizcrfjv tfoot, #kseizcrfjv tr, #kseizcrfjv td, #kseizcrfjv th {
+#xbwsvblfze thead, #xbwsvblfze tbody, #xbwsvblfze tfoot, #xbwsvblfze tr, #xbwsvblfze td, #xbwsvblfze th {
   border-style: none;
 }
 
-#kseizcrfjv p {
+#xbwsvblfze p {
   margin: 0;
   padding: 0;
 }
 
-#kseizcrfjv .gt_table {
+#xbwsvblfze .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -202,12 +201,12 @@ and that for the new method is 0.06 (5.9%).</p>
   border-left-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_caption {
+#xbwsvblfze .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kseizcrfjv .gt_title {
+#xbwsvblfze .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -219,7 +218,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-bottom-width: 0;
 }
 
-#kseizcrfjv .gt_subtitle {
+#xbwsvblfze .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -231,7 +230,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-top-width: 0;
 }
 
-#kseizcrfjv .gt_heading {
+#xbwsvblfze .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -243,13 +242,13 @@ and that for the new method is 0.06 (5.9%).</p>
   border-right-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_bottom_border {
+#xbwsvblfze .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_col_headings {
+#xbwsvblfze .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -264,7 +263,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-right-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_col_heading {
+#xbwsvblfze .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -284,7 +283,7 @@ and that for the new method is 0.06 (5.9%).</p>
   overflow-x: hidden;
 }
 
-#kseizcrfjv .gt_column_spanner_outer {
+#xbwsvblfze .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -296,15 +295,15 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 4px;
 }
 
-#kseizcrfjv .gt_column_spanner_outer:first-child {
+#xbwsvblfze .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kseizcrfjv .gt_column_spanner_outer:last-child {
+#xbwsvblfze .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kseizcrfjv .gt_column_spanner {
+#xbwsvblfze .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -316,11 +315,11 @@ and that for the new method is 0.06 (5.9%).</p>
   width: 100%;
 }
 
-#kseizcrfjv .gt_spanner_row {
+#xbwsvblfze .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kseizcrfjv .gt_group_heading {
+#xbwsvblfze .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -346,7 +345,7 @@ and that for the new method is 0.06 (5.9%).</p>
   text-align: left;
 }
 
-#kseizcrfjv .gt_empty_group_heading {
+#xbwsvblfze .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -361,15 +360,15 @@ and that for the new method is 0.06 (5.9%).</p>
   vertical-align: middle;
 }
 
-#kseizcrfjv .gt_from_md > :first-child {
+#xbwsvblfze .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kseizcrfjv .gt_from_md > :last-child {
+#xbwsvblfze .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kseizcrfjv .gt_row {
+#xbwsvblfze .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -388,7 +387,7 @@ and that for the new method is 0.06 (5.9%).</p>
   overflow-x: hidden;
 }
 
-#kseizcrfjv .gt_stub {
+#xbwsvblfze .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -401,7 +400,7 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#kseizcrfjv .gt_stub_row_group {
+#xbwsvblfze .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -415,15 +414,15 @@ and that for the new method is 0.06 (5.9%).</p>
   vertical-align: top;
 }
 
-#kseizcrfjv .gt_row_group_first td {
+#xbwsvblfze .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kseizcrfjv .gt_row_group_first th {
+#xbwsvblfze .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kseizcrfjv .gt_summary_row {
+#xbwsvblfze .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -433,16 +432,16 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#kseizcrfjv .gt_first_summary_row {
+#xbwsvblfze .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_first_summary_row.thick {
+#xbwsvblfze .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kseizcrfjv .gt_last_summary_row {
+#xbwsvblfze .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -452,7 +451,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-bottom-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_grand_summary_row {
+#xbwsvblfze .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -462,7 +461,7 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#kseizcrfjv .gt_first_grand_summary_row {
+#xbwsvblfze .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -472,7 +471,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-top-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_last_grand_summary_row_top {
+#xbwsvblfze .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -482,11 +481,11 @@ and that for the new method is 0.06 (5.9%).</p>
   border-bottom-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_striped {
+#xbwsvblfze .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kseizcrfjv .gt_table_body {
+#xbwsvblfze .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -495,7 +494,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-bottom-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_footnotes {
+#xbwsvblfze .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -509,7 +508,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-right-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_footnote {
+#xbwsvblfze .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -518,7 +517,7 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#kseizcrfjv .gt_sourcenotes {
+#xbwsvblfze .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -532,7 +531,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-right-color: #D3D3D3;
 }
 
-#kseizcrfjv .gt_sourcenote {
+#xbwsvblfze .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -540,63 +539,63 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#kseizcrfjv .gt_left {
+#xbwsvblfze .gt_left {
   text-align: left;
 }
 
-#kseizcrfjv .gt_center {
+#xbwsvblfze .gt_center {
   text-align: center;
 }
 
-#kseizcrfjv .gt_right {
+#xbwsvblfze .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kseizcrfjv .gt_font_normal {
+#xbwsvblfze .gt_font_normal {
   font-weight: normal;
 }
 
-#kseizcrfjv .gt_font_bold {
+#xbwsvblfze .gt_font_bold {
   font-weight: bold;
 }
 
-#kseizcrfjv .gt_font_italic {
+#xbwsvblfze .gt_font_italic {
   font-style: italic;
 }
 
-#kseizcrfjv .gt_super {
+#xbwsvblfze .gt_super {
   font-size: 65%;
 }
 
-#kseizcrfjv .gt_footnote_marks {
+#xbwsvblfze .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kseizcrfjv .gt_asterisk {
+#xbwsvblfze .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kseizcrfjv .gt_indent_1 {
+#xbwsvblfze .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kseizcrfjv .gt_indent_2 {
+#xbwsvblfze .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kseizcrfjv .gt_indent_3 {
+#xbwsvblfze .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kseizcrfjv .gt_indent_4 {
+#xbwsvblfze .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kseizcrfjv .gt_indent_5 {
+#xbwsvblfze .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -647,9 +646,9 @@ and that for the new method is 0.06 (5.9%).</p>
 <p>Where <span class="math inline">\(Re\)</span> is the risk in the exposed group (new anc method) and <span class="math inline">\(Rne\)</span> is the
 risk in the non-exposed (old anc method).</p>
 </div>
-<div id="risk-ratio" class="section level2" number="16.2">
+<div id="risk-ratio" class="section level2" number="15.2">
 <h2>
-<span class="header-section-number">16.2</span> Risk Ratio<a class="anchor" aria-label="anchor" href="#risk-ratio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2</span> Risk Ratio<a class="anchor" aria-label="anchor" href="#risk-ratio"><i class="fas fa-link"></i></a>
 </h2>
 <p>A comparative way of expressing the risks in the two groups is by the use of
 the Risk Ratio or Relative Risk (RR).
@@ -700,9 +699,9 @@ halves the chances of death (RR = 0.54, 95%CI: 0.32 to 0.91). About 20 (95%CI:
 11 to 95) pregnant women need to be treated with the new anc method to prevent
 one perinatal death (NNT).</p>
 </div>
-<div id="odds" class="section level2" number="16.3">
+<div id="odds" class="section level2" number="15.3">
 <h2>
-<span class="header-section-number">16.3</span> Odds<a class="anchor" aria-label="anchor" href="#odds"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.3</span> Odds<a class="anchor" aria-label="anchor" href="#odds"><i class="fas fa-link"></i></a>
 </h2>
 <p>Another way of expressing the risk of an outcome is using the Odds. Statistically the odds
 is defined as</p>
@@ -717,9 +716,9 @@ death in the exposed is.</p>
 <p>And the odds of death in the non-exposed is</p>
 <p><span class="math display">\[Oddsne = \frac{0.1097852}{1-0.1097852} = 0.1233244\]</span></p>
 </div>
-<div id="odds-ratio" class="section level2" number="16.4">
+<div id="odds-ratio" class="section level2" number="15.4">
 <h2>
-<span class="header-section-number">16.4</span> Odds ratio<a class="anchor" aria-label="anchor" href="#odds-ratio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.4</span> Odds ratio<a class="anchor" aria-label="anchor" href="#odds-ratio"><i class="fas fa-link"></i></a>
 </h2>
 <p>The comparative way of comparing the two odds is the Odds Ratio (OR). This is
 determined as</p>
@@ -754,16 +753,16 @@ more detail in subsequent chapters.</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="analysis-of-categorical-data.html"><span class="header-section-number">15</span> Analysis of categorical data</a></div>
-<div class="next"><a href="confounding-and-interaction.html"><span class="header-section-number">17</span> Confounding and Interaction</a></div>
+<div class="prev"><a href="analysis-of-categorical-data.html"><span class="header-section-number">14</span> Analysis of categorical data</a></div>
+<div class="next"><a href="confounding-and-interaction.html"><span class="header-section-number">16</span> Confounding and Interaction</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#risk-and-odds"><span class="header-section-number">16</span> Risk and Odds</a></li>
-<li><a class="nav-link" href="#risk"><span class="header-section-number">16.1</span> Risk</a></li>
-<li><a class="nav-link" href="#risk-ratio"><span class="header-section-number">16.2</span> Risk Ratio</a></li>
-<li><a class="nav-link" href="#odds"><span class="header-section-number">16.3</span> Odds</a></li>
-<li><a class="nav-link" href="#odds-ratio"><span class="header-section-number">16.4</span> Odds ratio</a></li>
+<li><a class="nav-link" href="#risk-and-odds"><span class="header-section-number">15</span> Risk and Odds</a></li>
+<li><a class="nav-link" href="#risk"><span class="header-section-number">15.1</span> Risk</a></li>
+<li><a class="nav-link" href="#risk-ratio"><span class="header-section-number">15.2</span> Risk Ratio</a></li>
+<li><a class="nav-link" href="#odds"><span class="header-section-number">15.3</span> Odds</a></li>
+<li><a class="nav-link" href="#odds-ratio"><span class="header-section-number">15.4</span> Odds ratio</a></li>
 </ul>
 
       <div class="book-extra">

@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 21 Linear Regression | Medical Statistics using R</title>
+<title>Chapter 20 Linear Regression | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="21.1 Introduction Regression plays a key part in modern-day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
+<meta name="description" content="20.1 Introduction Regression plays a key part in modern-day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 21 Linear Regression | Medical Statistics using R">
+<meta property="og:title" content="Chapter 20 Linear Regression | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/linear-regression.html">
-<meta property="og:description" content="21.1 Introduction Regression plays a key part in modern-day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
+<meta property="og:description" content="20.1 Introduction Regression plays a key part in modern-day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 21 Linear Regression | Medical Statistics using R">
-<meta name="twitter:description" content="21.1 Introduction Regression plays a key part in modern-day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
+<meta name="twitter:title" content="Chapter 20 Linear Regression | Medical Statistics using R">
+<meta name="twitter:description" content="20.1 Introduction Regression plays a key part in modern-day statistics. R has advanced regression functions that includes; lm() (for fitting linear models), glm() (for fitting generalized linear...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -74,31 +74,30 @@
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
 <li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
 <li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
-<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
-<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
-<li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
-<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">14</span> Analysis of numeric data</a></li>
-<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">15</span> Analysis of categorical data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">16</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">17</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">18</span> Diagnostic Tests</a></li>
-<li><a class="" href="agreement.html"><span class="header-section-number">19</span> Agreement</a></li>
-<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">20</span> Receiver Operating Characteristic</a></li>
-<li><a class="active" href="linear-regression.html"><span class="header-section-number">21</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">22</span> Logistic Regression</a></li>
-<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">23</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">7</span> Data wrangling</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">8</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">9</span> Descriptive Statistics of Categorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">11</span> Hypothesis-Testing</a></li>
+<li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">14</span> Analysis of categorical data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">15</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">16</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">17</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">18</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">19</span> Receiver Operating Characteristic</a></li>
+<li><a class="active" href="linear-regression.html"><span class="header-section-number">20</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></li>
+<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">22</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">23</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">24</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">25</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">26</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">27</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">28</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">29</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">30</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -106,13 +105,13 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-regression" class="section level1" number="21">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-regression" class="section level1" number="20">
 <h1>
-<span class="header-section-number">21</span> Linear Regression<a class="anchor" aria-label="anchor" href="#linear-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20</span> Linear Regression<a class="anchor" aria-label="anchor" href="#linear-regression"><i class="fas fa-link"></i></a>
 </h1>
-<div id="introduction-3" class="section level2" number="21.1">
+<div id="introduction-3" class="section level2" number="20.1">
 <h2>
-<span class="header-section-number">21.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-3"><i class="fas fa-link"></i></a>
 </h2>
 <p>Regression plays a key part in modern-day statistics. R has advanced regression
 functions that includes; <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> (for fitting linear models), <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> (for fitting
@@ -126,9 +125,9 @@ For instance, one can ask:</p>
 </blockquote>
 <p>Readers who are conversant with this may guess the answer to be approximately 3.</p>
 </div>
-<div id="regression-with-single-continuous-independent-variable" class="section level2" number="21.2">
+<div id="regression-with-single-continuous-independent-variable" class="section level2" number="20.2">
 <h2>
-<span class="header-section-number">21.2</span> Regression with single continuous independent variable<a class="anchor" aria-label="anchor" href="#regression-with-single-continuous-independent-variable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.2</span> Regression with single continuous independent variable<a class="anchor" aria-label="anchor" href="#regression-with-single-continuous-independent-variable"><i class="fas fa-link"></i></a>
 </h2>
 <p>The basic idea behind linear regression is to have a formula where our dependent
 variable can be derived from our independent variable(s). Simply put if I am
@@ -252,9 +251,9 @@ that this rate of rise will fall between 2.6% and 2.9%. This observed slope is
 significantly different from a slope of 0. This is evident by the small p-value
 (&lt;.001).</p>
 </div>
-<div id="regression-with-single-categorical-independent-variable" class="section level2" number="21.3">
+<div id="regression-with-single-categorical-independent-variable" class="section level2" number="20.3">
 <h2>
-<span class="header-section-number">21.3</span> Regression with single categorical independent variable<a class="anchor" aria-label="anchor" href="#regression-with-single-categorical-independent-variable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.3</span> Regression with single categorical independent variable<a class="anchor" aria-label="anchor" href="#regression-with-single-categorical-independent-variable"><i class="fas fa-link"></i></a>
 </h2>
 <p>Previously we implemented linear regression with one continuous independent
 variable. Here we implement linear regression with a categorical independent
@@ -269,7 +268,7 @@ generate one by categorising those with high wbc (&gt;11.0 x 109/ml) as “High�
 <span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-8">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-8">Table 14.1: </span> </caption>
+<span id="tab:unnamed-chunk-8">Table 13.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -460,9 +459,9 @@ confidence interval of (25.1 to 29.0). The difference in hct between those with
 The difference between the two means is significantly different from 0 with a
 p-value = 0.001.</p>
 </div>
-<div id="regression-with-two-continuous-independent-variables" class="section level2" number="21.4">
+<div id="regression-with-two-continuous-independent-variables" class="section level2" number="20.4">
 <h2>
-<span class="header-section-number">21.4</span> Regression with two continuous independent variables<a class="anchor" aria-label="anchor" href="#regression-with-two-continuous-independent-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.4</span> Regression with two continuous independent variables<a class="anchor" aria-label="anchor" href="#regression-with-two-continuous-independent-variables"><i class="fas fa-link"></i></a>
 </h2>
 <p>Previously we have dealt with identifying and reporting a confounder or
 confounding in categorical data analysis. The effect used then was the odds
@@ -669,9 +668,9 @@ by wbc because the coefficient remains literally the same.</p>
 from the significant negative crude relationship to literally no relationship
 between them. Thus we conclude that hb is a confounder to the relationship
 between the hct and wbc.</p>
-<div id="regression-with-continuous-and-categorical-independent-variables" class="section level3" number="21.4.1">
+<div id="regression-with-continuous-and-categorical-independent-variables" class="section level3" number="20.4.1">
 <h3>
-<span class="header-section-number">21.4.1</span> Regression with continuous and categorical independent variables<a class="anchor" aria-label="anchor" href="#regression-with-continuous-and-categorical-independent-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.4.1</span> Regression with continuous and categorical independent variables<a class="anchor" aria-label="anchor" href="#regression-with-continuous-and-categorical-independent-variables"><i class="fas fa-link"></i></a>
 </h3>
 <p>In this section we perform a linear regression involving three variables; hct,
 hb and wbc.cat. This type of linear regression is done to answer questions like:</p>
@@ -760,9 +759,9 @@ from 0 (p = 0.128). Thus we do not have enough evidence that there is a
 difference in the levels of hct depending on the level of one’s WBC.</p>
 </div>
 </div>
-<div id="regression-with-continuous-and-categorical-independent-variables-with-interaction" class="section level2" number="21.5">
+<div id="regression-with-continuous-and-categorical-independent-variables-with-interaction" class="section level2" number="20.5">
 <h2>
-<span class="header-section-number">21.5</span> Regression with continuous and categorical independent variables with interaction<a class="anchor" aria-label="anchor" href="#regression-with-continuous-and-categorical-independent-variables-with-interaction"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.5</span> Regression with continuous and categorical independent variables with interaction<a class="anchor" aria-label="anchor" href="#regression-with-continuous-and-categorical-independent-variables-with-interaction"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the analysis above we assumed the slopes of the two lines are the same.
 However, this is usually not the case. To determine the individual slopes as well
@@ -777,7 +776,7 @@ persons with High compared to those with Low WBC?.</p>
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span><span class="op">*</span><span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-17">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-17">Table 14.2: </span> </caption>
+<span id="tab:unnamed-chunk-17">Table 13.2: </span> </caption>
 <col>
 <col>
 <col>
@@ -867,9 +866,9 @@ probability that this difference could have arisen by chance is relatively high
 (0.633), we conclude that we do not have significant evidence of a difference in
 slopes between those with “High” and “Low” WBCs.</p>
 </div>
-<div id="assumptions" class="section level2" number="21.6">
+<div id="assumptions" class="section level2" number="20.6">
 <h2>
-<span class="header-section-number">21.6</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.6</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions"><i class="fas fa-link"></i></a>
 </h2>
 
 <div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="linear-regression.html#cb248-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -909,20 +908,20 @@ slopes between those with “High” and “Low” WBCs.</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="receiver-operating-characteristic.html"><span class="header-section-number">20</span> Receiver Operating Characteristic</a></div>
-<div class="next"><a href="logistic-regression.html"><span class="header-section-number">22</span> Logistic Regression</a></div>
+<div class="prev"><a href="receiver-operating-characteristic.html"><span class="header-section-number">19</span> Receiver Operating Characteristic</a></div>
+<div class="next"><a href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#linear-regression"><span class="header-section-number">21</span> Linear Regression</a></li>
-<li><a class="nav-link" href="#introduction-3"><span class="header-section-number">21.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#regression-with-single-continuous-independent-variable"><span class="header-section-number">21.2</span> Regression with single continuous independent variable</a></li>
-<li><a class="nav-link" href="#regression-with-single-categorical-independent-variable"><span class="header-section-number">21.3</span> Regression with single categorical independent variable</a></li>
+<li><a class="nav-link" href="#linear-regression"><span class="header-section-number">20</span> Linear Regression</a></li>
+<li><a class="nav-link" href="#introduction-3"><span class="header-section-number">20.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#regression-with-single-continuous-independent-variable"><span class="header-section-number">20.2</span> Regression with single continuous independent variable</a></li>
+<li><a class="nav-link" href="#regression-with-single-categorical-independent-variable"><span class="header-section-number">20.3</span> Regression with single categorical independent variable</a></li>
 <li>
-<a class="nav-link" href="#regression-with-two-continuous-independent-variables"><span class="header-section-number">21.4</span> Regression with two continuous independent variables</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#regression-with-continuous-and-categorical-independent-variables"><span class="header-section-number">21.4.1</span> Regression with continuous and categorical independent variables</a></li></ul>
+<a class="nav-link" href="#regression-with-two-continuous-independent-variables"><span class="header-section-number">20.4</span> Regression with two continuous independent variables</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#regression-with-continuous-and-categorical-independent-variables"><span class="header-section-number">20.4.1</span> Regression with continuous and categorical independent variables</a></li></ul>
 </li>
-<li><a class="nav-link" href="#regression-with-continuous-and-categorical-independent-variables-with-interaction"><span class="header-section-number">21.5</span> Regression with continuous and categorical independent variables with interaction</a></li>
-<li><a class="nav-link" href="#assumptions"><span class="header-section-number">21.6</span> Assumptions</a></li>
+<li><a class="nav-link" href="#regression-with-continuous-and-categorical-independent-variables-with-interaction"><span class="header-section-number">20.5</span> Regression with continuous and categorical independent variables with interaction</a></li>
+<li><a class="nav-link" href="#assumptions"><span class="header-section-number">20.6</span> Assumptions</a></li>
 </ul>
 
       <div class="book-extra">

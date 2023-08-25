@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 14 Analysis of numeric data | Medical Statistics using R</title>
+<title>Chapter 13 Analysis of numeric data | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
 <meta name="description" content="So far, we have dealt with descriptive statistics and the analysis of the sample data collected. However, the bane of most statistical analysis is to make inferences about the population as a...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 14 Analysis of numeric data | Medical Statistics using R">
+<meta property="og:title" content="Chapter 13 Analysis of numeric data | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/analysis-of-numeric-data.html">
 <meta property="og:description" content="So far, we have dealt with descriptive statistics and the analysis of the sample data collected. However, the bane of most statistical analysis is to make inferences about the population as a...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 14 Analysis of numeric data | Medical Statistics using R">
+<meta name="twitter:title" content="Chapter 13 Analysis of numeric data | Medical Statistics using R">
 <meta name="twitter:description" content="So far, we have dealt with descriptive statistics and the analysis of the sample data collected. However, the bane of most statistical analysis is to make inferences about the population as a...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -74,31 +74,30 @@
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
 <li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
 <li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
-<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
-<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
-<li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
-<li><a class="active" href="analysis-of-numeric-data.html"><span class="header-section-number">14</span> Analysis of numeric data</a></li>
-<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">15</span> Analysis of categorical data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">16</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">17</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">18</span> Diagnostic Tests</a></li>
-<li><a class="" href="agreement.html"><span class="header-section-number">19</span> Agreement</a></li>
-<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">20</span> Receiver Operating Characteristic</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">21</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">22</span> Logistic Regression</a></li>
-<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">23</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">7</span> Data wrangling</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">8</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">9</span> Descriptive Statistics of Categorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">11</span> Hypothesis-Testing</a></li>
+<li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="active" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">14</span> Analysis of categorical data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">15</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">16</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">17</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">18</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">19</span> Receiver Operating Characteristic</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">20</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></li>
+<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">22</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">23</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">24</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">25</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">26</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">27</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">28</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">29</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">30</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -106,17 +105,17 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-numeric-data" class="section level1" number="14">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-numeric-data" class="section level1" number="13">
 <h1>
-<span class="header-section-number">14</span> Analysis of numeric data<a class="anchor" aria-label="anchor" href="#analysis-of-numeric-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13</span> Analysis of numeric data<a class="anchor" aria-label="anchor" href="#analysis-of-numeric-data"><i class="fas fa-link"></i></a>
 </h1>
 <p>So far, we have dealt with descriptive statistics and the analysis of the sample
 data collected. However, the bane of most statistical analysis is to make
 inferences about the population as a whole. In this section, we mainly do an
 inferential analysis of continuous variables.</p>
-<div id="confidence-interval-of-a-mean" class="section level2" number="14.1">
+<div id="confidence-interval-of-a-mean" class="section level2" number="13.1">
 <h2>
-<span class="header-section-number">14.1</span> Confidence interval of a mean<a class="anchor" aria-label="anchor" href="#confidence-interval-of-a-mean"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.1</span> Confidence interval of a mean<a class="anchor" aria-label="anchor" href="#confidence-interval-of-a-mean"><i class="fas fa-link"></i></a>
 </h2>
 <p>To determine the confidence interval of the mean of a numeric variable in R, we
 use the One Sample Student’s T-test. The assumptions for the validity of this
@@ -265,7 +264,7 @@ apply the One-sample T-test as below.</p>
 <span>    <span class="fu">meantables</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/meantables/man/mean_table.html">mean_table</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-8">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-8">Table 14.1: </span> </caption>
+<span id="tab:unnamed-chunk-8">Table 13.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -318,9 +317,9 @@ apply the One-sample T-test as below.</p>
 </tr>
 </table></div>
 </div>
-<div id="comparing-the-mean-to-a-hypothesised-value" class="section level2" number="14.2">
+<div id="comparing-the-mean-to-a-hypothesised-value" class="section level2" number="13.2">
 <h2>
-<span class="header-section-number">14.2</span> Comparing the mean to a hypothesised value<a class="anchor" aria-label="anchor" href="#comparing-the-mean-to-a-hypothesised-value"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2</span> Comparing the mean to a hypothesised value<a class="anchor" aria-label="anchor" href="#comparing-the-mean-to-a-hypothesised-value"><i class="fas fa-link"></i></a>
 </h2>
 <p>Assuming the objective of the data collected was to determine if the average
 weight of our population was similar to a population with a known mean weight of
@@ -377,9 +376,9 @@ hypothesized value of
 14kgs outside the confidence interval of the mean we conclude that there is
 insuficient evidence to suggest that the mean weight of our population is 14kgs.</p>
 </div>
-<div id="comparing-mean-of-two-independent-groups" class="section level2" number="14.3">
+<div id="comparing-mean-of-two-independent-groups" class="section level2" number="13.3">
 <h2>
-<span class="header-section-number">14.3</span> Comparing mean of two independent groups<a class="anchor" aria-label="anchor" href="#comparing-mean-of-two-independent-groups"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.3</span> Comparing mean of two independent groups<a class="anchor" aria-label="anchor" href="#comparing-mean-of-two-independent-groups"><i class="fas fa-link"></i></a>
 </h2>
 <p>This is possibly the most common use for the t-test. To compare the mean weights
 of the males and female in our study we come up with</p>
@@ -459,9 +458,9 @@ interval contains the null value from H0 above i.e. 0, we conclude that there
 isn’t enough evidence of a difference in mean weight between the two sexes.
 Hence both the confidence interval and p-value come to similar conclusions.</p>
 </div>
-<div id="comparing-means-of-paired-observations" class="section level2" number="14.4">
+<div id="comparing-means-of-paired-observations" class="section level2" number="13.4">
 <h2>
-<span class="header-section-number">14.4</span> Comparing means of paired observations<a class="anchor" aria-label="anchor" href="#comparing-means-of-paired-observations"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4</span> Comparing means of paired observations<a class="anchor" aria-label="anchor" href="#comparing-means-of-paired-observations"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this section we use the <code>bread.txt</code> data which has the weight in grams before
 and after baking some loaves of bread. A description of the variables is
@@ -581,7 +580,7 @@ as not deviating from the normal distribution. This is done below</p>
 <span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/shapiro_test.html">shapiro_test</a></span><span class="op">(</span>vars <span class="op">=</span> <span class="st">"diff_in_wgt"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-17">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-17">Table 14.2: </span> </caption>
+<span id="tab:unnamed-chunk-17">Table 13.2: </span> </caption>
 <col>
 <col>
 <col>
@@ -611,7 +610,7 @@ difference in mean weights. First we state our hypothesis</p>
 <span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">weight</span><span class="op">~</span><span class="va">time</span>, paired <span class="op">=</span> <span class="cn">TRUE</span>, detailed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-18">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-18">Table 14.3: </span> </caption>
+<span id="tab:unnamed-chunk-18">Table 13.3: </span> </caption>
 <col>
 <col>
 <col>
@@ -660,9 +659,9 @@ difference in mean weights. First we state our hypothesis</p>
 baking. This reduction has a 95% confidence interval of 159.1g to 165.9g and is
 significantly different from 0 (p-value&lt;0.001).</p>
 </div>
-<div id="test-for-equality-of-variances" class="section level2" number="14.5">
+<div id="test-for-equality-of-variances" class="section level2" number="13.5">
 <h2>
-<span class="header-section-number">14.5</span> Test for equality of variances<a class="anchor" aria-label="anchor" href="#test-for-equality-of-variances"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.5</span> Test for equality of variances<a class="anchor" aria-label="anchor" href="#test-for-equality-of-variances"><i class="fas fa-link"></i></a>
 </h2>
 <p>In using the Student’s T-test to determine difference between the means of two
 independent groups we need to be mindful of the variances of each group. The
@@ -679,7 +678,7 @@ for the two sexes. First we determine the variances.</p>
 <span>    <span class="fu">summarise</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="va">weight</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>var <span class="op">=</span> <span class="va">var</span>, meam <span class="op">=</span> <span class="va">mean</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-19">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-19">Table 14.4: </span> </caption>
+<span id="tab:unnamed-chunk-19">Table 13.4: </span> </caption>
 <col>
 <col>
 <col>
@@ -715,7 +714,7 @@ regard our null value would be 1.</p>
 <span id="cb172-4"><a href="analysis-of-numeric-data.html#cb172-4" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-20">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-20">Table 14.5: </span> </caption>
+<span id="tab:unnamed-chunk-20">Table 13.5: </span> </caption>
 <col>
 <col>
 <col>
@@ -765,7 +764,7 @@ variances are significantly different.</p>
 <span>    <span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-21">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-21">Table 14.6: </span> </caption>
+<span id="tab:unnamed-chunk-21">Table 13.6: </span> </caption>
 <col>
 <col>
 <col>
@@ -793,7 +792,7 @@ than the males however we apply a test to formally determine this.</p>
 <span id="cb174-4"><a href="analysis-of-numeric-data.html#cb174-4" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-22">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-22">Table 14.7: </span> </caption>
+<span id="tab:unnamed-chunk-22">Table 13.7: </span> </caption>
 <col>
 <col>
 <col>
@@ -835,7 +834,7 @@ that variance is equal as below.</p>
 <span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">height</span><span class="op">~</span><span class="va">sex</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span>, detailed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-23">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-23">Table 14.8: </span> </caption>
+<span id="tab:unnamed-chunk-23">Table 13.8: </span> </caption>
 <col>
 <col>
 <col>
@@ -920,6 +919,7 @@ The following object is masked from 'package:ggplot2':
 
     theme_grey
 
+#StandWithUkraine
 
 Attaching package: 'gtsummary'
 
@@ -929,17 +929,17 @@ The following object is masked from 'package:huxtable':
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></div>
-<div class="next"><a href="analysis-of-categorical-data.html"><span class="header-section-number">15</span> Analysis of categorical data</a></div>
+<div class="prev"><a href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></div>
+<div class="next"><a href="analysis-of-categorical-data.html"><span class="header-section-number">14</span> Analysis of categorical data</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#analysis-of-numeric-data"><span class="header-section-number">14</span> Analysis of numeric data</a></li>
-<li><a class="nav-link" href="#confidence-interval-of-a-mean"><span class="header-section-number">14.1</span> Confidence interval of a mean</a></li>
-<li><a class="nav-link" href="#comparing-the-mean-to-a-hypothesised-value"><span class="header-section-number">14.2</span> Comparing the mean to a hypothesised value</a></li>
-<li><a class="nav-link" href="#comparing-mean-of-two-independent-groups"><span class="header-section-number">14.3</span> Comparing mean of two independent groups</a></li>
-<li><a class="nav-link" href="#comparing-means-of-paired-observations"><span class="header-section-number">14.4</span> Comparing means of paired observations</a></li>
-<li><a class="nav-link" href="#test-for-equality-of-variances"><span class="header-section-number">14.5</span> Test for equality of variances</a></li>
+<li><a class="nav-link" href="#analysis-of-numeric-data"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="nav-link" href="#confidence-interval-of-a-mean"><span class="header-section-number">13.1</span> Confidence interval of a mean</a></li>
+<li><a class="nav-link" href="#comparing-the-mean-to-a-hypothesised-value"><span class="header-section-number">13.2</span> Comparing the mean to a hypothesised value</a></li>
+<li><a class="nav-link" href="#comparing-mean-of-two-independent-groups"><span class="header-section-number">13.3</span> Comparing mean of two independent groups</a></li>
+<li><a class="nav-link" href="#comparing-means-of-paired-observations"><span class="header-section-number">13.4</span> Comparing means of paired observations</a></li>
+<li><a class="nav-link" href="#test-for-equality-of-variances"><span class="header-section-number">13.5</span> Test for equality of variances</a></li>
 </ul>
 
       <div class="book-extra">

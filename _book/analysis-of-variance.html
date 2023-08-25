@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 23 Analysis of Variance | Medical Statistics using R</title>
+<title>Chapter 22 Analysis of Variance | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="23.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition, especially in adults. To treat this condition, persons with hypertension are often...">
+<meta name="description" content="22.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition, especially in adults. To treat this condition, persons with hypertension are often...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 23 Analysis of Variance | Medical Statistics using R">
+<meta property="og:title" content="Chapter 22 Analysis of Variance | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/analysis-of-variance.html">
-<meta property="og:description" content="23.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition, especially in adults. To treat this condition, persons with hypertension are often...">
+<meta property="og:description" content="22.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition, especially in adults. To treat this condition, persons with hypertension are often...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 23 Analysis of Variance | Medical Statistics using R">
-<meta name="twitter:description" content="23.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition, especially in adults. To treat this condition, persons with hypertension are often...">
+<meta name="twitter:title" content="Chapter 22 Analysis of Variance | Medical Statistics using R">
+<meta name="twitter:description" content="22.1 Introduction Hypertension, an elevated blood pressure beyond normal, is a very common medical condition, especially in adults. To treat this condition, persons with hypertension are often...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -74,31 +74,30 @@
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
 <li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
 <li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
-<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
-<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
-<li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
-<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">14</span> Analysis of numeric data</a></li>
-<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">15</span> Analysis of categorical data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">16</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">17</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">18</span> Diagnostic Tests</a></li>
-<li><a class="" href="agreement.html"><span class="header-section-number">19</span> Agreement</a></li>
-<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">20</span> Receiver Operating Characteristic</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">21</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">22</span> Logistic Regression</a></li>
-<li><a class="active" href="analysis-of-variance.html"><span class="header-section-number">23</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">7</span> Data wrangling</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">8</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">9</span> Descriptive Statistics of Categorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">11</span> Hypothesis-Testing</a></li>
+<li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">14</span> Analysis of categorical data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">15</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">16</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">17</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">18</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">19</span> Receiver Operating Characteristic</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">20</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></li>
+<li><a class="active" href="analysis-of-variance.html"><span class="header-section-number">22</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">23</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">24</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">25</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">26</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">27</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">28</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">29</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">30</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -106,13 +105,13 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-variance" class="section level1" number="23">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-variance" class="section level1" number="22">
 <h1>
-<span class="header-section-number">23</span> Analysis of Variance<a class="anchor" aria-label="anchor" href="#analysis-of-variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22</span> Analysis of Variance<a class="anchor" aria-label="anchor" href="#analysis-of-variance"><i class="fas fa-link"></i></a>
 </h1>
-<div id="introduction-4" class="section level2" number="23.1">
+<div id="introduction-4" class="section level2" number="22.1">
 <h2>
-<span class="header-section-number">23.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-4"><i class="fas fa-link"></i></a>
 </h2>
 <p>Hypertension, an elevated blood pressure beyond normal, is a very common medical
 condition, especially in adults. To treat this condition, persons with hypertension
@@ -269,9 +268,9 @@ lowering effect appears to be A, followed by B, D and C in that order. How do we
 know if we can say for sure that B is better than A, which in turn is better
 than D etc? To answer this question we perform an ANOVA.</p>
 </div>
-<div id="one-way-analysis-of-variance" class="section level2" number="23.2">
+<div id="one-way-analysis-of-variance" class="section level2" number="22.2">
 <h2>
-<span class="header-section-number">23.2</span> One-way analysis of variance<a class="anchor" aria-label="anchor" href="#one-way-analysis-of-variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.2</span> One-way analysis of variance<a class="anchor" aria-label="anchor" href="#one-way-analysis-of-variance"><i class="fas fa-link"></i></a>
 </h2>
 <p>The analysis of variance is a parametric test used to compare means for more
 than two groups. It tests the null hypothesis</p>
@@ -327,9 +326,9 @@ fit a linear regression model as below.</p>
 <p>From the ANOVA output above we have a p-value of the order 0.000057! This is
 very small indicating at least one of our means significantly differs from the
 rest.</p>
-<div id="postestimation-pairwise-comparison" class="section level3" number="23.2.1">
+<div id="postestimation-pairwise-comparison" class="section level3" number="22.2.1">
 <h3>
-<span class="header-section-number">23.2.1</span> Postestimation pairwise comparison<a class="anchor" aria-label="anchor" href="#postestimation-pairwise-comparison"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.2.1</span> Postestimation pairwise comparison<a class="anchor" aria-label="anchor" href="#postestimation-pairwise-comparison"><i class="fas fa-link"></i></a>
 </h3>
 <p>We have made the point that ANOVA only tell us at least one of the means is
 significantly different from the others. To pick up which drug’s mean effect(s)
@@ -359,7 +358,7 @@ using the “holm” method</p>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-8">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-8">Table 14.1: </span> </caption>
+<span id="tab:unnamed-chunk-8">Table 13.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -497,9 +496,9 @@ significantly smaller SBP lowering effects compared to A and B. Drugs C and D
 don’t perform significantly differently from each other.</p>
 </div>
 </div>
-<div id="two-way-analysis-of-variance" class="section level2" number="23.3">
+<div id="two-way-analysis-of-variance" class="section level2" number="22.3">
 <h2>
-<span class="header-section-number">23.3</span> Two-Way Analysis of Variance<a class="anchor" aria-label="anchor" href="#two-way-analysis-of-variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.3</span> Two-Way Analysis of Variance<a class="anchor" aria-label="anchor" href="#two-way-analysis-of-variance"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the above data, the are two possible independent variables that may explain the BP-lowering effect obtained. These are the <code>disease</code> and <code>drug</code> administered. For a Two-way analysis of variance, we primarily come up with three hypotheses:</p>
 <blockquote>
@@ -575,9 +574,9 @@ don’t perform significantly differently from each other.</p>
 <div class="inline-figure"><img src="Analysis-of-Variance_files/figure-html/unnamed-chunk-11-1.png" width="576"></div>
 <p>The plot above indicates that the systolic blood pressure among the groups of disease conditions does not seem to vary significantly for each drug given. This is reflected in the high p-value for the interaction between the drug and disease.</p>
 </div>
-<div id="repeated-measure-analysis-of-variance" class="section level2" number="23.4">
+<div id="repeated-measure-analysis-of-variance" class="section level2" number="22.4">
 <h2>
-<span class="header-section-number">23.4</span> Repeated measure analysis of variance<a class="anchor" aria-label="anchor" href="#repeated-measure-analysis-of-variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4</span> Repeated measure analysis of variance<a class="anchor" aria-label="anchor" href="#repeated-measure-analysis-of-variance"><i class="fas fa-link"></i></a>
 </h2>
 <p>Often in research, the investigator desires to determine the change in an outcome over repeated measures, often after a specific time interval. This involves measuring the outcome in the same study participant multiple times. Since these measurements are not independent, the methodology for the analysis is not the same as that described above. When only two measurements are made, the paired T-test suffices to use here. however, if you have more than 2 measurements on the same study participant. This is where a repeated measure is used.</p>
 <p>For this subsection, we will use the data that involves a set of hypertension patients, whose blood pressures were measured every 2 months for a year.</p>
@@ -693,19 +692,19 @@ don’t perform significantly differently from each other.</p>
 <span id="cb267-6"><a href="analysis-of-variance.html#cb267-6" tabindex="-1"></a><span class="dv">2</span> sid<span class="sc">:</span>period period        <span class="dv">3</span>  <span class="fl">1131.</span>   <span class="fl">377.</span>     <span class="fl">0.924</span>   <span class="fl">0.431</span></span>
 <span id="cb267-7"><a href="analysis-of-variance.html#cb267-7" tabindex="-1"></a><span class="dv">3</span> sid<span class="sc">:</span>period Residuals   <span class="dv">147</span> <span class="fl">59984.</span>   <span class="fl">408.</span>    <span class="cn">NA</span>      <span class="cn">NA</span>    </span></code></pre></div>
 </div>
-<div id="analysis-of-covariance" class="section level2" number="23.5">
+<div id="analysis-of-covariance" class="section level2" number="22.5">
 <h2>
-<span class="header-section-number">23.5</span> Analysis of covariance<a class="anchor" aria-label="anchor" href="#analysis-of-covariance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.5</span> Analysis of covariance<a class="anchor" aria-label="anchor" href="#analysis-of-covariance"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="multivariate-analysis-of-variance" class="section level2" number="23.6">
+<div id="multivariate-analysis-of-variance" class="section level2" number="22.6">
 <h2>
-<span class="header-section-number">23.6</span> Multivariate Analysis of Variance<a class="anchor" aria-label="anchor" href="#multivariate-analysis-of-variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.6</span> Multivariate Analysis of Variance<a class="anchor" aria-label="anchor" href="#multivariate-analysis-of-variance"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="kruskal-wallis-test" class="section level2" number="23.7">
+<div id="kruskal-wallis-test" class="section level2" number="22.7">
 <h2>
-<span class="header-section-number">23.7</span> Kruskal Wallis Test<a class="anchor" aria-label="anchor" href="#kruskal-wallis-test"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.7</span> Kruskal Wallis Test<a class="anchor" aria-label="anchor" href="#kruskal-wallis-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>At the beginning of this section, we noted that ANOVA is a parametric test.
 Therefore it requires approximately normally distributed dependent data to work
@@ -728,30 +727,30 @@ of the drug is significantly different from the others. This conclusion is not
 different from that derived from the analysis of variance. At least the centre
 of one of the systolic blood pressure is significantly different from another</p>
 </div>
-<div id="assumptions-1" class="section level2" number="23.8">
+<div id="assumptions-1" class="section level2" number="22.8">
 <h2>
-<span class="header-section-number">23.8</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.8</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions-1"><i class="fas fa-link"></i></a>
 </h2>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="logistic-regression.html"><span class="header-section-number">22</span> Logistic Regression</a></div>
-<div class="next"><a href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></div>
+<div class="prev"><a href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></div>
+<div class="next"><a href="ordinal-logistic-regression.html"><span class="header-section-number">23</span> Ordinal logistic regression</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#analysis-of-variance"><span class="header-section-number">23</span> Analysis of Variance</a></li>
-<li><a class="nav-link" href="#introduction-4"><span class="header-section-number">23.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#analysis-of-variance"><span class="header-section-number">22</span> Analysis of Variance</a></li>
+<li><a class="nav-link" href="#introduction-4"><span class="header-section-number">22.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#one-way-analysis-of-variance"><span class="header-section-number">23.2</span> One-way analysis of variance</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#postestimation-pairwise-comparison"><span class="header-section-number">23.2.1</span> Postestimation pairwise comparison</a></li></ul>
+<a class="nav-link" href="#one-way-analysis-of-variance"><span class="header-section-number">22.2</span> One-way analysis of variance</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#postestimation-pairwise-comparison"><span class="header-section-number">22.2.1</span> Postestimation pairwise comparison</a></li></ul>
 </li>
-<li><a class="nav-link" href="#two-way-analysis-of-variance"><span class="header-section-number">23.3</span> Two-Way Analysis of Variance</a></li>
-<li><a class="nav-link" href="#repeated-measure-analysis-of-variance"><span class="header-section-number">23.4</span> Repeated measure analysis of variance</a></li>
-<li><a class="nav-link" href="#analysis-of-covariance"><span class="header-section-number">23.5</span> Analysis of covariance</a></li>
-<li><a class="nav-link" href="#multivariate-analysis-of-variance"><span class="header-section-number">23.6</span> Multivariate Analysis of Variance</a></li>
-<li><a class="nav-link" href="#kruskal-wallis-test"><span class="header-section-number">23.7</span> Kruskal Wallis Test</a></li>
-<li><a class="nav-link" href="#assumptions-1"><span class="header-section-number">23.8</span> Assumptions</a></li>
+<li><a class="nav-link" href="#two-way-analysis-of-variance"><span class="header-section-number">22.3</span> Two-Way Analysis of Variance</a></li>
+<li><a class="nav-link" href="#repeated-measure-analysis-of-variance"><span class="header-section-number">22.4</span> Repeated measure analysis of variance</a></li>
+<li><a class="nav-link" href="#analysis-of-covariance"><span class="header-section-number">22.5</span> Analysis of covariance</a></li>
+<li><a class="nav-link" href="#multivariate-analysis-of-variance"><span class="header-section-number">22.6</span> Multivariate Analysis of Variance</a></li>
+<li><a class="nav-link" href="#kruskal-wallis-test"><span class="header-section-number">22.7</span> Kruskal Wallis Test</a></li>
+<li><a class="nav-link" href="#assumptions-1"><span class="header-section-number">22.8</span> Assumptions</a></li>
 </ul>
 
       <div class="book-extra">

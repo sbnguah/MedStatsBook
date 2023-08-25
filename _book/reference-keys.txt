@@ -69,7 +69,6 @@ spss-files
 stata-files
 sas-files
 conclusion
-exporting-data-from-r
 data-wrangling
 renaming-variables
 sorting-data

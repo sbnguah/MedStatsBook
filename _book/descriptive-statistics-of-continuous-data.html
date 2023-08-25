@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 11 Descriptive Statistics of Continuous Data | Medical Statistics using R</title>
+<title>Chapter 10 Descriptive Statistics of Continuous Data | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
 <meta name="description" content='For this section, we will use the NewDrug_clean.dta dataset newdrug &lt;-    haven::read_dta("./Data/NewDrug_clean.dta") %&gt;%   mutate(sex = haven::as_factor(sex), treat = haven::as_factor(treat)) %&gt;%...'>
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 11 Descriptive Statistics of Continuous Data | Medical Statistics using R">
+<meta property="og:title" content="Chapter 10 Descriptive Statistics of Continuous Data | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/descriptive-statistics-of-continuous-data.html">
 <meta property="og:description" content='For this section, we will use the NewDrug_clean.dta dataset newdrug &lt;-    haven::read_dta("./Data/NewDrug_clean.dta") %&gt;%   mutate(sex = haven::as_factor(sex), treat = haven::as_factor(treat)) %&gt;%...'>
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 11 Descriptive Statistics of Continuous Data | Medical Statistics using R">
+<meta name="twitter:title" content="Chapter 10 Descriptive Statistics of Continuous Data | Medical Statistics using R">
 <meta name="twitter:description" content='For this section, we will use the NewDrug_clean.dta dataset newdrug &lt;-    haven::read_dta("./Data/NewDrug_clean.dta") %&gt;%   mutate(sex = haven::as_factor(sex), treat = haven::as_factor(treat)) %&gt;%...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -74,31 +74,30 @@
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
 <li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
 <li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
-<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
-<li><a class="active" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
-<li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
-<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">14</span> Analysis of numeric data</a></li>
-<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">15</span> Analysis of categorical data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">16</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">17</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">18</span> Diagnostic Tests</a></li>
-<li><a class="" href="agreement.html"><span class="header-section-number">19</span> Agreement</a></li>
-<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">20</span> Receiver Operating Characteristic</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">21</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">22</span> Logistic Regression</a></li>
-<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">23</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">7</span> Data wrangling</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">8</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">9</span> Descriptive Statistics of Categorical Data</a></li>
+<li><a class="active" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">11</span> Hypothesis-Testing</a></li>
+<li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">14</span> Analysis of categorical data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">15</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">16</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">17</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">18</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">19</span> Receiver Operating Characteristic</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">20</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></li>
+<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">22</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">23</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">24</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">25</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">26</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">27</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">28</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">29</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">30</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -106,9 +105,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="descriptive-statistics-of-continuous-data" class="section level1" number="11">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="descriptive-statistics-of-continuous-data" class="section level1" number="10">
 <h1>
-<span class="header-section-number">11</span> Descriptive Statistics of Continuous Data<a class="anchor" aria-label="anchor" href="#descriptive-statistics-of-continuous-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10</span> Descriptive Statistics of Continuous Data<a class="anchor" aria-label="anchor" href="#descriptive-statistics-of-continuous-data"><i class="fas fa-link"></i></a>
 </h1>
 <p>For this section, we will use the <code>NewDrug_clean.dta</code> dataset</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="descriptive-statistics-of-continuous-data.html#cb132-1" tabindex="-1"></a>newdrug <span class="ot">&lt;-</span>  </span>
@@ -131,13 +130,13 @@
 <span id="cb132-18"><a href="descriptive-statistics-of-continuous-data.html#cb132-18" tabindex="-1"></a> Mean   <span class="sc">:</span> <span class="fl">98.30</span>   Mean   <span class="sc">:</span><span class="fl">88.60</span>   Mean   <span class="sc">:</span> <span class="fl">9.704</span>  </span>
 <span id="cb132-19"><a href="descriptive-statistics-of-continuous-data.html#cb132-19" tabindex="-1"></a> 3rd Qu.<span class="sc">:</span> <span class="fl">99.40</span>   3rd Qu.<span class="sc">:</span><span class="fl">92.10</span>   3rd Qu.<span class="sc">:</span><span class="fl">13.700</span>  </span>
 <span id="cb132-20"><a href="descriptive-statistics-of-continuous-data.html#cb132-20" tabindex="-1"></a> Max.   <span class="sc">:</span><span class="fl">111.70</span>   Max.   <span class="sc">:</span><span class="fl">99.70</span>   Max.   <span class="sc">:</span><span class="fl">26.300</span>  </span></code></pre></div>
-<div id="single-continuous-variable" class="section level3" number="11.0.1">
+<div id="single-continuous-variable" class="section level3" number="10.0.1">
 <h3>
-<span class="header-section-number">11.0.1</span> Single continuous variable<a class="anchor" aria-label="anchor" href="#single-continuous-variable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.0.1</span> Single continuous variable<a class="anchor" aria-label="anchor" href="#single-continuous-variable"><i class="fas fa-link"></i></a>
 </h3>
-<div id="measures-of-central-tendency-dispersion" class="section level4" number="11.0.1.1">
+<div id="measures-of-central-tendency-dispersion" class="section level4" number="10.0.1.1">
 <h4>
-<span class="header-section-number">11.0.1.1</span> Measures of Central Tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.0.1.1</span> Measures of Central Tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion"><i class="fas fa-link"></i></a>
 </h4>
 <p>These include mean and median and are displayed below</p>
 <div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
@@ -152,7 +151,7 @@
 <span>    <span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-3">Table 10.1: </span> </caption>
+<span id="tab:unnamed-chunk-3">Table 9.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -233,7 +232,7 @@
 <span>    <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">bp1</span>, IQR <span class="op">=</span> <span class="cn">TRUE</span>,quant <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.25</span>, <span class="fl">.75</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-5">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-5">Table 11.1: </span> </caption>
+<span id="tab:unnamed-chunk-5">Table 10.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -288,9 +287,9 @@
 </tr>
 </table></div>
 </div>
-<div id="graphs---histogram" class="section level4" number="11.0.1.2">
+<div id="graphs---histogram" class="section level4" number="10.0.1.2">
 <h4>
-<span class="header-section-number">11.0.1.2</span> Graphs - Histogram<a class="anchor" aria-label="anchor" href="#graphs---histogram"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.0.1.2</span> Graphs - Histogram<a class="anchor" aria-label="anchor" href="#graphs---histogram"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
@@ -301,9 +300,9 @@
 <span>    <span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-6-1.png" width="576"></div>
 </div>
-<div id="graphs---boxplot-and-violin-plot" class="section level4" number="11.0.1.3">
+<div id="graphs---boxplot-and-violin-plot" class="section level4" number="10.0.1.3">
 <h4>
-<span class="header-section-number">11.0.1.3</span> Graphs - Boxplot and violin plot<a class="anchor" aria-label="anchor" href="#graphs---boxplot-and-violin-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.0.1.3</span> Graphs - Boxplot and violin plot<a class="anchor" aria-label="anchor" href="#graphs---boxplot-and-violin-plot"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
@@ -318,9 +317,9 @@
 <span>    <span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-7-1.png" width="576"></div>
 </div>
-<div id="graphs---density-plot" class="section level4" number="11.0.1.4">
+<div id="graphs---density-plot" class="section level4" number="10.0.1.4">
 <h4>
-<span class="header-section-number">11.0.1.4</span> Graphs - Density plot<a class="anchor" aria-label="anchor" href="#graphs---density-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.0.1.4</span> Graphs - Density plot<a class="anchor" aria-label="anchor" href="#graphs---density-plot"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
@@ -332,9 +331,9 @@
 <span>    <span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-8-1.png" width="576"></div>
 </div>
-<div id="graphs---cumulative-frequency-plot" class="section level4" number="11.0.1.5">
+<div id="graphs---cumulative-frequency-plot" class="section level4" number="10.0.1.5">
 <h4>
-<span class="header-section-number">11.0.1.5</span> Graphs - Cumulative Frequency plot<a class="anchor" aria-label="anchor" href="#graphs---cumulative-frequency-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.0.1.5</span> Graphs - Cumulative Frequency plot<a class="anchor" aria-label="anchor" href="#graphs---cumulative-frequency-plot"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
@@ -352,13 +351,13 @@
 <div class="inline-figure"><img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-9-1.png" width="576"></div>
 </div>
 </div>
-<div id="multiple-continuous-variables" class="section level3" number="11.0.2">
+<div id="multiple-continuous-variables" class="section level3" number="10.0.2">
 <h3>
-<span class="header-section-number">11.0.2</span> Multiple Continuous variables<a class="anchor" aria-label="anchor" href="#multiple-continuous-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.0.2</span> Multiple Continuous variables<a class="anchor" aria-label="anchor" href="#multiple-continuous-variables"><i class="fas fa-link"></i></a>
 </h3>
-<div id="measures-of-central-tendency-dispersion-1" class="section level4" number="11.0.2.1">
+<div id="measures-of-central-tendency-dispersion-1" class="section level4" number="10.0.2.1">
 <h4>
-<span class="header-section-number">11.0.2.1</span> Measures of Central tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.0.2.1</span> Measures of Central tendency &amp; Dispersion<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency-dispersion-1"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newdrug</span> <span class="op">%&gt;%</span> </span>
@@ -500,13 +499,13 @@
 <div class="inline-figure"><img src="Descriptive-Statistics-Continuous_files/figure-html/unnamed-chunk-14-1.png" width="576"></div>
 </div>
 </div>
-<div id="continuous-by-a-single-categorical-variable" class="section level2" number="11.1">
+<div id="continuous-by-a-single-categorical-variable" class="section level2" number="10.1">
 <h2>
-<span class="header-section-number">11.1</span> Continuous by a single categorical variable<a class="anchor" aria-label="anchor" href="#continuous-by-a-single-categorical-variable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1</span> Continuous by a single categorical variable<a class="anchor" aria-label="anchor" href="#continuous-by-a-single-categorical-variable"><i class="fas fa-link"></i></a>
 </h2>
-<div id="summary" class="section level3" number="11.1.1">
+<div id="summary" class="section level3" number="10.1.1">
 <h3>
-<span class="header-section-number">11.1.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
 </h3>
 <p>We do this with one variable.</p>
 <div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
@@ -563,20 +562,20 @@
 </tr>
 </table></div>
 </div>
-<div id="graph---histogram-boxplot-density-plot-and-cumulative-frequency" class="section level3" number="11.1.2">
+<div id="graph---histogram-boxplot-density-plot-and-cumulative-frequency" class="section level3" number="10.1.2">
 <h3>
-<span class="header-section-number">11.1.2</span> Graph - Histogram, Boxplot, Density plot and cumulative frequency<a class="anchor" aria-label="anchor" href="#graph---histogram-boxplot-density-plot-and-cumulative-frequency"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.2</span> Graph - Histogram, Boxplot, Density plot and cumulative frequency<a class="anchor" aria-label="anchor" href="#graph---histogram-boxplot-density-plot-and-cumulative-frequency"><i class="fas fa-link"></i></a>
 </h3>
 <p>The graphs are similar to the above so we skip them.</p>
 </div>
 </div>
-<div id="continuous-by-multiple-categorical-variables" class="section level2" number="11.2">
+<div id="continuous-by-multiple-categorical-variables" class="section level2" number="10.2">
 <h2>
-<span class="header-section-number">11.2</span> Continuous by multiple categorical variables<a class="anchor" aria-label="anchor" href="#continuous-by-multiple-categorical-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2</span> Continuous by multiple categorical variables<a class="anchor" aria-label="anchor" href="#continuous-by-multiple-categorical-variables"><i class="fas fa-link"></i></a>
 </h2>
-<div id="summary-1" class="section level3" number="11.2.1">
+<div id="summary-1" class="section level3" number="10.2.1">
 <h3>
-<span class="header-section-number">11.2.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.1</span> Summary<a class="anchor" aria-label="anchor" href="#summary-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>This can be done as below.</p>
 <div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
@@ -674,25 +673,25 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></div>
-<div class="next"><a href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></div>
+<div class="prev"><a href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">9</span> Descriptive Statistics of Categorical Data</a></div>
+<div class="next"><a href="hypothesis-testing.html"><span class="header-section-number">11</span> Hypothesis-Testing</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li>
-<a class="nav-link" href="#descriptive-statistics-of-continuous-data"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#single-continuous-variable"><span class="header-section-number">11.0.1</span> Single continuous variable</a></li>
-<li><a class="nav-link" href="#multiple-continuous-variables"><span class="header-section-number">11.0.2</span> Multiple Continuous variables</a></li>
+<a class="nav-link" href="#descriptive-statistics-of-continuous-data"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#single-continuous-variable"><span class="header-section-number">10.0.1</span> Single continuous variable</a></li>
+<li><a class="nav-link" href="#multiple-continuous-variables"><span class="header-section-number">10.0.2</span> Multiple Continuous variables</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#continuous-by-a-single-categorical-variable"><span class="header-section-number">11.1</span> Continuous by a single categorical variable</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#summary"><span class="header-section-number">11.1.1</span> Summary</a></li>
-<li><a class="nav-link" href="#graph---histogram-boxplot-density-plot-and-cumulative-frequency"><span class="header-section-number">11.1.2</span> Graph - Histogram, Boxplot, Density plot and cumulative frequency</a></li>
+<a class="nav-link" href="#continuous-by-a-single-categorical-variable"><span class="header-section-number">10.1</span> Continuous by a single categorical variable</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#summary"><span class="header-section-number">10.1.1</span> Summary</a></li>
+<li><a class="nav-link" href="#graph---histogram-boxplot-density-plot-and-cumulative-frequency"><span class="header-section-number">10.1.2</span> Graph - Histogram, Boxplot, Density plot and cumulative frequency</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#continuous-by-multiple-categorical-variables"><span class="header-section-number">11.2</span> Continuous by multiple categorical variables</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#summary-1"><span class="header-section-number">11.2.1</span> Summary</a></li></ul>
+<a class="nav-link" href="#continuous-by-multiple-categorical-variables"><span class="header-section-number">10.2</span> Continuous by multiple categorical variables</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#summary-1"><span class="header-section-number">10.2.1</span> Summary</a></li></ul>
 </li>
 </ul>
 

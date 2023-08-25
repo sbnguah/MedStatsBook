@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 15 Analysis of categorical data | Medical Statistics using R</title>
+<title>Chapter 14 Analysis of categorical data | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="In this section we discuss how to analyse categorical data, both aggregated and non-aggregated.  15.1 One-sample binomial test  15.1.1 One sample proportion: Confidence interval In a study to...">
+<meta name="description" content="In this section we discuss how to analyse categorical data, both aggregated and non-aggregated.  14.1 One-sample binomial test  14.1.1 One sample proportion: Confidence interval In a study to...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 15 Analysis of categorical data | Medical Statistics using R">
+<meta property="og:title" content="Chapter 14 Analysis of categorical data | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/analysis-of-categorical-data.html">
-<meta property="og:description" content="In this section we discuss how to analyse categorical data, both aggregated and non-aggregated.  15.1 One-sample binomial test  15.1.1 One sample proportion: Confidence interval In a study to...">
+<meta property="og:description" content="In this section we discuss how to analyse categorical data, both aggregated and non-aggregated.  14.1 One-sample binomial test  14.1.1 One sample proportion: Confidence interval In a study to...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 15 Analysis of categorical data | Medical Statistics using R">
-<meta name="twitter:description" content="In this section we discuss how to analyse categorical data, both aggregated and non-aggregated.  15.1 One-sample binomial test  15.1.1 One sample proportion: Confidence interval In a study to...">
+<meta name="twitter:title" content="Chapter 14 Analysis of categorical data | Medical Statistics using R">
+<meta name="twitter:description" content="In this section we discuss how to analyse categorical data, both aggregated and non-aggregated.  14.1 One-sample binomial test  14.1.1 One sample proportion: Confidence interval In a study to...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -74,31 +74,30 @@
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
 <li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
 <li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
-<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
-<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
-<li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
-<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">14</span> Analysis of numeric data</a></li>
-<li><a class="active" href="analysis-of-categorical-data.html"><span class="header-section-number">15</span> Analysis of categorical data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">16</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">17</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">18</span> Diagnostic Tests</a></li>
-<li><a class="" href="agreement.html"><span class="header-section-number">19</span> Agreement</a></li>
-<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">20</span> Receiver Operating Characteristic</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">21</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">22</span> Logistic Regression</a></li>
-<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">23</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">7</span> Data wrangling</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">8</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">9</span> Descriptive Statistics of Categorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">11</span> Hypothesis-Testing</a></li>
+<li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="active" href="analysis-of-categorical-data.html"><span class="header-section-number">14</span> Analysis of categorical data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">15</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">16</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">17</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">18</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">19</span> Receiver Operating Characteristic</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">20</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></li>
+<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">22</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">23</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">24</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">25</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">26</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">27</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">28</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">29</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">30</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -106,18 +105,18 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-categorical-data" class="section level1" number="15">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="analysis-of-categorical-data" class="section level1" number="14">
 <h1>
-<span class="header-section-number">15</span> Analysis of categorical data<a class="anchor" aria-label="anchor" href="#analysis-of-categorical-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14</span> Analysis of categorical data<a class="anchor" aria-label="anchor" href="#analysis-of-categorical-data"><i class="fas fa-link"></i></a>
 </h1>
 <p>In this section we discuss how to analyse categorical data, both aggregated and non-aggregated.</p>
-<div id="one-sample-binomial-test" class="section level2" number="15.1">
+<div id="one-sample-binomial-test" class="section level2" number="14.1">
 <h2>
-<span class="header-section-number">15.1</span> One-sample binomial test<a class="anchor" aria-label="anchor" href="#one-sample-binomial-test"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1</span> One-sample binomial test<a class="anchor" aria-label="anchor" href="#one-sample-binomial-test"><i class="fas fa-link"></i></a>
 </h2>
-<div id="one-sample-proportion-confidence-interval" class="section level3" number="15.1.1">
+<div id="one-sample-proportion-confidence-interval" class="section level3" number="14.1.1">
 <h3>
-<span class="header-section-number">15.1.1</span> One sample proportion: Confidence interval<a class="anchor" aria-label="anchor" href="#one-sample-proportion-confidence-interval"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1.1</span> One sample proportion: Confidence interval<a class="anchor" aria-label="anchor" href="#one-sample-proportion-confidence-interval"><i class="fas fa-link"></i></a>
 </h3>
 <p>In a study to determine the prevalence of hypertension in a certain adult
 population, a random sample taken revealed 23 out of 67 had hypertension. The
@@ -142,7 +141,7 @@ binomial test as below:</p>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-2">Table 15.1: </span> </caption>
+<span id="tab:unnamed-chunk-2">Table 14.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -172,9 +171,9 @@ binomial test as below:</p>
 <p>The binomial exact confidence interval of the proportion of those with hypertension in our
 study population, therefore, is 23.2% to 46.9%.</p>
 </div>
-<div id="one-sample-proportion-hypothesis-testing" class="section level3" number="15.1.2">
+<div id="one-sample-proportion-hypothesis-testing" class="section level3" number="14.1.2">
 <h3>
-<span class="header-section-number">15.1.2</span> One sample proportion: Hypothesis testing<a class="anchor" aria-label="anchor" href="#one-sample-proportion-hypothesis-testing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1.2</span> One sample proportion: Hypothesis testing<a class="anchor" aria-label="anchor" href="#one-sample-proportion-hypothesis-testing"><i class="fas fa-link"></i></a>
 </h3>
 <p>Before the data on hypertension above was collected, the investigator<br>
 hypothesized that 50% of the population was hypertensive. Next, we test this
@@ -188,7 +187,7 @@ hypothesis. As usual, we start by setting the null hypothesis.</p>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-3">Table 10.1: </span> </caption>
+<span id="tab:unnamed-chunk-3">Table 9.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -275,7 +274,7 @@ and our null hypothesis would be</p>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-5">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-5">Table 11.1: </span> </caption>
+<span id="tab:unnamed-chunk-5">Table 10.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -306,13 +305,13 @@ and our null hypothesis would be</p>
 evidence to support the assertion that the prevalence of hypertension in the population is at least 47%.</p>
 </div>
 </div>
-<div id="two-or-more-sample-binomial-test" class="section level2" number="15.2">
+<div id="two-or-more-sample-binomial-test" class="section level2" number="14.2">
 <h2>
-<span class="header-section-number">15.2</span> Two or more sample binomial test<a class="anchor" aria-label="anchor" href="#two-or-more-sample-binomial-test"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2</span> Two or more sample binomial test<a class="anchor" aria-label="anchor" href="#two-or-more-sample-binomial-test"><i class="fas fa-link"></i></a>
 </h2>
-<div id="two-sample-proportion-hypothesis-testing" class="section level3" number="15.2.1">
+<div id="two-sample-proportion-hypothesis-testing" class="section level3" number="14.2.1">
 <h3>
-<span class="header-section-number">15.2.1</span> Two sample proportion: Hypothesis testing<a class="anchor" aria-label="anchor" href="#two-sample-proportion-hypothesis-testing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.1</span> Two sample proportion: Hypothesis testing<a class="anchor" aria-label="anchor" href="#two-sample-proportion-hypothesis-testing"><i class="fas fa-link"></i></a>
 </h3>
 <p>Taking it further we decide to select from a different population and sample 100
 persons to determine the proportion of those with hypertension. In this
@@ -373,9 +372,9 @@ does not include the null value 0 so we conclude that there is a difference in
 the prevalence of hypertension between the 2 populations.</p>
 </div>
 </div>
-<div id="chi-squared-test" class="section level2" number="15.3">
+<div id="chi-squared-test" class="section level2" number="14.3">
 <h2>
-<span class="header-section-number">15.3</span> Chi-squared test<a class="anchor" aria-label="anchor" href="#chi-squared-test"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3</span> Chi-squared test<a class="anchor" aria-label="anchor" href="#chi-squared-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>Pearson’s chi-square test, also known as the chi-square goodness-of-fit test or
 chi-square test for independence is used to determine if observed frequencies in
@@ -385,9 +384,9 @@ groups A, B, AB, and O respectively. In a random sample of 600 persons in Kumasi
 Ghana 226, 82, 21 and 271 were blood groups A, B, AB, and O respectively.
 The chi-squared test can help us determine if the proportion of blood groups
 found in Kumasi is consistent with that seen in Asia.</p>
-<div id="chi-squared-goodness-of-fit-test" class="section level3" number="15.3.1">
+<div id="chi-squared-goodness-of-fit-test" class="section level3" number="14.3.1">
 <h3>
-<span class="header-section-number">15.3.1</span> Chi-squared goodness of fit test<a class="anchor" aria-label="anchor" href="#chi-squared-goodness-of-fit-test"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3.1</span> Chi-squared goodness of fit test<a class="anchor" aria-label="anchor" href="#chi-squared-goodness-of-fit-test"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the blood group example above the investigators may want to know if the
 proportions of the blood groups in Kumasi are consistent with that seen in Asia.
@@ -414,7 +413,7 @@ expected and observed frequencies in Asia and Kumasi respectively.</p>
 <span><span class="va">df_temp</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-8">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-8">Table 14.1: </span> </caption>
+<span id="tab:unnamed-chunk-8">Table 13.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -501,9 +500,9 @@ the difference in proportions.</p>
 that the proportions of blood groups in Kumasi are different from the observed
 proportions in Asia.</p>
 </div>
-<div id="chi-squared-test-for-independent-data" class="section level3" number="15.3.2">
+<div id="chi-squared-test-for-independent-data" class="section level3" number="14.3.2">
 <h3>
-<span class="header-section-number">15.3.2</span> Chi-squared test for independent data<a class="anchor" aria-label="anchor" href="#chi-squared-test-for-independent-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3.2</span> Chi-squared test for independent data<a class="anchor" aria-label="anchor" href="#chi-squared-test-for-independent-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>In this subsection, we will use the ANCdata from the epicalc package. It can also<br>
 be obtained from the list of data that comes with this book. The ANCdata
@@ -547,23 +546,23 @@ perinatal mortality differ in the population depending on the anc method used?</
 <span>        col <span class="op">=</span> <span class="va">anc</span>, </span>
 <span>        label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">death</span> <span class="op">~</span> <span class="st">"Death"</span>, anc <span class="op">=</span> <span class="st">"ANC"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">bold_labels</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="kptesliihf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kptesliihf table {
+<div id="wqqjibtqhh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wqqjibtqhh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kptesliihf thead, #kptesliihf tbody, #kptesliihf tfoot, #kptesliihf tr, #kptesliihf td, #kptesliihf th {
+#wqqjibtqhh thead, #wqqjibtqhh tbody, #wqqjibtqhh tfoot, #wqqjibtqhh tr, #wqqjibtqhh td, #wqqjibtqhh th {
   border-style: none;
 }
 
-#kptesliihf p {
+#wqqjibtqhh p {
   margin: 0;
   padding: 0;
 }
 
-#kptesliihf .gt_table {
+#wqqjibtqhh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -589,12 +588,12 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-left-color: #D3D3D3;
 }
 
-#kptesliihf .gt_caption {
+#wqqjibtqhh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kptesliihf .gt_title {
+#wqqjibtqhh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -606,7 +605,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-width: 0;
 }
 
-#kptesliihf .gt_subtitle {
+#wqqjibtqhh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -618,7 +617,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-top-width: 0;
 }
 
-#kptesliihf .gt_heading {
+#wqqjibtqhh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -630,13 +629,13 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#kptesliihf .gt_bottom_border {
+#wqqjibtqhh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kptesliihf .gt_col_headings {
+#wqqjibtqhh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -651,7 +650,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#kptesliihf .gt_col_heading {
+#wqqjibtqhh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -671,7 +670,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   overflow-x: hidden;
 }
 
-#kptesliihf .gt_column_spanner_outer {
+#wqqjibtqhh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -683,15 +682,15 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 4px;
 }
 
-#kptesliihf .gt_column_spanner_outer:first-child {
+#wqqjibtqhh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kptesliihf .gt_column_spanner_outer:last-child {
+#wqqjibtqhh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kptesliihf .gt_column_spanner {
+#wqqjibtqhh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -703,11 +702,11 @@ perinatal mortality differ in the population depending on the anc method used?</
   width: 100%;
 }
 
-#kptesliihf .gt_spanner_row {
+#wqqjibtqhh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kptesliihf .gt_group_heading {
+#wqqjibtqhh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -733,7 +732,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   text-align: left;
 }
 
-#kptesliihf .gt_empty_group_heading {
+#wqqjibtqhh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -748,15 +747,15 @@ perinatal mortality differ in the population depending on the anc method used?</
   vertical-align: middle;
 }
 
-#kptesliihf .gt_from_md > :first-child {
+#wqqjibtqhh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kptesliihf .gt_from_md > :last-child {
+#wqqjibtqhh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kptesliihf .gt_row {
+#wqqjibtqhh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -775,7 +774,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   overflow-x: hidden;
 }
 
-#kptesliihf .gt_stub {
+#wqqjibtqhh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -788,7 +787,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#kptesliihf .gt_stub_row_group {
+#wqqjibtqhh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -802,15 +801,15 @@ perinatal mortality differ in the population depending on the anc method used?</
   vertical-align: top;
 }
 
-#kptesliihf .gt_row_group_first td {
+#wqqjibtqhh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kptesliihf .gt_row_group_first th {
+#wqqjibtqhh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kptesliihf .gt_summary_row {
+#wqqjibtqhh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -820,16 +819,16 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#kptesliihf .gt_first_summary_row {
+#wqqjibtqhh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kptesliihf .gt_first_summary_row.thick {
+#wqqjibtqhh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kptesliihf .gt_last_summary_row {
+#wqqjibtqhh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -839,7 +838,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-color: #D3D3D3;
 }
 
-#kptesliihf .gt_grand_summary_row {
+#wqqjibtqhh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -849,7 +848,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#kptesliihf .gt_first_grand_summary_row {
+#wqqjibtqhh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -859,7 +858,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-top-color: #D3D3D3;
 }
 
-#kptesliihf .gt_last_grand_summary_row_top {
+#wqqjibtqhh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -869,11 +868,11 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-color: #D3D3D3;
 }
 
-#kptesliihf .gt_striped {
+#wqqjibtqhh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kptesliihf .gt_table_body {
+#wqqjibtqhh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -882,7 +881,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-color: #D3D3D3;
 }
 
-#kptesliihf .gt_footnotes {
+#wqqjibtqhh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -896,7 +895,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#kptesliihf .gt_footnote {
+#wqqjibtqhh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -905,7 +904,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#kptesliihf .gt_sourcenotes {
+#wqqjibtqhh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -919,7 +918,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#kptesliihf .gt_sourcenote {
+#wqqjibtqhh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -927,63 +926,63 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#kptesliihf .gt_left {
+#wqqjibtqhh .gt_left {
   text-align: left;
 }
 
-#kptesliihf .gt_center {
+#wqqjibtqhh .gt_center {
   text-align: center;
 }
 
-#kptesliihf .gt_right {
+#wqqjibtqhh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kptesliihf .gt_font_normal {
+#wqqjibtqhh .gt_font_normal {
   font-weight: normal;
 }
 
-#kptesliihf .gt_font_bold {
+#wqqjibtqhh .gt_font_bold {
   font-weight: bold;
 }
 
-#kptesliihf .gt_font_italic {
+#wqqjibtqhh .gt_font_italic {
   font-style: italic;
 }
 
-#kptesliihf .gt_super {
+#wqqjibtqhh .gt_super {
   font-size: 65%;
 }
 
-#kptesliihf .gt_footnote_marks {
+#wqqjibtqhh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kptesliihf .gt_asterisk {
+#wqqjibtqhh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kptesliihf .gt_indent_1 {
+#wqqjibtqhh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kptesliihf .gt_indent_2 {
+#wqqjibtqhh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kptesliihf .gt_indent_3 {
+#wqqjibtqhh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kptesliihf .gt_indent_4 {
+#wqqjibtqhh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kptesliihf .gt_indent_5 {
+#wqqjibtqhh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1094,9 +1093,9 @@ proportions are unlikely. In other words, the cell proportions differ
 significantly, the old method can be said to result in significantly higher
 perinatal deaths compared to the new method.</p>
 </div>
-<div id="chi-squared-test-for-trend" class="section level3" number="15.3.3">
+<div id="chi-squared-test-for-trend" class="section level3" number="14.3.3">
 <h3>
-<span class="header-section-number">15.3.3</span> Chi-squared test for trend<a class="anchor" aria-label="anchor" href="#chi-squared-test-for-trend"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3.3</span> Chi-squared test for trend<a class="anchor" aria-label="anchor" href="#chi-squared-test-for-trend"><i class="fas fa-link"></i></a>
 </h3>
 <p>Often there arise situations in categorical data analysis where the objective is
 not to just see a difference in proportions as a Chi-squared test for independence
@@ -1138,7 +1137,7 @@ conditions we state the null hypothesis.</p>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-20">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-20">Table 14.5: </span> </caption>
+<span id="tab:unnamed-chunk-20">Table 13.5: </span> </caption>
 <col>
 <col>
 <col>
@@ -1161,9 +1160,9 @@ significant trend (upward because we know it is) in developing eye changes with
 increasing age.</p>
 </div>
 </div>
-<div id="fishers-exact-test" class="section level2" number="15.4">
+<div id="fishers-exact-test" class="section level2" number="14.4">
 <h2>
-<span class="header-section-number">15.4</span> Fisher’s Exact test<a class="anchor" aria-label="anchor" href="#fishers-exact-test"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.4</span> Fisher’s Exact test<a class="anchor" aria-label="anchor" href="#fishers-exact-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>A valid conclusion from the use of the chi-squared test can only be guaranteed if the counts in all the cells of the table in question are equal to or greater than 5. Whenever the count or value in any of the cells is below 5, Fisher’s exact test must be used instead. Its use and interpretation are similar to the chi-squared test and are demonstrated with the ANCdata as below.</p>
 <div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
@@ -1173,7 +1172,7 @@ increasing age.</p>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-21">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-21">Table 14.6: </span> </caption>
+<span id="tab:unnamed-chunk-21">Table 13.6: </span> </caption>
 <col>
 <col>
 <col>
@@ -1205,29 +1204,29 @@ interval. The odds ratio will be explained in subsequent sections.</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="analysis-of-numeric-data.html"><span class="header-section-number">14</span> Analysis of numeric data</a></div>
-<div class="next"><a href="risk-and-odds.html"><span class="header-section-number">16</span> Risk and Odds</a></div>
+<div class="prev"><a href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></div>
+<div class="next"><a href="risk-and-odds.html"><span class="header-section-number">15</span> Risk and Odds</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#analysis-of-categorical-data"><span class="header-section-number">15</span> Analysis of categorical data</a></li>
+<li><a class="nav-link" href="#analysis-of-categorical-data"><span class="header-section-number">14</span> Analysis of categorical data</a></li>
 <li>
-<a class="nav-link" href="#one-sample-binomial-test"><span class="header-section-number">15.1</span> One-sample binomial test</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#one-sample-proportion-confidence-interval"><span class="header-section-number">15.1.1</span> One sample proportion: Confidence interval</a></li>
-<li><a class="nav-link" href="#one-sample-proportion-hypothesis-testing"><span class="header-section-number">15.1.2</span> One sample proportion: Hypothesis testing</a></li>
+<a class="nav-link" href="#one-sample-binomial-test"><span class="header-section-number">14.1</span> One-sample binomial test</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#one-sample-proportion-confidence-interval"><span class="header-section-number">14.1.1</span> One sample proportion: Confidence interval</a></li>
+<li><a class="nav-link" href="#one-sample-proportion-hypothesis-testing"><span class="header-section-number">14.1.2</span> One sample proportion: Hypothesis testing</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#two-or-more-sample-binomial-test"><span class="header-section-number">15.2</span> Two or more sample binomial test</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#two-sample-proportion-hypothesis-testing"><span class="header-section-number">15.2.1</span> Two sample proportion: Hypothesis testing</a></li></ul>
+<a class="nav-link" href="#two-or-more-sample-binomial-test"><span class="header-section-number">14.2</span> Two or more sample binomial test</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#two-sample-proportion-hypothesis-testing"><span class="header-section-number">14.2.1</span> Two sample proportion: Hypothesis testing</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#chi-squared-test"><span class="header-section-number">15.3</span> Chi-squared test</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#chi-squared-goodness-of-fit-test"><span class="header-section-number">15.3.1</span> Chi-squared goodness of fit test</a></li>
-<li><a class="nav-link" href="#chi-squared-test-for-independent-data"><span class="header-section-number">15.3.2</span> Chi-squared test for independent data</a></li>
-<li><a class="nav-link" href="#chi-squared-test-for-trend"><span class="header-section-number">15.3.3</span> Chi-squared test for trend</a></li>
+<a class="nav-link" href="#chi-squared-test"><span class="header-section-number">14.3</span> Chi-squared test</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#chi-squared-goodness-of-fit-test"><span class="header-section-number">14.3.1</span> Chi-squared goodness of fit test</a></li>
+<li><a class="nav-link" href="#chi-squared-test-for-independent-data"><span class="header-section-number">14.3.2</span> Chi-squared test for independent data</a></li>
+<li><a class="nav-link" href="#chi-squared-test-for-trend"><span class="header-section-number">14.3.3</span> Chi-squared test for trend</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#fishers-exact-test"><span class="header-section-number">15.4</span> Fisher’s Exact test</a></li>
+<li><a class="nav-link" href="#fishers-exact-test"><span class="header-section-number">14.4</span> Fisher’s Exact test</a></li>
 </ul>
 
       <div class="book-extra">

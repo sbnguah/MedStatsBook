@@ -13,7 +13,6 @@ rmd_files: [
     "R-Data-Types.Rmd",
     "Data-Structure-in-R.Rmd",
     "Import-Data-In-R.Rmd",
-    "Export-Data-From-R.Rmd",
     "Data_Wrangling.Rmd",
     "Data-Cleaning.Rmd",
     "Descriptive-Statistics-Categorical.Rmd",

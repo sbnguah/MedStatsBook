@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 12 Hypothesis-Testing | Medical Statistics using R</title>
+<title>Chapter 11 Hypothesis-Testing | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="12.1 Population and sample  12.1.1 Population A population in a statistical sense is different from the general sense. The population is a collection of items, people, places etc. that the...">
+<meta name="description" content="11.1 Population and sample  11.1.1 Population A population in a statistical sense is different from the general sense. The population is a collection of items, people, places etc. that the...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 12 Hypothesis-Testing | Medical Statistics using R">
+<meta property="og:title" content="Chapter 11 Hypothesis-Testing | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstastwithr.netlify.app/hypothesis-testing.html">
-<meta property="og:description" content="12.1 Population and sample  12.1.1 Population A population in a statistical sense is different from the general sense. The population is a collection of items, people, places etc. that the...">
+<meta property="og:description" content="11.1 Population and sample  11.1.1 Population A population in a statistical sense is different from the general sense. The population is a collection of items, people, places etc. that the...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 12 Hypothesis-Testing | Medical Statistics using R">
-<meta name="twitter:description" content="12.1 Population and sample  12.1.1 Population A population in a statistical sense is different from the general sense. The population is a collection of items, people, places etc. that the...">
+<meta name="twitter:title" content="Chapter 11 Hypothesis-Testing | Medical Statistics using R">
+<meta name="twitter:description" content="11.1 Population and sample  11.1.1 Population A population in a statistical sense is different from the general sense. The population is a collection of items, people, places etc. that the...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -74,31 +74,30 @@
 <li><a class="" href="r-data-types.html"><span class="header-section-number">4</span> R data types</a></li>
 <li><a class="" href="data-structures-in-r.html"><span class="header-section-number">5</span> Data Structures in R</a></li>
 <li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
-<li><a class="" href="exporting-data-from-r.html"><span class="header-section-number">7</span> Exporting Data from R</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">8</span> Data wrangling</a></li>
-<li><a class="" href="data-cleaning.html"><span class="header-section-number">9</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Categorical Data</a></li>
-<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></li>
-<li><a class="active" href="hypothesis-testing.html"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
-<li><a class="" href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></li>
-<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">14</span> Analysis of numeric data</a></li>
-<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">15</span> Analysis of categorical data</a></li>
-<li><a class="" href="risk-and-odds.html"><span class="header-section-number">16</span> Risk and Odds</a></li>
-<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">17</span> Confounding and Interaction</a></li>
-<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">18</span> Diagnostic Tests</a></li>
-<li><a class="" href="agreement.html"><span class="header-section-number">19</span> Agreement</a></li>
-<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">20</span> Receiver Operating Characteristic</a></li>
-<li><a class="" href="linear-regression.html"><span class="header-section-number">21</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">22</span> Logistic Regression</a></li>
-<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">23</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">7</span> Data wrangling</a></li>
+<li><a class="" href="data-cleaning.html"><span class="header-section-number">8</span> Data Cleaning</a></li>
+<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">9</span> Descriptive Statistics of Categorical Data</a></li>
+<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a></li>
+<li><a class="active" href="hypothesis-testing.html"><span class="header-section-number">11</span> Hypothesis-Testing</a></li>
+<li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
+<li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
+<li><a class="" href="analysis-of-categorical-data.html"><span class="header-section-number">14</span> Analysis of categorical data</a></li>
+<li><a class="" href="risk-and-odds.html"><span class="header-section-number">15</span> Risk and Odds</a></li>
+<li><a class="" href="confounding-and-interaction.html"><span class="header-section-number">16</span> Confounding and Interaction</a></li>
+<li><a class="" href="diagnostic-tests.html"><span class="header-section-number">17</span> Diagnostic Tests</a></li>
+<li><a class="" href="agreement.html"><span class="header-section-number">18</span> Agreement</a></li>
+<li><a class="" href="receiver-operating-characteristic.html"><span class="header-section-number">19</span> Receiver Operating Characteristic</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">20</span> Linear Regression</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></li>
+<li><a class="" href="analysis-of-variance.html"><span class="header-section-number">22</span> Analysis of Variance</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">23</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">24</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression.html"><span class="header-section-number">25</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">26</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">27</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">28</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">29</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">30</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -106,17 +105,17 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hypothesis-testing" class="section level1" number="12">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hypothesis-testing" class="section level1" number="11">
 <h1>
-<span class="header-section-number">12</span> Hypothesis-Testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11</span> Hypothesis-Testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing"><i class="fas fa-link"></i></a>
 </h1>
-<div id="population-and-sample" class="section level2" number="12.1">
+<div id="population-and-sample" class="section level2" number="11.1">
 <h2>
-<span class="header-section-number">12.1</span> Population and sample<a class="anchor" aria-label="anchor" href="#population-and-sample"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.1</span> Population and sample<a class="anchor" aria-label="anchor" href="#population-and-sample"><i class="fas fa-link"></i></a>
 </h2>
-<div id="population" class="section level3" number="12.1.1">
+<div id="population" class="section level3" number="11.1.1">
 <h3>
-<span class="header-section-number">12.1.1</span> Population<a class="anchor" aria-label="anchor" href="#population"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.1.1</span> Population<a class="anchor" aria-label="anchor" href="#population"><i class="fas fa-link"></i></a>
 </h3>
 <p>A population in a statistical sense is different from the general sense. The
 population is a collection of items, people, places etc. that the investigator
@@ -130,9 +129,9 @@ study a particular property. For example:</p>
 <p>Therefore, the statistical definition of a population could include items,
 places or persons not even born or non-existent.</p>
 </div>
-<div id="sample" class="section level3" number="12.1.2">
+<div id="sample" class="section level3" number="11.1.2">
 <h3>
-<span class="header-section-number">12.1.2</span> Sample<a class="anchor" aria-label="anchor" href="#sample"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.1.2</span> Sample<a class="anchor" aria-label="anchor" href="#sample"><i class="fas fa-link"></i></a>
 </h3>
 <p>This is part of the population selected by whatever method, usually because the
 whole population is too large or unavailable to be studied. There are many ways
@@ -140,9 +139,9 @@ to select the sample from the population. The sample is thus usually smaller
 than the population.</p>
 </div>
 </div>
-<div id="descriptive-versus-inferential-statistics" class="section level2" number="12.2">
+<div id="descriptive-versus-inferential-statistics" class="section level2" number="11.2">
 <h2>
-<span class="header-section-number">12.2</span> Descriptive versus Inferential Statistics<a class="anchor" aria-label="anchor" href="#descriptive-versus-inferential-statistics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.2</span> Descriptive versus Inferential Statistics<a class="anchor" aria-label="anchor" href="#descriptive-versus-inferential-statistics"><i class="fas fa-link"></i></a>
 </h2>
 <p>In almost every research the idea is to determine a specific parameter in the
 population. For instance, to determine the proportion of children under the age
@@ -161,9 +160,9 @@ falls under descriptive statistics whereas estimating the population proportion
 of under-18-year-old persons who fly BA along that route from our sample
 the statistic is by the use of inferential statistics.</p>
 </div>
-<div id="sample-variation" class="section level2" number="12.3">
+<div id="sample-variation" class="section level2" number="11.3">
 <h2>
-<span class="header-section-number">12.3</span> Sample variation<a class="anchor" aria-label="anchor" href="#sample-variation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.3</span> Sample variation<a class="anchor" aria-label="anchor" href="#sample-variation"><i class="fas fa-link"></i></a>
 </h2>
 <p>The Mid-upper arm circumference of children under five is a measure of how thin
 a child is and a quick way of determining his/her nutritional status. In a
@@ -179,7 +178,7 @@ chosen. We first read the data.</p>
 <code class="sourceCode R"><span><span class="va">df_students</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-3">Table 10.1: </span> </caption>
+<span id="tab:unnamed-chunk-3">Table 9.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -375,9 +374,9 @@ statistics vary then how can we determine the population parameter? This is what
 inferential statistics is all about, estimating the population parameter from
 the sample statistic.</p>
 </div>
-<div id="hypothesis-testing-1" class="section level2" number="12.4">
+<div id="hypothesis-testing-1" class="section level2" number="11.4">
 <h2>
-<span class="header-section-number">12.4</span> Hypothesis testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.4</span> Hypothesis testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>The collection of scientific data is usually preceded by an idea one wants to
 prove or disprove. As humans, we often have preconceived ideas or opinions of
@@ -385,9 +384,9 @@ the expected results of a study. This subconscious thinking is brought to light
 by formally setting a hypothesis and testing it. This section deals with
 formalising the steps involved in this process and how it affects our study
 design, data collection, analysis, and presentation of results.</p>
-<div id="stating-the-hypothesis." class="section level3" number="12.4.1">
+<div id="stating-the-hypothesis." class="section level3" number="11.4.1">
 <h3>
-<span class="header-section-number">12.4.1</span> Stating the hypothesis.<a class="anchor" aria-label="anchor" href="#stating-the-hypothesis."><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.4.1</span> Stating the hypothesis.<a class="anchor" aria-label="anchor" href="#stating-the-hypothesis."><i class="fas fa-link"></i></a>
 </h3>
 <p>Standing in the window one morning Mr Osei wondered (again) if the number of
 women using the services of the bank next door are the same as that of men.
@@ -416,9 +415,9 @@ The null and alternate hypotheses can then be tested through a well-designed
 study. For some statistical and technical reasons, the null hypothesis is often
 preferred in this regard.</p>
 </div>
-<div id="testing-the-hypothesis" class="section level3" number="12.4.2">
+<div id="testing-the-hypothesis" class="section level3" number="11.4.2">
 <h3>
-<span class="header-section-number">12.4.2</span> Testing the Hypothesis<a class="anchor" aria-label="anchor" href="#testing-the-hypothesis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.4.2</span> Testing the Hypothesis<a class="anchor" aria-label="anchor" href="#testing-the-hypothesis"><i class="fas fa-link"></i></a>
 </h3>
 <p>After the hypothesis has been stated the next objective is to collect evidence
 (data) to either prove or disprove it. It is obvious that the customers (study
@@ -437,9 +436,9 @@ conclude that</p>
 <p><em>“There is insufficient evidence to conclude the proportion of men using the bank’s services is the same as women”.</em></p>
 </blockquote>
 </div>
-<div id="type-i-error" class="section level3" number="12.4.3">
+<div id="type-i-error" class="section level3" number="11.4.3">
 <h3>
-<span class="header-section-number">12.4.3</span> Type I error<a class="anchor" aria-label="anchor" href="#type-i-error"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.4.3</span> Type I error<a class="anchor" aria-label="anchor" href="#type-i-error"><i class="fas fa-link"></i></a>
 </h3>
 <p>We recollect from earlier on in this chapter that since there are many ways of
 choosing a sample from a population the results tend to differ from sample to
@@ -463,17 +462,17 @@ rejected.</p>
 based on the data obtained that the proportions of men and women are not the
 same when in fact they are in the population.</p>
 </div>
-<div id="the-significance-level" class="section level3" number="12.4.4">
+<div id="the-significance-level" class="section level3" number="11.4.4">
 <h3>
-<span class="header-section-number">12.4.4</span> The Significance Level<a class="anchor" aria-label="anchor" href="#the-significance-level"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.4.4</span> The Significance Level<a class="anchor" aria-label="anchor" href="#the-significance-level"><i class="fas fa-link"></i></a>
 </h3>
 <p>The significance level, usually denoted by alpha (<span class="math inline">\(\alpha\)</span>) is the probability
 of making a type I error. It is usually set by the investigator and has a direct
 bearing on the sample size of a study.</p>
 </div>
-<div id="type-ii-error" class="section level3" number="12.4.5">
+<div id="type-ii-error" class="section level3" number="11.4.5">
 <h3>
-<span class="header-section-number">12.4.5</span> Type II error<a class="anchor" aria-label="anchor" href="#type-ii-error"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.4.5</span> Type II error<a class="anchor" aria-label="anchor" href="#type-ii-error"><i class="fas fa-link"></i></a>
 </h3>
 <p>Conversely, a type II error is said to have been made if the researcher fails to
 reject the null hypothesis when in fact it is false. Applied to our situation a
@@ -483,9 +482,9 @@ sexes differ when in fact they do differ in the population of bank users.</p>
 <p>The two types of errors mentioned above always increase at the expense of the
 other. That is as type I error rises type II error falls and vice versa.</p>
 </div>
-<div id="power" class="section level3" number="12.4.6">
+<div id="power" class="section level3" number="11.4.6">
 <h3>
-<span class="header-section-number">12.4.6</span> Power<a class="anchor" aria-label="anchor" href="#power"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.4.6</span> Power<a class="anchor" aria-label="anchor" href="#power"><i class="fas fa-link"></i></a>
 </h3>
 <p>The probability of committing a type II error is called beta (<span class="math inline">\(\beta\)</span>). The
 probability of not committing a type II error is called the Power of the test.
@@ -540,28 +539,28 @@ The following object is masked from 'package:huxtable':
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">11</span> Descriptive Statistics of Continuous Data</a></div>
-<div class="next"><a href="normality-of-data.html"><span class="header-section-number">13</span> Normality of data</a></div>
+<div class="prev"><a href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a></div>
+<div class="next"><a href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#hypothesis-testing"><span class="header-section-number">12</span> Hypothesis-Testing</a></li>
+<li><a class="nav-link" href="#hypothesis-testing"><span class="header-section-number">11</span> Hypothesis-Testing</a></li>
 <li>
-<a class="nav-link" href="#population-and-sample"><span class="header-section-number">12.1</span> Population and sample</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#population"><span class="header-section-number">12.1.1</span> Population</a></li>
-<li><a class="nav-link" href="#sample"><span class="header-section-number">12.1.2</span> Sample</a></li>
+<a class="nav-link" href="#population-and-sample"><span class="header-section-number">11.1</span> Population and sample</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#population"><span class="header-section-number">11.1.1</span> Population</a></li>
+<li><a class="nav-link" href="#sample"><span class="header-section-number">11.1.2</span> Sample</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#descriptive-versus-inferential-statistics"><span class="header-section-number">12.2</span> Descriptive versus Inferential Statistics</a></li>
-<li><a class="nav-link" href="#sample-variation"><span class="header-section-number">12.3</span> Sample variation</a></li>
+<li><a class="nav-link" href="#descriptive-versus-inferential-statistics"><span class="header-section-number">11.2</span> Descriptive versus Inferential Statistics</a></li>
+<li><a class="nav-link" href="#sample-variation"><span class="header-section-number">11.3</span> Sample variation</a></li>
 <li>
-<a class="nav-link" href="#hypothesis-testing-1"><span class="header-section-number">12.4</span> Hypothesis testing</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#stating-the-hypothesis."><span class="header-section-number">12.4.1</span> Stating the hypothesis.</a></li>
-<li><a class="nav-link" href="#testing-the-hypothesis"><span class="header-section-number">12.4.2</span> Testing the Hypothesis</a></li>
-<li><a class="nav-link" href="#type-i-error"><span class="header-section-number">12.4.3</span> Type I error</a></li>
-<li><a class="nav-link" href="#the-significance-level"><span class="header-section-number">12.4.4</span> The Significance Level</a></li>
-<li><a class="nav-link" href="#type-ii-error"><span class="header-section-number">12.4.5</span> Type II error</a></li>
-<li><a class="nav-link" href="#power"><span class="header-section-number">12.4.6</span> Power</a></li>
+<a class="nav-link" href="#hypothesis-testing-1"><span class="header-section-number">11.4</span> Hypothesis testing</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#stating-the-hypothesis."><span class="header-section-number">11.4.1</span> Stating the hypothesis.</a></li>
+<li><a class="nav-link" href="#testing-the-hypothesis"><span class="header-section-number">11.4.2</span> Testing the Hypothesis</a></li>
+<li><a class="nav-link" href="#type-i-error"><span class="header-section-number">11.4.3</span> Type I error</a></li>
+<li><a class="nav-link" href="#the-significance-level"><span class="header-section-number">11.4.4</span> The Significance Level</a></li>
+<li><a class="nav-link" href="#type-ii-error"><span class="header-section-number">11.4.5</span> Type II error</a></li>
+<li><a class="nav-link" href="#power"><span class="header-section-number">11.4.6</span> Power</a></li>
 </ul>
 </li>
 </ul>
