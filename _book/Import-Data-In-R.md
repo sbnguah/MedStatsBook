@@ -5,7 +5,7 @@
 In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In R, a data frame is the data structure desirable for data analysis. With the advent of the `tidy data`, a tibble is now the predominant data structure being used. For this section, we will be reading in various file formats and presenting them as a tibble.
 
 ## Using data in R packages
-Many packages in R come with data that can be used for practice. To be able to use a dataset in a specific package that package first has to be installed. For instance, to be able to use the the data `Oswego` data native to the package `epiDisplay` we first ensure the package is installed by running the command line below:
+Many packages in R come with data that can be used for practice. To be able to use a dataset in a specific package, that package first has to be installed. For instance, to be able to use the data `Oswego` native to the package `epiDisplay`, we first ensure the package is installed by running the command line below:
 
 
 
