@@ -1,4 +1,4 @@
-```{r}
+```{r echo=FALSE, message=F}
 library(tidyverse)
 library(magrittr)
 library(huxtable)

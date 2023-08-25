@@ -1,6 +1,6 @@
 # Descriptive Statistics of Categorical Data
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=F}
 library(tidyverse)
 library(magrittr)
 library(huxtable)
