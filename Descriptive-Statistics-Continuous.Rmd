@@ -15,6 +15,11 @@ options(huxtable.knit_print_df_theme = mytheme)
 
 # Descriptive Statistics: Numeric
 
+The initial analysis of numeric data is usually a description of the data at hand without making inference to the population from which the data was drawn. This gives the data analyst a general overview of the data at hand, how best to describe it and what analysis best suits it. In descriptive analysis of numeric data the most basic is to determine the:
+
+- Measure of Central Tendency: This is a description of the center of the data. These measures include mean, median and mode.
+- Measure of Dispersion: A measure of how widespread the data is. These include standard deviation, variance, interquartile range and range.
+
 For this section, we will use the `NewDrug_clean.dta` dataset
 
 ```{r comment=NA}
@@ -26,27 +31,25 @@ newdrug <-
 newdrug %>% summary()
 ```
 
+## Single continuous variable
 
-### Single continuous variable
+### Measures of Central Tendency & Dispersion
 
-#### Measures of Central Tendency & Dispersion
-
-These include mean and median and are displayed below
+Below we determine the mean, median, standard deviation, range (minimum, maximum) and interquartile range of out initial blood pressure
 
 ```{r comment=NA}
 newdrug %>% 
     summarise(
-        mean.bp1 = mean(bp1), 
-        median.bp1 = median(bp1), 
-        sd.bp1 = sd(bp1), 
-        min.bp1 = min(bp1), 
-        max.bp1 = max(bp1),
-        iqr = IQR(bp1)
+        Mean = mean(bp1), 
+        Median = median(bp1), 
+        Standard_Dev = sd(bp1), 
+        Minimum = min(bp1), 
+        Maximum = max(bp1),
+        IQR = IQR(bp1)
     ) 
-
 ```
 
-Alternatively
+Alternatively, the `psych` package gives these measures in further details. The output includes a measure of the Kurtosis and Skewness, both describing the shape of the data.
 
 ```{r comment=NA}
 newdrug %$% 
@@ -60,7 +63,7 @@ newdrug %$%
     psych::describe(bp1, IQR = TRUE,quant = c(.25, .75))
 ```
 
-#### Graphs - Histogram 
+### Graphs - Histogram 
 ```{r comment=NA, fig.width = 6, fig.height=4}
 newdrug %>% 
     ggplot(aes(x = bp1)) + 
@@ -70,7 +73,7 @@ newdrug %>%
     theme_light()
 ```
 
-#### Graphs - Boxplot and violin plot 
+### Graphs - Boxplot and violin plot 
 
 ```{r comment=NA, fig.width=6, fig.height=4}
 newdrug %>% 
