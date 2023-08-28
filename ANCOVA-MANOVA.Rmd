@@ -1,0 +1,24 @@
+```{r echo=FALSE, message=F}
+library(tidyverse)
+library(magrittr)
+library(gtsummary)
+library(huxtable)
+library(summarytools)
+mytheme <- function(ht){
+    ht <- huxtable::theme_article(ht)
+    ht <- huxtable::set_top_padding(ht, row = "2pt")
+    ht <- huxtable::set_bottom_padding(ht, row = "2pt")
+    ht <- huxtable::set_font(ht, value = "Arial, Times New Roman, Times, Serif")
+    ht <- huxtable::set_font_size(ht, value = 11)
+}
+options(huxtable.knit_print_df_theme = mytheme)
+```
+
+# ANCOVA & MANOVA 
+
+## Analysis of Covariance (ANCOVA)
+
+## Multivariate Analysis of Variance (MANOVA)
+
+## Multivariate Analysis of Variance (MANCOVA)
+

@@ -1,1 +1,318 @@
+```{r echo=FALSE, message=F}
+library(tidyverse)
+library(magrittr)
+library(gtsummary)
+library(huxtable)
+mytheme <- function(ht){
+    ht <- huxtable::theme_article(ht)
+    ht <- huxtable::set_top_padding(ht, row = "2pt")
+    ht <- huxtable::set_bottom_padding(ht, row = "2pt")
+    ht <- huxtable::set_font(ht, value = "Arial, Times New Roman, Times, Serif")
+    ht <- huxtable::set_font_size(ht, value = 11)
+    ht <- huxtable::set_number_format(ht, value = "%.6g")
+}
+options(
+    huxtable.knit_print_df_theme = mytheme,
+    max.print = 90,
+    width = 80
+    )
+```
+
 # Survival analysis
+
+All the aforementioned analysis deals with the presence or absence of an outcome. They do not take into consideration how long it took the outcome to occur. Survival analysis is designed for this purpose, analysis of time to events. For instance, analysing how long it takes for a car to develop a faulty engine, for a person to develop a heart attack and divorce after marriage will require survival analysis.
+
+## Terminologies
+In survival analysis, subjects are usually followed for a period of time with our main interest being the duration it takes for the event to occur. To understand survival analysis we need to familiarise ourselves with a few terminologies. Consider Figure 42. At the beginning of the year 2001, a study was initiated to determine the survival of women treated for breast cancer. The six horizontal lines represent six patients recruited for this study and indicate their time of recruitment into the study, how long they were in the study and their outcome.
+
+```{r fig.width=5.5, fig.height=4, echo = F}
+df1 <-
+    tribble(~person, ~start,	~end,	~col,
+    "A",	2001,	2003,	"r",
+    "B",	2001,	2004,	"g",
+    "C",	2001,	2006,	"",
+    "D",	2002,	2005,	"g",
+    "E",    2003,	2005,	"r",
+    "F",	2004,	2006,	"") %>% 
+    mutate(sz = ifelse(col == "", 0, 2))
+
+df1 %>% 
+    mutate(sz = ifelse(col == "", 0, 2)) %>% 
+    ggplot(aes(x = start, y = person)) +
+    geom_segment(aes(xend = end, yend = person), inherit.aes = T, linewidth = 1)+
+    geom_point(
+        data = df1 %>% filter(col !=""), 
+        aes(x = end, y = person, color = col), size = 4)+
+    scale_color_manual(values = c("green","red"))+
+    labs(
+        x = NULL, 
+        y = NULL, 
+        title = "Schematic plot of six recruitment scenarios in survival analysis")+
+    theme_bw()+
+    guides(color="none")
+```
+
+**Survival**: This is generally termed as the probability that an individual or a subject survives from the beginning of say a study or observation (where t0 = 0) to a specific time (t) without experiencing the event. So in a study where one is determining the survival of breast cancer patients, the five-year survival is the probability that a patient will be alive at five years after
+diagnosis or observation. This is also called the survival function and is often represented by S(t).
+
+**Hazard**: The hazard on the other hand is the probability that an individual who has been under observation from time t0 has the event at time t. Relating this to our breast cancer example the
+hazard at five years is the probability that a patient would be dead at five years. The hazard function is often represented by $h(t)$ or $\lambda(t)$. Note that the survivor function deals with the event (death) not occurring while the hazard function deals with the event (death) occurring.
+
+**Event**: The event we are interested in is death. In this example, death is the event of interest but this could be divorce, relapse of cancer, etc. depending on the outcome of the interest being
+studied. In our diagram, the event (death) is coloured red. Patient A was recruited in 2001 but died in 2003 while E was recruited into the study in 2003 but died in 2005. Hence both patients
+were in the study for about 2 years and experienced the event of death.
+
+**Censor**: Patients who do not experience the event are usually said to be censored, literally meaning the time they will develop the event cannot be determined within the study period.
+Patient B for instance was recruited at the beginning of the study but lost to follow-up (green dot) in 2004. Patient D was recruited into the study in 2002 but was also lost to follow up in
+2005. Patients C and F both stayed in the study till the end without experiencing the event. For patients B, C, D, and F we have no idea at the end of the the follow-up period when their events will
+occur. For these, their outcome is termed as censored. These six lines give us the characteristic scenarios that may occur in the right censored data.
+
+**Median Survival**: It is the time when half the study subjects are expected to have experienced the event. In other words, the chance of surviving (or not experiencing the event) beyond that
+time is 50% for a population with the disease or exposure being studied.
+
+In this section, we will use the lung data from the survival package. First, we have a look at the details of the lung data by using 
+
+```{r}
+library(survival)
+lung %>% head()
+```
+
+
+For a good understanding of the lung data readers are advised to read the help page revealed by the help() function above. Note that time is the duration each participant was followed up
+while in the study. status on the other hand indicates if the patient experienced the outcome, in this case, death while being followed up or was censored, indicating death never occurred during the follow-up period.
+
+## The survival object
+The initial step in survival analysis in R (and for that matter many other statistical software) is the creation of the survival object. This is achieved in R with the function `Surv()` from the survival package. The function requires at least two arguments to be supplied. These include the time, indicating the duration each subject was in the study and status indicating whether the event occurred or not. This is demonstrated below using the "lung" dataset in the survival package.
+
+
+```{r}
+Surv.1 <- Surv(time=lung$time, event=lung$status==2)
+Surv.1
+```
+
+In the Surv()function above time is supplied as a numeric variable while the event is either expressed as 0 (for no event or censored) and 1 (for the event occurring) or FALSE (for no event or censoring) and TRUE (for the occurrence of the event). Our command above used the logical version (TRUE/FALSE) and created a vector of TRUE (for status of 2) and FALSE (for status otherwise).
+
+The survival object is essentially a conversion of the time into an object that incorporates both the time and the status. Below we combine the time and status from the lung dataset and the survival object. It can be seen that the time variable is the same as the survival object if the patient died but in patients with censored outcomes, a plus (+) sign is attached.
+
+```{r}
+cbind(lung[,2:3], Surv.1) %>% head()
+```
+
+## The survival fit object
+Next, a survival object is created in accordance with the analysis intended to be done. The non-stratified analysis is currently fitted with a 1 on the right side of the formula as shown below
+while stratified survival is done with the stratifying variable on the right side of the formula.
+
+In the analysis below we try to determine the median survival time for all persons included in the study
+
+```{r}
+sfit.1 <- survfit(Surv.1 ~ 1)
+sfit.1
+```
+
+The survival fit object sfit.1 like a linear regression or logistic regression object has very little but important information at first hand. It shows the number of records used, the median survival time (the time at which it is expected that half the patients would have the event) and its confidence interval. Our analysis indicates that after 310 days half the patients would have died! The output is simple but there is more that can be revealed in the attributes. These are displayed
+below
+
+```{r}
+attributes(sfit.1)
+```
+
+## Kaplan-Meier life table 
+For a compact view of these attributes, we summarise the survfit object. This is displayed below
+
+```{r}
+summary(sfit.1)
+```
+
+The long table produced in this output is called the Kaplan-Meier life table. It contains the individual survival probabilities with their 95% confidence intervals at every point in time of the study. For instance, the proportion that survived to the end of day 30 is about 0.9561 (95%CI: 0.9299 to 0.983). The rather long life table can be significantly compacted to show only specific times. For instance, if we decide to show the survival in a life table for every 90 days we can specify these times below
+
+```{r}
+summary(sfit.1, times=seq(0,900,90))
+```
+
+## Kaplan-Meier curve
+The Kaplan-Meier life table can be plotted to give it a graphical representation called the Kaplan-Meier curve. The resulting curve is a plot of the Survival probability against the time. An example is shown in the figure below and plotted with
+
+```{r fig.width=6, fig.height=5}
+survminer::ggsurvplot(
+    sfit.1, 
+    data = lung,
+    palette= 'blue',
+    surv.median.line = "hv",
+    censor =F,
+    title = "Kaplan-Meier Curve with 95% CI",
+    ggtheme = theme_bw())
+```
+
+The green dotted line in the plot cuts the curve at the median survival time. Also, the plot has the confidence interval superimposed (dotted red lines).
+
+## Survival for subgroups
+To determine the survival separately for subgroups we need to fit the survival object specifying our requisite group. For instance, to determine survival among the different sexes we fit the object as below. First, we make sure the sex variable is in the right format, a factor.
+
+```{r}
+lung <- 
+    lung %>% 
+    mutate(sex = factor(sex, levels = 1:2, labels = c("Male", "Female")))
+```
+
+And then fit the appropriate survfit object. Note that the right-hand side of the formula this time is sex and not 1.
+
+```{r}
+sfit.2 <- survfit(Surv.1 ~ lung$sex)
+sfit.2
+```
+
+Once again we are presented with the survfit object displaying the records, the number of events, the median survival and the confidence intervals. These statistics however are separate for each
+sex. For instance, we realise that the number of deaths in males was more than twice that for females and the median survival time for males of 270 days is lesser than that for females. As before, for a complete life table, we summarise the survfit object.
+
+```{r}
+summary(sfit.2)
+```
+
+The rather long life table can best be appreciated with a KM curve. We further go ahead to plot the Kaplan-Meier curve for the two sexes as shown in Figure 44 and plot with
+
+```{r}
+plot(
+    sfit.2, 
+    col=1:2, 
+    lty=1:2, 
+    mark.time=F,
+    main="K-M curve by sex",
+    xlab = "Days", ylab="Survival")
+legend("topright", c("Male","Female"), lty=1:2, col=1:2)
+abline(h=0.5, lty=2, col=3)
+```
+
+```{r fig.width=6, fig.height=5}
+survminer::ggsurvplot(
+    sfit.2, 
+    data = lung,
+    surv.median.line = "hv",
+    censor = F,
+    title = "Kaplan-Meier Curve by sex (with 95% CI)",
+    ggtheme = theme_bw(),
+    conf.int = T,
+    xlab = "Days")
+```
+
+The figure above shows the KM survival curve separately for males and females. It can be seen that the two plots are completely separate, a sign that the survival is not the same in both sexes. The steeper curve for the males indicates they have a relatively worse outcome over time than the females. The median survival time for instance (indicated by the green dotted line) intersects the males' curve much earlier than the females indicating a much lower median survival time for the males compared to the females.
+
+## Cumulative Incidence (Hazard)
+Another way of expressing the relationship between time to an outcome and the outcome is with the Cumulative Incidence (CI). The CI at any point in time is a measure of the frequency of the outcome over a period of time. This can be determined in R as below. First, we fit the survival object.
+
+```{r}
+sfit.3 <- 
+    survfit(
+        Surv(
+            time = time, 
+            event = status==2, 
+            type = "mstate") ~ 1, 
+        data=lung)
+sfit.3
+```
+
+The survival object is similar to that done previously but this time in fitting it we used the argument `type="mstate"` to specify our preference for the cumulative incidence. We further use the summary() function on the survfit object to generate the CI table.
+
+```{r}
+sfit.3 %>% broom::tidy() %>% head(10)
+```
+
+Similar to the survival the cumulative incidence table can be drawn as above. The obvious addition here is the presence of the prevalence column, indicating the cumulative prevalence of the outcome at each time point.
+
+A pictorial overview of the cumulative incidence can also obtained using the commands below and shown in the figure below.
+
+## Comparing survival between two or more groups
+It often arises that survival or hazard between two or more groups is compared. For instance in a randomised controlled trial to determine the survival in patients with a chronic disease 3 drugs can be given to three randomly selected groups. After a period of follow-up, one would want to compare which group survived best. To do this various non-parametric tests are available to help. Standing tall among them is the log-rank test (Peto et al, 1977) which we are going to apply.
+
+### The Log-Rank test
+The idea behind the log-rank test is to test the proportional hazards among the groups to be compared. The test has a null hypothesis that the hazard is equal in all the populations under consideration. The p-value generated is the probability that the hazard is equal in all populations under consideration. Hence a small p-value indicates some differences exist at least between two members of the group. Below we use the log-rank test to determine if the hazards in the two sexes are significantly different for our lung cancer patients. Remember pictorially and by comparison of the median survival we already know that the females seem to do better than the males but here we put it to a formal test. This is done in R using `survdiff()` and the initial survival object created.
+
+```{r}
+survdiff(Surv.1 ~ lung$sex)
+```
+The small p-value above (p= 0.00131) leads us to the conclusion that the hazards within the two groups significantly differ.
+
+
+### Stratified Log-Rank test
+In trying to figure out why females tend to do better than males with lung cancer we ask ourselves a few questions. One of these could be: Could it be because there is a difference in ages between the two sexes that took part in the study? To begin to evaluate this assertion we compare the ages of the two sexes.
+
+```{r}
+lung %>% 
+    group_by(sex) %>% 
+    meantables::mean_table(.x=age)
+```
+
+Well, it appears the males are on average older than the females. Could this be the reason why the males did worse? To remove the possibility of age being the reason why males may be doing worse we perform a stratified log-rank test below
+
+```{r}
+survdiff(Surv.1 ~ lung$sex + strata(lung$age))
+```
+
+The analysis above asks the question: Assuming the ages of all the sexes were equal among both sexes, would the survival still depend on the sex of the patient? After the analysis, it appears the age difference is not the reason for the difference in hazards observed. The significant p-value is hardly affected when we stratify by age.
+
+```{r}
+
+```
+
+## Cox regression
+Similar to our observation when we performed the chi-squared test in categorical data analysis, we only generated a p-value but no comparable effect like the odds ratio and risk ratio when we used the log-rank test. We cannot for instance say that the hazard in the males is twice that of the females. This is where Cox regression analysis kicks in. Cox regression analysis generates the Hazard Ratio (HR) a ratio similar to the odds ratio but this time compares the hazards in the various groups. Like the OR, HR has a null value of 1, when the hazard is equal
+in both groups being compared.
+Cox regression has the added advantage of being able to determine the HR for more than one variable at a time thereby correcting for their respective effects and stratifying at the same time.
+Cox proportional modelling is implemented in R using the function coxph(). Below we determine again the association between sex and the hazard in the lung data.
+
+```{r}
+cox.1 <- coxph(Surv.1 ~ sex, data = lung)
+cox.1 %>% 
+    broom::tidy(exponentiate = TRUE, conf.int = TRUE)
+```
+
+Just like other regression functions in R, the output is scanty. However, the negative coeff indicated that the hazard is less in females compared to males (the referent group). Exponentiating the coefficient gives the hazard ratio. This is shown as the second column of the matrix with the heading exp(coef) and with a value of 0.588. This value indicates that females have about half the hazard of males. This is in concert with what we already know. The last column is the respective p-value associated with the coefficient or hazard ratio. It tests the hypothesis that the hazard ratio is equal to 1 (the null value). Therefore a small p-value makes this a significant finding. The last 2 columns are the confidence interval.
+
+As was mentioned one of the advantages of using the Cox proportional regression is our ability to put in more than one variable at a time. Below we determine the hazard ratios for both sex and age concurrently and after correcting for each other.
+
+```{r}
+cox.2 <- coxph(Surv.1 ~ sex + age, data = lung)
+cox.2 %>% 
+    broom::tidy(exponentiate = TRUE, conf.int = TRUE)
+```
+
+And then finally we determine the HRs while stratifying for the ECOG performance score (0=good 5=dead)
+
+```{r}
+cox.3 <- coxph(Surv.1 ~ sex + age + strata(ph.ecog), data = lung)
+cox.3 %>% 
+    broom::tidy(exponentiate = TRUE, conf.int = TRUE)
+```
+
+Putting all three into one Cox's regression equation we have the table below
+
+```{r}
+lung %>%
+    select(sex, ph.ecog, age, status, time) %>%
+    survival::coxph(
+        survival::Surv(event = status==2, time = time) ~ ., 
+        data = .) %>%
+    gtsummary::tbl_regression(
+        label = list(
+            age ~ "Age (years)",
+            sex ~ "Sex",
+            ph.ecog = "PH.ECOG"),
+        pvalue_fun = ~ gtsummary::style_pvalue(.x, digits = 3),
+        exponentiate = TRUE) %>%
+    gtsummary::bold_labels() %>%
+    gtsummary::bold_p()
+```
+
+
+**Conclusion**: It can be concluded that the hazards differ significantly between the two sexes,
+with females surviving better than males with lung cancer. Though the ages of the males in our
+study were relatively higher than the females this difference in age could not explain completely
+why males did worse than females. In other words, the difference in survival for the two sexes is
+irrespective of their age.
+
+
+
+
+
+
+
+

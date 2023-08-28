@@ -1,3 +1,5 @@
+
+
 # Introduction
 ## The statistical data analyst
 Statistical data analysis is more than just using computer software to generate results. It involves a basic understanding of the data type and the best way to analyse and present such data to make meaning to the general population. Thus, the data analyst:

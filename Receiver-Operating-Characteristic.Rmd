@@ -1,10 +1,19 @@
 
 # Receiver Operating Characteristic
-```{r include=F, echo=F}
-library(summarytools)
+```{r echo=FALSE, message=F}
 library(tidyverse)
-library(huxtable)
 library(magrittr)
+library(gtsummary)
+library(huxtable)
+library(summarytools)
+mytheme <- function(ht){
+    ht <- huxtable::theme_article(ht)
+    ht <- huxtable::set_top_padding(ht, row = "2pt")
+    ht <- huxtable::set_bottom_padding(ht, row = "2pt")
+    ht <- huxtable::set_font(ht, value = "Arial, Times New Roman, Times, Serif")
+    ht <- huxtable::set_font_size(ht, value = 11)
+}
+options(huxtable.knit_print_df_theme = mytheme)
 ```
 
 Up until now, we have dealt with tests that are categorized as either positive or 
@@ -50,7 +59,7 @@ options(huxtable.knit_print_df = F)
 df_lbw %>% dfSummary(graph.col = F)
 ```
 ```{r include=F}
-options(huxtable.knit_print_df = T)
+options(huxtable.knit_print_df = mytheme)
 ```
 Next, I introduce the `pROC` package. The function `roc()` from the package will 
 be used extensively in this section.

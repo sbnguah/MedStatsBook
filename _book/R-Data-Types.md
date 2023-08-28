@@ -1,3 +1,5 @@
+
+
 # R data types
 
 All data objects in R are made up of smaller units referred to as ”Atomic” data. 

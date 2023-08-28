@@ -1,17 +1,18 @@
 --- 
 title: "Medical Statistics using R"
 author: "Samuel Blay Nguah"
-date: "2023-08-25"
+date: "2023-08-28"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 url: https://medstastwithr.netlify.app/
-# cover-image: path to the social sharing image like images/cover.jpg
+#cover-image: "ChGh_logo.png"
 description: |
   This is a basic data analysis and statistics book for non-statisticians and statisticians.
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
+
 
 # About
 

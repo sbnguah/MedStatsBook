@@ -1,10 +1,33 @@
-# Descriptive Statistics of Categorical Data
+```{r echo=FALSE, message=F}
+library(tidyverse)
+library(magrittr)
+library(gtsummary)
+library(huxtable)
+mytheme <- function(ht){
+    ht <- huxtable::theme_article(ht)
+    ht <- huxtable::set_top_padding(ht, row = "2pt")
+    ht <- huxtable::set_bottom_padding(ht, row = "2pt")
+    ht <- huxtable::set_font(ht, value = "Arial, Times New Roman, Times, Serif")
+    ht <- huxtable::set_font_size(ht, value = 11)
+}
+options(huxtable.knit_print_df_theme = mytheme)
+```
+
+# Descriptive Statistics: Categorical
 
 ```{r echo=FALSE, message=F}
 library(tidyverse)
 library(magrittr)
-library(huxtable)
 library(gtsummary)
+library(huxtable)
+mytheme <- function(ht){
+    ht <- huxtable::theme_article(ht)
+    ht <- huxtable::set_top_padding(ht, row = "2pt")
+    ht <- huxtable::set_bottom_padding(ht, row = "2pt")
+    ht <- huxtable::set_font(ht, value = "Arial, Times New Roman, Times, Serif")
+    ht <- huxtable::set_font_size(ht, value = 11)
+}
+options(huxtable.knit_print_df_theme = mytheme)
 ```
 
 For this section we use the __Titanic__ data set

@@ -29,6 +29,7 @@ rmd_files: [
     "Linear-Regression.Rmd",
     "Logistic-Regression.Rmd",
     "Analysis-of-Variance.Rmd",
+    "ANCOVA-MANOVA.Rmd",
     "Logistic-Regression.Rmd",
     "Ordinal-Logistic-Regression.Rmd",
     "Survival-analysis.Rmd",

@@ -76,8 +76,8 @@
 <li><a class="" href="importing-data-into-r.html"><span class="header-section-number">6</span> Importing data into R</a></li>
 <li><a class="" href="data-wrangling.html"><span class="header-section-number">7</span> Data wrangling</a></li>
 <li><a class="" href="data-cleaning.html"><span class="header-section-number">8</span> Data Cleaning</a></li>
-<li><a class="" href="descriptive-statistics-of-categorical-data.html"><span class="header-section-number">9</span> Descriptive Statistics of Categorical Data</a></li>
-<li><a class="" href="descriptive-statistics-of-continuous-data.html"><span class="header-section-number">10</span> Descriptive Statistics of Continuous Data</a></li>
+<li><a class="" href="descriptive-statistics-categorical.html"><span class="header-section-number">9</span> Descriptive Statistics: Categorical</a></li>
+<li><a class="" href="descriptive-statistics-numeric.html"><span class="header-section-number">10</span> Descriptive Statistics: Numeric</a></li>
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">11</span> Hypothesis-Testing</a></li>
 <li><a class="" href="normality-of-data.html"><span class="header-section-number">12</span> Normality of data</a></li>
 <li><a class="" href="analysis-of-numeric-data.html"><span class="header-section-number">13</span> Analysis of numeric data</a></li>
@@ -90,14 +90,15 @@
 <li><a class="" href="linear-regression.html"><span class="header-section-number">20</span> Linear Regression</a></li>
 <li><a class="" href="logistic-regression.html"><span class="header-section-number">21</span> Logistic Regression</a></li>
 <li><a class="" href="analysis-of-variance.html"><span class="header-section-number">22</span> Analysis of Variance</a></li>
-<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">23</span> Ordinal logistic regression</a></li>
-<li><a class="" href="survival-analysis.html"><span class="header-section-number">24</span> Survival analysis</a></li>
-<li><a class="" href="cox-regression.html"><span class="header-section-number">25</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">26</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">27</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">28</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">29</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">30</span> Sharing your book</a></li>
+<li><a class="" href="ancova-manova.html"><span class="header-section-number">23</span> ANCOVA &amp; MANOVA</a></li>
+<li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
+<li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
+<li><a class="" href="cox-regression-1.html"><span class="header-section-number">26</span> Cox Regression</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -135,13 +136,13 @@ hypertension (failures).</li>
 </ul>
 <p>With our sample not violating these conditions, we go ahead to use the one-sample
 binomial test as below:</p>
-<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">67</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-2">Table 14.1: </span> </caption>
+<span id="tab:unnamed-chunk-2">Table 7.1: </span> </caption>
 <col>
 <col>
 <col>
@@ -150,22 +151,22 @@ binomial test as below:</p>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">parameter</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.low</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.high</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">alternative</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">estimate</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">statistic</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">p.value</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">parameter</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.low</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.high</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">alternative</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.343</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">23</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0139</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">67</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.232</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.469</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">two.sided</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.343</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">23</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.0139</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">67</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.232</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.469</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">two.sided</td>
 </tr>
 </table></div>
 <p>The binomial exact confidence interval of the proportion of those with hypertension in our
@@ -181,13 +182,13 @@ hypothesis. As usual, we start by setting the null hypothesis.</p>
 <blockquote>
 <p>H0: The population proportion of hypertensive in the population is 50%</p>
 </blockquote>
-<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">23</span>, n<span class="op">=</span><span class="fl">67</span>, p<span class="op">=</span><span class="fl">.5</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-3">Table 9.1: </span> </caption>
+<span id="tab:unnamed-chunk-3">Table 7.2: </span> </caption>
 <col>
 <col>
 <col>
@@ -196,22 +197,22 @@ hypothesis. As usual, we start by setting the null hypothesis.</p>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">parameter</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.low</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.high</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">alternative</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">estimate</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">statistic</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">p.value</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">parameter</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.low</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.high</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">alternative</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.343</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">23</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0139</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">67</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.232</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.469</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">two.sided</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.343</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">23</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.0139</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">67</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.232</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.469</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">two.sided</td>
 </tr>
 </table></div>
 <p>It would be realised that this p-value is identical to that in the last
@@ -225,7 +226,7 @@ is 40%? Our null hypothesis would then have been:</p>
 <p>H0: The population proportion of hypertensive is 40%</p>
 </blockquote>
 <p>Next, we test this hypothesis.</p>
-<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">23</span>, n<span class="op">=</span><span class="fl">67</span>, p<span class="op">=</span><span class="fl">.4</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
@@ -240,22 +241,22 @@ is 40%? Our null hypothesis would then have been:</p>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">parameter</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.low</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.high</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">alternative</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">estimate</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">statistic</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">p.value</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">parameter</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.low</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.high</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">alternative</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.343</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">23</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.384</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">67</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.232</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.469</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">two.sided</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.343</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">23</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.384</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">67</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.232</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.469</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">two.sided</td>
 </tr>
 </table></div>
 <p>At a significance level of 0.05, we fail to reject the null hypothesis,
@@ -268,13 +269,13 @@ and our null hypothesis would be</p>
 <p>H0: The population proportion of hypertension is greater than or equal to 47%</p>
 </blockquote>
 <p>And then we test the hypothesis</p>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">67</span>, p<span class="op">=</span><span class="fl">.47</span>, alternative <span class="op">=</span> <span class="st">"less"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-5">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-5">Table 10.1: </span> </caption>
+<span id="tab:unnamed-chunk-5">Table 7.3: </span> </caption>
 <col>
 <col>
 <col>
@@ -283,22 +284,22 @@ and our null hypothesis would be</p>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">parameter</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.low</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.high</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">alternative</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">estimate</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">statistic</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">p.value</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">parameter</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.low</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.high</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">alternative</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.343</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">23</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0244</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">67</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.45</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">less</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.343</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">23</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.0244</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">67</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.45</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">less</td>
 </tr>
 </table></div>
 <p>The small p-value leads us to reject H0 and conclude it is insufficient
@@ -323,11 +324,11 @@ hypertension patients in the two populations. To do this we use the
 <p>Next, we test the hypothesis. To do this we first create two vectors
 representing the number of persons with hypertension and the total samples
 chosen.</p>
-<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">hpt</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">52</span>, <span class="fl">23</span><span class="op">)</span> <span class="co"># Vector of numbers with hypertension</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">67</span><span class="op">)</span> <span class="co"># Vector of numbers in the sample</span></span></code></pre></div>
 <p>Next, we apply the test</p>
-<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/prop.test.html">prop.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">hpt</span>, n <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
@@ -343,24 +344,24 @@ chosen.</p>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate1</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate2</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">parameter</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.low</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.high</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">alternative</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">estimate1</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">estimate2</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">statistic</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">p.value</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">parameter</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.low</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.high</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">alternative</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.52</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.343</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">4.37</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0365</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0142</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.339</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">two.sided</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.52</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.343</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">4.37</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.0365</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">1</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.0142</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.339</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">two.sided</td>
 </tr>
 </table></div>
 <p>p-value of 0.0365 is less than our regular significance level of 0.05 so we
@@ -404,7 +405,7 @@ assumptions of the test are:</p>
 </blockquote>
 <p>Next, we perform the test but to do that we first create a data frame of the
 expected and observed frequencies in Asia and Kumasi respectively.</p>
-<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bld_grp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"AB"</span>, <span class="st">"O"</span><span class="op">)</span></span>
 <span><span class="va">Asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">38.0</span>, <span class="fl">10.0</span>, <span class="fl">3.0</span>, <span class="fl">49.9</span><span class="op">)</span></span>
 <span><span class="va">Kumasi</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">226</span>, <span class="fl">82</span>, <span class="fl">21</span>, <span class="fl">271</span><span class="op">)</span></span>
@@ -413,39 +414,39 @@ expected and observed frequencies in Asia and Kumasi respectively.</p>
 <span><span class="va">df_temp</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-8">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-8">Table 13.1: </span> </caption>
+<span id="tab:unnamed-chunk-8">Table 7.4: </span> </caption>
 <col>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">bld_grp</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">Asia</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">Kumasi</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">bld_grp</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">Asia</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">Kumasi</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">A</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">38  </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">37.7</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">A</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">38  </td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">37.7</td>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">B</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">10  </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">13.7</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">B</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">10  </td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">13.7</td>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">AB</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3  </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3.5</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">AB</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">3  </td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">3.5</td>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">O</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">49.9</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">45.2</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">O</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">49.9</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">45.2</td>
 </tr>
 </table></div>
 <p>Next, we illustrate these proportions using a barplot by plotting the same blood
 groups from different regions side by side.</p>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_temp</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>        cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Asia</span>, <span class="va">Kumasi</span><span class="op">)</span>, </span>
@@ -472,10 +473,10 @@ A, B and AB. However, we also observe that adjacent bars are not exactly of the
 same height. Blood groups O and B for instance have approximately a 4%-point
 difference between the two populations. Next, we perform the actual test for
 the difference in proportions.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="analysis-of-categorical-data.html#cb185-1" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> Kumasi, <span class="at">p =</span> Asia<span class="sc">/</span><span class="fu">sum</span>(Asia)) <span class="sc">%&gt;%</span> </span>
-<span id="cb185-2"><a href="analysis-of-categorical-data.html#cb185-2" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>()</span>
-<span id="cb185-3"><a href="analysis-of-categorical-data.html#cb185-3" tabindex="-1"></a>Warning <span class="cf">in</span> <span class="fu">chisq.test</span>(<span class="at">x =</span> Kumasi, <span class="at">p =</span> Asia<span class="sc">/</span><span class="fu">sum</span>(Asia))<span class="sc">:</span></span>
-<span id="cb185-4"><a href="analysis-of-categorical-data.html#cb185-4" tabindex="-1"></a>Chi<span class="sc">-</span>squared approximation may be incorrect</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="analysis-of-categorical-data.html#cb182-1" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> Kumasi, <span class="at">p =</span> Asia<span class="sc">/</span><span class="fu">sum</span>(Asia)) <span class="sc">%&gt;%</span> </span>
+<span id="cb182-2"><a href="analysis-of-categorical-data.html#cb182-2" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>()</span>
+<span id="cb182-3"><a href="analysis-of-categorical-data.html#cb182-3" tabindex="-1"></a>Warning <span class="cf">in</span> <span class="fu">chisq.test</span>(<span class="at">x =</span> Kumasi, <span class="at">p =</span> Asia<span class="sc">/</span><span class="fu">sum</span>(Asia))<span class="sc">:</span></span>
+<span id="cb182-4"><a href="analysis-of-categorical-data.html#cb182-4" tabindex="-1"></a>Chi<span class="sc">-</span>squared approximation may be incorrect</span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-10">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-10">Table 6.5: </span> </caption>
@@ -484,16 +485,16 @@ the difference in proportions.</p>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">parameter</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">method</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">statistic</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">p.value</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">parameter</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">method</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1.91</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.592</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Chi-squared test for given probabilities</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">1.91</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.592</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">3</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">Chi-squared test for given probabilities</td>
 </tr>
 </table></div>
 <p>With a p-value of 0.592, we fail to reject H0 and conclude there is no evidence
@@ -510,59 +511,59 @@ contains records of high-risk pregnant women in a trial to compare a new and an
 old method of antenatal care (anc) in two clinics (clinic). The outcome was
 perinatal mortality, the death of the baby within the first week of life (death).</p>
 <p>We begin by loading the ANCdata</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="analysis-of-categorical-data.html#cb186-1" tabindex="-1"></a>df_anc <span class="ot">&lt;-</span> </span>
-<span id="cb186-2"><a href="analysis-of-categorical-data.html#cb186-2" tabindex="-1"></a>    <span class="fu">read.delim</span>(<span class="st">"./Data/ANCData.txt"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb186-3"><a href="analysis-of-categorical-data.html#cb186-3" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb186-4"><a href="analysis-of-categorical-data.html#cb186-4" tabindex="-1"></a>        <span class="at">death =</span> <span class="fu">factor</span>(death, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no"</span>,<span class="st">"yes"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)),</span>
-<span id="cb186-5"><a href="analysis-of-categorical-data.html#cb186-5" tabindex="-1"></a>        <span class="at">clinic =</span> <span class="fu">factor</span>(clinic),</span>
-<span id="cb186-6"><a href="analysis-of-categorical-data.html#cb186-6" tabindex="-1"></a>        <span class="at">anc =</span> <span class="fu">factor</span>(anc, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"old"</span>, <span class="st">"new"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Old"</span>, <span class="st">"New"</span>)))</span>
-<span id="cb186-7"><a href="analysis-of-categorical-data.html#cb186-7" tabindex="-1"></a></span>
-<span id="cb186-8"><a href="analysis-of-categorical-data.html#cb186-8" tabindex="-1"></a>df_anc <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb186-9"><a href="analysis-of-categorical-data.html#cb186-9" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb186-10"><a href="analysis-of-categorical-data.html#cb186-10" tabindex="-1"></a>df_anc  </span>
-<span id="cb186-11"><a href="analysis-of-categorical-data.html#cb186-11" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">755</span> x <span class="dv">3</span>  </span>
-<span id="cb186-12"><a href="analysis-of-categorical-data.html#cb186-12" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">747</span>  </span>
-<span id="cb186-13"><a href="analysis-of-categorical-data.html#cb186-13" tabindex="-1"></a></span>
-<span id="cb186-14"><a href="analysis-of-categorical-data.html#cb186-14" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span>
-<span id="cb186-15"><a href="analysis-of-categorical-data.html#cb186-15" tabindex="-1"></a>No   Variable   Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
-<span id="cb186-16"><a href="analysis-of-categorical-data.html#cb186-16" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb186-17"><a href="analysis-of-categorical-data.html#cb186-17" tabindex="-1"></a><span class="dv">1</span>    death      <span class="fl">1.</span> No            <span class="dv">689</span> (<span class="fl">91.3</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb186-18"><a href="analysis-of-categorical-data.html#cb186-18" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> Yes            <span class="dv">66</span> ( <span class="fl">8.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb186-19"><a href="analysis-of-categorical-data.html#cb186-19" tabindex="-1"></a></span>
-<span id="cb186-20"><a href="analysis-of-categorical-data.html#cb186-20" tabindex="-1"></a><span class="dv">2</span>    anc        <span class="fl">1.</span> Old           <span class="dv">419</span> (<span class="fl">55.5</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb186-21"><a href="analysis-of-categorical-data.html#cb186-21" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> New           <span class="dv">336</span> (<span class="fl">44.5</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb186-22"><a href="analysis-of-categorical-data.html#cb186-22" tabindex="-1"></a></span>
-<span id="cb186-23"><a href="analysis-of-categorical-data.html#cb186-23" tabindex="-1"></a><span class="dv">3</span>    clinic     <span class="fl">1.</span> A             <span class="dv">497</span> (<span class="fl">65.8</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb186-24"><a href="analysis-of-categorical-data.html#cb186-24" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> B             <span class="dv">258</span> (<span class="fl">34.2</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb186-25"><a href="analysis-of-categorical-data.html#cb186-25" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="analysis-of-categorical-data.html#cb183-1" tabindex="-1"></a>df_anc <span class="ot">&lt;-</span> </span>
+<span id="cb183-2"><a href="analysis-of-categorical-data.html#cb183-2" tabindex="-1"></a>    <span class="fu">read.delim</span>(<span class="st">"./Data/ANCData.txt"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb183-3"><a href="analysis-of-categorical-data.html#cb183-3" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb183-4"><a href="analysis-of-categorical-data.html#cb183-4" tabindex="-1"></a>        <span class="at">death =</span> <span class="fu">factor</span>(death, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no"</span>,<span class="st">"yes"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)),</span>
+<span id="cb183-5"><a href="analysis-of-categorical-data.html#cb183-5" tabindex="-1"></a>        <span class="at">clinic =</span> <span class="fu">factor</span>(clinic),</span>
+<span id="cb183-6"><a href="analysis-of-categorical-data.html#cb183-6" tabindex="-1"></a>        <span class="at">anc =</span> <span class="fu">factor</span>(anc, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"old"</span>, <span class="st">"new"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Old"</span>, <span class="st">"New"</span>)))</span>
+<span id="cb183-7"><a href="analysis-of-categorical-data.html#cb183-7" tabindex="-1"></a></span>
+<span id="cb183-8"><a href="analysis-of-categorical-data.html#cb183-8" tabindex="-1"></a>df_anc <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb183-9"><a href="analysis-of-categorical-data.html#cb183-9" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb183-10"><a href="analysis-of-categorical-data.html#cb183-10" tabindex="-1"></a>df_anc  </span>
+<span id="cb183-11"><a href="analysis-of-categorical-data.html#cb183-11" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">755</span> x <span class="dv">3</span>  </span>
+<span id="cb183-12"><a href="analysis-of-categorical-data.html#cb183-12" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">747</span>  </span>
+<span id="cb183-13"><a href="analysis-of-categorical-data.html#cb183-13" tabindex="-1"></a></span>
+<span id="cb183-14"><a href="analysis-of-categorical-data.html#cb183-14" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span>
+<span id="cb183-15"><a href="analysis-of-categorical-data.html#cb183-15" tabindex="-1"></a>No   Variable   Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
+<span id="cb183-16"><a href="analysis-of-categorical-data.html#cb183-16" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb183-17"><a href="analysis-of-categorical-data.html#cb183-17" tabindex="-1"></a><span class="dv">1</span>    death      <span class="fl">1.</span> No            <span class="dv">689</span> (<span class="fl">91.3</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb183-18"><a href="analysis-of-categorical-data.html#cb183-18" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> Yes            <span class="dv">66</span> ( <span class="fl">8.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb183-19"><a href="analysis-of-categorical-data.html#cb183-19" tabindex="-1"></a></span>
+<span id="cb183-20"><a href="analysis-of-categorical-data.html#cb183-20" tabindex="-1"></a><span class="dv">2</span>    anc        <span class="fl">1.</span> Old           <span class="dv">419</span> (<span class="fl">55.5</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb183-21"><a href="analysis-of-categorical-data.html#cb183-21" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> New           <span class="dv">336</span> (<span class="fl">44.5</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb183-22"><a href="analysis-of-categorical-data.html#cb183-22" tabindex="-1"></a></span>
+<span id="cb183-23"><a href="analysis-of-categorical-data.html#cb183-23" tabindex="-1"></a><span class="dv">3</span>    clinic     <span class="fl">1.</span> A             <span class="dv">497</span> (<span class="fl">65.8</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb183-24"><a href="analysis-of-categorical-data.html#cb183-24" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> B             <span class="dv">258</span> (<span class="fl">34.2</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb183-25"><a href="analysis-of-categorical-data.html#cb183-25" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span></code></pre></div>
 <p>Our objective in this section is to determine if there is a significant
 relationship between the anc type and perinatal death. In other words, does
 perinatal mortality differ in the population depending on the anc method used?</p>
 <p>To begin we cross-tabulate the two variables.</p>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">tbl_cross</span><span class="op">(</span>percent <span class="op">=</span> <span class="st">"col"</span>,</span>
 <span>        row <span class="op">=</span> <span class="va">death</span>, </span>
 <span>        col <span class="op">=</span> <span class="va">anc</span>, </span>
 <span>        label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">death</span> <span class="op">~</span> <span class="st">"Death"</span>, anc <span class="op">=</span> <span class="st">"ANC"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">bold_labels</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="oxqqtuutza" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#oxqqtuutza table {
+<div id="muhzduvjia" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#muhzduvjia table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#oxqqtuutza thead, #oxqqtuutza tbody, #oxqqtuutza tfoot, #oxqqtuutza tr, #oxqqtuutza td, #oxqqtuutza th {
+#muhzduvjia thead, #muhzduvjia tbody, #muhzduvjia tfoot, #muhzduvjia tr, #muhzduvjia td, #muhzduvjia th {
   border-style: none;
 }
 
-#oxqqtuutza p {
+#muhzduvjia p {
   margin: 0;
   padding: 0;
 }
 
-#oxqqtuutza .gt_table {
+#muhzduvjia .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -588,12 +589,12 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-left-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_caption {
+#muhzduvjia .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#oxqqtuutza .gt_title {
+#muhzduvjia .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -605,7 +606,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-width: 0;
 }
 
-#oxqqtuutza .gt_subtitle {
+#muhzduvjia .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -617,7 +618,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-top-width: 0;
 }
 
-#oxqqtuutza .gt_heading {
+#muhzduvjia .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -629,13 +630,13 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_bottom_border {
+#muhzduvjia .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_col_headings {
+#muhzduvjia .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -650,7 +651,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_col_heading {
+#muhzduvjia .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -670,7 +671,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   overflow-x: hidden;
 }
 
-#oxqqtuutza .gt_column_spanner_outer {
+#muhzduvjia .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -682,15 +683,15 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 4px;
 }
 
-#oxqqtuutza .gt_column_spanner_outer:first-child {
+#muhzduvjia .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oxqqtuutza .gt_column_spanner_outer:last-child {
+#muhzduvjia .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oxqqtuutza .gt_column_spanner {
+#muhzduvjia .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -702,11 +703,11 @@ perinatal mortality differ in the population depending on the anc method used?</
   width: 100%;
 }
 
-#oxqqtuutza .gt_spanner_row {
+#muhzduvjia .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#oxqqtuutza .gt_group_heading {
+#muhzduvjia .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -732,7 +733,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   text-align: left;
 }
 
-#oxqqtuutza .gt_empty_group_heading {
+#muhzduvjia .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -747,15 +748,15 @@ perinatal mortality differ in the population depending on the anc method used?</
   vertical-align: middle;
 }
 
-#oxqqtuutza .gt_from_md > :first-child {
+#muhzduvjia .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oxqqtuutza .gt_from_md > :last-child {
+#muhzduvjia .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oxqqtuutza .gt_row {
+#muhzduvjia .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -774,7 +775,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   overflow-x: hidden;
 }
 
-#oxqqtuutza .gt_stub {
+#muhzduvjia .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -787,7 +788,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#oxqqtuutza .gt_stub_row_group {
+#muhzduvjia .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -801,15 +802,15 @@ perinatal mortality differ in the population depending on the anc method used?</
   vertical-align: top;
 }
 
-#oxqqtuutza .gt_row_group_first td {
+#muhzduvjia .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#oxqqtuutza .gt_row_group_first th {
+#muhzduvjia .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#oxqqtuutza .gt_summary_row {
+#muhzduvjia .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -819,16 +820,16 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#oxqqtuutza .gt_first_summary_row {
+#muhzduvjia .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_first_summary_row.thick {
+#muhzduvjia .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#oxqqtuutza .gt_last_summary_row {
+#muhzduvjia .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -838,7 +839,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_grand_summary_row {
+#muhzduvjia .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -848,7 +849,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#oxqqtuutza .gt_first_grand_summary_row {
+#muhzduvjia .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -858,7 +859,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-top-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_last_grand_summary_row_top {
+#muhzduvjia .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -868,11 +869,11 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_striped {
+#muhzduvjia .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oxqqtuutza .gt_table_body {
+#muhzduvjia .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -881,7 +882,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_footnotes {
+#muhzduvjia .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -895,7 +896,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_footnote {
+#muhzduvjia .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -904,7 +905,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#oxqqtuutza .gt_sourcenotes {
+#muhzduvjia .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -918,7 +919,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#oxqqtuutza .gt_sourcenote {
+#muhzduvjia .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -926,63 +927,63 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#oxqqtuutza .gt_left {
+#muhzduvjia .gt_left {
   text-align: left;
 }
 
-#oxqqtuutza .gt_center {
+#muhzduvjia .gt_center {
   text-align: center;
 }
 
-#oxqqtuutza .gt_right {
+#muhzduvjia .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oxqqtuutza .gt_font_normal {
+#muhzduvjia .gt_font_normal {
   font-weight: normal;
 }
 
-#oxqqtuutza .gt_font_bold {
+#muhzduvjia .gt_font_bold {
   font-weight: bold;
 }
 
-#oxqqtuutza .gt_font_italic {
+#muhzduvjia .gt_font_italic {
   font-style: italic;
 }
 
-#oxqqtuutza .gt_super {
+#muhzduvjia .gt_super {
   font-size: 65%;
 }
 
-#oxqqtuutza .gt_footnote_marks {
+#muhzduvjia .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#oxqqtuutza .gt_asterisk {
+#muhzduvjia .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#oxqqtuutza .gt_indent_1 {
+#muhzduvjia .gt_indent_1 {
   text-indent: 5px;
 }
 
-#oxqqtuutza .gt_indent_2 {
+#muhzduvjia .gt_indent_2 {
   text-indent: 10px;
 }
 
-#oxqqtuutza .gt_indent_3 {
+#muhzduvjia .gt_indent_3 {
   text-indent: 15px;
 }
 
-#oxqqtuutza .gt_indent_4 {
+#muhzduvjia .gt_indent_4 {
   text-indent: 20px;
 }
 
-#oxqqtuutza .gt_indent_5 {
+#muhzduvjia .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1028,7 +1029,7 @@ perinatal mortality differ in the population depending on the anc method used?</
 </tbody>
 </table></div>
 </div>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">death</span>, <span class="va">anc</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">count</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -1062,7 +1063,7 @@ hypothesis.</p>
 <p>H0: There is no difference in the proportion of perinatal deaths between mothers who used the new and old ANC methods.</p>
 </blockquote>
 <p>And perform the test</p>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">anc</span>, <span class="va">death</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -1075,16 +1076,16 @@ hypothesis.</p>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">parameter</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">method</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">statistic</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">p.value</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">parameter</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">method</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">5.29</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0214</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Pearson's Chi-squared test with Yates' continuity correction</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">5.29</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.0214</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">1</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">Pearson's Chi-squared test with Yates' continuity correction</td>
 </tr>
 </table></div>
 <p>The test above yields a relatively small p-value compared to a significance
@@ -1105,22 +1106,22 @@ the Chi-squared test for trend is often employed.</p>
 the following data was obtained: 4 out of 42 persons aged less than 45yrs, 7 out
 of 43 aged between 46yrs and 55yrs, 12 out of 46 aged between 56yrs and 65yrs and
 15 out of 44 aged more than 65yrs. First, we input these into R and calculate the percentages with the eye changes.</p>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">No.eye</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">7</span>,<span class="fl">12</span>,<span class="fl">15</span><span class="op">)</span></span>
 <span><span class="va">No.studied</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">42</span>, <span class="fl">43</span>, <span class="fl">46</span>, <span class="fl">44</span><span class="op">)</span></span></code></pre></div>
 <p>Next, we determine the percentage of those with eye changes for each age group</p>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Perc.eye</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">No.eye</span><span class="op">/</span><span class="va">No.studied</span> <span class="op">*</span> <span class="fl">100</span>, <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p>Next, we form a matrix showing the number of persons with eye changes, the number
 of persons studied and the percentage of persons with eye changes for each age
 group.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="analysis-of-categorical-data.html#cb192-1" tabindex="-1"></a><span class="fu">names</span>(No.eye)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"&lt;=45yrs"</span>,<span class="st">"46-55yrs"</span>,<span class="st">"56-65yrs"</span>,<span class="st">"&gt;65yrs"</span>)</span>
-<span id="cb192-2"><a href="analysis-of-categorical-data.html#cb192-2" tabindex="-1"></a><span class="fu">cbind</span>(No.eye, No.studied, Perc.eye)</span>
-<span id="cb192-3"><a href="analysis-of-categorical-data.html#cb192-3" tabindex="-1"></a>         No.eye No.studied Perc.eye</span>
-<span id="cb192-4"><a href="analysis-of-categorical-data.html#cb192-4" tabindex="-1"></a><span class="sc">&lt;=</span>45yrs       <span class="dv">4</span>         <span class="dv">42</span>      <span class="fl">9.5</span></span>
-<span id="cb192-5"><a href="analysis-of-categorical-data.html#cb192-5" tabindex="-1"></a><span class="dv">46</span><span class="sc">-</span>55yrs      <span class="dv">7</span>         <span class="dv">43</span>     <span class="fl">16.3</span></span>
-<span id="cb192-6"><a href="analysis-of-categorical-data.html#cb192-6" tabindex="-1"></a><span class="dv">56</span><span class="sc">-</span>65yrs     <span class="dv">12</span>         <span class="dv">46</span>     <span class="fl">26.1</span></span>
-<span id="cb192-7"><a href="analysis-of-categorical-data.html#cb192-7" tabindex="-1"></a><span class="sc">&gt;</span>65yrs       <span class="dv">15</span>         <span class="dv">44</span>     <span class="fl">34.1</span></span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="analysis-of-categorical-data.html#cb189-1" tabindex="-1"></a><span class="fu">names</span>(No.eye)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"&lt;=45yrs"</span>,<span class="st">"46-55yrs"</span>,<span class="st">"56-65yrs"</span>,<span class="st">"&gt;65yrs"</span>)</span>
+<span id="cb189-2"><a href="analysis-of-categorical-data.html#cb189-2" tabindex="-1"></a><span class="fu">cbind</span>(No.eye, No.studied, Perc.eye)</span>
+<span id="cb189-3"><a href="analysis-of-categorical-data.html#cb189-3" tabindex="-1"></a>         No.eye No.studied Perc.eye</span>
+<span id="cb189-4"><a href="analysis-of-categorical-data.html#cb189-4" tabindex="-1"></a><span class="sc">&lt;=</span>45yrs       <span class="dv">4</span>         <span class="dv">42</span>      <span class="fl">9.5</span></span>
+<span id="cb189-5"><a href="analysis-of-categorical-data.html#cb189-5" tabindex="-1"></a><span class="dv">46</span><span class="sc">-</span>55yrs      <span class="dv">7</span>         <span class="dv">43</span>     <span class="fl">16.3</span></span>
+<span id="cb189-6"><a href="analysis-of-categorical-data.html#cb189-6" tabindex="-1"></a><span class="dv">56</span><span class="sc">-</span>65yrs     <span class="dv">12</span>         <span class="dv">46</span>     <span class="fl">26.1</span></span>
+<span id="cb189-7"><a href="analysis-of-categorical-data.html#cb189-7" tabindex="-1"></a><span class="sc">&gt;</span>65yrs       <span class="dv">15</span>         <span class="dv">44</span>     <span class="fl">34.1</span></span></code></pre></div>
 <p>From the analysis above it can be said that the proportions of persons with eye
 changes increases with age. However, to determine if this apparent rise could be
 a chance finding we apply the Chi-Squared test after we confirm the data does not
@@ -1132,27 +1133,27 @@ conditions we state the null hypothesis.</p>
 <p>H0: There is no trend in the eye changes with increasing age</p>
 </blockquote>
 <p>Next, we put it to the formal test</p>
-<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/prop.trend.test.html">prop.trend.test</a></span><span class="op">(</span><span class="va">No.eye</span>, <span class="va">No.studied</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-20">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-20">Table 13.5: </span> </caption>
+<span id="tab:unnamed-chunk-20">Table 13.4: </span> </caption>
 <col>
 <col>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">parameter</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">method</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">statistic</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">p.value</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">parameter</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">method</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">8.86</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00291</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Chi-squared Test for Trend in Proportions</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">8.86</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.00291</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">1</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">Chi-squared Test for Trend in Proportions</td>
 </tr>
 </table></div>
 <p>With a p-value less than 0.05, we reject the H0 and conclude that there a
@@ -1165,14 +1166,14 @@ increasing age.</p>
 <span class="header-section-number">14.4</span> Fisher’s Exact test<a class="anchor" aria-label="anchor" href="#fishers-exact-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>A valid conclusion from the use of the chi-squared test can only be guaranteed if the counts in all the cells of the table in question are equal to or greater than 5. Whenever the count or value in any of the cells is below 5, Fisher’s exact test must be used instead. Its use and interpretation are similar to the chi-squared test and are demonstrated with the ANCdata as below.</p>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">anc</span>, <span class="va">death</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/fisher.test.html">fisher.test</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-21">
 <caption style="caption-side: top; text-align: center;">
-<span id="tab:unnamed-chunk-21">Table 13.6: </span> </caption>
+<span id="tab:unnamed-chunk-21">Table 13.5: </span> </caption>
 <col>
 <col>
 <col>
@@ -1180,20 +1181,20 @@ increasing age.</p>
 <col>
 <col>
 <tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.low</th>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">conf.high</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">method</th>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">alternative</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">estimate</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">p.value</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.low</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">conf.high</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">method</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: bold; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">alternative</th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.514</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0191</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.282</td>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.908</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Fisher's Exact Test for Count Data</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">two.sided</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 0pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.514</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.0191</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.282</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">0.908</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 6pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">Fisher's Exact Test for Count Data</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">two.sided</td>
 </tr>
 </table></div>
 <p>The p-value here is quite like that obtained by the chi-squared test but not the
@@ -1244,7 +1245,7 @@ interval. The odds ratio will be explained in subsequent sections.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-25.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

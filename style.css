@@ -17,3 +17,10 @@ table {
     margin-top: 7px;
     margin-bottom: 7px;
 }
+
+td {
+    padding-top: 2pt;
+    padding-bottom: 2pt;
+    padding-right: 6pt;
+    padding-left: 6pt;
+}

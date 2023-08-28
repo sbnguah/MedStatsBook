@@ -1,3 +1,9 @@
+```{r echo=FALSE, message=F}
+library(tidyverse)
+library(magrittr)
+library(gtsummary)
+```
+
 # Data Cleaning
 Data to be analysed has to be ”cleaned” first of abnormal or invalid values. This 
 should be done with the understanding of the data at hand, how it was collected 
@@ -214,7 +220,8 @@ blood3 %>%
     geom_point(col = "red") + 
     labs(x = "Hematocrit (%)",
          y = "Hemoglobin (mg/dl)",
-         title = "Scatterplot showing the relationship between the hematocrit and hemoglobin")+
+         title = "Scatterplot showing the relationship 
+         between the hematocrit and hemoglobin")+
     theme_bw()
 ```
 

@@ -1,3 +1,5 @@
+
+
 # Statistical data types
 We begin proper data analysis by revising what statistical data types are. There are two broad types of data; Quantitative and Qualitative 
 

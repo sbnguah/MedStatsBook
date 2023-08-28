@@ -1,3 +1,18 @@
+```{r echo=FALSE, message=F}
+library(tidyverse)
+library(magrittr)
+library(gtsummary)
+library(huxtable)
+mytheme <- function(ht){
+    ht <- huxtable::theme_article(ht)
+    ht <- huxtable::set_top_padding(ht, row = "2pt")
+    ht <- huxtable::set_bottom_padding(ht, row = "2pt")
+    ht <- huxtable::set_font(ht, value = "Arial, Times New Roman, Times, Serif")
+    ht <- huxtable::set_font_size(ht, value = 11)
+}
+options(huxtable.knit_print_df_theme = mytheme)
+```
+
 # Introduction
 ## The statistical data analyst
 Statistical data analysis is more than just using computer software to generate results. It involves a basic understanding of the data type and the best way to analyse and present such data to make meaning to the general population. Thus, the data analyst:

@@ -1,9 +1,18 @@
 # Analysis of Variance
 
-```{r echo = F, include=F, meassage = F, warning=F}
+```{r echo=FALSE, message=F}
 library(tidyverse)
 library(magrittr)
+library(gtsummary)
 library(huxtable)
+mytheme <- function(ht){
+    ht <- huxtable::theme_article(ht)
+    ht <- huxtable::set_top_padding(ht, row = "2pt")
+    ht <- huxtable::set_bottom_padding(ht, row = "2pt")
+    ht <- huxtable::set_font(ht, value = "Arial, Times New Roman, Times, Serif")
+    ht <- huxtable::set_font_size(ht, value = 11)
+}
+options(huxtable.knit_print_df_theme = mytheme)
 ```
 
 ## Introduction
@@ -226,7 +235,7 @@ df_sbp_selected %>% summarytools::dfSummary()
 ```
 
 ```{r echo = F}
-options(huxtable.knit_print_df = F)
+options(huxtable.knit_print_df = T)
 ```
 
 Next, we need to convert the data into a long format and view the first 6 records.
@@ -277,20 +286,11 @@ There may be an insignificant drop in BP over the period. Next, we perform a rep
 aov(bp ~ period + Error(sid/period), data = df_sbp_long) %>% broom::tidy()
 ```
 
-
-## Analysis of covariance
-
-
-## Multivariate Analysis of Variance
-
 ## Kruskal Wallis Test
-At the beginning of this section, we noted that ANOVA is a parametric test. 
-Therefore it requires approximately normally distributed dependent data to work 
-with. So what if the data deviates significantly from normality? Under those 
-conditions we use the Kruskal-Wallis test, the non-parametric equivalent of the 
-one-way ANOVA. This tests the null hypothesis 
+At the beginning of this section, we noted that ANOVA is a parametric test. Therefore it requires approximately normally distributed dependent data to workmwith. So what if the data deviates significantly from normality or any of the assumptions under which the ANOVA can be used? Under those conditions we use the Kruskal-Wallis test, the non-parametric equivalent of the one-way ANOVA. This tests the null hypothesis 
 
 > H0: The population distribution (or centre) of all the groups is the same.
+
 > Ha: At least one of the population distributions (or centre) differs from the 
 rest.
 

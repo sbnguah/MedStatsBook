@@ -1,3 +1,5 @@
+
+
 # Data Cleaning
 Data to be analysed has to be ”cleaned” first of abnormal or invalid values. This 
 should be done with the understanding of the data at hand, how it was collected 
@@ -335,7 +337,7 @@ Warning: Removed 1 rows containing non-finite values
 (`stat_boxplot()`).
 ```
 
-<img src="Data-Cleaning_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="Data-Cleaning_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 
 
@@ -352,7 +354,7 @@ blood3 %>%
     theme_bw()
 ```
 
-<img src="Data-Cleaning_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<img src="Data-Cleaning_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 Next, we focus on the `hct` variable. It is of note that it has *99* which represents 'missing'. We
 therefore remove that as below
@@ -377,7 +379,7 @@ blood3 %>%
     theme_bw()
 ```
 
-<img src="Data-Cleaning_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+<img src="Data-Cleaning_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 Because we know the hematocrit has a relationship with the haemoglobin, we use a scatter plot to
 visualise and possibly pick up suspicious data.
@@ -390,11 +392,12 @@ blood3 %>%
     geom_point(col = "red") + 
     labs(x = "Hematocrit (%)",
          y = "Hemoglobin (mg/dl)",
-         title = "Scatterplot showing the relationship between the hematocrit and hemoglobin")+
+         title = "Scatterplot showing the relationship 
+         between the hematocrit and hemoglobin")+
     theme_bw()
 ```
 
-<img src="Data-Cleaning_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+<img src="Data-Cleaning_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 Next, we inspect the `sex` variable
 
