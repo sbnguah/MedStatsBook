@@ -200,7 +200,7 @@ the hb is shown below after importing the data</p>
 <div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span></code></pre></div>
+<span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-7">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-7">Table 6.3: </span> </caption>
@@ -353,7 +353,7 @@ generate one by categorising those with high wbc (&gt;11.0 x 109/ml) as “High�
 <div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span></code></pre></div>
+<span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-9">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-9">Table 6.4: </span> </caption>
@@ -409,7 +409,7 @@ for those with “High” and “Low” wbcs is -4.705.</li>
 <div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc.cat</span>, var.equal<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-10">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-10">Table 6.5: </span> </caption>
@@ -472,7 +472,7 @@ the regression coefficient often represented by <span class="math inline">\(\bet
 blood hb and hct. For illustrative purposes, we present it again but show just
 the coefficients, their confidence interval and p-values.</p>
 <div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-11">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-11">Table 6.6: </span> </caption>
@@ -517,7 +517,7 @@ a confounder should be related to both the outcome and exposure variable. In our
 preliminary analysis, we decided to see if wbc is also related to the hct.
 This is done below</p>
 <div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">wbc</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-12">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-12">Table 6.7: </span> </caption>
@@ -564,7 +564,7 @@ count with increasing hct. The question then arises:</p>
 <p>To begin to investigate this we must first check if wbc has a relationship with
 the hb as well. This is done below</p>
 <div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">wbc</span> <span class="op">~</span> <span class="va">hb</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">wbc</span> <span class="op">~</span> <span class="va">hb</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-13">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-13">Table 6.8: </span> </caption>
@@ -610,7 +610,7 @@ necessary for confounding to exist.</p>
 To do so we put both variables as independent variables in the linear regression
 formula as below</p>
 <div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span> <span class="op">+</span> <span class="va">wbc</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span> <span class="op">+</span> <span class="va">wbc</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-14">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-14">Table 6.9: </span> </caption>
@@ -681,7 +681,7 @@ hb and wbc.cat. This type of linear regression is done to answer questions like:
 </blockquote>
 <p>To answer this question we perform a linear regression as below:</p>
 <div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span> <span class="op">+</span> <span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span> <span class="op">+</span> <span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-15">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-15">Table 6.10: </span> </caption>
@@ -774,7 +774,7 @@ persons with High compared to those with Low WBC?.</p>
 </blockquote>
 <p>Fitting this linear regression is done in R as below.</p>
 <div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span><span class="op">*</span><span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">hct</span> <span class="op">~</span> <span class="va">hb</span><span class="op">*</span><span class="va">wbc.cat</span>, data<span class="op">=</span><span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span>conf.int<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-17">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-17">Table 13.1: </span> </caption>
@@ -906,7 +906,7 @@ slopes between those with “High” and “Low” WBCs.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-28.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-09-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

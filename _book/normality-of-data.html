@@ -166,7 +166,7 @@ formal hypothesis testing.</p>
 <p><strong>Histogram</strong>: Probably the most well know modality here is the histogram.
 Below we first read the data and keep only the <code>hb</code> variable:</p>
 <div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">&lt;-</span> <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta</a></span><span class="op">(</span><span class="st">"./Data/mps.dta"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">&lt;-</span> <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/haven/man/read_dta.html">read_dta</a></span><span class="op">(</span><span class="st">"./Data/mps.dta"</span><span class="op">)</span></span></code></pre></div>
 <p>We then draw the histogram of the <code>hb</code>.</p>
 <div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%&gt;%</span> </span>
@@ -197,7 +197,7 @@ of our data is as done below:</p>
 <div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">drop_na</span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html">ggqqplot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"hb"</span>,title <span class="op">=</span> <span class="st">"Q-Q plot of the HB"</span>, conf.int <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span>    <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggpubr/man/ggqqplot.html">ggqqplot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"hb"</span>,title <span class="op">=</span> <span class="st">"Q-Q plot of the HB"</span>, conf.int <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Normality_files/figure-html/unnamed-chunk-6-1.png" width="576"></div>
 <p>It is seen that apart from a few points mainly on the right tail the rest
 pretty much follow the line.</p>
@@ -217,7 +217,7 @@ conclusions.</p>
 <div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-7">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-7">Table 6.3: </span> </caption>
@@ -285,7 +285,7 @@ the judgement that numeric data is or is not normally distributed.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-08-28.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-09-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
