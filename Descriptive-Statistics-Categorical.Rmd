@@ -30,7 +30,7 @@ mytheme <- function(ht){
 options(huxtable.knit_print_df_theme = mytheme)
 ```
 
-For this section we use the __Titanic__ data set
+For this section we use the __Titanic__ data set. The lines below imports into R the data and converts some of the variables to factors. 
  
 ```{r comment=NA}
 titanic2 <-  
@@ -42,21 +42,23 @@ titanic2 <-
     haven::zap_labels()
 ```
 
-We visualize the first 6 rows of the data 
+We begin by visualizing the first 6 rows of the data 
 
 ```{r comment=NA}
 titanic2 %>% head()
 ```
 
-And summarize the entire as below
+And then summarize the entire  data
 
 ```{r comment=NA}
 titanic2 %>% summary()
 ```
 
-### Single Categorical Variable
+## Single Categorical Variable
 
-#### Frequencies & Proportions
+### Frequencies & Proportions
+
+The most common modality for presenting a single categorical variables is tabulating the observations, and subsequently expressing these frequencies as proportions or percentages. This is done below   
 
 ```{r comment=NA}
 titanic2 %>% 
@@ -67,7 +69,7 @@ titanic2 %>%
     gtsummary::bold_labels()
 ```
 
-#### Graph - Barchart
+### Graph - Barchart
 
 We first summarize the data
 
