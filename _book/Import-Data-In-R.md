@@ -1,6 +1,9 @@
 # Importing data into R
 
 
+```
+Warning: package 'ggplot2' was built under R version 4.3.2
+```
 
 In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In R, a data frame is the data structure desirable for data analysis. With the advent of the `tidy data`, a tibble is now the predominant data structure being used. For this section, we will be reading in various file formats and presenting them as a tibble.
 

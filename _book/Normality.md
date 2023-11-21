@@ -1,4 +1,7 @@
 
+```
+Warning: package 'ggplot2' was built under R version 4.3.2
+```
 
 # Normality of data
 
@@ -54,7 +57,7 @@ There are two main modalities for evaluating normality. These are graphical and
 formal hypothesis testing.  
 
 ### Graphical evaluation
-**Histogram**: Probably the most well know modality here is the histogram. 
+**Histogram**: Probably the most well-known modality here is the histogram.  
 Below we first read  the data and keep only the `hb` variable:
 
 
@@ -97,9 +100,8 @@ here.
 
 **Q-Q plot**: Finally, the Q-Q plot with a line. This graphical modality plots 
 the actual values of the data against a theoretical normal distribution. Thus, 
-if all the dots were to be in a straight line and along the line drawn that will 
-the ideal normal distribution. We therefore use this principle to determine if 
-our data is for instance heave at the tails, indicating skewness. The Q-Q plot 
+if all the dots were to be in a straight line and along the line drawn that would be the ideal normal distribution. We therefore use this principle to determine if 
+our data is for instance heavy at the tails, indicating skewness. The Q-Q plot 
 of our data is as done below:
 
 
@@ -145,14 +147,14 @@ df_mps %$%
 
 
 A p-value greater than 0.05 indicates we reject the Null hypothesis and thus 
-conclude out data comes from a normally distributed population. 
+conclude our data comes from a normally distributed population. 
 
 ## Conclusion
 In conclusion, it can be seen from the graphical presentations as well as the 
 formal test that the data we have is coming from a normally distributed 
 population.
 
-The various test can give contradictory results and so I recommend evaluating 
+The various tests can give contradictory results so I recommend evaluating 
 the normality of a population, one should first plot the histogram, and Q-Q plot, 
 and then perform one formal test, and combine these results before making the 
 the judgement that numeric data is or is not normally distributed.  

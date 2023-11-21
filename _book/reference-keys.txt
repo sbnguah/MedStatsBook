@@ -225,6 +225,7 @@ the-log-rank-test
 stratified-log-rank-test
 cox-regression
 cox-regression-1
+sample-size-determination
 blocks
 equations
 theorems-and-proofs

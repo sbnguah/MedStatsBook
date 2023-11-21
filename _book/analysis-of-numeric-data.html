@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 13 Analysis of numeric data | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="So far, we have dealt with descriptive statistics and the analysis of the sample data collected. However, the bane of most statistical analysis is to make inferences about the population as a...">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta name="description" content="Warning: package 'ggplot2' was built under R version 4.3.2 So far, we have dealt with descriptive statistics and the analysis of the sample data collected. However, the bane of most statistical...">
+<meta name="generator" content="bookdown 0.36 with bs4_book()">
 <meta property="og:title" content="Chapter 13 Analysis of numeric data | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstatswithr.netlify.app/analysis-of-numeric-data.html">
-<meta property="og:description" content="So far, we have dealt with descriptive statistics and the analysis of the sample data collected. However, the bane of most statistical analysis is to make inferences about the population as a...">
+<meta property="og:description" content="Warning: package 'ggplot2' was built under R version 4.3.2 So far, we have dealt with descriptive statistics and the analysis of the sample data collected. However, the bane of most statistical...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 13 Analysis of numeric data | Medical Statistics using R">
-<meta name="twitter:description" content="So far, we have dealt with descriptive statistics and the analysis of the sample data collected. However, the bane of most statistical analysis is to make inferences about the population as a...">
+<meta name="twitter:description" content="Warning: package 'ggplot2' was built under R version 4.3.2 So far, we have dealt with descriptive statistics and the analysis of the sample data collected. However, the bane of most statistical...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -94,11 +94,12 @@
 <li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
 <li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
 <li><a class="" href="cox-regression-1.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="sample-size-determination.html"><span class="header-section-number">27</span> Sample Size Determination</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">28</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">29</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">30</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">31</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">32</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -110,6 +111,7 @@
 <h1>
 <span class="header-section-number">13</span> Analysis of numeric data<a class="anchor" aria-label="anchor" href="#analysis-of-numeric-data"><i class="fas fa-link"></i></a>
 </h1>
+<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 <p>So far, we have dealt with descriptive statistics and the analysis of the sample
 data collected. However, the bane of most statistical analysis is to make
 inferences about the population as a whole. In this section, we mainly do an
@@ -138,7 +140,7 @@ and have one mode and with a sample size between 16 and 40</li>
 <p>With our sample considered to be randomly selected and a sample size of 140, we
 apply the One-sample T-test as below.</p>
 <p>We first import the data</p>
-<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu">read_delim</span><span class="op">(</span></span>
 <span>        file <span class="op">=</span> <span class="st">"./Data/data1.txt"</span>, </span>
@@ -147,41 +149,41 @@ apply the One-sample T-test as below.</p>
 <span>    <span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>And then summarize it below</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="analysis-of-numeric-data.html#cb157-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
-<span id="cb157-2"><a href="analysis-of-numeric-data.html#cb157-2" tabindex="-1"></a>    summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb157-3"><a href="analysis-of-numeric-data.html#cb157-3" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb157-4"><a href="analysis-of-numeric-data.html#cb157-4" tabindex="-1"></a>df_data1  </span>
-<span id="cb157-5"><a href="analysis-of-numeric-data.html#cb157-5" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">140</span> x <span class="dv">4</span>  </span>
-<span id="cb157-6"><a href="analysis-of-numeric-data.html#cb157-6" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
-<span id="cb157-7"><a href="analysis-of-numeric-data.html#cb157-7" tabindex="-1"></a></span>
-<span id="cb157-8"><a href="analysis-of-numeric-data.html#cb157-8" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span>
-<span id="cb157-9"><a href="analysis-of-numeric-data.html#cb157-9" tabindex="-1"></a>No   Variable      Stats <span class="sc">/</span> Values            <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
-<span id="cb157-10"><a href="analysis-of-numeric-data.html#cb157-10" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-------------</span> <span class="sc">-------------------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb157-11"><a href="analysis-of-numeric-data.html#cb157-11" tabindex="-1"></a><span class="dv">1</span>    id            <span class="fl">1.</span> <span class="dv">1</span>                        <span class="dv">1</span> ( <span class="fl">0.7</span>%)          <span class="dv">140</span>        <span class="dv">0</span>        </span>
-<span id="cb157-12"><a href="analysis-of-numeric-data.html#cb157-12" tabindex="-1"></a>     [character]   <span class="fl">2.</span> <span class="dv">10</span>                       <span class="dv">1</span> ( <span class="fl">0.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb157-13"><a href="analysis-of-numeric-data.html#cb157-13" tabindex="-1"></a>                   <span class="fl">3.</span> <span class="dv">100</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
-<span id="cb157-14"><a href="analysis-of-numeric-data.html#cb157-14" tabindex="-1"></a>                   <span class="fl">4.</span> <span class="dv">101</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
-<span id="cb157-15"><a href="analysis-of-numeric-data.html#cb157-15" tabindex="-1"></a>                   <span class="fl">5.</span> <span class="dv">102</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
-<span id="cb157-16"><a href="analysis-of-numeric-data.html#cb157-16" tabindex="-1"></a>                   <span class="fl">6.</span> <span class="dv">103</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
-<span id="cb157-17"><a href="analysis-of-numeric-data.html#cb157-17" tabindex="-1"></a>                   <span class="fl">7.</span> <span class="dv">104</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
-<span id="cb157-18"><a href="analysis-of-numeric-data.html#cb157-18" tabindex="-1"></a>                   <span class="fl">8.</span> <span class="dv">105</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
-<span id="cb157-19"><a href="analysis-of-numeric-data.html#cb157-19" tabindex="-1"></a>                   <span class="fl">9.</span> <span class="dv">106</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
-<span id="cb157-20"><a href="analysis-of-numeric-data.html#cb157-20" tabindex="-1"></a>                   <span class="fl">10.</span> <span class="dv">107</span>                     <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
-<span id="cb157-21"><a href="analysis-of-numeric-data.html#cb157-21" tabindex="-1"></a>                   [ <span class="dv">130</span> others ]            <span class="dv">130</span> (<span class="fl">92.9</span>%)                              </span>
-<span id="cb157-22"><a href="analysis-of-numeric-data.html#cb157-22" tabindex="-1"></a></span>
-<span id="cb157-23"><a href="analysis-of-numeric-data.html#cb157-23" tabindex="-1"></a><span class="dv">2</span>    sex           <span class="fl">1.</span> Female                 <span class="dv">64</span> (<span class="fl">45.7</span>%)           <span class="dv">140</span>        <span class="dv">0</span>        </span>
-<span id="cb157-24"><a href="analysis-of-numeric-data.html#cb157-24" tabindex="-1"></a>     [factor]      <span class="fl">2.</span> Male                   <span class="dv">76</span> (<span class="fl">54.3</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb157-25"><a href="analysis-of-numeric-data.html#cb157-25" tabindex="-1"></a></span>
-<span id="cb157-26"><a href="analysis-of-numeric-data.html#cb157-26" tabindex="-1"></a><span class="dv">3</span>    weight        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">12.2</span> (<span class="fl">6.3</span>)    <span class="dv">28</span> distinct values   <span class="dv">140</span>        <span class="dv">0</span>        </span>
-<span id="cb157-27"><a href="analysis-of-numeric-data.html#cb157-27" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                               (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb157-28"><a href="analysis-of-numeric-data.html#cb157-28" tabindex="-1"></a>                   <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">11</span> <span class="sc">&lt;</span> <span class="dv">33</span>                                                        </span>
-<span id="cb157-29"><a href="analysis-of-numeric-data.html#cb157-29" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">7</span> (<span class="fl">0.5</span>)                                                 </span>
-<span id="cb157-30"><a href="analysis-of-numeric-data.html#cb157-30" tabindex="-1"></a></span>
-<span id="cb157-31"><a href="analysis-of-numeric-data.html#cb157-31" tabindex="-1"></a><span class="dv">4</span>    height        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">90.9</span> (<span class="fl">21.3</span>)   <span class="dv">70</span> distinct values   <span class="dv">139</span>        <span class="dv">1</span>        </span>
-<span id="cb157-32"><a href="analysis-of-numeric-data.html#cb157-32" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                               (<span class="fl">99.3</span><span class="sc">%)    (0.7%</span>)   </span>
-<span id="cb157-33"><a href="analysis-of-numeric-data.html#cb157-33" tabindex="-1"></a>                   <span class="dv">49</span> <span class="sc">&lt;</span> <span class="dv">88</span> <span class="sc">&lt;</span> <span class="dv">137</span>                                                      </span>
-<span id="cb157-34"><a href="analysis-of-numeric-data.html#cb157-34" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">33</span> (<span class="fl">0.2</span>)                                                </span>
-<span id="cb157-35"><a href="analysis-of-numeric-data.html#cb157-35" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="analysis-of-numeric-data.html#cb168-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb168-2"><a href="analysis-of-numeric-data.html#cb168-2" tabindex="-1"></a>    summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb168-3"><a href="analysis-of-numeric-data.html#cb168-3" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb168-4"><a href="analysis-of-numeric-data.html#cb168-4" tabindex="-1"></a>df_data1  </span>
+<span id="cb168-5"><a href="analysis-of-numeric-data.html#cb168-5" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">140</span> x <span class="dv">4</span>  </span>
+<span id="cb168-6"><a href="analysis-of-numeric-data.html#cb168-6" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
+<span id="cb168-7"><a href="analysis-of-numeric-data.html#cb168-7" tabindex="-1"></a></span>
+<span id="cb168-8"><a href="analysis-of-numeric-data.html#cb168-8" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span>
+<span id="cb168-9"><a href="analysis-of-numeric-data.html#cb168-9" tabindex="-1"></a>No   Variable      Stats <span class="sc">/</span> Values            <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
+<span id="cb168-10"><a href="analysis-of-numeric-data.html#cb168-10" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-------------</span> <span class="sc">-------------------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb168-11"><a href="analysis-of-numeric-data.html#cb168-11" tabindex="-1"></a><span class="dv">1</span>    id            <span class="fl">1.</span> <span class="dv">1</span>                        <span class="dv">1</span> ( <span class="fl">0.7</span>%)          <span class="dv">140</span>        <span class="dv">0</span>        </span>
+<span id="cb168-12"><a href="analysis-of-numeric-data.html#cb168-12" tabindex="-1"></a>     [character]   <span class="fl">2.</span> <span class="dv">10</span>                       <span class="dv">1</span> ( <span class="fl">0.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb168-13"><a href="analysis-of-numeric-data.html#cb168-13" tabindex="-1"></a>                   <span class="fl">3.</span> <span class="dv">100</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
+<span id="cb168-14"><a href="analysis-of-numeric-data.html#cb168-14" tabindex="-1"></a>                   <span class="fl">4.</span> <span class="dv">101</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
+<span id="cb168-15"><a href="analysis-of-numeric-data.html#cb168-15" tabindex="-1"></a>                   <span class="fl">5.</span> <span class="dv">102</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
+<span id="cb168-16"><a href="analysis-of-numeric-data.html#cb168-16" tabindex="-1"></a>                   <span class="fl">6.</span> <span class="dv">103</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
+<span id="cb168-17"><a href="analysis-of-numeric-data.html#cb168-17" tabindex="-1"></a>                   <span class="fl">7.</span> <span class="dv">104</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
+<span id="cb168-18"><a href="analysis-of-numeric-data.html#cb168-18" tabindex="-1"></a>                   <span class="fl">8.</span> <span class="dv">105</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
+<span id="cb168-19"><a href="analysis-of-numeric-data.html#cb168-19" tabindex="-1"></a>                   <span class="fl">9.</span> <span class="dv">106</span>                      <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
+<span id="cb168-20"><a href="analysis-of-numeric-data.html#cb168-20" tabindex="-1"></a>                   <span class="fl">10.</span> <span class="dv">107</span>                     <span class="dv">1</span> ( <span class="fl">0.7</span>%)                              </span>
+<span id="cb168-21"><a href="analysis-of-numeric-data.html#cb168-21" tabindex="-1"></a>                   [ <span class="dv">130</span> others ]            <span class="dv">130</span> (<span class="fl">92.9</span>%)                              </span>
+<span id="cb168-22"><a href="analysis-of-numeric-data.html#cb168-22" tabindex="-1"></a></span>
+<span id="cb168-23"><a href="analysis-of-numeric-data.html#cb168-23" tabindex="-1"></a><span class="dv">2</span>    sex           <span class="fl">1.</span> Female                 <span class="dv">64</span> (<span class="fl">45.7</span>%)           <span class="dv">140</span>        <span class="dv">0</span>        </span>
+<span id="cb168-24"><a href="analysis-of-numeric-data.html#cb168-24" tabindex="-1"></a>     [factor]      <span class="fl">2.</span> Male                   <span class="dv">76</span> (<span class="fl">54.3</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb168-25"><a href="analysis-of-numeric-data.html#cb168-25" tabindex="-1"></a></span>
+<span id="cb168-26"><a href="analysis-of-numeric-data.html#cb168-26" tabindex="-1"></a><span class="dv">3</span>    weight        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">12.2</span> (<span class="fl">6.3</span>)    <span class="dv">28</span> distinct values   <span class="dv">140</span>        <span class="dv">0</span>        </span>
+<span id="cb168-27"><a href="analysis-of-numeric-data.html#cb168-27" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                               (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb168-28"><a href="analysis-of-numeric-data.html#cb168-28" tabindex="-1"></a>                   <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">11</span> <span class="sc">&lt;</span> <span class="dv">33</span>                                                        </span>
+<span id="cb168-29"><a href="analysis-of-numeric-data.html#cb168-29" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">7</span> (<span class="fl">0.5</span>)                                                 </span>
+<span id="cb168-30"><a href="analysis-of-numeric-data.html#cb168-30" tabindex="-1"></a></span>
+<span id="cb168-31"><a href="analysis-of-numeric-data.html#cb168-31" tabindex="-1"></a><span class="dv">4</span>    height        <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">90.9</span> (<span class="fl">21.3</span>)   <span class="dv">70</span> distinct values   <span class="dv">139</span>        <span class="dv">1</span>        </span>
+<span id="cb168-32"><a href="analysis-of-numeric-data.html#cb168-32" tabindex="-1"></a>     [numeric]     min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                               (<span class="fl">99.3</span><span class="sc">%)    (0.7%</span>)   </span>
+<span id="cb168-33"><a href="analysis-of-numeric-data.html#cb168-33" tabindex="-1"></a>                   <span class="dv">49</span> <span class="sc">&lt;</span> <span class="dv">88</span> <span class="sc">&lt;</span> <span class="dv">137</span>                                                      </span>
+<span id="cb168-34"><a href="analysis-of-numeric-data.html#cb168-34" tabindex="-1"></a>                   <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">33</span> (<span class="fl">0.2</span>)                                                </span>
+<span id="cb168-35"><a href="analysis-of-numeric-data.html#cb168-35" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-6">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-6">Table 6.2: </span> </caption>
@@ -220,7 +222,7 @@ apply the One-sample T-test as below.</p>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">3.58</td>
 </tr>
 </table></div>
-<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">meantables</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/meantables/man/mean_table.html">mean_table</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-7">
@@ -259,7 +261,7 @@ apply the One-sample T-test as below.</p>
 </tr>
 </table></div>
 <p>For sex stratified confidence intervals we have</p>
-<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">meantables</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/meantables/man/mean_table.html">mean_table</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span></span></code></pre></div>
@@ -332,7 +334,7 @@ population with mean weight of 14kgs.</p>
 </blockquote>
 <p>To test this hypothesis we use the One sample t-test after we have satisfied
 ourselves that the assumptions for its use have been met.</p>
-<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">weight</span>, mu<span class="op">=</span><span class="fl">14</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -406,7 +408,7 @@ one mode and with a sample size between 16 and 40</li>
 </li>
 </ol>
 <p>Our data fulfils all the criteria above hence we apply the test</p>
-<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">weight</span> <span class="op">~</span> <span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -472,47 +474,47 @@ and after baking. Determining if there is a significant difference between the
 two measurements requires the use of the Paired t-test. As always be begin by
 importing the data</p>
 <p>Next we determine the structure of the data frame df2</p>
-<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"./Data/bread.txt"</span>, sep<span class="op">=</span><span class="st">"\t"</span>, header<span class="op">=</span><span class="cn">T</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>oven <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">oven</span><span class="op">)</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">type</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>And then summarize it</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="analysis-of-numeric-data.html#cb163-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
-<span id="cb163-2"><a href="analysis-of-numeric-data.html#cb163-2" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb163-3"><a href="analysis-of-numeric-data.html#cb163-3" tabindex="-1"></a>df_bread  </span>
-<span id="cb163-4"><a href="analysis-of-numeric-data.html#cb163-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">399</span> x <span class="dv">5</span>  </span>
-<span id="cb163-5"><a href="analysis-of-numeric-data.html#cb163-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
-<span id="cb163-6"><a href="analysis-of-numeric-data.html#cb163-6" tabindex="-1"></a></span>
-<span id="cb163-7"><a href="analysis-of-numeric-data.html#cb163-7" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span>
-<span id="cb163-8"><a href="analysis-of-numeric-data.html#cb163-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values             <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
-<span id="cb163-9"><a href="analysis-of-numeric-data.html#cb163-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">--------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb163-10"><a href="analysis-of-numeric-data.html#cb163-10" tabindex="-1"></a><span class="dv">1</span>    sid         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">200</span> (<span class="fl">115.3</span>)    <span class="dv">399</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb163-11"><a href="analysis-of-numeric-data.html#cb163-11" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>           (Integer sequence)    (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb163-12"><a href="analysis-of-numeric-data.html#cb163-12" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">200</span> <span class="sc">&lt;</span> <span class="dv">399</span>                                                        </span>
-<span id="cb163-13"><a href="analysis-of-numeric-data.html#cb163-13" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">199</span> (<span class="fl">0.6</span>)                                                 </span>
-<span id="cb163-14"><a href="analysis-of-numeric-data.html#cb163-14" tabindex="-1"></a></span>
-<span id="cb163-15"><a href="analysis-of-numeric-data.html#cb163-15" tabindex="-1"></a><span class="dv">2</span>    type        <span class="fl">1.</span> maize                   <span class="dv">212</span> (<span class="fl">53.1</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb163-16"><a href="analysis-of-numeric-data.html#cb163-16" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> wheat                   <span class="dv">187</span> (<span class="fl">46.9</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb163-17"><a href="analysis-of-numeric-data.html#cb163-17" tabindex="-1"></a></span>
-<span id="cb163-18"><a href="analysis-of-numeric-data.html#cb163-18" tabindex="-1"></a><span class="dv">3</span>    before      <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">379.5</span> (<span class="fl">28.1</span>)   <span class="dv">120</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb163-19"><a href="analysis-of-numeric-data.html#cb163-19" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb163-20"><a href="analysis-of-numeric-data.html#cb163-20" tabindex="-1"></a>                 <span class="dv">304</span> <span class="sc">&lt;</span> <span class="dv">379</span> <span class="sc">&lt;</span> <span class="dv">479</span>                                                      </span>
-<span id="cb163-21"><a href="analysis-of-numeric-data.html#cb163-21" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">40</span> (<span class="fl">0.1</span>)                                                  </span>
-<span id="cb163-22"><a href="analysis-of-numeric-data.html#cb163-22" tabindex="-1"></a></span>
-<span id="cb163-23"><a href="analysis-of-numeric-data.html#cb163-23" tabindex="-1"></a><span class="dv">4</span>    after       <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">217</span> (<span class="fl">29.8</span>)     <span class="dv">121</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb163-24"><a href="analysis-of-numeric-data.html#cb163-24" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
-<span id="cb163-25"><a href="analysis-of-numeric-data.html#cb163-25" tabindex="-1"></a>                 <span class="dv">140</span> <span class="sc">&lt;</span> <span class="dv">215</span> <span class="sc">&lt;</span> <span class="dv">295</span>                                                      </span>
-<span id="cb163-26"><a href="analysis-of-numeric-data.html#cb163-26" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">48</span> (<span class="fl">0.1</span>)                                                  </span>
-<span id="cb163-27"><a href="analysis-of-numeric-data.html#cb163-27" tabindex="-1"></a></span>
-<span id="cb163-28"><a href="analysis-of-numeric-data.html#cb163-28" tabindex="-1"></a><span class="dv">5</span>    oven        <span class="fl">1.</span> Firewood                <span class="dv">199</span> (<span class="fl">49.9</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
-<span id="cb163-29"><a href="analysis-of-numeric-data.html#cb163-29" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Gas                     <span class="dv">200</span> (<span class="fl">50.1</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb163-30"><a href="analysis-of-numeric-data.html#cb163-30" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="analysis-of-numeric-data.html#cb174-1" tabindex="-1"></a>df_bread <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> F)</span>
+<span id="cb174-2"><a href="analysis-of-numeric-data.html#cb174-2" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb174-3"><a href="analysis-of-numeric-data.html#cb174-3" tabindex="-1"></a>df_bread  </span>
+<span id="cb174-4"><a href="analysis-of-numeric-data.html#cb174-4" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">399</span> x <span class="dv">5</span>  </span>
+<span id="cb174-5"><a href="analysis-of-numeric-data.html#cb174-5" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">0</span>  </span>
+<span id="cb174-6"><a href="analysis-of-numeric-data.html#cb174-6" tabindex="-1"></a></span>
+<span id="cb174-7"><a href="analysis-of-numeric-data.html#cb174-7" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span>
+<span id="cb174-8"><a href="analysis-of-numeric-data.html#cb174-8" tabindex="-1"></a>No   Variable    Stats <span class="sc">/</span> Values             <span class="fu">Freqs</span> (% of Valid)    Valid      Missing  </span>
+<span id="cb174-9"><a href="analysis-of-numeric-data.html#cb174-9" tabindex="-1"></a><span class="sc">----</span> <span class="sc">-----------</span> <span class="sc">--------------------------</span> <span class="sc">---------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb174-10"><a href="analysis-of-numeric-data.html#cb174-10" tabindex="-1"></a><span class="dv">1</span>    sid         <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">200</span> (<span class="fl">115.3</span>)    <span class="dv">399</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb174-11"><a href="analysis-of-numeric-data.html#cb174-11" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>           (Integer sequence)    (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb174-12"><a href="analysis-of-numeric-data.html#cb174-12" tabindex="-1"></a>                 <span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">200</span> <span class="sc">&lt;</span> <span class="dv">399</span>                                                        </span>
+<span id="cb174-13"><a href="analysis-of-numeric-data.html#cb174-13" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">199</span> (<span class="fl">0.6</span>)                                                 </span>
+<span id="cb174-14"><a href="analysis-of-numeric-data.html#cb174-14" tabindex="-1"></a></span>
+<span id="cb174-15"><a href="analysis-of-numeric-data.html#cb174-15" tabindex="-1"></a><span class="dv">2</span>    type        <span class="fl">1.</span> maize                   <span class="dv">212</span> (<span class="fl">53.1</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb174-16"><a href="analysis-of-numeric-data.html#cb174-16" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> wheat                   <span class="dv">187</span> (<span class="fl">46.9</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb174-17"><a href="analysis-of-numeric-data.html#cb174-17" tabindex="-1"></a></span>
+<span id="cb174-18"><a href="analysis-of-numeric-data.html#cb174-18" tabindex="-1"></a><span class="dv">3</span>    before      <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="fl">379.5</span> (<span class="fl">28.1</span>)   <span class="dv">120</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb174-19"><a href="analysis-of-numeric-data.html#cb174-19" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb174-20"><a href="analysis-of-numeric-data.html#cb174-20" tabindex="-1"></a>                 <span class="dv">304</span> <span class="sc">&lt;</span> <span class="dv">379</span> <span class="sc">&lt;</span> <span class="dv">479</span>                                                      </span>
+<span id="cb174-21"><a href="analysis-of-numeric-data.html#cb174-21" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">40</span> (<span class="fl">0.1</span>)                                                  </span>
+<span id="cb174-22"><a href="analysis-of-numeric-data.html#cb174-22" tabindex="-1"></a></span>
+<span id="cb174-23"><a href="analysis-of-numeric-data.html#cb174-23" tabindex="-1"></a><span class="dv">4</span>    after       <span class="fu">Mean</span> (sd) <span class="sc">:</span> <span class="dv">217</span> (<span class="fl">29.8</span>)     <span class="dv">121</span> distinct values   <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb174-24"><a href="analysis-of-numeric-data.html#cb174-24" tabindex="-1"></a>     [integer]   min <span class="sc">&lt;</span> med <span class="sc">&lt;</span> max<span class="sc">:</span>                                 (<span class="fl">100.0</span><span class="sc">%)   (0.0%</span>)   </span>
+<span id="cb174-25"><a href="analysis-of-numeric-data.html#cb174-25" tabindex="-1"></a>                 <span class="dv">140</span> <span class="sc">&lt;</span> <span class="dv">215</span> <span class="sc">&lt;</span> <span class="dv">295</span>                                                      </span>
+<span id="cb174-26"><a href="analysis-of-numeric-data.html#cb174-26" tabindex="-1"></a>                 <span class="fu">IQR</span> (CV) <span class="sc">:</span> <span class="dv">48</span> (<span class="fl">0.1</span>)                                                  </span>
+<span id="cb174-27"><a href="analysis-of-numeric-data.html#cb174-27" tabindex="-1"></a></span>
+<span id="cb174-28"><a href="analysis-of-numeric-data.html#cb174-28" tabindex="-1"></a><span class="dv">5</span>    oven        <span class="fl">1.</span> Firewood                <span class="dv">199</span> (<span class="fl">49.9</span>%)           <span class="dv">399</span>        <span class="dv">0</span>        </span>
+<span id="cb174-29"><a href="analysis-of-numeric-data.html#cb174-29" tabindex="-1"></a>     [factor]    <span class="fl">2.</span> Gas                     <span class="dv">200</span> (<span class="fl">50.1</span><span class="sc">%)           (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb174-30"><a href="analysis-of-numeric-data.html#cb174-30" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------------------</span></span></code></pre></div>
 <p>Our next task is to compare the weight of the loaves of bread before and after
 baking. We begin by looking at the mean and standard deviations of the two
 weights.</p>
-<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>huxtable.knit_print_df <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="va">before</span>, <span class="va">after</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/get_summary_stats.html">get_summary_stats</a></span><span class="op">(</span>type<span class="op">=</span> <span class="st">"mean_sd"</span><span class="op">)</span></span></code></pre></div>
@@ -565,7 +567,7 @@ have one mode and with a sample size between 16 and 40</li>
 </ol>
 <p>The only new assumption we need to evaluate here is the distribution of the
 difference between the weights before and after. We do so below</p>
-<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>diff_in_wgt <span class="op">=</span> <span class="va">after</span> <span class="op">-</span> <span class="va">before</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">diff_in_wgt</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -575,7 +577,7 @@ difference between the weights before and after. We do so below</p>
 <div class="inline-figure"><img src="Analysis-of-continuous-data_files/figure-html/unnamed-chunk-16-1.png" width="480"></div>
 <p>Alternatively, we can perform a Shapiro-Wilk’s test for normality. This has H0
 as not deviating from the normal distribution. This is done below</p>
-<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>diff_in_wgt <span class="op">=</span> <span class="va">after</span> <span class="op">-</span> <span class="va">before</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/shapiro_test.html">shapiro_test</a></span><span class="op">(</span>vars <span class="op">=</span> <span class="st">"diff_in_wgt"</span><span class="op">)</span></span></code></pre></div>
@@ -603,7 +605,7 @@ difference in mean weights. First we state our hypothesis</p>
 <p>H0: There is no change in weight of loaves of bread after baking</p>
 </blockquote>
 <p>And then perform the test after converting the data to the long format</p>
-<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_bread</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>        cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">before</span>, <span class="va">after</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"time"</span>,values_to <span class="op">=</span> <span class="st">"weight"</span></span>
@@ -673,7 +675,7 @@ determine and compare their variances. The function <code><a href="https://rdrr.
 the variances between two independent groups and can be used for this
 determination.Below we apply this F-test to compare the variances of the weight
 for the two sexes. First we determine the variances.</p>
-<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">summarise</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="va">weight</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>var <span class="op">=</span> <span class="va">var</span>, meam <span class="op">=</span> <span class="va">mean</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -709,10 +711,10 @@ females in our population</p>
 </blockquote>
 <p>The F-test actually tests the ratio of the variances not the difference. In that
 regard our null value would be 1.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="analysis-of-numeric-data.html#cb170-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
-<span id="cb170-2"><a href="analysis-of-numeric-data.html#cb170-2" tabindex="-1"></a>    <span class="fu">var.test</span>(<span class="at">formula =</span> weight<span class="sc">~</span>sex, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
-<span id="cb170-3"><a href="analysis-of-numeric-data.html#cb170-3" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>() </span>
-<span id="cb170-4"><a href="analysis-of-numeric-data.html#cb170-4" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="analysis-of-numeric-data.html#cb181-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb181-2"><a href="analysis-of-numeric-data.html#cb181-2" tabindex="-1"></a>    <span class="fu">var.test</span>(<span class="at">formula =</span> weight<span class="sc">~</span>sex, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb181-3"><a href="analysis-of-numeric-data.html#cb181-3" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>() </span>
+<span id="cb181-4"><a href="analysis-of-numeric-data.html#cb181-4" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-20">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-20">Table 13.4: </span> </caption>
@@ -757,7 +759,7 @@ function is used.</p>
 <p>Next we apply the same principle to the determine if the mean heights are
 similar for males and females in our population. We first determine if the
 variances are significantly different.</p>
-<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">summarise</span><span class="op">(</span></span>
@@ -787,10 +789,10 @@ variances are significantly different.</p>
 </table></div>
 <p>From the results above the variance for the females look much higher (1.3 times)
 than the males however we apply a test to formally determine this.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="analysis-of-numeric-data.html#cb172-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
-<span id="cb172-2"><a href="analysis-of-numeric-data.html#cb172-2" tabindex="-1"></a>    <span class="fu">var.test</span>(<span class="at">formula =</span> height<span class="sc">~</span>sex, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
-<span id="cb172-3"><a href="analysis-of-numeric-data.html#cb172-3" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>() </span>
-<span id="cb172-4"><a href="analysis-of-numeric-data.html#cb172-4" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="analysis-of-numeric-data.html#cb183-1" tabindex="-1"></a>df_data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb183-2"><a href="analysis-of-numeric-data.html#cb183-2" tabindex="-1"></a>    <span class="fu">var.test</span>(<span class="at">formula =</span> height<span class="sc">~</span>sex, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb183-3"><a href="analysis-of-numeric-data.html#cb183-3" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>() </span>
+<span id="cb183-4"><a href="analysis-of-numeric-data.html#cb183-4" tabindex="-1"></a>Multiple parameters; naming those columns num.df, den.df</span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-22">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-22">Table 13.6: </span> </caption>
@@ -830,7 +832,7 @@ than the males however we apply a test to formally determine this.</p>
 say the two variances are different. To use the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function to determine
 the possibility that mean height differ between males and females we specify
 that variance is equal as below.</p>
-<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_data1</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">rstatix</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">height</span><span class="op">~</span><span class="va">sex</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span>, detailed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-23">
@@ -886,6 +888,7 @@ that variance is equal as below.</p>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">two.sided</td>
 </tr>
 </table></div>
+<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 </div>
 </div>
   <div class="chapter-nav">
@@ -917,7 +920,7 @@ that variance is equal as below.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-10-27.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

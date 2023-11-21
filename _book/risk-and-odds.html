@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 15 Risk and Odds | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="The analysis of the effects above depends mainly on the p-values and confidence intervals of difference in proportions. There is a more common and often better way of expressing these using Risk...">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta name="description" content="Warning: package 'ggplot2' was built under R version 4.3.2 The analysis of the effects above depends mainly on the p-values and confidence intervals of difference in proportions. There is a more...">
+<meta name="generator" content="bookdown 0.36 with bs4_book()">
 <meta property="og:title" content="Chapter 15 Risk and Odds | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstatswithr.netlify.app/risk-and-odds.html">
-<meta property="og:description" content="The analysis of the effects above depends mainly on the p-values and confidence intervals of difference in proportions. There is a more common and often better way of expressing these using Risk...">
+<meta property="og:description" content="Warning: package 'ggplot2' was built under R version 4.3.2 The analysis of the effects above depends mainly on the p-values and confidence intervals of difference in proportions. There is a more...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 15 Risk and Odds | Medical Statistics using R">
-<meta name="twitter:description" content="The analysis of the effects above depends mainly on the p-values and confidence intervals of difference in proportions. There is a more common and often better way of expressing these using Risk...">
+<meta name="twitter:description" content="Warning: package 'ggplot2' was built under R version 4.3.2 The analysis of the effects above depends mainly on the p-values and confidence intervals of difference in proportions. There is a more...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -94,11 +94,12 @@
 <li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
 <li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
 <li><a class="" href="cox-regression-1.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="sample-size-determination.html"><span class="header-section-number">27</span> Sample Size Determination</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">28</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">29</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">30</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">31</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">32</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -110,11 +111,12 @@
 <h1>
 <span class="header-section-number">15</span> Risk and Odds<a class="anchor" aria-label="anchor" href="#risk-and-odds"><i class="fas fa-link"></i></a>
 </h1>
+<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 <p>The analysis of the effects above depends mainly on the p-values and confidence
 intervals of difference in proportions. There is a more common and often better
 way of expressing these using Risk and Odds. In this chapter, we will use the
 <code>ANCData.txt</code> data to illustrate these. First, we read the data</p>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.delim</a></span><span class="op">(</span><span class="st">"./Data/ANCData.txt"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span></span>
@@ -122,25 +124,25 @@ way of expressing these using Risk and Odds. In this chapter, we will use the
 <span>        clinic <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">clinic</span><span class="op">)</span>,</span>
 <span>        anc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">anc</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"old"</span>, <span class="st">"new"</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Old"</span>, <span class="st">"New"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>And summarize the data</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="risk-and-odds.html#cb193-1" tabindex="-1"></a>df_anc <span class="sc">%&gt;%</span> </span>
-<span id="cb193-2"><a href="risk-and-odds.html#cb193-2" tabindex="-1"></a>    summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb193-3"><a href="risk-and-odds.html#cb193-3" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb193-4"><a href="risk-and-odds.html#cb193-4" tabindex="-1"></a>df_anc  </span>
-<span id="cb193-5"><a href="risk-and-odds.html#cb193-5" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">755</span> x <span class="dv">3</span>  </span>
-<span id="cb193-6"><a href="risk-and-odds.html#cb193-6" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">747</span>  </span>
-<span id="cb193-7"><a href="risk-and-odds.html#cb193-7" tabindex="-1"></a></span>
-<span id="cb193-8"><a href="risk-and-odds.html#cb193-8" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span>
-<span id="cb193-9"><a href="risk-and-odds.html#cb193-9" tabindex="-1"></a>No   Variable   Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
-<span id="cb193-10"><a href="risk-and-odds.html#cb193-10" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb193-11"><a href="risk-and-odds.html#cb193-11" tabindex="-1"></a><span class="dv">1</span>    death      <span class="fl">1.</span> No            <span class="dv">689</span> (<span class="fl">91.3</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb193-12"><a href="risk-and-odds.html#cb193-12" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> Yes            <span class="dv">66</span> ( <span class="fl">8.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb193-13"><a href="risk-and-odds.html#cb193-13" tabindex="-1"></a></span>
-<span id="cb193-14"><a href="risk-and-odds.html#cb193-14" tabindex="-1"></a><span class="dv">2</span>    anc        <span class="fl">1.</span> Old           <span class="dv">419</span> (<span class="fl">55.5</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb193-15"><a href="risk-and-odds.html#cb193-15" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> New           <span class="dv">336</span> (<span class="fl">44.5</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb193-16"><a href="risk-and-odds.html#cb193-16" tabindex="-1"></a></span>
-<span id="cb193-17"><a href="risk-and-odds.html#cb193-17" tabindex="-1"></a><span class="dv">3</span>    clinic     <span class="fl">1.</span> A             <span class="dv">497</span> (<span class="fl">65.8</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb193-18"><a href="risk-and-odds.html#cb193-18" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> B             <span class="dv">258</span> (<span class="fl">34.2</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb193-19"><a href="risk-and-odds.html#cb193-19" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="risk-and-odds.html#cb206-1" tabindex="-1"></a>df_anc <span class="sc">%&gt;%</span> </span>
+<span id="cb206-2"><a href="risk-and-odds.html#cb206-2" tabindex="-1"></a>    summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb206-3"><a href="risk-and-odds.html#cb206-3" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb206-4"><a href="risk-and-odds.html#cb206-4" tabindex="-1"></a>df_anc  </span>
+<span id="cb206-5"><a href="risk-and-odds.html#cb206-5" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">755</span> x <span class="dv">3</span>  </span>
+<span id="cb206-6"><a href="risk-and-odds.html#cb206-6" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">747</span>  </span>
+<span id="cb206-7"><a href="risk-and-odds.html#cb206-7" tabindex="-1"></a></span>
+<span id="cb206-8"><a href="risk-and-odds.html#cb206-8" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span>
+<span id="cb206-9"><a href="risk-and-odds.html#cb206-9" tabindex="-1"></a>No   Variable   Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
+<span id="cb206-10"><a href="risk-and-odds.html#cb206-10" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb206-11"><a href="risk-and-odds.html#cb206-11" tabindex="-1"></a><span class="dv">1</span>    death      <span class="fl">1.</span> No            <span class="dv">689</span> (<span class="fl">91.3</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb206-12"><a href="risk-and-odds.html#cb206-12" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> Yes            <span class="dv">66</span> ( <span class="fl">8.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb206-13"><a href="risk-and-odds.html#cb206-13" tabindex="-1"></a></span>
+<span id="cb206-14"><a href="risk-and-odds.html#cb206-14" tabindex="-1"></a><span class="dv">2</span>    anc        <span class="fl">1.</span> Old           <span class="dv">419</span> (<span class="fl">55.5</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb206-15"><a href="risk-and-odds.html#cb206-15" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> New           <span class="dv">336</span> (<span class="fl">44.5</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb206-16"><a href="risk-and-odds.html#cb206-16" tabindex="-1"></a></span>
+<span id="cb206-17"><a href="risk-and-odds.html#cb206-17" tabindex="-1"></a><span class="dv">3</span>    clinic     <span class="fl">1.</span> A             <span class="dv">497</span> (<span class="fl">65.8</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb206-18"><a href="risk-and-odds.html#cb206-18" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> B             <span class="dv">258</span> (<span class="fl">34.2</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb206-19"><a href="risk-and-odds.html#cb206-19" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span></code></pre></div>
 <div id="risk" class="section level2" number="15.1">
 <h2>
 <span class="header-section-number">15.1</span> Risk<a class="anchor" aria-label="anchor" href="#risk"><i class="fas fa-link"></i></a>
@@ -152,7 +154,7 @@ follow-up, the risk of developing diabetes in the population is</p>
 Tabulation of the ANC method and the occurrence of death below, we can conclude
 that the risk of perinatal mortality when one uses the old method is 0.11 (11.0%)
 and that for the new method is 0.06 (5.9%).</p>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">tbl_cross</span><span class="op">(</span>percent <span class="op">=</span> <span class="st">"col"</span>,</span>
 <span>        row <span class="op">=</span> <span class="va">death</span>, </span>
@@ -160,23 +162,23 @@ and that for the new method is 0.06 (5.9%).</p>
 <span>        label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">death</span> <span class="op">~</span> <span class="st">"Death"</span>, anc <span class="op">=</span> <span class="st">"ANC"</span><span class="op">)</span>,</span>
 <span>        digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">bold_labels</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="zclrekzrzn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zclrekzrzn table {
+<div id="kmlnkkdekh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kmlnkkdekh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zclrekzrzn thead, #zclrekzrzn tbody, #zclrekzrzn tfoot, #zclrekzrzn tr, #zclrekzrzn td, #zclrekzrzn th {
+#kmlnkkdekh thead, #kmlnkkdekh tbody, #kmlnkkdekh tfoot, #kmlnkkdekh tr, #kmlnkkdekh td, #kmlnkkdekh th {
   border-style: none;
 }
 
-#zclrekzrzn p {
+#kmlnkkdekh p {
   margin: 0;
   padding: 0;
 }
 
-#zclrekzrzn .gt_table {
+#kmlnkkdekh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -202,12 +204,12 @@ and that for the new method is 0.06 (5.9%).</p>
   border-left-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_caption {
+#kmlnkkdekh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zclrekzrzn .gt_title {
+#kmlnkkdekh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -219,7 +221,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-bottom-width: 0;
 }
 
-#zclrekzrzn .gt_subtitle {
+#kmlnkkdekh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -231,7 +233,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-top-width: 0;
 }
 
-#zclrekzrzn .gt_heading {
+#kmlnkkdekh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -243,13 +245,13 @@ and that for the new method is 0.06 (5.9%).</p>
   border-right-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_bottom_border {
+#kmlnkkdekh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_col_headings {
+#kmlnkkdekh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -264,7 +266,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-right-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_col_heading {
+#kmlnkkdekh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -284,7 +286,7 @@ and that for the new method is 0.06 (5.9%).</p>
   overflow-x: hidden;
 }
 
-#zclrekzrzn .gt_column_spanner_outer {
+#kmlnkkdekh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -296,15 +298,15 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 4px;
 }
 
-#zclrekzrzn .gt_column_spanner_outer:first-child {
+#kmlnkkdekh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zclrekzrzn .gt_column_spanner_outer:last-child {
+#kmlnkkdekh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zclrekzrzn .gt_column_spanner {
+#kmlnkkdekh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -316,11 +318,11 @@ and that for the new method is 0.06 (5.9%).</p>
   width: 100%;
 }
 
-#zclrekzrzn .gt_spanner_row {
+#kmlnkkdekh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zclrekzrzn .gt_group_heading {
+#kmlnkkdekh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -346,7 +348,7 @@ and that for the new method is 0.06 (5.9%).</p>
   text-align: left;
 }
 
-#zclrekzrzn .gt_empty_group_heading {
+#kmlnkkdekh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -361,15 +363,15 @@ and that for the new method is 0.06 (5.9%).</p>
   vertical-align: middle;
 }
 
-#zclrekzrzn .gt_from_md > :first-child {
+#kmlnkkdekh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zclrekzrzn .gt_from_md > :last-child {
+#kmlnkkdekh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zclrekzrzn .gt_row {
+#kmlnkkdekh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -388,7 +390,7 @@ and that for the new method is 0.06 (5.9%).</p>
   overflow-x: hidden;
 }
 
-#zclrekzrzn .gt_stub {
+#kmlnkkdekh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -401,7 +403,7 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#zclrekzrzn .gt_stub_row_group {
+#kmlnkkdekh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -415,15 +417,15 @@ and that for the new method is 0.06 (5.9%).</p>
   vertical-align: top;
 }
 
-#zclrekzrzn .gt_row_group_first td {
+#kmlnkkdekh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zclrekzrzn .gt_row_group_first th {
+#kmlnkkdekh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zclrekzrzn .gt_summary_row {
+#kmlnkkdekh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -433,16 +435,16 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#zclrekzrzn .gt_first_summary_row {
+#kmlnkkdekh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_first_summary_row.thick {
+#kmlnkkdekh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zclrekzrzn .gt_last_summary_row {
+#kmlnkkdekh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -452,7 +454,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-bottom-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_grand_summary_row {
+#kmlnkkdekh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -462,7 +464,7 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#zclrekzrzn .gt_first_grand_summary_row {
+#kmlnkkdekh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -472,7 +474,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-top-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_last_grand_summary_row_top {
+#kmlnkkdekh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -482,11 +484,11 @@ and that for the new method is 0.06 (5.9%).</p>
   border-bottom-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_striped {
+#kmlnkkdekh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zclrekzrzn .gt_table_body {
+#kmlnkkdekh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -495,7 +497,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-bottom-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_footnotes {
+#kmlnkkdekh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -509,7 +511,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-right-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_footnote {
+#kmlnkkdekh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -518,7 +520,7 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#zclrekzrzn .gt_sourcenotes {
+#kmlnkkdekh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -532,7 +534,7 @@ and that for the new method is 0.06 (5.9%).</p>
   border-right-color: #D3D3D3;
 }
 
-#zclrekzrzn .gt_sourcenote {
+#kmlnkkdekh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -540,63 +542,63 @@ and that for the new method is 0.06 (5.9%).</p>
   padding-right: 5px;
 }
 
-#zclrekzrzn .gt_left {
+#kmlnkkdekh .gt_left {
   text-align: left;
 }
 
-#zclrekzrzn .gt_center {
+#kmlnkkdekh .gt_center {
   text-align: center;
 }
 
-#zclrekzrzn .gt_right {
+#kmlnkkdekh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zclrekzrzn .gt_font_normal {
+#kmlnkkdekh .gt_font_normal {
   font-weight: normal;
 }
 
-#zclrekzrzn .gt_font_bold {
+#kmlnkkdekh .gt_font_bold {
   font-weight: bold;
 }
 
-#zclrekzrzn .gt_font_italic {
+#kmlnkkdekh .gt_font_italic {
   font-style: italic;
 }
 
-#zclrekzrzn .gt_super {
+#kmlnkkdekh .gt_super {
   font-size: 65%;
 }
 
-#zclrekzrzn .gt_footnote_marks {
+#kmlnkkdekh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zclrekzrzn .gt_asterisk {
+#kmlnkkdekh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zclrekzrzn .gt_indent_1 {
+#kmlnkkdekh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zclrekzrzn .gt_indent_2 {
+#kmlnkkdekh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zclrekzrzn .gt_indent_3 {
+#kmlnkkdekh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zclrekzrzn .gt_indent_4 {
+#kmlnkkdekh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zclrekzrzn .gt_indent_5 {
+#kmlnkkdekh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -617,9 +619,9 @@ and that for the new method is 0.06 (5.9%).</p>
 <tbody class="gt_table_body">
 <tr>
 <td headers="label" class="gt_row gt_left" style="font-weight: bold;">Death</td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td>
-<td headers="stat_0" class="gt_row gt_center"></td>
+<td headers="stat_1" class="gt_row gt_center"><br></td>
+<td headers="stat_2" class="gt_row gt_center"><br></td>
+<td headers="stat_0" class="gt_row gt_center"><br></td>
 </tr>
 <tr>
 <td headers="label" class="gt_row gt_left">    No</td>
@@ -661,30 +663,30 @@ of perinatal mortality of the new compared to the old method is</p>
 <p>The <code>epiDisplay</code> package has a function <code>cs()</code> which automatically calculates
 the RR and other relevant stats with their confidence intervals. This is
 applied to the ANCdata as below.</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="risk-and-odds.html#cb195-1" tabindex="-1"></a>df_anc <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">cs</span>(<span class="at">outcome =</span> death, <span class="at">exposure =</span> anc, )</span>
-<span id="cb195-2"><a href="risk-and-odds.html#cb195-2" tabindex="-1"></a></span>
-<span id="cb195-3"><a href="risk-and-odds.html#cb195-3" tabindex="-1"></a>          Exposure</span>
-<span id="cb195-4"><a href="risk-and-odds.html#cb195-4" tabindex="-1"></a>Outcome    Non<span class="sc">-</span>exposed Exposed Total</span>
-<span id="cb195-5"><a href="risk-and-odds.html#cb195-5" tabindex="-1"></a>  Negative <span class="dv">373</span>         <span class="dv">316</span>     <span class="dv">689</span>  </span>
-<span id="cb195-6"><a href="risk-and-odds.html#cb195-6" tabindex="-1"></a>  Positive <span class="dv">46</span>          <span class="dv">20</span>      <span class="dv">66</span>   </span>
-<span id="cb195-7"><a href="risk-and-odds.html#cb195-7" tabindex="-1"></a>  Total    <span class="dv">419</span>         <span class="dv">336</span>     <span class="dv">755</span>  </span>
-<span id="cb195-8"><a href="risk-and-odds.html#cb195-8" tabindex="-1"></a>                                    </span>
-<span id="cb195-9"><a href="risk-and-odds.html#cb195-9" tabindex="-1"></a>           Rne         Re      Rt   </span>
-<span id="cb195-10"><a href="risk-and-odds.html#cb195-10" tabindex="-1"></a>  Risk     <span class="fl">0.11</span>        <span class="fl">0.06</span>    <span class="fl">0.09</span> </span>
-<span id="cb195-11"><a href="risk-and-odds.html#cb195-11" tabindex="-1"></a>                                         Estimate Lower95ci</span>
-<span id="cb195-12"><a href="risk-and-odds.html#cb195-12" tabindex="-1"></a> Risk <span class="fu">difference</span> (Re <span class="sc">-</span> Rne)              <span class="sc">-</span><span class="fl">0.05</span>    <span class="sc">-</span><span class="fl">0.09</span>    </span>
-<span id="cb195-13"><a href="risk-and-odds.html#cb195-13" tabindex="-1"></a> Risk ratio                              <span class="fl">0.54</span>     <span class="fl">0.32</span>     </span>
-<span id="cb195-14"><a href="risk-and-odds.html#cb195-14" tabindex="-1"></a> Protective efficacy <span class="ot">=</span>(Rne<span class="sc">-</span>Re)<span class="sc">/</span>Rne<span class="sc">*</span><span class="dv">100</span>   <span class="fl">45.8</span>     <span class="fl">8.71</span>     </span>
-<span id="cb195-15"><a href="risk-and-odds.html#cb195-15" tabindex="-1"></a>   or percent of risk reduced                              </span>
-<span id="cb195-16"><a href="risk-and-odds.html#cb195-16" tabindex="-1"></a> Number needed to <span class="fu">treat</span> (NNT)            <span class="fl">19.9</span>     <span class="fl">10.79</span>    </span>
-<span id="cb195-17"><a href="risk-and-odds.html#cb195-17" tabindex="-1"></a>   or <span class="sc">-</span><span class="dv">1</span><span class="sc">/</span>(risk difference)                                 </span>
-<span id="cb195-18"><a href="risk-and-odds.html#cb195-18" tabindex="-1"></a> Upper95ci</span>
-<span id="cb195-19"><a href="risk-and-odds.html#cb195-19" tabindex="-1"></a> <span class="sc">-</span><span class="fl">0.01</span>    </span>
-<span id="cb195-20"><a href="risk-and-odds.html#cb195-20" tabindex="-1"></a> <span class="fl">0.91</span>     </span>
-<span id="cb195-21"><a href="risk-and-odds.html#cb195-21" tabindex="-1"></a> <span class="fl">68.06</span>    </span>
-<span id="cb195-22"><a href="risk-and-odds.html#cb195-22" tabindex="-1"></a>          </span>
-<span id="cb195-23"><a href="risk-and-odds.html#cb195-23" tabindex="-1"></a> <span class="fl">94.2</span>     </span>
-<span id="cb195-24"><a href="risk-and-odds.html#cb195-24" tabindex="-1"></a>          </span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="risk-and-odds.html#cb208-1" tabindex="-1"></a>df_anc <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">cs</span>(<span class="at">outcome =</span> death, <span class="at">exposure =</span> anc, )</span>
+<span id="cb208-2"><a href="risk-and-odds.html#cb208-2" tabindex="-1"></a></span>
+<span id="cb208-3"><a href="risk-and-odds.html#cb208-3" tabindex="-1"></a>          Exposure</span>
+<span id="cb208-4"><a href="risk-and-odds.html#cb208-4" tabindex="-1"></a>Outcome    Non<span class="sc">-</span>exposed Exposed Total</span>
+<span id="cb208-5"><a href="risk-and-odds.html#cb208-5" tabindex="-1"></a>  Negative <span class="dv">373</span>         <span class="dv">316</span>     <span class="dv">689</span>  </span>
+<span id="cb208-6"><a href="risk-and-odds.html#cb208-6" tabindex="-1"></a>  Positive <span class="dv">46</span>          <span class="dv">20</span>      <span class="dv">66</span>   </span>
+<span id="cb208-7"><a href="risk-and-odds.html#cb208-7" tabindex="-1"></a>  Total    <span class="dv">419</span>         <span class="dv">336</span>     <span class="dv">755</span>  </span>
+<span id="cb208-8"><a href="risk-and-odds.html#cb208-8" tabindex="-1"></a>                                    </span>
+<span id="cb208-9"><a href="risk-and-odds.html#cb208-9" tabindex="-1"></a>           Rne         Re      Rt   </span>
+<span id="cb208-10"><a href="risk-and-odds.html#cb208-10" tabindex="-1"></a>  Risk     <span class="fl">0.11</span>        <span class="fl">0.06</span>    <span class="fl">0.09</span> </span>
+<span id="cb208-11"><a href="risk-and-odds.html#cb208-11" tabindex="-1"></a>                                         Estimate Lower95ci</span>
+<span id="cb208-12"><a href="risk-and-odds.html#cb208-12" tabindex="-1"></a> Risk <span class="fu">difference</span> (Re <span class="sc">-</span> Rne)              <span class="sc">-</span><span class="fl">0.05</span>    <span class="sc">-</span><span class="fl">0.09</span>    </span>
+<span id="cb208-13"><a href="risk-and-odds.html#cb208-13" tabindex="-1"></a> Risk ratio                              <span class="fl">0.54</span>     <span class="fl">0.32</span>     </span>
+<span id="cb208-14"><a href="risk-and-odds.html#cb208-14" tabindex="-1"></a> Protective efficacy <span class="ot">=</span>(Rne<span class="sc">-</span>Re)<span class="sc">/</span>Rne<span class="sc">*</span><span class="dv">100</span>   <span class="fl">45.8</span>     <span class="fl">8.71</span>     </span>
+<span id="cb208-15"><a href="risk-and-odds.html#cb208-15" tabindex="-1"></a>   or percent of risk reduced                              </span>
+<span id="cb208-16"><a href="risk-and-odds.html#cb208-16" tabindex="-1"></a> Number needed to <span class="fu">treat</span> (NNT)            <span class="fl">19.9</span>     <span class="fl">10.79</span>    </span>
+<span id="cb208-17"><a href="risk-and-odds.html#cb208-17" tabindex="-1"></a>   or <span class="sc">-</span><span class="dv">1</span><span class="sc">/</span>(risk difference)                                 </span>
+<span id="cb208-18"><a href="risk-and-odds.html#cb208-18" tabindex="-1"></a> Upper95ci</span>
+<span id="cb208-19"><a href="risk-and-odds.html#cb208-19" tabindex="-1"></a> <span class="sc">-</span><span class="fl">0.01</span>    </span>
+<span id="cb208-20"><a href="risk-and-odds.html#cb208-20" tabindex="-1"></a> <span class="fl">0.91</span>     </span>
+<span id="cb208-21"><a href="risk-and-odds.html#cb208-21" tabindex="-1"></a> <span class="fl">68.06</span>    </span>
+<span id="cb208-22"><a href="risk-and-odds.html#cb208-22" tabindex="-1"></a>          </span>
+<span id="cb208-23"><a href="risk-and-odds.html#cb208-23" tabindex="-1"></a> <span class="fl">94.2</span>     </span>
+<span id="cb208-24"><a href="risk-and-odds.html#cb208-24" tabindex="-1"></a>          </span></code></pre></div>
 <p>The output above first tabulates the two variables producing a contingency table
 with the marginal totals. It then shows our previously calculated parameters, Re
 and Rne. Rt (Risk total) is the risk if both the exposed and unexposed are put
@@ -727,18 +729,18 @@ determined as</p>
 <p>Once again fortunately we do not have to go through this tedious procedure each
 time we need to calculate the OR. The <code>cc()</code> function in the <code>epiDisplay</code>
 package does this very well. Below we apply it to the analysis just done.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="risk-and-odds.html#cb196-1" tabindex="-1"></a>df_anc <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">cc</span>(<span class="at">outcome=</span>death, <span class="at">exposure=</span>anc, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb196-2"><a href="risk-and-odds.html#cb196-2" tabindex="-1"></a></span>
-<span id="cb196-3"><a href="risk-and-odds.html#cb196-3" tabindex="-1"></a>       anc</span>
-<span id="cb196-4"><a href="risk-and-odds.html#cb196-4" tabindex="-1"></a>death   Old New Total</span>
-<span id="cb196-5"><a href="risk-and-odds.html#cb196-5" tabindex="-1"></a>  No    <span class="dv">373</span> <span class="dv">316</span>   <span class="dv">689</span></span>
-<span id="cb196-6"><a href="risk-and-odds.html#cb196-6" tabindex="-1"></a>  Yes    <span class="dv">46</span>  <span class="dv">20</span>    <span class="dv">66</span></span>
-<span id="cb196-7"><a href="risk-and-odds.html#cb196-7" tabindex="-1"></a>  Total <span class="dv">419</span> <span class="dv">336</span>   <span class="dv">755</span></span>
-<span id="cb196-8"><a href="risk-and-odds.html#cb196-8" tabindex="-1"></a></span>
-<span id="cb196-9"><a href="risk-and-odds.html#cb196-9" tabindex="-1"></a>OR <span class="ot">=</span>  <span class="fl">0.51</span> </span>
-<span id="cb196-10"><a href="risk-and-odds.html#cb196-10" tabindex="-1"></a><span class="dv">95</span>% CI <span class="ot">=</span>  <span class="fl">0.3</span>, <span class="fl">0.89</span>  </span>
-<span id="cb196-11"><a href="risk-and-odds.html#cb196-11" tabindex="-1"></a>Chi<span class="sc">-</span>squared <span class="ot">=</span> <span class="fl">5.9</span>, <span class="dv">1</span> d.f., P value <span class="ot">=</span> <span class="fl">0.015</span></span>
-<span id="cb196-12"><a href="risk-and-odds.html#cb196-12" tabindex="-1"></a>Fisher<span class="st">'s exact test (2-sided) P value = 0.019 </span></span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="risk-and-odds.html#cb209-1" tabindex="-1"></a>df_anc <span class="sc">%$%</span> epiDisplay<span class="sc">::</span><span class="fu">cc</span>(<span class="at">outcome=</span>death, <span class="at">exposure=</span>anc, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb209-2"><a href="risk-and-odds.html#cb209-2" tabindex="-1"></a></span>
+<span id="cb209-3"><a href="risk-and-odds.html#cb209-3" tabindex="-1"></a>       anc</span>
+<span id="cb209-4"><a href="risk-and-odds.html#cb209-4" tabindex="-1"></a>death   Old New Total</span>
+<span id="cb209-5"><a href="risk-and-odds.html#cb209-5" tabindex="-1"></a>  No    <span class="dv">373</span> <span class="dv">316</span>   <span class="dv">689</span></span>
+<span id="cb209-6"><a href="risk-and-odds.html#cb209-6" tabindex="-1"></a>  Yes    <span class="dv">46</span>  <span class="dv">20</span>    <span class="dv">66</span></span>
+<span id="cb209-7"><a href="risk-and-odds.html#cb209-7" tabindex="-1"></a>  Total <span class="dv">419</span> <span class="dv">336</span>   <span class="dv">755</span></span>
+<span id="cb209-8"><a href="risk-and-odds.html#cb209-8" tabindex="-1"></a></span>
+<span id="cb209-9"><a href="risk-and-odds.html#cb209-9" tabindex="-1"></a>OR <span class="ot">=</span>  <span class="fl">0.51</span> </span>
+<span id="cb209-10"><a href="risk-and-odds.html#cb209-10" tabindex="-1"></a><span class="dv">95</span>% CI <span class="ot">=</span>  <span class="fl">0.3</span>, <span class="fl">0.89</span>  </span>
+<span id="cb209-11"><a href="risk-and-odds.html#cb209-11" tabindex="-1"></a>Chi<span class="sc">-</span>squared <span class="ot">=</span> <span class="fl">5.9</span>, <span class="dv">1</span> d.f., P value <span class="ot">=</span> <span class="fl">0.015</span></span>
+<span id="cb209-12"><a href="risk-and-odds.html#cb209-12" tabindex="-1"></a>Fisher<span class="st">'s exact test (2-sided) P value = 0.019 </span></span></code></pre></div>
 <p>The output shows a table of the variables in question, the OR with its 95%
 confidence interval and both p-values determine by the chi-squared test and the
 Fisher’s test. With a confidence interval of the odds ratio not containing the
@@ -751,6 +753,7 @@ to the old.</p>
 <p>Odds ratios are very important in regression analysis and will be dealt with in
 more detail in subsequent chapters.</p>
 
+<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 </div>
 </div>
   <div class="chapter-nav">
@@ -781,7 +784,7 @@ more detail in subsequent chapters.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-10-27.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

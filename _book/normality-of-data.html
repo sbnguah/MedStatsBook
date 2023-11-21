@@ -7,7 +7,7 @@
 <title>Chapter 12 Normality of data | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
 <meta name="description" content="Many of the test statistical tests, specifically the parametric tests are done on the premise that numeric data is normally distributed. Unfortunately, this is not always so. In this chapter, we...">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta name="generator" content="bookdown 0.36 with bs4_book()">
 <meta property="og:title" content="Chapter 12 Normality of data | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstatswithr.netlify.app/normality-of-data.html">
@@ -94,11 +94,12 @@
 <li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
 <li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
 <li><a class="" href="cox-regression-1.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="sample-size-determination.html"><span class="header-section-number">27</span> Sample Size Determination</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">28</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">29</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">30</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">31</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">32</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -123,7 +124,7 @@ will use the <code>hb</code> variable from the <code>mps.dta</code> data.</p>
 is defined by two main statistics. These are the mean and standard deviation.
 The wider the standard deviation, the broader the curve. An example of the
 normal distribution is shown below:</p>
-<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">2000</span><span class="op">)</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="va">df_temp</span> <span class="op">%&gt;%</span> </span>
@@ -163,12 +164,12 @@ formal hypothesis testing.</p>
 <h3>
 <span class="header-section-number">12.2.1</span> Graphical evaluation<a class="anchor" aria-label="anchor" href="#graphical-evaluation"><i class="fas fa-link"></i></a>
 </h3>
-<p><strong>Histogram</strong>: Probably the most well know modality here is the histogram.
+<p><strong>Histogram</strong>: Probably the most well-known modality here is the histogram.<br>
 Below we first read the data and keep only the <code>hb</code> variable:</p>
-<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">&lt;-</span> <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta</a></span><span class="op">(</span><span class="st">"./Data/mps.dta"</span><span class="op">)</span></span></code></pre></div>
 <p>We then draw the histogram of the <code>hb</code>.</p>
-<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">drop_na</span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hb</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -178,7 +179,7 @@ Below we first read the data and keep only the <code>hb</code> variable:</p>
 <div class="inline-figure"><img src="Normality_files/figure-html/unnamed-chunk-4-1.png" width="576"></div>
 <p>There is near symmetry with a slightly heavier left tail.</p>
 <p><strong>Boxplot</strong>: Our next graphical modality is the boxplot as drawn below.</p>
-<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">drop_na</span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hb</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -190,11 +191,10 @@ Below we first read the data and keep only the <code>hb</code> variable:</p>
 here.</p>
 <p><strong>Q-Q plot</strong>: Finally, the Q-Q plot with a line. This graphical modality plots
 the actual values of the data against a theoretical normal distribution. Thus,
-if all the dots were to be in a straight line and along the line drawn that will
-the ideal normal distribution. We therefore use this principle to determine if
-our data is for instance heave at the tails, indicating skewness. The Q-Q plot
+if all the dots were to be in a straight line and along the line drawn that would be the ideal normal distribution. We therefore use this principle to determine if
+our data is for instance heavy at the tails, indicating skewness. The Q-Q plot
 of our data is as done below:</p>
-<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">drop_na</span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html">ggqqplot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"hb"</span>,title <span class="op">=</span> <span class="st">"Q-Q plot of the HB"</span>, conf.int <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -214,7 +214,7 @@ tests. It is never advisable to do different tests together
 as they use different algorithms and may produce different results and
 conclusions.</p>
 <p><strong>Shapiro-Wilk test</strong>: Below we perform the Shapiro-wilk test for normality.</p>
-<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_mps</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">hb</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -236,7 +236,7 @@ conclusions.</p>
 </tr>
 </table></div>
 <p>A p-value greater than 0.05 indicates we reject the Null hypothesis and thus
-conclude out data comes from a normally distributed population.</p>
+conclude our data comes from a normally distributed population.</p>
 </div>
 </div>
 <div id="conclusion-1" class="section level2" number="12.3">
@@ -246,7 +246,7 @@ conclude out data comes from a normally distributed population.</p>
 <p>In conclusion, it can be seen from the graphical presentations as well as the
 formal test that the data we have is coming from a normally distributed
 population.</p>
-<p>The various test can give contradictory results and so I recommend evaluating
+<p>The various tests can give contradictory results so I recommend evaluating
 the normality of a population, one should first plot the histogram, and Q-Q plot,
 and then perform one formal test, and combine these results before making the
 the judgement that numeric data is or is not normally distributed.</p>
@@ -285,7 +285,7 @@ the judgement that numeric data is or is not normally distributed.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-10-27.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

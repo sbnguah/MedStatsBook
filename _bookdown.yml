@@ -34,6 +34,7 @@ rmd_files: [
     "Ordinal-Logistic-Regression.Rmd",
     "Survival-analysis.Rmd",
     "Cox-Regression.Rmd",
+    "Sample-Size-Determination.Rmd",
     "Blocks.Rmd",
     "Citations.Rmd" ,
     "Cross-Refs.Rmd",

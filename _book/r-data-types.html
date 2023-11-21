@@ -7,7 +7,7 @@
 <title>Chapter 4 R data types | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
 <meta name="description" content="All data objects in R are made up of smaller units referred to as ”Atomic” data. The various atomic data types are Integer, Double, Complex, Logical, Character, Factor and Date and Time. These...">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta name="generator" content="bookdown 0.36 with bs4_book()">
 <meta property="og:title" content="Chapter 4 R data types | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstatswithr.netlify.app/r-data-types.html">
@@ -94,11 +94,12 @@
 <li><a class="" href="ordinal-logistic-regression.html"><span class="header-section-number">24</span> Ordinal logistic regression</a></li>
 <li><a class="" href="survival-analysis.html"><span class="header-section-number">25</span> Survival analysis</a></li>
 <li><a class="" href="cox-regression-1.html"><span class="header-section-number">26</span> Cox Regression</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">27</span> Blocks</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">28</span> Footnotes and citations</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">29</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">30</span> Parts</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">31</span> Sharing your book</a></li>
+<li><a class="" href="sample-size-determination.html"><span class="header-section-number">27</span> Sample Size Determination</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">28</span> Blocks</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">29</span> Footnotes and citations</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">30</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">31</span> Parts</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">32</span> Sharing your book</a></li>
 </ul>
 
         <div class="book-extra">
@@ -116,15 +117,15 @@ The various atomic data types are <em>Integer</em>, <em>Double</em>, <em>Complex
 subsequently. To determine the data types in R the most commonly used function
 is class(). The example below uses this function to determine the data type for
 4.2.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-data-types.html#cb1-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">4.2</span>)</span>
-<span id="cb1-2"><a href="r-data-types.html#cb1-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"numeric"</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-data-types.html#cb4-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">4.2</span>)</span>
+<span id="cb4-2"><a href="r-data-types.html#cb4-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"numeric"</span></span></code></pre></div>
 <p>As we expected it is a <em>numeric</em> variable. Next, we determine the class of data
 ”A”</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r-data-types.html#cb2-1" tabindex="-1"></a><span class="fu">class</span>(<span class="st">"A"</span>)</span>
-<span id="cb2-2"><a href="r-data-types.html#cb2-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-data-types.html#cb5-1" tabindex="-1"></a><span class="fu">class</span>(<span class="st">"A"</span>)</span>
+<span id="cb5-2"><a href="r-data-types.html#cb5-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
 <p>R classifies this as a character data type. Finally, what about FALSE?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-data-types.html#cb3-1" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">FALSE</span>)</span>
-<span id="cb3-2"><a href="r-data-types.html#cb3-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"logical"</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r-data-types.html#cb6-1" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">FALSE</span>)</span>
+<span id="cb6-2"><a href="r-data-types.html#cb6-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"logical"</span></span></code></pre></div>
 <p>This is a logical data type.</p>
 <div id="integer" class="section level2" number="4.1">
 <h2>
@@ -138,14 +139,14 @@ if data is of class integer we use the function is.integer(). To convert data
 of another type to integer we use the function as.integer(). As an illustration,
 we determine if the number 9 in R is an integer. We first, assign the number 9
 to X and then we ask if X is stored as an integer.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-data-types.html#cb4-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="dv">9</span></span>
-<span id="cb4-2"><a href="r-data-types.html#cb4-2" tabindex="-1"></a><span class="fu">is.integer</span>(X)</span>
-<span id="cb4-3"><a href="r-data-types.html#cb4-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-data-types.html#cb7-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb7-2"><a href="r-data-types.html#cb7-2" tabindex="-1"></a><span class="fu">is.integer</span>(X)</span>
+<span id="cb7-3"><a href="r-data-types.html#cb7-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span></span></code></pre></div>
 <p>It is not! Next, we convert it to an integer, this time calling it Y. Then find
 out if it is.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-data-types.html#cb5-1" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(X)</span>
-<span id="cb5-2"><a href="r-data-types.html#cb5-2" tabindex="-1"></a><span class="fu">is.integer</span>(Y)</span>
-<span id="cb5-3"><a href="r-data-types.html#cb5-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-data-types.html#cb8-1" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(X)</span>
+<span id="cb8-2"><a href="r-data-types.html#cb8-2" tabindex="-1"></a><span class="fu">is.integer</span>(Y)</span>
+<span id="cb8-3"><a href="r-data-types.html#cb8-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
 <p>It is an integer now.</p>
 </div>
 <div id="double" class="section level2" number="4.2">
@@ -156,16 +157,16 @@ out if it is.</p>
 continuous quantitative variable discussed above. Double is the default type
 of numeric variable used by R. To illustrate this point let’s look at the
 properties of the number 7.1 in R. First we assign the name “A” to 7.1.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fl">7.1</span></span></code></pre></div>
 <p>And then find out if A is of class “Double”.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-data-types.html#cb7-1" tabindex="-1"></a><span class="fu">is.double</span>(A)</span>
-<span id="cb7-2"><a href="r-data-types.html#cb7-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-data-types.html#cb10-1" tabindex="-1"></a><span class="fu">is.double</span>(A)</span>
+<span id="cb10-2"><a href="r-data-types.html#cb10-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
 <p>Numeric data types stored as double are never stored as exact but rather as
 approximations of real numbers. To illustrate this, we add three As and test if
 the answer is 21.3</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-data-types.html#cb8-1" tabindex="-1"></a><span class="fl">21.3</span> <span class="sc">==</span> A <span class="sc">+</span> A <span class="sc">+</span> A </span>
-<span id="cb8-2"><a href="r-data-types.html#cb8-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-data-types.html#cb11-1" tabindex="-1"></a><span class="fl">21.3</span> <span class="sc">==</span> A <span class="sc">+</span> A <span class="sc">+</span> A </span>
+<span id="cb11-2"><a href="r-data-types.html#cb11-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span></span></code></pre></div>
 <p>It may appear strange that adding A or 7.1 three times does not equal 21.3. This
 is because A is stored as an approximate and not exact. This could be very
 important when manipulating data in R and many other statistical software.</p>
@@ -179,44 +180,44 @@ creation of “Z” from a statement asking if 5 is less than 8. Z, therefore, i
 a logical (TRUE) data type. First, we assign the values 5 and 8 to X and Y
 respectively and then create the logical data type Z by asking if X is less than
 Y in R.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-data-types.html#cb9-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb9-2"><a href="r-data-types.html#cb9-2" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="dv">8</span></span>
-<span id="cb9-3"><a href="r-data-types.html#cb9-3" tabindex="-1"></a>Z <span class="ot">&lt;-</span> X <span class="sc">&lt;</span> Y</span>
-<span id="cb9-4"><a href="r-data-types.html#cb9-4" tabindex="-1"></a>Z</span>
-<span id="cb9-5"><a href="r-data-types.html#cb9-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-data-types.html#cb12-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb12-2"><a href="r-data-types.html#cb12-2" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb12-3"><a href="r-data-types.html#cb12-3" tabindex="-1"></a>Z <span class="ot">&lt;-</span> X <span class="sc">&lt;</span> Y</span>
+<span id="cb12-4"><a href="r-data-types.html#cb12-4" tabindex="-1"></a>Z</span>
+<span id="cb12-5"><a href="r-data-types.html#cb12-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
 <p>Next, we determine the class of Z</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-data-types.html#cb10-1" tabindex="-1"></a><span class="fu">class</span>(Z)</span>
-<span id="cb10-2"><a href="r-data-types.html#cb10-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"logical"</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-data-types.html#cb13-1" tabindex="-1"></a><span class="fu">class</span>(Z)</span>
+<span id="cb13-2"><a href="r-data-types.html#cb13-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"logical"</span></span></code></pre></div>
 <p>Logical objects have innate values in R such that FALSE is considered to have a
 value of 0 while TRUE has a value of 1. The output below demonstrates this.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-data-types.html#cb11-1" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">+</span> <span class="cn">FALSE</span></span>
-<span id="cb11-2"><a href="r-data-types.html#cb11-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span>
-<span id="cb11-3"><a href="r-data-types.html#cb11-3" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">+</span> <span class="cn">TRUE</span></span>
-<span id="cb11-4"><a href="r-data-types.html#cb11-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
-<span id="cb11-5"><a href="r-data-types.html#cb11-5" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="cn">TRUE</span></span>
-<span id="cb11-6"><a href="r-data-types.html#cb11-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-data-types.html#cb14-1" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">+</span> <span class="cn">FALSE</span></span>
+<span id="cb14-2"><a href="r-data-types.html#cb14-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span>
+<span id="cb14-3"><a href="r-data-types.html#cb14-3" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">+</span> <span class="cn">TRUE</span></span>
+<span id="cb14-4"><a href="r-data-types.html#cb14-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
+<span id="cb14-5"><a href="r-data-types.html#cb14-5" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="cn">TRUE</span></span>
+<span id="cb14-6"><a href="r-data-types.html#cb14-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span></code></pre></div>
 <p>Apart from the “&lt;” operator used in the example above there are other logical
 operators in R. The following examples illustrate the use of some other logical
 operators. We begin by assigning the ages of a man and his wife as 45 and 23
 years, respectively.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wife</span> <span class="op">&lt;-</span> <span class="fl">23</span></span>
 <span><span class="va">husband</span> <span class="op">&lt;-</span> <span class="fl">45</span></span></code></pre></div>
 <p>Next, we use this to answer some basic questions about the couple. First, we
 ask if the wife’s age is less than or equal to 35</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-data-types.html#cb13-1" tabindex="-1"></a>wife <span class="sc">&lt;=</span> <span class="dv">34</span></span>
-<span id="cb13-2"><a href="r-data-types.html#cb13-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-data-types.html#cb16-1" tabindex="-1"></a>wife <span class="sc">&lt;=</span> <span class="dv">34</span></span>
+<span id="cb16-2"><a href="r-data-types.html#cb16-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
 <p>Next, we ask if the husband is greater than or equal to 45 years</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-data-types.html#cb14-1" tabindex="-1"></a>husband <span class="sc">&gt;=</span> <span class="dv">45</span></span>
-<span id="cb14-2"><a href="r-data-types.html#cb14-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-data-types.html#cb17-1" tabindex="-1"></a>husband <span class="sc">&gt;=</span> <span class="dv">45</span></span>
+<span id="cb17-2"><a href="r-data-types.html#cb17-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
 <p>The next example combines three logical operators. Here we ask if the wife is
 less than 25 years and at the same time, the husband is greater than 35 years</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-data-types.html#cb15-1" tabindex="-1"></a>(wife <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">&amp;</span> (husband <span class="sc">&gt;</span> <span class="dv">35</span>)</span>
-<span id="cb15-2"><a href="r-data-types.html#cb15-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="r-data-types.html#cb18-1" tabindex="-1"></a>(wife <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">&amp;</span> (husband <span class="sc">&gt;</span> <span class="dv">35</span>)</span>
+<span id="cb18-2"><a href="r-data-types.html#cb18-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
 <p>Finally, we ask whether the wife is less than 25 years or the husband is greater
 than 50 years</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-data-types.html#cb16-1" tabindex="-1"></a>(wife <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">|</span> (husband <span class="sc">&gt;</span> <span class="dv">50</span>)</span>
-<span id="cb16-2"><a href="r-data-types.html#cb16-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-data-types.html#cb19-1" tabindex="-1"></a>(wife <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">|</span> (husband <span class="sc">&gt;</span> <span class="dv">50</span>)</span>
+<span id="cb19-2"><a href="r-data-types.html#cb19-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
 </div>
 <div id="character" class="section level2" number="4.4">
 <h2>
@@ -227,24 +228,24 @@ names and cannot be used in mathematical calculations. Examples include “red�
 “Male”, and “1”. As seen, “1” (different from the number 1) is a character and
 cannot be used for calculations unless converted to another object form as an
 integer or double. We illustrate some of these by creating two characters below</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="st">"x"</span></span>
 <span><span class="va">B</span> <span class="op">&lt;-</span> <span class="st">"2"</span></span></code></pre></div>
 <p>And then determine their class.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="r-data-types.html#cb18-1" tabindex="-1"></a><span class="fu">class</span>(A)</span>
-<span id="cb18-2"><a href="r-data-types.html#cb18-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span>
-<span id="cb18-3"><a href="r-data-types.html#cb18-3" tabindex="-1"></a><span class="fu">class</span>(B)</span>
-<span id="cb18-4"><a href="r-data-types.html#cb18-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-data-types.html#cb21-1" tabindex="-1"></a><span class="fu">class</span>(A)</span>
+<span id="cb21-2"><a href="r-data-types.html#cb21-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span>
+<span id="cb21-3"><a href="r-data-types.html#cb21-3" tabindex="-1"></a><span class="fu">class</span>(B)</span>
+<span id="cb21-4"><a href="r-data-types.html#cb21-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
 <p>To illustrate that “2” is a character and so cannot be added, we do</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-data-types.html#cb19-1" tabindex="-1"></a>B <span class="sc">+</span> B</span>
-<span id="cb19-2"><a href="r-data-types.html#cb19-2" tabindex="-1"></a>Error <span class="cf">in</span> B <span class="sc">+</span> B<span class="sc">:</span> non<span class="sc">-</span>numeric argument to binary operator</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r-data-types.html#cb22-1" tabindex="-1"></a>B <span class="sc">+</span> B</span>
+<span id="cb22-2"><a href="r-data-types.html#cb22-2" tabindex="-1"></a>Error <span class="cf">in</span> B <span class="sc">+</span> B<span class="sc">:</span> non<span class="sc">-</span>numeric argument to binary operator</span></code></pre></div>
 <p>However, we can convert B into a numeric variable C by using the function as.numeric().</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-data-types.html#cb20-1" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(B)</span>
-<span id="cb20-2"><a href="r-data-types.html#cb20-2" tabindex="-1"></a><span class="fu">class</span>(C)</span>
-<span id="cb20-3"><a href="r-data-types.html#cb20-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"numeric"</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-data-types.html#cb23-1" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(B)</span>
+<span id="cb23-2"><a href="r-data-types.html#cb23-2" tabindex="-1"></a><span class="fu">class</span>(C)</span>
+<span id="cb23-3"><a href="r-data-types.html#cb23-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"numeric"</span></span></code></pre></div>
 <p>We can now use the numeric variable C in calculations as below</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-data-types.html#cb21-1" tabindex="-1"></a>C <span class="sc">+</span> C</span>
-<span id="cb21-2"><a href="r-data-types.html#cb21-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r-data-types.html#cb24-1" tabindex="-1"></a>C <span class="sc">+</span> C</span>
+<span id="cb24-2"><a href="r-data-types.html#cb24-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4</span></span></code></pre></div>
 </div>
 <div id="factor" class="section level2" number="4.5">
 <h2>
@@ -255,17 +256,17 @@ variables have levels representing the different categories. Sex naturally will
 have two levels, Male, Female. Factors can be derived from numeric and character
 objects using as.factor(). Below we form a character variable of length four
 called blood.grp using one of the most used functions in R c().</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r-data-types.html#cb22-1" tabindex="-1"></a>blood.grp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"O"</span>, <span class="st">"AB"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>)</span>
-<span id="cb22-2"><a href="r-data-types.html#cb22-2" tabindex="-1"></a><span class="fu">class</span>(blood.grp)</span>
-<span id="cb22-3"><a href="r-data-types.html#cb22-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-data-types.html#cb25-1" tabindex="-1"></a>blood.grp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"O"</span>, <span class="st">"AB"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>)</span>
+<span id="cb25-2"><a href="r-data-types.html#cb25-2" tabindex="-1"></a><span class="fu">class</span>(blood.grp)</span>
+<span id="cb25-3"><a href="r-data-types.html#cb25-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
 <p>And then convert it to a factor variable</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-data-types.html#cb23-1" tabindex="-1"></a>blood.grp2 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(blood.grp)</span>
-<span id="cb23-2"><a href="r-data-types.html#cb23-2" tabindex="-1"></a><span class="fu">class</span>(blood.grp2) </span>
-<span id="cb23-3"><a href="r-data-types.html#cb23-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"factor"</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r-data-types.html#cb26-1" tabindex="-1"></a>blood.grp2 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(blood.grp)</span>
+<span id="cb26-2"><a href="r-data-types.html#cb26-2" tabindex="-1"></a><span class="fu">class</span>(blood.grp2) </span>
+<span id="cb26-3"><a href="r-data-types.html#cb26-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"factor"</span></span></code></pre></div>
 <p>Next, we determine the categories (levels) of the factor variable using the
 function levels()</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r-data-types.html#cb24-1" tabindex="-1"></a><span class="fu">levels</span>(blood.grp2) </span>
-<span id="cb24-2"><a href="r-data-types.html#cb24-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"A"</span>  <span class="st">"AB"</span> <span class="st">"B"</span>  <span class="st">"O"</span> </span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r-data-types.html#cb27-1" tabindex="-1"></a><span class="fu">levels</span>(blood.grp2) </span>
+<span id="cb27-2"><a href="r-data-types.html#cb27-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"A"</span>  <span class="st">"AB"</span> <span class="st">"B"</span>  <span class="st">"O"</span> </span></code></pre></div>
 <p>Often, it becomes necessary that factor variables are converted to an integer
 while retaining the order in which the categories appear. For instance, one may
 have a factor variable with levels “A”, “B”, “C”, and “D” but wants to convert
@@ -274,23 +275,23 @@ this to an integer variable with A, B, C and D being represented by 1, 2, 3 and
 numbers, starting from 1 to the levels of the factors in the order of the
 levels. The output below shows the unclassed numbers for the factor blood.grp2
 and the levels they refer to. We do this by the use of the unclass() function.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-data-types.html#cb25-1" tabindex="-1"></a><span class="fu">unclass</span>(blood.grp2)</span>
-<span id="cb25-2"><a href="r-data-types.html#cb25-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">1</span></span>
-<span id="cb25-3"><a href="r-data-types.html#cb25-3" tabindex="-1"></a><span class="fu">attr</span>(,<span class="st">"levels"</span>)</span>
-<span id="cb25-4"><a href="r-data-types.html#cb25-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"A"</span>  <span class="st">"AB"</span> <span class="st">"B"</span>  <span class="st">"O"</span> </span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-data-types.html#cb28-1" tabindex="-1"></a><span class="fu">unclass</span>(blood.grp2)</span>
+<span id="cb28-2"><a href="r-data-types.html#cb28-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">1</span></span>
+<span id="cb28-3"><a href="r-data-types.html#cb28-3" tabindex="-1"></a><span class="fu">attr</span>(,<span class="st">"levels"</span>)</span>
+<span id="cb28-4"><a href="r-data-types.html#cb28-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"A"</span>  <span class="st">"AB"</span> <span class="st">"B"</span>  <span class="st">"O"</span> </span></code></pre></div>
 <p>A very useful function in R to generate a factor variable is gl(). It generates
 a factor variable with a specified number of levels (n) and replications (k). A
 practical example is shown below. Factor fac.1 is created by forming a vector
 of three levels and two replications.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r-data-types.html#cb26-1" tabindex="-1"></a>fac<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="at">n=</span><span class="dv">3</span>, <span class="at">k=</span><span class="dv">2</span>)</span>
-<span id="cb26-2"><a href="r-data-types.html#cb26-2" tabindex="-1"></a>fac<span class="fl">.1</span></span>
-<span id="cb26-3"><a href="r-data-types.html#cb26-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">3</span></span>
-<span id="cb26-4"><a href="r-data-types.html#cb26-4" tabindex="-1"></a>Levels<span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r-data-types.html#cb29-1" tabindex="-1"></a>fac<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="at">n=</span><span class="dv">3</span>, <span class="at">k=</span><span class="dv">2</span>)</span>
+<span id="cb29-2"><a href="r-data-types.html#cb29-2" tabindex="-1"></a>fac<span class="fl">.1</span></span>
+<span id="cb29-3"><a href="r-data-types.html#cb29-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">3</span></span>
+<span id="cb29-4"><a href="r-data-types.html#cb29-4" tabindex="-1"></a>Levels<span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></span></code></pre></div>
 <p>The factor can also be created with labels as shown</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r-data-types.html#cb27-1" tabindex="-1"></a>fac<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="at">n=</span><span class="dv">3</span>, <span class="at">k=</span><span class="dv">2</span>, <span class="at">label=</span><span class="fu">c</span>(<span class="st">"Apple"</span>, <span class="st">"Mango"</span>,<span class="st">" Pear"</span>))</span>
-<span id="cb27-2"><a href="r-data-types.html#cb27-2" tabindex="-1"></a>fac<span class="fl">.2</span></span>
-<span id="cb27-3"><a href="r-data-types.html#cb27-3" tabindex="-1"></a>[<span class="dv">1</span>] Apple Apple Mango Mango  Pear  Pear</span>
-<span id="cb27-4"><a href="r-data-types.html#cb27-4" tabindex="-1"></a>Levels<span class="sc">:</span> Apple Mango  Pear</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-data-types.html#cb30-1" tabindex="-1"></a>fac<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="at">n=</span><span class="dv">3</span>, <span class="at">k=</span><span class="dv">2</span>, <span class="at">label=</span><span class="fu">c</span>(<span class="st">"Apple"</span>, <span class="st">"Mango"</span>,<span class="st">" Pear"</span>))</span>
+<span id="cb30-2"><a href="r-data-types.html#cb30-2" tabindex="-1"></a>fac<span class="fl">.2</span></span>
+<span id="cb30-3"><a href="r-data-types.html#cb30-3" tabindex="-1"></a>[<span class="dv">1</span>] Apple Apple Mango Mango  Pear  Pear</span>
+<span id="cb30-4"><a href="r-data-types.html#cb30-4" tabindex="-1"></a>Levels<span class="sc">:</span> Apple Mango  Pear</span></code></pre></div>
 </div>
 <div id="ordered-factor" class="section level2" number="4.6">
 <h2>
@@ -299,21 +300,21 @@ of three levels and two replications.</p>
 <p>If the order of a factor is important it must be declared as an ordered factor,
 also known as an ordinal categorical variable explained earlier in this chapter.
 Below we create a character variable.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-data-types.html#cb28-1" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Medium"</span>, <span class="st">"Large"</span>, <span class="st">"Small"</span>, <span class="st">"Medium"</span>)</span>
-<span id="cb28-2"><a href="r-data-types.html#cb28-2" tabindex="-1"></a><span class="fu">class</span>(size)</span>
-<span id="cb28-3"><a href="r-data-types.html#cb28-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r-data-types.html#cb31-1" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Medium"</span>, <span class="st">"Large"</span>, <span class="st">"Small"</span>, <span class="st">"Medium"</span>)</span>
+<span id="cb31-2"><a href="r-data-types.html#cb31-2" tabindex="-1"></a><span class="fu">class</span>(size)</span>
+<span id="cb31-3"><a href="r-data-types.html#cb31-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
 <p>Next, we convert it to an ordered factor using the function ordered().</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r-data-types.html#cb29-1" tabindex="-1"></a>ord.size <span class="ot">&lt;-</span> <span class="fu">ordered</span>(size, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Small"</span>, <span class="st">"Medium"</span>, <span class="st">"Large"</span>))</span>
-<span id="cb29-2"><a href="r-data-types.html#cb29-2" tabindex="-1"></a>ord.size</span>
-<span id="cb29-3"><a href="r-data-types.html#cb29-3" tabindex="-1"></a>[<span class="dv">1</span>] Medium Large  Small  Medium</span>
-<span id="cb29-4"><a href="r-data-types.html#cb29-4" tabindex="-1"></a>Levels<span class="sc">:</span> Small <span class="sc">&lt;</span> Medium <span class="sc">&lt;</span> Large</span>
-<span id="cb29-5"><a href="r-data-types.html#cb29-5" tabindex="-1"></a><span class="fu">class</span>(ord.size)</span>
-<span id="cb29-6"><a href="r-data-types.html#cb29-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ordered"</span> <span class="st">"factor"</span> </span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-data-types.html#cb32-1" tabindex="-1"></a>ord.size <span class="ot">&lt;-</span> <span class="fu">ordered</span>(size, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Small"</span>, <span class="st">"Medium"</span>, <span class="st">"Large"</span>))</span>
+<span id="cb32-2"><a href="r-data-types.html#cb32-2" tabindex="-1"></a>ord.size</span>
+<span id="cb32-3"><a href="r-data-types.html#cb32-3" tabindex="-1"></a>[<span class="dv">1</span>] Medium Large  Small  Medium</span>
+<span id="cb32-4"><a href="r-data-types.html#cb32-4" tabindex="-1"></a>Levels<span class="sc">:</span> Small <span class="sc">&lt;</span> Medium <span class="sc">&lt;</span> Large</span>
+<span id="cb32-5"><a href="r-data-types.html#cb32-5" tabindex="-1"></a><span class="fu">class</span>(ord.size)</span>
+<span id="cb32-6"><a href="r-data-types.html#cb32-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ordered"</span> <span class="st">"factor"</span> </span></code></pre></div>
 <p>An ordered factor variable can also be derived using the gl() function introduced above.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-data-types.html#cb30-1" tabindex="-1"></a>fac<span class="fl">.3</span> <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="at">n=</span><span class="dv">3</span>, <span class="at">k=</span><span class="dv">2</span>, <span class="at">ordered=</span><span class="cn">TRUE</span>, <span class="at">label=</span><span class="fu">c</span>(<span class="st">"Small"</span>, <span class="st">"Medium"</span>, <span class="st">"Large"</span>))</span>
-<span id="cb30-2"><a href="r-data-types.html#cb30-2" tabindex="-1"></a>fac<span class="fl">.3</span></span>
-<span id="cb30-3"><a href="r-data-types.html#cb30-3" tabindex="-1"></a>[<span class="dv">1</span>] Small  Small  Medium Medium Large  Large </span>
-<span id="cb30-4"><a href="r-data-types.html#cb30-4" tabindex="-1"></a>Levels<span class="sc">:</span> Small <span class="sc">&lt;</span> Medium <span class="sc">&lt;</span> Large</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r-data-types.html#cb33-1" tabindex="-1"></a>fac<span class="fl">.3</span> <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="at">n=</span><span class="dv">3</span>, <span class="at">k=</span><span class="dv">2</span>, <span class="at">ordered=</span><span class="cn">TRUE</span>, <span class="at">label=</span><span class="fu">c</span>(<span class="st">"Small"</span>, <span class="st">"Medium"</span>, <span class="st">"Large"</span>))</span>
+<span id="cb33-2"><a href="r-data-types.html#cb33-2" tabindex="-1"></a>fac<span class="fl">.3</span></span>
+<span id="cb33-3"><a href="r-data-types.html#cb33-3" tabindex="-1"></a>[<span class="dv">1</span>] Small  Small  Medium Medium Large  Large </span>
+<span id="cb33-4"><a href="r-data-types.html#cb33-4" tabindex="-1"></a>Levels<span class="sc">:</span> Small <span class="sc">&lt;</span> Medium <span class="sc">&lt;</span> Large</span></code></pre></div>
 </div>
 <div id="date-and-time" class="section level2" number="4.7">
 <h2>
@@ -328,71 +329,71 @@ data is recorded i.e. dd/mm/yy, mm/dd/yyyy, yyyy/mm/dd hh:mm:ss etc. These
 formats are declared with the % symbol.</p>
 <p>The first object we create below is of the class “Date” and is created using a
 character object “01/01/1970”. To do this we first create this character object</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r-data-types.html#cb31-1" tabindex="-1"></a>dt.str <span class="ot">&lt;-</span> <span class="st">"01/01/1970"</span></span>
-<span id="cb31-2"><a href="r-data-types.html#cb31-2" tabindex="-1"></a><span class="fu">class</span>(dt.str)</span>
-<span id="cb31-3"><a href="r-data-types.html#cb31-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-data-types.html#cb34-1" tabindex="-1"></a>dt.str <span class="ot">&lt;-</span> <span class="st">"01/01/1970"</span></span>
+<span id="cb34-2"><a href="r-data-types.html#cb34-2" tabindex="-1"></a><span class="fu">class</span>(dt.str)</span>
+<span id="cb34-3"><a href="r-data-types.html#cb34-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"character"</span></span></code></pre></div>
 <p>Next, we convert the character object into a Date object</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-data-types.html#cb32-1" tabindex="-1"></a>dt1<span class="ot">&lt;-</span><span class="fu">as.Date</span>(dt.str, <span class="at">format=</span><span class="st">"%d/%m/%Y"</span>)</span>
-<span id="cb32-2"><a href="r-data-types.html#cb32-2" tabindex="-1"></a>dt1</span>
-<span id="cb32-3"><a href="r-data-types.html#cb32-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"1970-01-01"</span></span>
-<span id="cb32-4"><a href="r-data-types.html#cb32-4" tabindex="-1"></a><span class="fu">class</span>(dt1)</span>
-<span id="cb32-5"><a href="r-data-types.html#cb32-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Date"</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-data-types.html#cb35-1" tabindex="-1"></a>dt1<span class="ot">&lt;-</span><span class="fu">as.Date</span>(dt.str, <span class="at">format=</span><span class="st">"%d/%m/%Y"</span>)</span>
+<span id="cb35-2"><a href="r-data-types.html#cb35-2" tabindex="-1"></a>dt1</span>
+<span id="cb35-3"><a href="r-data-types.html#cb35-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"1970-01-01"</span></span>
+<span id="cb35-4"><a href="r-data-types.html#cb35-4" tabindex="-1"></a><span class="fu">class</span>(dt1)</span>
+<span id="cb35-5"><a href="r-data-types.html#cb35-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Date"</span></span></code></pre></div>
 <p>Note how the format was specified. Each day, month or year is preceded by the %
 symbol. The symbols that separate the values in the dates are also specified
 accordingly. Next, we derive an object of the class Date and time but referred
 to in R as POSIXct or POSIXlt. Though this is referred to as “Date and Time” it
 can be only a Date or Date with Time in specified formats. Below we create a
 POSIXct which is in a Date only format.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r-data-types.html#cb33-1" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2003-01-23"</span>)</span>
-<span id="cb33-2"><a href="r-data-types.html#cb33-2" tabindex="-1"></a>dt2</span>
-<span id="cb33-3"><a href="r-data-types.html#cb33-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"2003-01-23 GMT"</span></span>
-<span id="cb33-4"><a href="r-data-types.html#cb33-4" tabindex="-1"></a><span class="fu">class</span>(dt2)</span>
-<span id="cb33-5"><a href="r-data-types.html#cb33-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXct"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-data-types.html#cb36-1" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2003-01-23"</span>)</span>
+<span id="cb36-2"><a href="r-data-types.html#cb36-2" tabindex="-1"></a>dt2</span>
+<span id="cb36-3"><a href="r-data-types.html#cb36-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"2003-01-23 GMT"</span></span>
+<span id="cb36-4"><a href="r-data-types.html#cb36-4" tabindex="-1"></a><span class="fu">class</span>(dt2)</span>
+<span id="cb36-5"><a href="r-data-types.html#cb36-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXct"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
 <p>Next, we create a Date and Time variable that shows both the date and time</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-data-types.html#cb34-1" tabindex="-1"></a>dt3 <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2003-04-23 15:34"</span>)</span>
-<span id="cb34-2"><a href="r-data-types.html#cb34-2" tabindex="-1"></a>dt3</span>
-<span id="cb34-3"><a href="r-data-types.html#cb34-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"2003-04-23 15:34:00 GMT"</span></span>
-<span id="cb34-4"><a href="r-data-types.html#cb34-4" tabindex="-1"></a><span class="fu">class</span>(dt3)</span>
-<span id="cb34-5"><a href="r-data-types.html#cb34-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXct"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-data-types.html#cb37-1" tabindex="-1"></a>dt3 <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2003-04-23 15:34"</span>)</span>
+<span id="cb37-2"><a href="r-data-types.html#cb37-2" tabindex="-1"></a>dt3</span>
+<span id="cb37-3"><a href="r-data-types.html#cb37-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"2003-04-23 15:34:00 GMT"</span></span>
+<span id="cb37-4"><a href="r-data-types.html#cb37-4" tabindex="-1"></a><span class="fu">class</span>(dt3)</span>
+<span id="cb37-5"><a href="r-data-types.html#cb37-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXct"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
 <p>The next example uses the function <code><a href="https://rdrr.io/r/base/strptime.html">strptime()</a></code> to create a “POSIXlt” DateTime
 format data.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-data-types.html#cb35-1" tabindex="-1"></a>dt4<span class="ot">&lt;-</span><span class="fu">strptime</span>(<span class="st">"02/27/92 11:30:10"</span>, <span class="at">format=</span><span class="st">"%m/%d/%y %H:%M:%S"</span>)</span>
-<span id="cb35-2"><a href="r-data-types.html#cb35-2" tabindex="-1"></a>dt4</span>
-<span id="cb35-3"><a href="r-data-types.html#cb35-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"1992-02-27 11:30:10 GMT"</span></span>
-<span id="cb35-4"><a href="r-data-types.html#cb35-4" tabindex="-1"></a><span class="fu">class</span>(dt4)</span>
-<span id="cb35-5"><a href="r-data-types.html#cb35-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXlt"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r-data-types.html#cb38-1" tabindex="-1"></a>dt4<span class="ot">&lt;-</span><span class="fu">strptime</span>(<span class="st">"02/27/92 11:30:10"</span>, <span class="at">format=</span><span class="st">"%m/%d/%y %H:%M:%S"</span>)</span>
+<span id="cb38-2"><a href="r-data-types.html#cb38-2" tabindex="-1"></a>dt4</span>
+<span id="cb38-3"><a href="r-data-types.html#cb38-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"1992-02-27 11:30:10 GMT"</span></span>
+<span id="cb38-4"><a href="r-data-types.html#cb38-4" tabindex="-1"></a><span class="fu">class</span>(dt4)</span>
+<span id="cb38-5"><a href="r-data-types.html#cb38-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXlt"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
 <p>Next, we use <code><a href="https://rdrr.io/r/base/ISOdatetime.html">ISOdatetime()</a></code> to create a “POSIXct” DateTime format data type.
 Note that the two functions <code><a href="https://rdrr.io/r/base/ISOdatetime.html">ISOdatetime()</a></code> and <code><a href="https://rdrr.io/r/base/ISOdatetime.html">ISOdate()</a></code> take individual
 numeric values and combine them rather than convert character variables.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-data-types.html#cb36-1" tabindex="-1"></a>dt5<span class="ot">&lt;-</span><span class="fu">ISOdatetime</span>(</span>
-<span id="cb36-2"><a href="r-data-types.html#cb36-2" tabindex="-1"></a>    <span class="at">year=</span><span class="dv">2013</span>, <span class="at">month=</span><span class="dv">4</span>, <span class="at">day=</span><span class="dv">7</span>, <span class="at">hour =</span> <span class="dv">12</span>, <span class="at">min =</span> <span class="dv">33</span>, <span class="at">sec =</span> <span class="dv">10</span>, <span class="at">tz =</span> <span class="st">"GMT"</span></span>
-<span id="cb36-3"><a href="r-data-types.html#cb36-3" tabindex="-1"></a>    )</span>
-<span id="cb36-4"><a href="r-data-types.html#cb36-4" tabindex="-1"></a>dt5</span>
-<span id="cb36-5"><a href="r-data-types.html#cb36-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"2013-04-07 12:33:10 GMT"</span></span>
-<span id="cb36-6"><a href="r-data-types.html#cb36-6" tabindex="-1"></a><span class="fu">class</span>(dt5)</span>
-<span id="cb36-7"><a href="r-data-types.html#cb36-7" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXct"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-data-types.html#cb39-1" tabindex="-1"></a>dt5<span class="ot">&lt;-</span><span class="fu">ISOdatetime</span>(</span>
+<span id="cb39-2"><a href="r-data-types.html#cb39-2" tabindex="-1"></a>    <span class="at">year=</span><span class="dv">2013</span>, <span class="at">month=</span><span class="dv">4</span>, <span class="at">day=</span><span class="dv">7</span>, <span class="at">hour =</span> <span class="dv">12</span>, <span class="at">min =</span> <span class="dv">33</span>, <span class="at">sec =</span> <span class="dv">10</span>, <span class="at">tz =</span> <span class="st">"GMT"</span></span>
+<span id="cb39-3"><a href="r-data-types.html#cb39-3" tabindex="-1"></a>    )</span>
+<span id="cb39-4"><a href="r-data-types.html#cb39-4" tabindex="-1"></a>dt5</span>
+<span id="cb39-5"><a href="r-data-types.html#cb39-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"2013-04-07 12:33:10 GMT"</span></span>
+<span id="cb39-6"><a href="r-data-types.html#cb39-6" tabindex="-1"></a><span class="fu">class</span>(dt5)</span>
+<span id="cb39-7"><a href="r-data-types.html#cb39-7" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXct"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
 <p>And finally the function <code><a href="https://rdrr.io/r/base/ISOdatetime.html">ISOdate()</a></code></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-data-types.html#cb37-1" tabindex="-1"></a>dt6 <span class="ot">&lt;-</span> <span class="fu">ISOdate</span>(<span class="at">year =</span> <span class="dv">2013</span>, <span class="at">month =</span> <span class="dv">4</span>, <span class="at">day =</span> <span class="dv">7</span>, <span class="at">tz =</span> <span class="st">"GMT"</span>)</span>
-<span id="cb37-2"><a href="r-data-types.html#cb37-2" tabindex="-1"></a>dt6</span>
-<span id="cb37-3"><a href="r-data-types.html#cb37-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"2013-04-07 12:00:00 GMT"</span></span>
-<span id="cb37-4"><a href="r-data-types.html#cb37-4" tabindex="-1"></a><span class="fu">class</span>(dt6)</span>
-<span id="cb37-5"><a href="r-data-types.html#cb37-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXct"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-data-types.html#cb40-1" tabindex="-1"></a>dt6 <span class="ot">&lt;-</span> <span class="fu">ISOdate</span>(<span class="at">year =</span> <span class="dv">2013</span>, <span class="at">month =</span> <span class="dv">4</span>, <span class="at">day =</span> <span class="dv">7</span>, <span class="at">tz =</span> <span class="st">"GMT"</span>)</span>
+<span id="cb40-2"><a href="r-data-types.html#cb40-2" tabindex="-1"></a>dt6</span>
+<span id="cb40-3"><a href="r-data-types.html#cb40-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"2013-04-07 12:00:00 GMT"</span></span>
+<span id="cb40-4"><a href="r-data-types.html#cb40-4" tabindex="-1"></a><span class="fu">class</span>(dt6)</span>
+<span id="cb40-5"><a href="r-data-types.html#cb40-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"POSIXct"</span> <span class="st">"POSIXt"</span> </span></code></pre></div>
 <p>Mathematical manipulations can be done on date objects. Subtracting one date
 from the other yields an object which is the period between the two. This object
 is of class difftime. As an illustration, we determine the time difference
 between dt5 and dt6</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r-data-types.html#cb38-1" tabindex="-1"></a>dt5<span class="sc">-</span>dt6</span>
-<span id="cb38-2"><a href="r-data-types.html#cb38-2" tabindex="-1"></a>Time difference of <span class="fl">33.16667</span> mins</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-data-types.html#cb41-1" tabindex="-1"></a>dt5<span class="sc">-</span>dt6</span>
+<span id="cb41-2"><a href="r-data-types.html#cb41-2" tabindex="-1"></a>Time difference of <span class="fl">33.16667</span> mins</span></code></pre></div>
 <p>It is worth noting here that there is a function in R, <code><a href="https://rdrr.io/r/base/difftime.html">difftime()</a></code> specifically
 designed for finding time differences.</p>
 <p>The functions <code><a href="https://rdrr.io/r/base/weekday.POSIXt.html">weekdays()</a></code>, <code><a href="https://rdrr.io/r/base/weekday.POSIXt.html">months()</a></code> and <code><a href="https://rdrr.io/r/base/weekday.POSIXt.html">quarters()</a></code> extract as “character”
 datatype the days, months and quarters from date objects respectively.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-data-types.html#cb39-1" tabindex="-1"></a><span class="fu">weekdays</span>(dt2)</span>
-<span id="cb39-2"><a href="r-data-types.html#cb39-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Thursday"</span></span>
-<span id="cb39-3"><a href="r-data-types.html#cb39-3" tabindex="-1"></a><span class="fu">quarters</span>(dt2)</span>
-<span id="cb39-4"><a href="r-data-types.html#cb39-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Q1"</span></span>
-<span id="cb39-5"><a href="r-data-types.html#cb39-5" tabindex="-1"></a><span class="fu">months</span>(dt2)</span>
-<span id="cb39-6"><a href="r-data-types.html#cb39-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"January"</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-data-types.html#cb42-1" tabindex="-1"></a><span class="fu">weekdays</span>(dt2)</span>
+<span id="cb42-2"><a href="r-data-types.html#cb42-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Thursday"</span></span>
+<span id="cb42-3"><a href="r-data-types.html#cb42-3" tabindex="-1"></a><span class="fu">quarters</span>(dt2)</span>
+<span id="cb42-4"><a href="r-data-types.html#cb42-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Q1"</span></span>
+<span id="cb42-5"><a href="r-data-types.html#cb42-5" tabindex="-1"></a><span class="fu">months</span>(dt2)</span>
+<span id="cb42-6"><a href="r-data-types.html#cb42-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"January"</span></span></code></pre></div>
 </div>
 <div id="missing-values-in-r" class="section level2" number="4.8">
 <h2>
@@ -401,17 +402,17 @@ datatype the days, months and quarters from date objects respectively.</p>
 <p>In R missing values are denoted by NA. NaN is also encountered and stands for
 “Not a number”. This is often generated when one divides for instance 0 by 0.
 Any operation involving NA results in an NA. Examples are shown below</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-data-types.html#cb40-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="cn">NA</span></span>
-<span id="cb40-2"><a href="r-data-types.html#cb40-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">NA</span></span>
-<span id="cb40-3"><a href="r-data-types.html#cb40-3" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb40-4"><a href="r-data-types.html#cb40-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">NA</span></span>
-<span id="cb40-5"><a href="r-data-types.html#cb40-5" tabindex="-1"></a><span class="cn">NA</span><span class="sc">*</span><span class="dv">2</span></span>
-<span id="cb40-6"><a href="r-data-types.html#cb40-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-data-types.html#cb43-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="cn">NA</span></span>
+<span id="cb43-2"><a href="r-data-types.html#cb43-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">NA</span></span>
+<span id="cb43-3"><a href="r-data-types.html#cb43-3" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb43-4"><a href="r-data-types.html#cb43-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">NA</span></span>
+<span id="cb43-5"><a href="r-data-types.html#cb43-5" tabindex="-1"></a><span class="cn">NA</span><span class="sc">*</span><span class="dv">2</span></span>
+<span id="cb43-6"><a href="r-data-types.html#cb43-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">NA</span></span></code></pre></div>
 <p>The function <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> produces a logical that indicates if a value is missing.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-data-types.html#cb41-1" tabindex="-1"></a><span class="fu">is.na</span>(<span class="dv">2</span>)</span>
-<span id="cb41-2"><a href="r-data-types.html#cb41-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span></span>
-<span id="cb41-3"><a href="r-data-types.html#cb41-3" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA</span>)</span>
-<span id="cb41-4"><a href="r-data-types.html#cb41-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-data-types.html#cb44-1" tabindex="-1"></a><span class="fu">is.na</span>(<span class="dv">2</span>)</span>
+<span id="cb44-2"><a href="r-data-types.html#cb44-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span></span>
+<span id="cb44-3"><a href="r-data-types.html#cb44-3" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA</span>)</span>
+<span id="cb44-4"><a href="r-data-types.html#cb44-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
 
 </div>
 </div>
@@ -447,7 +448,7 @@ Any operation involving NA results in an NA. Examples are shown below</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-10-27.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
