@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 6 Importing data into R | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="Warning: package 'ggplot2' was built under R version 4.3.2 In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In...">
+<meta name="description" content="In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In R, a data frame is the data structure desirable for data...">
 <meta name="generator" content="bookdown 0.36 with bs4_book()">
 <meta property="og:title" content="Chapter 6 Importing data into R | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstatswithr.netlify.app/importing-data-into-r.html">
-<meta property="og:description" content="Warning: package 'ggplot2' was built under R version 4.3.2 In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In...">
+<meta property="og:description" content="In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In R, a data frame is the data structure desirable for data...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 6 Importing data into R | Medical Statistics using R">
-<meta name="twitter:description" content="Warning: package 'ggplot2' was built under R version 4.3.2 In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In...">
+<meta name="twitter:description" content="In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In R, a data frame is the data structure desirable for data...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -111,21 +111,20 @@
 <h1>
 <span class="header-section-number">6</span> Importing data into R<a class="anchor" aria-label="anchor" href="#importing-data-into-r"><i class="fas fa-link"></i></a>
 </h1>
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 <p>In this chapter, we discuss ways of getting data into R, either by directly entering it into R or importing it from another software. In R, a data frame is the data structure desirable for data analysis. With the advent of the <code>tidy data</code>, a tibble is now the predominant data structure being used. For this section, we will be reading in various file formats and presenting them as a tibble.</p>
 <div id="using-data-in-r-packages" class="section level2" number="6.1">
 <h2>
 <span class="header-section-number">6.1</span> Using data in R packages<a class="anchor" aria-label="anchor" href="#using-data-in-r-packages"><i class="fas fa-link"></i></a>
 </h2>
 <p>Many packages in R come with data that can be used for practice. To be able to use a dataset in a specific package, that package first has to be installed. For instance, to be able to use the data <code>Oswego</code> native to the package <code>epiDisplay</code>, we first ensure the package is installed by running the command line below:</p>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"epiDisplay"</span><span class="op">)</span></span></code></pre></div>
 <p>Note that this will install the package and any other packages that the <code>epiDisplay</code> package depends on.</p>
 <p>The next step will be to make the data available in the R session as below</p>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"Oswego"</span>, package <span class="op">=</span> <span class="st">"epiDisplay"</span><span class="op">)</span></span></code></pre></div>
 <p>Now that the data is available in the working environment, we can visualise the first 6 rows below</p>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Oswego</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-4">
 <caption style="caption-side: top; text-align: center;">
@@ -306,7 +305,7 @@
 </tr>
 </table></div>
 <p>And finally visualise the details of the data by using the <code><a href="https://rdrr.io/r/utils/help.html">help()</a></code> function as below</p>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">Oswego</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="direct-entry-into-r" class="section level2" number="6.2">
@@ -314,7 +313,7 @@
 <span class="header-section-number">6.2</span> Direct entry into R<a class="anchor" aria-label="anchor" href="#direct-entry-into-r"><i class="fas fa-link"></i></a>
 </h2>
 <p>We first use the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function from the base package to create the data frame.</p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>    name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Ama"</span>, <span class="st">"Yakubu"</span>, <span class="st">"John"</span><span class="op">)</span>, </span>
 <span>    sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Male"</span><span class="op">)</span>,</span>
@@ -354,7 +353,7 @@
 </tr>
 </table></div>
 <p>Below we first describe how to manually enter data into R. We aim to create a tibble by using the <code>tibble</code> function.</p>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tibble</span><span class="op">(</span></span>
 <span>    name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Ama"</span>, <span class="st">"Yakubu"</span>, <span class="st">"John"</span><span class="op">)</span>, </span>
 <span>    sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Male"</span><span class="op">)</span>,</span>
@@ -399,11 +398,11 @@
 <span class="header-section-number">6.3</span> R data file<a class="anchor" aria-label="anchor" href="#r-data-file"><i class="fas fa-link"></i></a>
 </h2>
 <p>When working in R, a frequent mode of storage of data is as an .Rdata file. This preserves the structure and environment of the data. Below we will read an already saved .Rdata file.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="importing-data-into-r.html#cb75-1" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"./Data/data1.Rdata"</span>)</span>
-<span id="cb75-2"><a href="importing-data-into-r.html#cb75-2" tabindex="-1"></a><span class="fu">ls</span>()</span>
-<span id="cb75-3"><a href="importing-data-into-r.html#cb75-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"data1_stata"</span> <span class="st">"mytheme"</span>     <span class="st">"Oswego"</span>     </span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="importing-data-into-r.html#cb71-1" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"./Data/data1.Rdata"</span>)</span>
+<span id="cb71-2"><a href="importing-data-into-r.html#cb71-2" tabindex="-1"></a><span class="fu">ls</span>()</span>
+<span id="cb71-3"><a href="importing-data-into-r.html#cb71-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"data1_stata"</span> <span class="st">"mytheme"</span>     <span class="st">"Oswego"</span>     </span></code></pre></div>
 <p>We then visualise the first 4 rows of the single data within the loaded file called <code>data1_stata</code></p>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data1_stata</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-9">
 <caption style="caption-side: top; text-align: center;">
@@ -449,7 +448,7 @@
 <span class="header-section-number">6.4</span> Text files<a class="anchor" aria-label="anchor" href="#text-files"><i class="fas fa-link"></i></a>
 </h2>
 <p>The first file format that we are going to read from is a flat file or text file. These usually have the extension .txt. The data in these files could be separated by various delimiters. These include tabs, commas, spaces, etc. In this section, we will read in one with a tab delimiter as a prototype as the rest will be similar.</p>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">read_delim</span><span class="op">(</span></span>
 <span>    file <span class="op">=</span> <span class="st">"./Data/bpA.txt"</span>, </span>
 <span>    delim <span class="op">=</span> <span class="st">"\t"</span>, </span>
@@ -488,7 +487,7 @@
 </tr>
 </table></div>
 <p>The last file to be read in this subsection is a comma-delimited text file</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">read_delim</span><span class="op">(</span></span>
 <span>    file <span class="op">=</span> <span class="st">"./Data/blood.txt"</span>, </span>
 <span>    delim <span class="op">=</span> <span class="st">","</span>, </span>
@@ -552,7 +551,7 @@
 </tr>
 </table></div>
 <p>Comma-delimited files with extension .csv can also be imported with the commnands</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">read_csv</span><span class="op">(</span></span>
 <span>    file <span class="op">=</span> <span class="st">"./Data/blood.txt"</span>,</span>
 <span>    col_types <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"d"</span>, <span class="st">"d"</span>, <span class="st">"d"</span>, <span class="st">"d"</span>, <span class="st">"d"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -619,7 +618,7 @@
 <span class="header-section-number">6.5</span> Microsoft Excel<a class="anchor" aria-label="anchor" href="#microsoft-excel"><i class="fas fa-link"></i></a>
 </h2>
 <p>Probably the most common format for transferring data is Microsoft Excel. There are two versions of Excel with extensions .xls and .xlsx. Below reading in the .xlsx is demonstrated using the <code>readxl</code> package.</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xlsx</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"./Data/data1.xlsx"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-13">
@@ -666,7 +665,7 @@
 <span class="header-section-number">6.6</span> SPSS files<a class="anchor" aria-label="anchor" href="#spss-files"><i class="fas fa-link"></i></a>
 </h2>
 <p>Files from SPSS are usually saved with the extension of .sav. Below we read an SSPSS data file using the <code>haven</code> package</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_sav</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"./Data/data1.sav"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-14">
@@ -713,7 +712,7 @@
 <span class="header-section-number">6.7</span> Stata files<a class="anchor" aria-label="anchor" href="#stata-files"><i class="fas fa-link"></i></a>
 </h2>
 <p>Stata files, similar to SPSS data files can be imported using the <code>haven</code> package. This is illustrated below</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"./Data/data1.dta"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-15">
@@ -760,7 +759,7 @@
 <span class="header-section-number">6.8</span> SAS files<a class="anchor" aria-label="anchor" href="#sas-files"><i class="fas fa-link"></i></a>
 </h2>
 <p>The <code>haven</code> package also offers the ability to read into R a SAS data file. This is illustrated below</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span>data_file <span class="op">=</span> <span class="st">"./Data/data1.sas7bdat"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-16">
@@ -808,7 +807,6 @@
 </h2>
 <p>In this section, we have learned how to import data into R from various file formats and programs. In the next section, we will learn about how to export data in R to other file formats.</p>
 
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 </div>
 </div>
   <div class="chapter-nav">
@@ -844,7 +842,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-21.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

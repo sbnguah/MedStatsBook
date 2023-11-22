@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 11 Hypothesis-Testing | Medical Statistics using R</title>
 <meta name="author" content="Samuel Blay Nguah">
-<meta name="description" content="Warning: package 'ggplot2' was built under R version 4.3.2  11.1 Population and sample  11.1.1 Population A population in a statistical sense is different from the general sense. The population is...">
+<meta name="description" content="11.1 Population and sample  11.1.1 Population A population in a statistical sense is different from the general sense. The population is a collection of items, people, places etc. that the...">
 <meta name="generator" content="bookdown 0.36 with bs4_book()">
 <meta property="og:title" content="Chapter 11 Hypothesis-Testing | Medical Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://medstatswithr.netlify.app/hypothesis-testing.html">
-<meta property="og:description" content="Warning: package 'ggplot2' was built under R version 4.3.2  11.1 Population and sample  11.1.1 Population A population in a statistical sense is different from the general sense. The population is...">
+<meta property="og:description" content="11.1 Population and sample  11.1.1 Population A population in a statistical sense is different from the general sense. The population is a collection of items, people, places etc. that the...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 11 Hypothesis-Testing | Medical Statistics using R">
-<meta name="twitter:description" content="Warning: package 'ggplot2' was built under R version 4.3.2  11.1 Population and sample  11.1.1 Population A population in a statistical sense is different from the general sense. The population is...">
+<meta name="twitter:description" content="11.1 Population and sample  11.1.1 Population A population in a statistical sense is different from the general sense. The population is a collection of items, people, places etc. that the...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -111,7 +111,6 @@
 <h1>
 <span class="header-section-number">11</span> Hypothesis-Testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing"><i class="fas fa-link"></i></a>
 </h1>
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 <div id="population-and-sample" class="section level2" number="11.1">
 <h2>
 <span class="header-section-number">11.1</span> Population and sample<a class="anchor" aria-label="anchor" href="#population-and-sample"><i class="fas fa-link"></i></a>
@@ -148,10 +147,10 @@ these two destinations. Next, we determine the ages of those on these selected f
 <span class="header-section-number">11.3</span> Sample variation<a class="anchor" aria-label="anchor" href="#sample-variation"><i class="fas fa-link"></i></a>
 </h2>
 <p>The Mid-upper arm circumference of children under five is a measure of how thin a child is and a quick way of determining his/her nutritional status. In a population of 2000 children, the mean and median mid-upper arm circumferences were to be determined independently by a group of 10 students. They decided to take a random sample of 10 children each to estimate these parameters. Each column of <code>students</code> shows the measurements made by each student in his/her sample chosen. We first read the data.</p>
-<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_students</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.delim</a></span><span class="op">(</span><span class="st">"./Data/students.txt"</span>, sep <span class="op">=</span> <span class="st">" "</span><span class="op">)</span></span></code></pre></div>
 <p>And visualise it</p>
-<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_students</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
 <caption style="caption-side: top; text-align: center;">
@@ -300,7 +299,7 @@ these two destinations. Next, we determine the ages of those on these selected f
 </tr>
 </table></div>
 <p>Next, we determine the mean and median values obtained by each student</p>
-<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_students</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">summarize</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="va">X1</span><span class="op">:</span><span class="va">X10</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-4">
@@ -488,7 +487,6 @@ population. This is because the weights of the babies are likely to be near each
 </ol>
 <p>A common mistake is when the population parameter is said to have for instance a 95% probability of lying within the 95% confidence interval. For instance interpreting the 95% confidence interval of 38.5% to 51.2% as the probability that the proportion of men using the bank lies within that range is wrong. This is because the population parameter is a fixed number and has no probability.</p>
 
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 </div>
 </div>
 </div>
@@ -544,7 +542,7 @@ population. This is because the weights of the babies are likely to be near each
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-21.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

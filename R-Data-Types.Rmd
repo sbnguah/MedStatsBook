@@ -142,14 +142,14 @@ ask if the wife's age is less than or equal to 35
 wife <= 34
 ```
 
-Next, we ask if the husband is greater than or equal to 45 years
+Next, we ask if the husband is more than or equal to 45 years
 
 ```{r}
 husband >= 45
 ```
 
 The next example combines three logical operators. Here we ask if the wife is 
-less than 25 years and at the same time, the husband is greater than 35 years
+less than 25 years old and at the same time, the husband is greater than 35 years
 
 ```{r}
 (wife < 25) & (husband > 35)

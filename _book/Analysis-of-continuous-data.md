@@ -1,9 +1,6 @@
 # Analysis of numeric data
 
 
-```
-Warning: package 'ggplot2' was built under R version 4.3.2
-```
 
 So far, we have dealt with descriptive statistics and the analysis of the sample 
 data collected. However, the bane of most statistical analysis is to make 

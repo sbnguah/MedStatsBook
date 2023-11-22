@@ -118,7 +118,7 @@ and the various verbs (function) it provides.</p>
 of packages. These include among others the <code>dplyr</code> package. Most of the function
 we will be employing in this chapter comes from <code>dplyr</code>.</p>
 <p>We begin by reading in the <code>blood_donors.xls</code></p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">&lt;-</span> <span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xls</a></span><span class="op">(</span><span class="st">"./Data/blood_donors_1.xls"</span><span class="op">)</span></span>
 <span><span class="va">df_blood</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
@@ -346,7 +346,7 @@ we will be employing in this chapter comes from <code>dplyr</code>.</p>
 </h2>
 <p>Below we rename the variables <code>hb</code> to <code>hemog</code> and <code>id</code> to <code>studyid</code> using he
 <code>rename</code> function, and then show the first 5 records with the <code>head</code> function.</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">rename</span><span class="op">(</span>hemog <span class="op">=</span> <span class="va">hb</span>, studyid <span class="op">=</span> <span class="va">id</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
@@ -415,7 +415,7 @@ we will be employing in this chapter comes from <code>dplyr</code>.</p>
 </h2>
 <p>Below we use the <code>arrange</code> function to sort the <code>bldgrp</code> in ascending order and
 <code>hb</code> by descending order.</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">arrange</span><span class="op">(</span><span class="va">bldgrp</span>, <span class="fu">desc</span><span class="op">(</span><span class="va">hb</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-4">
@@ -645,7 +645,7 @@ we will be employing in this chapter comes from <code>dplyr</code>.</p>
 to select specific records and variables in a tibble. Below we filter to select
 all records with <code>hb</code> &gt; 12g/dl and keep only the <code>id</code>, <code>hb</code> and <code>sex</code>
 columns.</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">hb</span> <span class="op">&gt;</span> <span class="fl">12</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="va">id</span>, <span class="va">hb</span>, <span class="va">sex</span><span class="op">)</span></span></code></pre></div>
@@ -699,7 +699,7 @@ columns.</p>
 <p>To generate new variables we use the <code>mutate</code> function. Based on our knowledge
 that the hematocrit is approximately three times the haemoglobin we generate
 a new variable, <code>hb_from_hct</code>.</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>hb_from_hct <span class="op">=</span> <span class="va">hct</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-6">
@@ -954,7 +954,7 @@ a new variable, <code>hb_from_hct</code>.</p>
 </h2>
 <p>Data can be aggregated in R using the <code>summarize</code> function. Below we determine
 the mean and standard deviation of the haemoglobin for the patient in the data.</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">summarize</span><span class="op">(</span>mean_hb <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">hb</span><span class="op">)</span>, sd_hb <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">hb</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-7">
@@ -973,7 +973,7 @@ the mean and standard deviation of the haemoglobin for the patient in the data.<
 </table></div>
 <p>Grouping the data by the “bldgrp” before the aggregation yields the aggregated
 means and standard deviations for the various blood groups.</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_blood</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">bldgrp</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">summarize</span><span class="op">(</span>mean_hb <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">hb</span><span class="op">)</span>, sd_hb <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">hb</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -1022,7 +1022,7 @@ means and standard deviations for the various blood groups.</p>
 <p>In longitudinal studies, data is captured from the same individual repeatedly.
 Such data is recorded either in long or wide formats. A typical example of a
 data frame in the long form is bpB below.</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bp_long</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span></span>
 <span>    file <span class="op">=</span> <span class="st">"./Data/bp_long.txt"</span>,</span>
 <span>    col_names <span class="op">=</span> <span class="cn">TRUE</span>, </span>
@@ -1072,7 +1072,7 @@ with the appropriate study ID and period of record, captured as the variable
 measure above. Measurement of systolic blood pressure on day 1 is indicated by
 sbp1 in the measure variable. Day 2 measurements are indicated as sbp2.</p>
 <p>The wide format of the same data can be obtained as below.</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bp_wide</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="va">bp_long</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">pivot_wider</span><span class="op">(</span></span>
@@ -1110,7 +1110,7 @@ sbp1 in the measure variable. Day 2 measurements are indicated as sbp2.</p>
 </tr>
 </table></div>
 <p>Here, each study participant’s record for the whole study is on one row of the data and the different measurements of systolic blood pressure are captured as different variables. Next, we convert the wide back to the long format.</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bp_wide</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>        cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">sbp1</span>, <span class="va">sbp2</span><span class="op">)</span>,</span>
@@ -1173,7 +1173,7 @@ these athletes are in the data marathonA. At the end point of the marathon,
 another member of the investigation team recorded their IDs (eid), weight upon
 completion (wgtend) and the time it took the athletes to complete the marathon
 (dura).</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dataA</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu">read_delim</span><span class="op">(</span></span>
 <span>        file <span class="op">=</span> <span class="st">"./Data/marathonA.txt"</span>,</span>
@@ -1235,7 +1235,7 @@ completion (wgtend) and the time it took the athletes to complete the marathon
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">53.4</td>
 </tr>
 </table></div>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">dataB</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-12">
@@ -1273,7 +1273,7 @@ completion (wgtend) and the time it took the athletes to complete the marathon
 <p>We can determine the weight change only by matching the before and after
 weight of each individual. This is where merging is very useful. Below, we
 merge the two data into one. This is done below.</p>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dataA</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">full_join</span><span class="op">(</span><span class="va">dataB</span>, by <span class="op">=</span> <span class="fu">join_by</span><span class="op">(</span><span class="va">sid</span><span class="op">==</span><span class="va">eid</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-13">
@@ -1334,7 +1334,6 @@ merge the two data into one. This is done below.</p>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 2pt 0pt 2pt 6pt; font-weight: normal; font-family: Arial, Times New Roman, Times, Serif; font-size: 11pt;">197</td>
 </tr>
 </table></div>
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 </div>
 </div>
   <div class="chapter-nav">
@@ -1368,7 +1367,7 @@ merge the two data into one. This is done below.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-21.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

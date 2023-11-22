@@ -1,7 +1,4 @@
 
-```
-Warning: package 'ggplot2' was built under R version 4.3.2
-```
 
 # R data types
 
@@ -158,7 +155,7 @@ wife <= 34
 [1] TRUE
 ```
 
-Next, we ask if the husband is greater than or equal to 45 years
+Next, we ask if the husband is more than or equal to 45 years
 
 
 ```r
@@ -167,7 +164,7 @@ husband >= 45
 ```
 
 The next example combines three logical operators. Here we ask if the wife is 
-less than 25 years and at the same time, the husband is greater than 35 years
+less than 25 years old and at the same time, the husband is greater than 35 years
 
 
 ```r

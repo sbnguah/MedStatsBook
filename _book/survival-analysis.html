@@ -132,7 +132,7 @@ occur. For these, their outcome is termed as censored. These six lines give us t
 <p><strong>Median Survival</strong>: It is the time when half the study subjects are expected to have experienced the event. In other words, the chance of surviving (or not experiencing the event) beyond that
 time is 50% for a population with the disease or exposure being studied.</p>
 <p>In this section, we will use the lung data from the survival package. First, we have a look at the details of the lung data by using</p>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/therneau/survival">survival</a></span><span class="op">)</span></span>
 <span><span class="va">lung</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
@@ -241,22 +241,22 @@ while in the study. status on the other hand indicates if the patient experience
 <span class="header-section-number">25.2</span> The survival object<a class="anchor" aria-label="anchor" href="#the-survival-object"><i class="fas fa-link"></i></a>
 </h2>
 <p>The initial step in survival analysis in R (and for that matter many other statistical software) is the creation of the survival object. This is achieved in R with the function <code><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv()</a></code> from the survival package. The function requires at least two arguments to be supplied. These include the time, indicating the duration each subject was in the study and status indicating whether the event occurred or not. This is demonstrated below using the “lung” dataset in the survival package.</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="survival-analysis.html#cb303-1" tabindex="-1"></a>Surv<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time=</span>lung<span class="sc">$</span>time, <span class="at">event=</span>lung<span class="sc">$</span>status<span class="sc">==</span><span class="dv">2</span>)</span>
-<span id="cb303-2"><a href="survival-analysis.html#cb303-2" tabindex="-1"></a>Surv<span class="fl">.1</span></span>
-<span id="cb303-3"><a href="survival-analysis.html#cb303-3" tabindex="-1"></a> [<span class="dv">1</span>]  <span class="dv">306</span>   <span class="dv">455</span>  <span class="dv">1010</span><span class="sc">+</span>  <span class="dv">210</span>   <span class="dv">883</span>  <span class="dv">1022</span><span class="sc">+</span>  <span class="dv">310</span>   <span class="dv">361</span>   <span class="dv">218</span>   <span class="dv">166</span>   <span class="dv">170</span>   <span class="dv">654</span> </span>
-<span id="cb303-4"><a href="survival-analysis.html#cb303-4" tabindex="-1"></a>[<span class="dv">13</span>]  <span class="dv">728</span>    <span class="dv">71</span>   <span class="dv">567</span>   <span class="dv">144</span>   <span class="dv">613</span>   <span class="dv">707</span>    <span class="dv">61</span>    <span class="dv">88</span>   <span class="dv">301</span>    <span class="dv">81</span>   <span class="dv">624</span>   <span class="dv">371</span> </span>
-<span id="cb303-5"><a href="survival-analysis.html#cb303-5" tabindex="-1"></a>[<span class="dv">25</span>]  <span class="dv">394</span>   <span class="dv">520</span>   <span class="dv">574</span>   <span class="dv">118</span>   <span class="dv">390</span>    <span class="dv">12</span>   <span class="dv">473</span>    <span class="dv">26</span>   <span class="dv">533</span>   <span class="dv">107</span>    <span class="dv">53</span>   <span class="dv">122</span> </span>
-<span id="cb303-6"><a href="survival-analysis.html#cb303-6" tabindex="-1"></a>[<span class="dv">37</span>]  <span class="dv">814</span>   <span class="dv">965</span><span class="sc">+</span>   <span class="dv">93</span>   <span class="dv">731</span>   <span class="dv">460</span>   <span class="dv">153</span>   <span class="dv">433</span>   <span class="dv">145</span>   <span class="dv">583</span>    <span class="dv">95</span>   <span class="dv">303</span>   <span class="dv">519</span> </span>
-<span id="cb303-7"><a href="survival-analysis.html#cb303-7" tabindex="-1"></a>[<span class="dv">49</span>]  <span class="dv">643</span>   <span class="dv">765</span>   <span class="dv">735</span>   <span class="dv">189</span>    <span class="dv">53</span>   <span class="dv">246</span>   <span class="dv">689</span>    <span class="dv">65</span>     <span class="dv">5</span>   <span class="dv">132</span>   <span class="dv">687</span>   <span class="dv">345</span> </span>
-<span id="cb303-8"><a href="survival-analysis.html#cb303-8" tabindex="-1"></a>[<span class="dv">61</span>]  <span class="dv">444</span>   <span class="dv">223</span>   <span class="dv">175</span>    <span class="dv">60</span>   <span class="dv">163</span>    <span class="dv">65</span>   <span class="dv">208</span>   <span class="dv">821</span><span class="sc">+</span>  <span class="dv">428</span>   <span class="dv">230</span>   <span class="dv">840</span><span class="sc">+</span>  <span class="dv">305</span> </span>
-<span id="cb303-9"><a href="survival-analysis.html#cb303-9" tabindex="-1"></a>[<span class="dv">73</span>]   <span class="dv">11</span>   <span class="dv">132</span>   <span class="dv">226</span>   <span class="dv">426</span>   <span class="dv">705</span>   <span class="dv">363</span>    <span class="dv">11</span>   <span class="dv">176</span>   <span class="dv">791</span>    <span class="dv">95</span>   <span class="dv">196</span><span class="sc">+</span>  <span class="dv">167</span> </span>
-<span id="cb303-10"><a href="survival-analysis.html#cb303-10" tabindex="-1"></a>[<span class="dv">85</span>]  <span class="dv">806</span><span class="sc">+</span>  <span class="dv">284</span>   <span class="dv">641</span>   <span class="dv">147</span>   <span class="dv">740</span><span class="sc">+</span>  <span class="dv">163</span> </span>
-<span id="cb303-11"><a href="survival-analysis.html#cb303-11" tabindex="-1"></a> [ reached <span class="fu">getOption</span>(<span class="st">"max.print"</span>) <span class="sc">--</span> omitted <span class="dv">138</span> entries ]</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="survival-analysis.html#cb280-1" tabindex="-1"></a>Surv<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">Surv</span>(<span class="at">time=</span>lung<span class="sc">$</span>time, <span class="at">event=</span>lung<span class="sc">$</span>status<span class="sc">==</span><span class="dv">2</span>)</span>
+<span id="cb280-2"><a href="survival-analysis.html#cb280-2" tabindex="-1"></a>Surv<span class="fl">.1</span></span>
+<span id="cb280-3"><a href="survival-analysis.html#cb280-3" tabindex="-1"></a> [<span class="dv">1</span>]  <span class="dv">306</span>   <span class="dv">455</span>  <span class="dv">1010</span><span class="sc">+</span>  <span class="dv">210</span>   <span class="dv">883</span>  <span class="dv">1022</span><span class="sc">+</span>  <span class="dv">310</span>   <span class="dv">361</span>   <span class="dv">218</span>   <span class="dv">166</span>   <span class="dv">170</span>   <span class="dv">654</span> </span>
+<span id="cb280-4"><a href="survival-analysis.html#cb280-4" tabindex="-1"></a>[<span class="dv">13</span>]  <span class="dv">728</span>    <span class="dv">71</span>   <span class="dv">567</span>   <span class="dv">144</span>   <span class="dv">613</span>   <span class="dv">707</span>    <span class="dv">61</span>    <span class="dv">88</span>   <span class="dv">301</span>    <span class="dv">81</span>   <span class="dv">624</span>   <span class="dv">371</span> </span>
+<span id="cb280-5"><a href="survival-analysis.html#cb280-5" tabindex="-1"></a>[<span class="dv">25</span>]  <span class="dv">394</span>   <span class="dv">520</span>   <span class="dv">574</span>   <span class="dv">118</span>   <span class="dv">390</span>    <span class="dv">12</span>   <span class="dv">473</span>    <span class="dv">26</span>   <span class="dv">533</span>   <span class="dv">107</span>    <span class="dv">53</span>   <span class="dv">122</span> </span>
+<span id="cb280-6"><a href="survival-analysis.html#cb280-6" tabindex="-1"></a>[<span class="dv">37</span>]  <span class="dv">814</span>   <span class="dv">965</span><span class="sc">+</span>   <span class="dv">93</span>   <span class="dv">731</span>   <span class="dv">460</span>   <span class="dv">153</span>   <span class="dv">433</span>   <span class="dv">145</span>   <span class="dv">583</span>    <span class="dv">95</span>   <span class="dv">303</span>   <span class="dv">519</span> </span>
+<span id="cb280-7"><a href="survival-analysis.html#cb280-7" tabindex="-1"></a>[<span class="dv">49</span>]  <span class="dv">643</span>   <span class="dv">765</span>   <span class="dv">735</span>   <span class="dv">189</span>    <span class="dv">53</span>   <span class="dv">246</span>   <span class="dv">689</span>    <span class="dv">65</span>     <span class="dv">5</span>   <span class="dv">132</span>   <span class="dv">687</span>   <span class="dv">345</span> </span>
+<span id="cb280-8"><a href="survival-analysis.html#cb280-8" tabindex="-1"></a>[<span class="dv">61</span>]  <span class="dv">444</span>   <span class="dv">223</span>   <span class="dv">175</span>    <span class="dv">60</span>   <span class="dv">163</span>    <span class="dv">65</span>   <span class="dv">208</span>   <span class="dv">821</span><span class="sc">+</span>  <span class="dv">428</span>   <span class="dv">230</span>   <span class="dv">840</span><span class="sc">+</span>  <span class="dv">305</span> </span>
+<span id="cb280-9"><a href="survival-analysis.html#cb280-9" tabindex="-1"></a>[<span class="dv">73</span>]   <span class="dv">11</span>   <span class="dv">132</span>   <span class="dv">226</span>   <span class="dv">426</span>   <span class="dv">705</span>   <span class="dv">363</span>    <span class="dv">11</span>   <span class="dv">176</span>   <span class="dv">791</span>    <span class="dv">95</span>   <span class="dv">196</span><span class="sc">+</span>  <span class="dv">167</span> </span>
+<span id="cb280-10"><a href="survival-analysis.html#cb280-10" tabindex="-1"></a>[<span class="dv">85</span>]  <span class="dv">806</span><span class="sc">+</span>  <span class="dv">284</span>   <span class="dv">641</span>   <span class="dv">147</span>   <span class="dv">740</span><span class="sc">+</span>  <span class="dv">163</span> </span>
+<span id="cb280-11"><a href="survival-analysis.html#cb280-11" tabindex="-1"></a> [ reached <span class="fu">getOption</span>(<span class="st">"max.print"</span>) <span class="sc">--</span> omitted <span class="dv">138</span> entries ]</span></code></pre></div>
 <p>In the Surv()function above time is supplied as a numeric variable while the event is either expressed as 0 (for no event or censored) and 1 (for the event occurring) or FALSE (for no event or censoring) and TRUE (for the occurrence of the event). Our command above used the logical version (TRUE/FALSE) and created a vector of TRUE (for status of 2) and FALSE (for status otherwise).</p>
 <p>The survival object is essentially a conversion of the time into an object that incorporates both the time and the status. Below we combine the time and status from the lung dataset and the survival object. It can be seen that the time variable is the same as the survival object if the patient died but in patients with censored outcomes, a plus (+) sign is attached.</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="survival-analysis.html#cb304-1" tabindex="-1"></a><span class="fu">cbind</span>(lung[,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>], Surv<span class="fl">.1</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
-<span id="cb304-2"><a href="survival-analysis.html#cb304-2" tabindex="-1"></a>Warning <span class="cf">in</span> value[[jj]][ri] <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">is.factor</span>(xij)) <span class="fu">as.vector</span>(xij) <span class="cf">else</span> xij<span class="sc">:</span></span>
-<span id="cb304-3"><a href="survival-analysis.html#cb304-3" tabindex="-1"></a>number of items to replace is not a multiple of replacement length</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="survival-analysis.html#cb281-1" tabindex="-1"></a><span class="fu">cbind</span>(lung[,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>], Surv<span class="fl">.1</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<span id="cb281-2"><a href="survival-analysis.html#cb281-2" tabindex="-1"></a>Warning <span class="cf">in</span> value[[jj]][ri] <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">is.factor</span>(xij)) <span class="fu">as.vector</span>(xij) <span class="cf">else</span> xij<span class="sc">:</span></span>
+<span id="cb281-3"><a href="survival-analysis.html#cb281-3" tabindex="-1"></a>number of items to replace is not a multiple of replacement length</span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-5">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-5">Table 7.3: </span> </caption>
@@ -307,68 +307,68 @@ while in the study. status on the other hand indicates if the patient experience
 <p>Next, a survival object is created in accordance with the analysis intended to be done. The non-stratified analysis is currently fitted with a 1 on the right side of the formula as shown below
 while stratified survival is done with the stratifying variable on the right side of the formula.</p>
 <p>In the analysis below we try to determine the median survival time for all persons included in the study</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="survival-analysis.html#cb305-1" tabindex="-1"></a>sfit<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">survfit</span>(Surv<span class="fl">.1</span> <span class="sc">~</span> <span class="dv">1</span>)</span>
-<span id="cb305-2"><a href="survival-analysis.html#cb305-2" tabindex="-1"></a>sfit<span class="fl">.1</span></span>
-<span id="cb305-3"><a href="survival-analysis.html#cb305-3" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> <span class="dv">1</span>)</span>
-<span id="cb305-4"><a href="survival-analysis.html#cb305-4" tabindex="-1"></a></span>
-<span id="cb305-5"><a href="survival-analysis.html#cb305-5" tabindex="-1"></a>       n events median <span class="fl">0.95</span>LCL <span class="fl">0.95</span>UCL</span>
-<span id="cb305-6"><a href="survival-analysis.html#cb305-6" tabindex="-1"></a>[<span class="dv">1</span>,] <span class="dv">228</span>    <span class="dv">165</span>    <span class="dv">310</span>     <span class="dv">285</span>     <span class="dv">363</span></span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="survival-analysis.html#cb282-1" tabindex="-1"></a>sfit<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">survfit</span>(Surv<span class="fl">.1</span> <span class="sc">~</span> <span class="dv">1</span>)</span>
+<span id="cb282-2"><a href="survival-analysis.html#cb282-2" tabindex="-1"></a>sfit<span class="fl">.1</span></span>
+<span id="cb282-3"><a href="survival-analysis.html#cb282-3" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> <span class="dv">1</span>)</span>
+<span id="cb282-4"><a href="survival-analysis.html#cb282-4" tabindex="-1"></a></span>
+<span id="cb282-5"><a href="survival-analysis.html#cb282-5" tabindex="-1"></a>       n events median <span class="fl">0.95</span>LCL <span class="fl">0.95</span>UCL</span>
+<span id="cb282-6"><a href="survival-analysis.html#cb282-6" tabindex="-1"></a>[<span class="dv">1</span>,] <span class="dv">228</span>    <span class="dv">165</span>    <span class="dv">310</span>     <span class="dv">285</span>     <span class="dv">363</span></span></code></pre></div>
 <p>The survival fit object sfit.1 like a linear regression or logistic regression object has very little but important information at first hand. It shows the number of records used, the median survival time (the time at which it is expected that half the patients would have the event) and its confidence interval. Our analysis indicates that after 310 days half the patients would have died! The output is simple but there is more that can be revealed in the attributes. These are displayed
 below</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="survival-analysis.html#cb306-1" tabindex="-1"></a><span class="fu">attributes</span>(sfit<span class="fl">.1</span>)</span>
-<span id="cb306-2"><a href="survival-analysis.html#cb306-2" tabindex="-1"></a><span class="sc">$</span>names</span>
-<span id="cb306-3"><a href="survival-analysis.html#cb306-3" tabindex="-1"></a> [<span class="dv">1</span>] <span class="st">"n"</span>         <span class="st">"time"</span>      <span class="st">"n.risk"</span>    <span class="st">"n.event"</span>   <span class="st">"n.censor"</span>  <span class="st">"surv"</span>     </span>
-<span id="cb306-4"><a href="survival-analysis.html#cb306-4" tabindex="-1"></a> [<span class="dv">7</span>] <span class="st">"std.err"</span>   <span class="st">"cumhaz"</span>    <span class="st">"std.chaz"</span>  <span class="st">"type"</span>      <span class="st">"logse"</span>     <span class="st">"conf.int"</span> </span>
-<span id="cb306-5"><a href="survival-analysis.html#cb306-5" tabindex="-1"></a>[<span class="dv">13</span>] <span class="st">"conf.type"</span> <span class="st">"lower"</span>     <span class="st">"upper"</span>     <span class="st">"call"</span>     </span>
-<span id="cb306-6"><a href="survival-analysis.html#cb306-6" tabindex="-1"></a></span>
-<span id="cb306-7"><a href="survival-analysis.html#cb306-7" tabindex="-1"></a><span class="sc">$</span>class</span>
-<span id="cb306-8"><a href="survival-analysis.html#cb306-8" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"survfit"</span></span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="survival-analysis.html#cb283-1" tabindex="-1"></a><span class="fu">attributes</span>(sfit<span class="fl">.1</span>)</span>
+<span id="cb283-2"><a href="survival-analysis.html#cb283-2" tabindex="-1"></a><span class="sc">$</span>names</span>
+<span id="cb283-3"><a href="survival-analysis.html#cb283-3" tabindex="-1"></a> [<span class="dv">1</span>] <span class="st">"n"</span>         <span class="st">"time"</span>      <span class="st">"n.risk"</span>    <span class="st">"n.event"</span>   <span class="st">"n.censor"</span>  <span class="st">"surv"</span>     </span>
+<span id="cb283-4"><a href="survival-analysis.html#cb283-4" tabindex="-1"></a> [<span class="dv">7</span>] <span class="st">"std.err"</span>   <span class="st">"cumhaz"</span>    <span class="st">"std.chaz"</span>  <span class="st">"type"</span>      <span class="st">"logse"</span>     <span class="st">"conf.int"</span> </span>
+<span id="cb283-5"><a href="survival-analysis.html#cb283-5" tabindex="-1"></a>[<span class="dv">13</span>] <span class="st">"conf.type"</span> <span class="st">"lower"</span>     <span class="st">"upper"</span>     <span class="st">"call"</span>     </span>
+<span id="cb283-6"><a href="survival-analysis.html#cb283-6" tabindex="-1"></a></span>
+<span id="cb283-7"><a href="survival-analysis.html#cb283-7" tabindex="-1"></a><span class="sc">$</span>class</span>
+<span id="cb283-8"><a href="survival-analysis.html#cb283-8" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"survfit"</span></span></code></pre></div>
 </div>
 <div id="kaplan-meier-life-table" class="section level2" number="25.4">
 <h2>
 <span class="header-section-number">25.4</span> Kaplan-Meier life table<a class="anchor" aria-label="anchor" href="#kaplan-meier-life-table"><i class="fas fa-link"></i></a>
 </h2>
 <p>For a compact view of these attributes, we summarise the survfit object. This is displayed below</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="survival-analysis.html#cb307-1" tabindex="-1"></a><span class="fu">summary</span>(sfit<span class="fl">.1</span>)</span>
-<span id="cb307-2"><a href="survival-analysis.html#cb307-2" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> <span class="dv">1</span>)</span>
-<span id="cb307-3"><a href="survival-analysis.html#cb307-3" tabindex="-1"></a></span>
-<span id="cb307-4"><a href="survival-analysis.html#cb307-4" tabindex="-1"></a> time n.risk n.event survival std.err lower <span class="dv">95</span><span class="sc">% CI upper 95%</span> CI</span>
-<span id="cb307-5"><a href="survival-analysis.html#cb307-5" tabindex="-1"></a>    <span class="dv">5</span>    <span class="dv">228</span>       <span class="dv">1</span>   <span class="fl">0.9956</span> <span class="fl">0.00438</span>       <span class="fl">0.9871</span>        <span class="fl">1.000</span></span>
-<span id="cb307-6"><a href="survival-analysis.html#cb307-6" tabindex="-1"></a>   <span class="dv">11</span>    <span class="dv">227</span>       <span class="dv">3</span>   <span class="fl">0.9825</span> <span class="fl">0.00869</span>       <span class="fl">0.9656</span>        <span class="fl">1.000</span></span>
-<span id="cb307-7"><a href="survival-analysis.html#cb307-7" tabindex="-1"></a>   <span class="dv">12</span>    <span class="dv">224</span>       <span class="dv">1</span>   <span class="fl">0.9781</span> <span class="fl">0.00970</span>       <span class="fl">0.9592</span>        <span class="fl">0.997</span></span>
-<span id="cb307-8"><a href="survival-analysis.html#cb307-8" tabindex="-1"></a>   <span class="dv">13</span>    <span class="dv">223</span>       <span class="dv">2</span>   <span class="fl">0.9693</span> <span class="fl">0.01142</span>       <span class="fl">0.9472</span>        <span class="fl">0.992</span></span>
-<span id="cb307-9"><a href="survival-analysis.html#cb307-9" tabindex="-1"></a>   <span class="dv">15</span>    <span class="dv">221</span>       <span class="dv">1</span>   <span class="fl">0.9649</span> <span class="fl">0.01219</span>       <span class="fl">0.9413</span>        <span class="fl">0.989</span></span>
-<span id="cb307-10"><a href="survival-analysis.html#cb307-10" tabindex="-1"></a>   <span class="dv">26</span>    <span class="dv">220</span>       <span class="dv">1</span>   <span class="fl">0.9605</span> <span class="fl">0.01290</span>       <span class="fl">0.9356</span>        <span class="fl">0.986</span></span>
-<span id="cb307-11"><a href="survival-analysis.html#cb307-11" tabindex="-1"></a>   <span class="dv">30</span>    <span class="dv">219</span>       <span class="dv">1</span>   <span class="fl">0.9561</span> <span class="fl">0.01356</span>       <span class="fl">0.9299</span>        <span class="fl">0.983</span></span>
-<span id="cb307-12"><a href="survival-analysis.html#cb307-12" tabindex="-1"></a>   <span class="dv">31</span>    <span class="dv">218</span>       <span class="dv">1</span>   <span class="fl">0.9518</span> <span class="fl">0.01419</span>       <span class="fl">0.9243</span>        <span class="fl">0.980</span></span>
-<span id="cb307-13"><a href="survival-analysis.html#cb307-13" tabindex="-1"></a>   <span class="dv">53</span>    <span class="dv">217</span>       <span class="dv">2</span>   <span class="fl">0.9430</span> <span class="fl">0.01536</span>       <span class="fl">0.9134</span>        <span class="fl">0.974</span></span>
-<span id="cb307-14"><a href="survival-analysis.html#cb307-14" tabindex="-1"></a>   <span class="dv">54</span>    <span class="dv">215</span>       <span class="dv">1</span>   <span class="fl">0.9386</span> <span class="fl">0.01590</span>       <span class="fl">0.9079</span>        <span class="fl">0.970</span></span>
-<span id="cb307-15"><a href="survival-analysis.html#cb307-15" tabindex="-1"></a>   <span class="dv">59</span>    <span class="dv">214</span>       <span class="dv">1</span>   <span class="fl">0.9342</span> <span class="fl">0.01642</span>       <span class="fl">0.9026</span>        <span class="fl">0.967</span></span>
-<span id="cb307-16"><a href="survival-analysis.html#cb307-16" tabindex="-1"></a>   <span class="dv">60</span>    <span class="dv">213</span>       <span class="dv">2</span>   <span class="fl">0.9254</span> <span class="fl">0.01740</span>       <span class="fl">0.8920</span>        <span class="fl">0.960</span></span>
-<span id="cb307-17"><a href="survival-analysis.html#cb307-17" tabindex="-1"></a> [ reached <span class="fu">getOption</span>(<span class="st">"max.print"</span>) <span class="sc">--</span> omitted <span class="dv">127</span> rows ]</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="survival-analysis.html#cb284-1" tabindex="-1"></a><span class="fu">summary</span>(sfit<span class="fl">.1</span>)</span>
+<span id="cb284-2"><a href="survival-analysis.html#cb284-2" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> <span class="dv">1</span>)</span>
+<span id="cb284-3"><a href="survival-analysis.html#cb284-3" tabindex="-1"></a></span>
+<span id="cb284-4"><a href="survival-analysis.html#cb284-4" tabindex="-1"></a> time n.risk n.event survival std.err lower <span class="dv">95</span><span class="sc">% CI upper 95%</span> CI</span>
+<span id="cb284-5"><a href="survival-analysis.html#cb284-5" tabindex="-1"></a>    <span class="dv">5</span>    <span class="dv">228</span>       <span class="dv">1</span>   <span class="fl">0.9956</span> <span class="fl">0.00438</span>       <span class="fl">0.9871</span>        <span class="fl">1.000</span></span>
+<span id="cb284-6"><a href="survival-analysis.html#cb284-6" tabindex="-1"></a>   <span class="dv">11</span>    <span class="dv">227</span>       <span class="dv">3</span>   <span class="fl">0.9825</span> <span class="fl">0.00869</span>       <span class="fl">0.9656</span>        <span class="fl">1.000</span></span>
+<span id="cb284-7"><a href="survival-analysis.html#cb284-7" tabindex="-1"></a>   <span class="dv">12</span>    <span class="dv">224</span>       <span class="dv">1</span>   <span class="fl">0.9781</span> <span class="fl">0.00970</span>       <span class="fl">0.9592</span>        <span class="fl">0.997</span></span>
+<span id="cb284-8"><a href="survival-analysis.html#cb284-8" tabindex="-1"></a>   <span class="dv">13</span>    <span class="dv">223</span>       <span class="dv">2</span>   <span class="fl">0.9693</span> <span class="fl">0.01142</span>       <span class="fl">0.9472</span>        <span class="fl">0.992</span></span>
+<span id="cb284-9"><a href="survival-analysis.html#cb284-9" tabindex="-1"></a>   <span class="dv">15</span>    <span class="dv">221</span>       <span class="dv">1</span>   <span class="fl">0.9649</span> <span class="fl">0.01219</span>       <span class="fl">0.9413</span>        <span class="fl">0.989</span></span>
+<span id="cb284-10"><a href="survival-analysis.html#cb284-10" tabindex="-1"></a>   <span class="dv">26</span>    <span class="dv">220</span>       <span class="dv">1</span>   <span class="fl">0.9605</span> <span class="fl">0.01290</span>       <span class="fl">0.9356</span>        <span class="fl">0.986</span></span>
+<span id="cb284-11"><a href="survival-analysis.html#cb284-11" tabindex="-1"></a>   <span class="dv">30</span>    <span class="dv">219</span>       <span class="dv">1</span>   <span class="fl">0.9561</span> <span class="fl">0.01356</span>       <span class="fl">0.9299</span>        <span class="fl">0.983</span></span>
+<span id="cb284-12"><a href="survival-analysis.html#cb284-12" tabindex="-1"></a>   <span class="dv">31</span>    <span class="dv">218</span>       <span class="dv">1</span>   <span class="fl">0.9518</span> <span class="fl">0.01419</span>       <span class="fl">0.9243</span>        <span class="fl">0.980</span></span>
+<span id="cb284-13"><a href="survival-analysis.html#cb284-13" tabindex="-1"></a>   <span class="dv">53</span>    <span class="dv">217</span>       <span class="dv">2</span>   <span class="fl">0.9430</span> <span class="fl">0.01536</span>       <span class="fl">0.9134</span>        <span class="fl">0.974</span></span>
+<span id="cb284-14"><a href="survival-analysis.html#cb284-14" tabindex="-1"></a>   <span class="dv">54</span>    <span class="dv">215</span>       <span class="dv">1</span>   <span class="fl">0.9386</span> <span class="fl">0.01590</span>       <span class="fl">0.9079</span>        <span class="fl">0.970</span></span>
+<span id="cb284-15"><a href="survival-analysis.html#cb284-15" tabindex="-1"></a>   <span class="dv">59</span>    <span class="dv">214</span>       <span class="dv">1</span>   <span class="fl">0.9342</span> <span class="fl">0.01642</span>       <span class="fl">0.9026</span>        <span class="fl">0.967</span></span>
+<span id="cb284-16"><a href="survival-analysis.html#cb284-16" tabindex="-1"></a>   <span class="dv">60</span>    <span class="dv">213</span>       <span class="dv">2</span>   <span class="fl">0.9254</span> <span class="fl">0.01740</span>       <span class="fl">0.8920</span>        <span class="fl">0.960</span></span>
+<span id="cb284-17"><a href="survival-analysis.html#cb284-17" tabindex="-1"></a> [ reached <span class="fu">getOption</span>(<span class="st">"max.print"</span>) <span class="sc">--</span> omitted <span class="dv">127</span> rows ]</span></code></pre></div>
 <p>The long table produced in this output is called the Kaplan-Meier life table. It contains the individual survival probabilities with their 95% confidence intervals at every point in time of the study. For instance, the proportion that survived to the end of day 30 is about 0.9561 (95%CI: 0.9299 to 0.983). The rather long life table can be significantly compacted to show only specific times. For instance, if we decide to show the survival in a life table for every 90 days we can specify these times below</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="survival-analysis.html#cb308-1" tabindex="-1"></a><span class="fu">summary</span>(sfit<span class="fl">.1</span>, <span class="at">times=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">900</span>,<span class="dv">90</span>))</span>
-<span id="cb308-2"><a href="survival-analysis.html#cb308-2" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> <span class="dv">1</span>)</span>
-<span id="cb308-3"><a href="survival-analysis.html#cb308-3" tabindex="-1"></a></span>
-<span id="cb308-4"><a href="survival-analysis.html#cb308-4" tabindex="-1"></a> time n.risk n.event survival std.err lower <span class="dv">95</span><span class="sc">% CI upper 95%</span> CI</span>
-<span id="cb308-5"><a href="survival-analysis.html#cb308-5" tabindex="-1"></a>    <span class="dv">0</span>    <span class="dv">228</span>       <span class="dv">0</span>   <span class="fl">1.0000</span>  <span class="fl">0.0000</span>       <span class="fl">1.0000</span>        <span class="fl">1.000</span></span>
-<span id="cb308-6"><a href="survival-analysis.html#cb308-6" tabindex="-1"></a>   <span class="dv">90</span>    <span class="dv">201</span>      <span class="dv">27</span>   <span class="fl">0.8816</span>  <span class="fl">0.0214</span>       <span class="fl">0.8406</span>        <span class="fl">0.925</span></span>
-<span id="cb308-7"><a href="survival-analysis.html#cb308-7" tabindex="-1"></a>  <span class="dv">180</span>    <span class="dv">160</span>      <span class="dv">36</span>   <span class="fl">0.7217</span>  <span class="fl">0.0298</span>       <span class="fl">0.6655</span>        <span class="fl">0.783</span></span>
-<span id="cb308-8"><a href="survival-analysis.html#cb308-8" tabindex="-1"></a>  <span class="dv">270</span>    <span class="dv">108</span>      <span class="dv">30</span>   <span class="fl">0.5753</span>  <span class="fl">0.0338</span>       <span class="fl">0.5128</span>        <span class="fl">0.645</span></span>
-<span id="cb308-9"><a href="survival-analysis.html#cb308-9" tabindex="-1"></a>  <span class="dv">360</span>     <span class="dv">70</span>      <span class="dv">24</span>   <span class="fl">0.4340</span>  <span class="fl">0.0358</span>       <span class="fl">0.3693</span>        <span class="fl">0.510</span></span>
-<span id="cb308-10"><a href="survival-analysis.html#cb308-10" tabindex="-1"></a>  <span class="dv">450</span>     <span class="dv">48</span>      <span class="dv">16</span>   <span class="fl">0.3287</span>  <span class="fl">0.0356</span>       <span class="fl">0.2659</span>        <span class="fl">0.406</span></span>
-<span id="cb308-11"><a href="survival-analysis.html#cb308-11" tabindex="-1"></a>  <span class="dv">540</span>     <span class="dv">33</span>      <span class="dv">10</span>   <span class="fl">0.2554</span>  <span class="fl">0.0344</span>       <span class="fl">0.1962</span>        <span class="fl">0.333</span></span>
-<span id="cb308-12"><a href="survival-analysis.html#cb308-12" tabindex="-1"></a>  <span class="dv">630</span>     <span class="dv">22</span>       <span class="dv">7</span>   <span class="fl">0.1958</span>  <span class="fl">0.0330</span>       <span class="fl">0.1407</span>        <span class="fl">0.272</span></span>
-<span id="cb308-13"><a href="survival-analysis.html#cb308-13" tabindex="-1"></a>  <span class="dv">720</span>     <span class="dv">14</span>       <span class="dv">8</span>   <span class="fl">0.1246</span>  <span class="fl">0.0290</span>       <span class="fl">0.0789</span>        <span class="fl">0.197</span></span>
-<span id="cb308-14"><a href="survival-analysis.html#cb308-14" tabindex="-1"></a>  <span class="dv">810</span>      <span class="dv">7</span>       <span class="dv">5</span>   <span class="fl">0.0783</span>  <span class="fl">0.0246</span>       <span class="fl">0.0423</span>        <span class="fl">0.145</span></span>
-<span id="cb308-15"><a href="survival-analysis.html#cb308-15" tabindex="-1"></a>  <span class="dv">900</span>      <span class="dv">3</span>       <span class="dv">2</span>   <span class="fl">0.0503</span>  <span class="fl">0.0228</span>       <span class="fl">0.0207</span>        <span class="fl">0.123</span></span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="survival-analysis.html#cb285-1" tabindex="-1"></a><span class="fu">summary</span>(sfit<span class="fl">.1</span>, <span class="at">times=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">900</span>,<span class="dv">90</span>))</span>
+<span id="cb285-2"><a href="survival-analysis.html#cb285-2" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> <span class="dv">1</span>)</span>
+<span id="cb285-3"><a href="survival-analysis.html#cb285-3" tabindex="-1"></a></span>
+<span id="cb285-4"><a href="survival-analysis.html#cb285-4" tabindex="-1"></a> time n.risk n.event survival std.err lower <span class="dv">95</span><span class="sc">% CI upper 95%</span> CI</span>
+<span id="cb285-5"><a href="survival-analysis.html#cb285-5" tabindex="-1"></a>    <span class="dv">0</span>    <span class="dv">228</span>       <span class="dv">0</span>   <span class="fl">1.0000</span>  <span class="fl">0.0000</span>       <span class="fl">1.0000</span>        <span class="fl">1.000</span></span>
+<span id="cb285-6"><a href="survival-analysis.html#cb285-6" tabindex="-1"></a>   <span class="dv">90</span>    <span class="dv">201</span>      <span class="dv">27</span>   <span class="fl">0.8816</span>  <span class="fl">0.0214</span>       <span class="fl">0.8406</span>        <span class="fl">0.925</span></span>
+<span id="cb285-7"><a href="survival-analysis.html#cb285-7" tabindex="-1"></a>  <span class="dv">180</span>    <span class="dv">160</span>      <span class="dv">36</span>   <span class="fl">0.7217</span>  <span class="fl">0.0298</span>       <span class="fl">0.6655</span>        <span class="fl">0.783</span></span>
+<span id="cb285-8"><a href="survival-analysis.html#cb285-8" tabindex="-1"></a>  <span class="dv">270</span>    <span class="dv">108</span>      <span class="dv">30</span>   <span class="fl">0.5753</span>  <span class="fl">0.0338</span>       <span class="fl">0.5128</span>        <span class="fl">0.645</span></span>
+<span id="cb285-9"><a href="survival-analysis.html#cb285-9" tabindex="-1"></a>  <span class="dv">360</span>     <span class="dv">70</span>      <span class="dv">24</span>   <span class="fl">0.4340</span>  <span class="fl">0.0358</span>       <span class="fl">0.3693</span>        <span class="fl">0.510</span></span>
+<span id="cb285-10"><a href="survival-analysis.html#cb285-10" tabindex="-1"></a>  <span class="dv">450</span>     <span class="dv">48</span>      <span class="dv">16</span>   <span class="fl">0.3287</span>  <span class="fl">0.0356</span>       <span class="fl">0.2659</span>        <span class="fl">0.406</span></span>
+<span id="cb285-11"><a href="survival-analysis.html#cb285-11" tabindex="-1"></a>  <span class="dv">540</span>     <span class="dv">33</span>      <span class="dv">10</span>   <span class="fl">0.2554</span>  <span class="fl">0.0344</span>       <span class="fl">0.1962</span>        <span class="fl">0.333</span></span>
+<span id="cb285-12"><a href="survival-analysis.html#cb285-12" tabindex="-1"></a>  <span class="dv">630</span>     <span class="dv">22</span>       <span class="dv">7</span>   <span class="fl">0.1958</span>  <span class="fl">0.0330</span>       <span class="fl">0.1407</span>        <span class="fl">0.272</span></span>
+<span id="cb285-13"><a href="survival-analysis.html#cb285-13" tabindex="-1"></a>  <span class="dv">720</span>     <span class="dv">14</span>       <span class="dv">8</span>   <span class="fl">0.1246</span>  <span class="fl">0.0290</span>       <span class="fl">0.0789</span>        <span class="fl">0.197</span></span>
+<span id="cb285-14"><a href="survival-analysis.html#cb285-14" tabindex="-1"></a>  <span class="dv">810</span>      <span class="dv">7</span>       <span class="dv">5</span>   <span class="fl">0.0783</span>  <span class="fl">0.0246</span>       <span class="fl">0.0423</span>        <span class="fl">0.145</span></span>
+<span id="cb285-15"><a href="survival-analysis.html#cb285-15" tabindex="-1"></a>  <span class="dv">900</span>      <span class="dv">3</span>       <span class="dv">2</span>   <span class="fl">0.0503</span>  <span class="fl">0.0228</span>       <span class="fl">0.0207</span>        <span class="fl">0.123</span></span></code></pre></div>
 </div>
 <div id="kaplan-meier-curve" class="section level2" number="25.5">
 <h2>
 <span class="header-section-number">25.5</span> Kaplan-Meier curve<a class="anchor" aria-label="anchor" href="#kaplan-meier-curve"><i class="fas fa-link"></i></a>
 </h2>
 <p>The Kaplan-Meier life table can be plotted to give it a graphical representation called the Kaplan-Meier curve. The resulting curve is a plot of the Survival probability against the time. An example is shown in the figure below and plotted with</p>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">survminer</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/survminer/man/ggsurvplot.html">ggsurvplot</a></span><span class="op">(</span></span>
 <span>    <span class="va">sfit.1</span>, </span>
 <span>    data <span class="op">=</span> <span class="va">lung</span>,</span>
@@ -385,56 +385,56 @@ below</p>
 <span class="header-section-number">25.6</span> Survival for subgroups<a class="anchor" aria-label="anchor" href="#survival-for-subgroups"><i class="fas fa-link"></i></a>
 </h2>
 <p>To determine the survival separately for subgroups we need to fit the survival object specifying our requisite group. For instance, to determine survival among the different sexes we fit the object as below. First, we make sure the sex variable is in the right format, a factor.</p>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lung</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="va">lung</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">sex</span>, levels <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>And then fit the appropriate survfit object. Note that the right-hand side of the formula this time is sex and not 1.</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="survival-analysis.html#cb311-1" tabindex="-1"></a>sfit<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">survfit</span>(Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
-<span id="cb311-2"><a href="survival-analysis.html#cb311-2" tabindex="-1"></a>sfit<span class="fl">.2</span></span>
-<span id="cb311-3"><a href="survival-analysis.html#cb311-3" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
-<span id="cb311-4"><a href="survival-analysis.html#cb311-4" tabindex="-1"></a></span>
-<span id="cb311-5"><a href="survival-analysis.html#cb311-5" tabindex="-1"></a>                  n events median <span class="fl">0.95</span>LCL <span class="fl">0.95</span>UCL</span>
-<span id="cb311-6"><a href="survival-analysis.html#cb311-6" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Male   <span class="dv">138</span>    <span class="dv">112</span>    <span class="dv">270</span>     <span class="dv">212</span>     <span class="dv">310</span></span>
-<span id="cb311-7"><a href="survival-analysis.html#cb311-7" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Female  <span class="dv">90</span>     <span class="dv">53</span>    <span class="dv">426</span>     <span class="dv">348</span>     <span class="dv">550</span></span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="survival-analysis.html#cb288-1" tabindex="-1"></a>sfit<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">survfit</span>(Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
+<span id="cb288-2"><a href="survival-analysis.html#cb288-2" tabindex="-1"></a>sfit<span class="fl">.2</span></span>
+<span id="cb288-3"><a href="survival-analysis.html#cb288-3" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
+<span id="cb288-4"><a href="survival-analysis.html#cb288-4" tabindex="-1"></a></span>
+<span id="cb288-5"><a href="survival-analysis.html#cb288-5" tabindex="-1"></a>                  n events median <span class="fl">0.95</span>LCL <span class="fl">0.95</span>UCL</span>
+<span id="cb288-6"><a href="survival-analysis.html#cb288-6" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Male   <span class="dv">138</span>    <span class="dv">112</span>    <span class="dv">270</span>     <span class="dv">212</span>     <span class="dv">310</span></span>
+<span id="cb288-7"><a href="survival-analysis.html#cb288-7" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Female  <span class="dv">90</span>     <span class="dv">53</span>    <span class="dv">426</span>     <span class="dv">348</span>     <span class="dv">550</span></span></code></pre></div>
 <p>Once again we are presented with the survfit object displaying the records, the number of events, the median survival and the confidence intervals. These statistics however are separate for each
 sex. For instance, we realise that the number of deaths in males was more than twice that for females and the median survival time for males of 270 days is lesser than that for females. As before, for a complete life table, we summarise the survfit object.</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="survival-analysis.html#cb312-1" tabindex="-1"></a><span class="fu">summary</span>(sfit<span class="fl">.2</span>)</span>
-<span id="cb312-2"><a href="survival-analysis.html#cb312-2" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
-<span id="cb312-3"><a href="survival-analysis.html#cb312-3" tabindex="-1"></a></span>
-<span id="cb312-4"><a href="survival-analysis.html#cb312-4" tabindex="-1"></a>                lung<span class="sc">$</span>sex<span class="ot">=</span>Male </span>
-<span id="cb312-5"><a href="survival-analysis.html#cb312-5" tabindex="-1"></a> time n.risk n.event survival std.err lower <span class="dv">95</span><span class="sc">% CI upper 95%</span> CI</span>
-<span id="cb312-6"><a href="survival-analysis.html#cb312-6" tabindex="-1"></a>   <span class="dv">11</span>    <span class="dv">138</span>       <span class="dv">3</span>   <span class="fl">0.9783</span>  <span class="fl">0.0124</span>       <span class="fl">0.9542</span>        <span class="fl">1.000</span></span>
-<span id="cb312-7"><a href="survival-analysis.html#cb312-7" tabindex="-1"></a>   <span class="dv">12</span>    <span class="dv">135</span>       <span class="dv">1</span>   <span class="fl">0.9710</span>  <span class="fl">0.0143</span>       <span class="fl">0.9434</span>        <span class="fl">0.999</span></span>
-<span id="cb312-8"><a href="survival-analysis.html#cb312-8" tabindex="-1"></a>   <span class="dv">13</span>    <span class="dv">134</span>       <span class="dv">2</span>   <span class="fl">0.9565</span>  <span class="fl">0.0174</span>       <span class="fl">0.9231</span>        <span class="fl">0.991</span></span>
-<span id="cb312-9"><a href="survival-analysis.html#cb312-9" tabindex="-1"></a>   <span class="dv">15</span>    <span class="dv">132</span>       <span class="dv">1</span>   <span class="fl">0.9493</span>  <span class="fl">0.0187</span>       <span class="fl">0.9134</span>        <span class="fl">0.987</span></span>
-<span id="cb312-10"><a href="survival-analysis.html#cb312-10" tabindex="-1"></a>   <span class="dv">26</span>    <span class="dv">131</span>       <span class="dv">1</span>   <span class="fl">0.9420</span>  <span class="fl">0.0199</span>       <span class="fl">0.9038</span>        <span class="fl">0.982</span></span>
-<span id="cb312-11"><a href="survival-analysis.html#cb312-11" tabindex="-1"></a>   <span class="dv">30</span>    <span class="dv">130</span>       <span class="dv">1</span>   <span class="fl">0.9348</span>  <span class="fl">0.0210</span>       <span class="fl">0.8945</span>        <span class="fl">0.977</span></span>
-<span id="cb312-12"><a href="survival-analysis.html#cb312-12" tabindex="-1"></a>   <span class="dv">31</span>    <span class="dv">129</span>       <span class="dv">1</span>   <span class="fl">0.9275</span>  <span class="fl">0.0221</span>       <span class="fl">0.8853</span>        <span class="fl">0.972</span></span>
-<span id="cb312-13"><a href="survival-analysis.html#cb312-13" tabindex="-1"></a>   <span class="dv">53</span>    <span class="dv">128</span>       <span class="dv">2</span>   <span class="fl">0.9130</span>  <span class="fl">0.0240</span>       <span class="fl">0.8672</span>        <span class="fl">0.961</span></span>
-<span id="cb312-14"><a href="survival-analysis.html#cb312-14" tabindex="-1"></a>   <span class="dv">54</span>    <span class="dv">126</span>       <span class="dv">1</span>   <span class="fl">0.9058</span>  <span class="fl">0.0249</span>       <span class="fl">0.8583</span>        <span class="fl">0.956</span></span>
-<span id="cb312-15"><a href="survival-analysis.html#cb312-15" tabindex="-1"></a>   <span class="dv">59</span>    <span class="dv">125</span>       <span class="dv">1</span>   <span class="fl">0.8986</span>  <span class="fl">0.0257</span>       <span class="fl">0.8496</span>        <span class="fl">0.950</span></span>
-<span id="cb312-16"><a href="survival-analysis.html#cb312-16" tabindex="-1"></a>   <span class="dv">60</span>    <span class="dv">124</span>       <span class="dv">1</span>   <span class="fl">0.8913</span>  <span class="fl">0.0265</span>       <span class="fl">0.8409</span>        <span class="fl">0.945</span></span>
-<span id="cb312-17"><a href="survival-analysis.html#cb312-17" tabindex="-1"></a>   <span class="dv">65</span>    <span class="dv">123</span>       <span class="dv">2</span>   <span class="fl">0.8768</span>  <span class="fl">0.0280</span>       <span class="fl">0.8237</span>        <span class="fl">0.933</span></span>
-<span id="cb312-18"><a href="survival-analysis.html#cb312-18" tabindex="-1"></a> [ reached <span class="fu">getOption</span>(<span class="st">"max.print"</span>) <span class="sc">--</span> omitted <span class="dv">87</span> rows ]</span>
-<span id="cb312-19"><a href="survival-analysis.html#cb312-19" tabindex="-1"></a></span>
-<span id="cb312-20"><a href="survival-analysis.html#cb312-20" tabindex="-1"></a>                lung<span class="sc">$</span>sex<span class="ot">=</span>Female </span>
-<span id="cb312-21"><a href="survival-analysis.html#cb312-21" tabindex="-1"></a> time n.risk n.event survival std.err lower <span class="dv">95</span><span class="sc">% CI upper 95%</span> CI</span>
-<span id="cb312-22"><a href="survival-analysis.html#cb312-22" tabindex="-1"></a>    <span class="dv">5</span>     <span class="dv">90</span>       <span class="dv">1</span>   <span class="fl">0.9889</span>  <span class="fl">0.0110</span>       <span class="fl">0.9675</span>        <span class="fl">1.000</span></span>
-<span id="cb312-23"><a href="survival-analysis.html#cb312-23" tabindex="-1"></a>   <span class="dv">60</span>     <span class="dv">89</span>       <span class="dv">1</span>   <span class="fl">0.9778</span>  <span class="fl">0.0155</span>       <span class="fl">0.9478</span>        <span class="fl">1.000</span></span>
-<span id="cb312-24"><a href="survival-analysis.html#cb312-24" tabindex="-1"></a>   <span class="dv">61</span>     <span class="dv">88</span>       <span class="dv">1</span>   <span class="fl">0.9667</span>  <span class="fl">0.0189</span>       <span class="fl">0.9303</span>        <span class="fl">1.000</span></span>
-<span id="cb312-25"><a href="survival-analysis.html#cb312-25" tabindex="-1"></a>   <span class="dv">62</span>     <span class="dv">87</span>       <span class="dv">1</span>   <span class="fl">0.9556</span>  <span class="fl">0.0217</span>       <span class="fl">0.9139</span>        <span class="fl">0.999</span></span>
-<span id="cb312-26"><a href="survival-analysis.html#cb312-26" tabindex="-1"></a>   <span class="dv">79</span>     <span class="dv">86</span>       <span class="dv">1</span>   <span class="fl">0.9444</span>  <span class="fl">0.0241</span>       <span class="fl">0.8983</span>        <span class="fl">0.993</span></span>
-<span id="cb312-27"><a href="survival-analysis.html#cb312-27" tabindex="-1"></a>   <span class="dv">81</span>     <span class="dv">85</span>       <span class="dv">1</span>   <span class="fl">0.9333</span>  <span class="fl">0.0263</span>       <span class="fl">0.8832</span>        <span class="fl">0.986</span></span>
-<span id="cb312-28"><a href="survival-analysis.html#cb312-28" tabindex="-1"></a>   <span class="dv">95</span>     <span class="dv">83</span>       <span class="dv">1</span>   <span class="fl">0.9221</span>  <span class="fl">0.0283</span>       <span class="fl">0.8683</span>        <span class="fl">0.979</span></span>
-<span id="cb312-29"><a href="survival-analysis.html#cb312-29" tabindex="-1"></a>  <span class="dv">107</span>     <span class="dv">81</span>       <span class="dv">1</span>   <span class="fl">0.9107</span>  <span class="fl">0.0301</span>       <span class="fl">0.8535</span>        <span class="fl">0.972</span></span>
-<span id="cb312-30"><a href="survival-analysis.html#cb312-30" tabindex="-1"></a>  <span class="dv">122</span>     <span class="dv">80</span>       <span class="dv">1</span>   <span class="fl">0.8993</span>  <span class="fl">0.0318</span>       <span class="fl">0.8390</span>        <span class="fl">0.964</span></span>
-<span id="cb312-31"><a href="survival-analysis.html#cb312-31" tabindex="-1"></a>  <span class="dv">145</span>     <span class="dv">79</span>       <span class="dv">2</span>   <span class="fl">0.8766</span>  <span class="fl">0.0349</span>       <span class="fl">0.8108</span>        <span class="fl">0.948</span></span>
-<span id="cb312-32"><a href="survival-analysis.html#cb312-32" tabindex="-1"></a>  <span class="dv">153</span>     <span class="dv">77</span>       <span class="dv">1</span>   <span class="fl">0.8652</span>  <span class="fl">0.0362</span>       <span class="fl">0.7970</span>        <span class="fl">0.939</span></span>
-<span id="cb312-33"><a href="survival-analysis.html#cb312-33" tabindex="-1"></a>  <span class="dv">166</span>     <span class="dv">76</span>       <span class="dv">1</span>   <span class="fl">0.8538</span>  <span class="fl">0.0375</span>       <span class="fl">0.7834</span>        <span class="fl">0.931</span></span>
-<span id="cb312-34"><a href="survival-analysis.html#cb312-34" tabindex="-1"></a> [ reached <span class="fu">getOption</span>(<span class="st">"max.print"</span>) <span class="sc">--</span> omitted <span class="dv">39</span> rows ]</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="survival-analysis.html#cb289-1" tabindex="-1"></a><span class="fu">summary</span>(sfit<span class="fl">.2</span>)</span>
+<span id="cb289-2"><a href="survival-analysis.html#cb289-2" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
+<span id="cb289-3"><a href="survival-analysis.html#cb289-3" tabindex="-1"></a></span>
+<span id="cb289-4"><a href="survival-analysis.html#cb289-4" tabindex="-1"></a>                lung<span class="sc">$</span>sex<span class="ot">=</span>Male </span>
+<span id="cb289-5"><a href="survival-analysis.html#cb289-5" tabindex="-1"></a> time n.risk n.event survival std.err lower <span class="dv">95</span><span class="sc">% CI upper 95%</span> CI</span>
+<span id="cb289-6"><a href="survival-analysis.html#cb289-6" tabindex="-1"></a>   <span class="dv">11</span>    <span class="dv">138</span>       <span class="dv">3</span>   <span class="fl">0.9783</span>  <span class="fl">0.0124</span>       <span class="fl">0.9542</span>        <span class="fl">1.000</span></span>
+<span id="cb289-7"><a href="survival-analysis.html#cb289-7" tabindex="-1"></a>   <span class="dv">12</span>    <span class="dv">135</span>       <span class="dv">1</span>   <span class="fl">0.9710</span>  <span class="fl">0.0143</span>       <span class="fl">0.9434</span>        <span class="fl">0.999</span></span>
+<span id="cb289-8"><a href="survival-analysis.html#cb289-8" tabindex="-1"></a>   <span class="dv">13</span>    <span class="dv">134</span>       <span class="dv">2</span>   <span class="fl">0.9565</span>  <span class="fl">0.0174</span>       <span class="fl">0.9231</span>        <span class="fl">0.991</span></span>
+<span id="cb289-9"><a href="survival-analysis.html#cb289-9" tabindex="-1"></a>   <span class="dv">15</span>    <span class="dv">132</span>       <span class="dv">1</span>   <span class="fl">0.9493</span>  <span class="fl">0.0187</span>       <span class="fl">0.9134</span>        <span class="fl">0.987</span></span>
+<span id="cb289-10"><a href="survival-analysis.html#cb289-10" tabindex="-1"></a>   <span class="dv">26</span>    <span class="dv">131</span>       <span class="dv">1</span>   <span class="fl">0.9420</span>  <span class="fl">0.0199</span>       <span class="fl">0.9038</span>        <span class="fl">0.982</span></span>
+<span id="cb289-11"><a href="survival-analysis.html#cb289-11" tabindex="-1"></a>   <span class="dv">30</span>    <span class="dv">130</span>       <span class="dv">1</span>   <span class="fl">0.9348</span>  <span class="fl">0.0210</span>       <span class="fl">0.8945</span>        <span class="fl">0.977</span></span>
+<span id="cb289-12"><a href="survival-analysis.html#cb289-12" tabindex="-1"></a>   <span class="dv">31</span>    <span class="dv">129</span>       <span class="dv">1</span>   <span class="fl">0.9275</span>  <span class="fl">0.0221</span>       <span class="fl">0.8853</span>        <span class="fl">0.972</span></span>
+<span id="cb289-13"><a href="survival-analysis.html#cb289-13" tabindex="-1"></a>   <span class="dv">53</span>    <span class="dv">128</span>       <span class="dv">2</span>   <span class="fl">0.9130</span>  <span class="fl">0.0240</span>       <span class="fl">0.8672</span>        <span class="fl">0.961</span></span>
+<span id="cb289-14"><a href="survival-analysis.html#cb289-14" tabindex="-1"></a>   <span class="dv">54</span>    <span class="dv">126</span>       <span class="dv">1</span>   <span class="fl">0.9058</span>  <span class="fl">0.0249</span>       <span class="fl">0.8583</span>        <span class="fl">0.956</span></span>
+<span id="cb289-15"><a href="survival-analysis.html#cb289-15" tabindex="-1"></a>   <span class="dv">59</span>    <span class="dv">125</span>       <span class="dv">1</span>   <span class="fl">0.8986</span>  <span class="fl">0.0257</span>       <span class="fl">0.8496</span>        <span class="fl">0.950</span></span>
+<span id="cb289-16"><a href="survival-analysis.html#cb289-16" tabindex="-1"></a>   <span class="dv">60</span>    <span class="dv">124</span>       <span class="dv">1</span>   <span class="fl">0.8913</span>  <span class="fl">0.0265</span>       <span class="fl">0.8409</span>        <span class="fl">0.945</span></span>
+<span id="cb289-17"><a href="survival-analysis.html#cb289-17" tabindex="-1"></a>   <span class="dv">65</span>    <span class="dv">123</span>       <span class="dv">2</span>   <span class="fl">0.8768</span>  <span class="fl">0.0280</span>       <span class="fl">0.8237</span>        <span class="fl">0.933</span></span>
+<span id="cb289-18"><a href="survival-analysis.html#cb289-18" tabindex="-1"></a> [ reached <span class="fu">getOption</span>(<span class="st">"max.print"</span>) <span class="sc">--</span> omitted <span class="dv">87</span> rows ]</span>
+<span id="cb289-19"><a href="survival-analysis.html#cb289-19" tabindex="-1"></a></span>
+<span id="cb289-20"><a href="survival-analysis.html#cb289-20" tabindex="-1"></a>                lung<span class="sc">$</span>sex<span class="ot">=</span>Female </span>
+<span id="cb289-21"><a href="survival-analysis.html#cb289-21" tabindex="-1"></a> time n.risk n.event survival std.err lower <span class="dv">95</span><span class="sc">% CI upper 95%</span> CI</span>
+<span id="cb289-22"><a href="survival-analysis.html#cb289-22" tabindex="-1"></a>    <span class="dv">5</span>     <span class="dv">90</span>       <span class="dv">1</span>   <span class="fl">0.9889</span>  <span class="fl">0.0110</span>       <span class="fl">0.9675</span>        <span class="fl">1.000</span></span>
+<span id="cb289-23"><a href="survival-analysis.html#cb289-23" tabindex="-1"></a>   <span class="dv">60</span>     <span class="dv">89</span>       <span class="dv">1</span>   <span class="fl">0.9778</span>  <span class="fl">0.0155</span>       <span class="fl">0.9478</span>        <span class="fl">1.000</span></span>
+<span id="cb289-24"><a href="survival-analysis.html#cb289-24" tabindex="-1"></a>   <span class="dv">61</span>     <span class="dv">88</span>       <span class="dv">1</span>   <span class="fl">0.9667</span>  <span class="fl">0.0189</span>       <span class="fl">0.9303</span>        <span class="fl">1.000</span></span>
+<span id="cb289-25"><a href="survival-analysis.html#cb289-25" tabindex="-1"></a>   <span class="dv">62</span>     <span class="dv">87</span>       <span class="dv">1</span>   <span class="fl">0.9556</span>  <span class="fl">0.0217</span>       <span class="fl">0.9139</span>        <span class="fl">0.999</span></span>
+<span id="cb289-26"><a href="survival-analysis.html#cb289-26" tabindex="-1"></a>   <span class="dv">79</span>     <span class="dv">86</span>       <span class="dv">1</span>   <span class="fl">0.9444</span>  <span class="fl">0.0241</span>       <span class="fl">0.8983</span>        <span class="fl">0.993</span></span>
+<span id="cb289-27"><a href="survival-analysis.html#cb289-27" tabindex="-1"></a>   <span class="dv">81</span>     <span class="dv">85</span>       <span class="dv">1</span>   <span class="fl">0.9333</span>  <span class="fl">0.0263</span>       <span class="fl">0.8832</span>        <span class="fl">0.986</span></span>
+<span id="cb289-28"><a href="survival-analysis.html#cb289-28" tabindex="-1"></a>   <span class="dv">95</span>     <span class="dv">83</span>       <span class="dv">1</span>   <span class="fl">0.9221</span>  <span class="fl">0.0283</span>       <span class="fl">0.8683</span>        <span class="fl">0.979</span></span>
+<span id="cb289-29"><a href="survival-analysis.html#cb289-29" tabindex="-1"></a>  <span class="dv">107</span>     <span class="dv">81</span>       <span class="dv">1</span>   <span class="fl">0.9107</span>  <span class="fl">0.0301</span>       <span class="fl">0.8535</span>        <span class="fl">0.972</span></span>
+<span id="cb289-30"><a href="survival-analysis.html#cb289-30" tabindex="-1"></a>  <span class="dv">122</span>     <span class="dv">80</span>       <span class="dv">1</span>   <span class="fl">0.8993</span>  <span class="fl">0.0318</span>       <span class="fl">0.8390</span>        <span class="fl">0.964</span></span>
+<span id="cb289-31"><a href="survival-analysis.html#cb289-31" tabindex="-1"></a>  <span class="dv">145</span>     <span class="dv">79</span>       <span class="dv">2</span>   <span class="fl">0.8766</span>  <span class="fl">0.0349</span>       <span class="fl">0.8108</span>        <span class="fl">0.948</span></span>
+<span id="cb289-32"><a href="survival-analysis.html#cb289-32" tabindex="-1"></a>  <span class="dv">153</span>     <span class="dv">77</span>       <span class="dv">1</span>   <span class="fl">0.8652</span>  <span class="fl">0.0362</span>       <span class="fl">0.7970</span>        <span class="fl">0.939</span></span>
+<span id="cb289-33"><a href="survival-analysis.html#cb289-33" tabindex="-1"></a>  <span class="dv">166</span>     <span class="dv">76</span>       <span class="dv">1</span>   <span class="fl">0.8538</span>  <span class="fl">0.0375</span>       <span class="fl">0.7834</span>        <span class="fl">0.931</span></span>
+<span id="cb289-34"><a href="survival-analysis.html#cb289-34" tabindex="-1"></a> [ reached <span class="fu">getOption</span>(<span class="st">"max.print"</span>) <span class="sc">--</span> omitted <span class="dv">39</span> rows ]</span></code></pre></div>
 <p>The rather long life table can best be appreciated with a KM curve. We further go ahead to plot the Kaplan-Meier curve for the two sexes as shown in Figure 44 and plot with</p>
-<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span></span>
 <span>    <span class="va">sfit.2</span>, </span>
 <span>    col<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, </span>
@@ -445,7 +445,7 @@ sex. For instance, we realise that the number of deaths in males was more than t
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>,<span class="st">"Female"</span><span class="op">)</span>, lty<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, col<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0.5</span>, lty<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Survival-analysis_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">survminer</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/survminer/man/ggsurvplot.html">ggsurvplot</a></span><span class="op">(</span></span>
 <span>    <span class="va">sfit.2</span>, </span>
 <span>    data <span class="op">=</span> <span class="va">lung</span>,</span>
@@ -463,23 +463,23 @@ sex. For instance, we realise that the number of deaths in males was more than t
 <span class="header-section-number">25.7</span> Cumulative Incidence (Hazard)<a class="anchor" aria-label="anchor" href="#cumulative-incidence-hazard"><i class="fas fa-link"></i></a>
 </h2>
 <p>Another way of expressing the relationship between time to an outcome and the outcome is with the Cumulative Incidence (CI). The CI at any point in time is a measure of the frequency of the outcome over a period of time. This can be determined in R as below. First, we fit the survival object.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="survival-analysis.html#cb315-1" tabindex="-1"></a>sfit<span class="fl">.3</span> <span class="ot">&lt;-</span> </span>
-<span id="cb315-2"><a href="survival-analysis.html#cb315-2" tabindex="-1"></a>    <span class="fu">survfit</span>(</span>
-<span id="cb315-3"><a href="survival-analysis.html#cb315-3" tabindex="-1"></a>        <span class="fu">Surv</span>(</span>
-<span id="cb315-4"><a href="survival-analysis.html#cb315-4" tabindex="-1"></a>            <span class="at">time =</span> time, </span>
-<span id="cb315-5"><a href="survival-analysis.html#cb315-5" tabindex="-1"></a>            <span class="at">event =</span> status<span class="sc">==</span><span class="dv">2</span>, </span>
-<span id="cb315-6"><a href="survival-analysis.html#cb315-6" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">"mstate"</span>) <span class="sc">~</span> <span class="dv">1</span>, </span>
-<span id="cb315-7"><a href="survival-analysis.html#cb315-7" tabindex="-1"></a>        <span class="at">data=</span>lung)</span>
-<span id="cb315-8"><a href="survival-analysis.html#cb315-8" tabindex="-1"></a>sfit<span class="fl">.3</span></span>
-<span id="cb315-9"><a href="survival-analysis.html#cb315-9" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(<span class="at">time =</span> time, <span class="at">event =</span> status <span class="sc">==</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">"mstate"</span>) <span class="sc">~</span> </span>
-<span id="cb315-10"><a href="survival-analysis.html#cb315-10" tabindex="-1"></a>    <span class="dv">1</span>, <span class="at">data =</span> lung)</span>
-<span id="cb315-11"><a href="survival-analysis.html#cb315-11" tabindex="-1"></a></span>
-<span id="cb315-12"><a href="survival-analysis.html#cb315-12" tabindex="-1"></a>       n nevent   rmean<span class="sc">*</span></span>
-<span id="cb315-13"><a href="survival-analysis.html#cb315-13" tabindex="-1"></a>(s0) <span class="dv">228</span>      <span class="dv">0</span> <span class="fl">376.2747</span></span>
-<span id="cb315-14"><a href="survival-analysis.html#cb315-14" tabindex="-1"></a><span class="cn">TRUE</span> <span class="dv">228</span>    <span class="dv">165</span> <span class="fl">645.7253</span></span>
-<span id="cb315-15"><a href="survival-analysis.html#cb315-15" tabindex="-1"></a>   <span class="sc">*</span>restricted mean time <span class="cf">in</span> <span class="fu">state</span> (max <span class="at">time =</span> <span class="dv">1022</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="survival-analysis.html#cb292-1" tabindex="-1"></a>sfit<span class="fl">.3</span> <span class="ot">&lt;-</span> </span>
+<span id="cb292-2"><a href="survival-analysis.html#cb292-2" tabindex="-1"></a>    <span class="fu">survfit</span>(</span>
+<span id="cb292-3"><a href="survival-analysis.html#cb292-3" tabindex="-1"></a>        <span class="fu">Surv</span>(</span>
+<span id="cb292-4"><a href="survival-analysis.html#cb292-4" tabindex="-1"></a>            <span class="at">time =</span> time, </span>
+<span id="cb292-5"><a href="survival-analysis.html#cb292-5" tabindex="-1"></a>            <span class="at">event =</span> status<span class="sc">==</span><span class="dv">2</span>, </span>
+<span id="cb292-6"><a href="survival-analysis.html#cb292-6" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">"mstate"</span>) <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb292-7"><a href="survival-analysis.html#cb292-7" tabindex="-1"></a>        <span class="at">data=</span>lung)</span>
+<span id="cb292-8"><a href="survival-analysis.html#cb292-8" tabindex="-1"></a>sfit<span class="fl">.3</span></span>
+<span id="cb292-9"><a href="survival-analysis.html#cb292-9" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">survfit</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(<span class="at">time =</span> time, <span class="at">event =</span> status <span class="sc">==</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">"mstate"</span>) <span class="sc">~</span> </span>
+<span id="cb292-10"><a href="survival-analysis.html#cb292-10" tabindex="-1"></a>    <span class="dv">1</span>, <span class="at">data =</span> lung)</span>
+<span id="cb292-11"><a href="survival-analysis.html#cb292-11" tabindex="-1"></a></span>
+<span id="cb292-12"><a href="survival-analysis.html#cb292-12" tabindex="-1"></a>       n nevent   rmean<span class="sc">*</span></span>
+<span id="cb292-13"><a href="survival-analysis.html#cb292-13" tabindex="-1"></a>(s0) <span class="dv">228</span>      <span class="dv">0</span> <span class="fl">376.2747</span></span>
+<span id="cb292-14"><a href="survival-analysis.html#cb292-14" tabindex="-1"></a><span class="cn">TRUE</span> <span class="dv">228</span>    <span class="dv">165</span> <span class="fl">645.7253</span></span>
+<span id="cb292-15"><a href="survival-analysis.html#cb292-15" tabindex="-1"></a>   <span class="sc">*</span>restricted mean time <span class="cf">in</span> <span class="fu">state</span> (max <span class="at">time =</span> <span class="dv">1022</span> )</span></code></pre></div>
 <p>The survival object is similar to that done previously but this time in fitting it we used the argument <code>type="mstate"</code> to specify our preference for the cumulative incidence. We further use the summary() function on the survfit object to generate the CI table.</p>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sfit.3</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-17">
 <caption style="caption-side: top; text-align: center;">
@@ -628,15 +628,15 @@ sex. For instance, we realise that the number of deaths in males was more than t
 <span class="header-section-number">25.8.1</span> The Log-Rank test<a class="anchor" aria-label="anchor" href="#the-log-rank-test"><i class="fas fa-link"></i></a>
 </h3>
 <p>The idea behind the log-rank test is to test the proportional hazards among the groups to be compared. The test has a null hypothesis that the hazard is equal in all the populations under consideration. The p-value generated is the probability that the hazard is equal in all populations under consideration. Hence a small p-value indicates some differences exist at least between two members of the group. Below we use the log-rank test to determine if the hazards in the two sexes are significantly different for our lung cancer patients. Remember pictorially and by comparison of the median survival we already know that the females seem to do better than the males but here we put it to a formal test. This is done in R using <code><a href="https://rdrr.io/pkg/survival/man/survdiff.html">survdiff()</a></code> and the initial survival object created.</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="survival-analysis.html#cb317-1" tabindex="-1"></a><span class="fu">survdiff</span>(Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
-<span id="cb317-2"><a href="survival-analysis.html#cb317-2" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb317-3"><a href="survival-analysis.html#cb317-3" tabindex="-1"></a><span class="fu">survdiff</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
-<span id="cb317-4"><a href="survival-analysis.html#cb317-4" tabindex="-1"></a></span>
-<span id="cb317-5"><a href="survival-analysis.html#cb317-5" tabindex="-1"></a>                  N Observed <span class="fu">Expected</span> (O<span class="sc">-</span>E)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">E</span> (O<span class="sc">-</span>E)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>V</span>
-<span id="cb317-6"><a href="survival-analysis.html#cb317-6" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Male   <span class="dv">138</span>      <span class="dv">112</span>     <span class="fl">91.6</span>      <span class="fl">4.55</span>      <span class="fl">10.3</span></span>
-<span id="cb317-7"><a href="survival-analysis.html#cb317-7" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Female  <span class="dv">90</span>       <span class="dv">53</span>     <span class="fl">73.4</span>      <span class="fl">5.68</span>      <span class="fl">10.3</span></span>
-<span id="cb317-8"><a href="survival-analysis.html#cb317-8" tabindex="-1"></a></span>
-<span id="cb317-9"><a href="survival-analysis.html#cb317-9" tabindex="-1"></a> Chisq<span class="ot">=</span> <span class="fl">10.3</span>  on <span class="dv">1</span> degrees of freedom, p<span class="ot">=</span> <span class="fl">0.001</span> </span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="survival-analysis.html#cb294-1" tabindex="-1"></a><span class="fu">survdiff</span>(Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
+<span id="cb294-2"><a href="survival-analysis.html#cb294-2" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb294-3"><a href="survival-analysis.html#cb294-3" tabindex="-1"></a><span class="fu">survdiff</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex)</span>
+<span id="cb294-4"><a href="survival-analysis.html#cb294-4" tabindex="-1"></a></span>
+<span id="cb294-5"><a href="survival-analysis.html#cb294-5" tabindex="-1"></a>                  N Observed <span class="fu">Expected</span> (O<span class="sc">-</span>E)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">E</span> (O<span class="sc">-</span>E)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>V</span>
+<span id="cb294-6"><a href="survival-analysis.html#cb294-6" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Male   <span class="dv">138</span>      <span class="dv">112</span>     <span class="fl">91.6</span>      <span class="fl">4.55</span>      <span class="fl">10.3</span></span>
+<span id="cb294-7"><a href="survival-analysis.html#cb294-7" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Female  <span class="dv">90</span>       <span class="dv">53</span>     <span class="fl">73.4</span>      <span class="fl">5.68</span>      <span class="fl">10.3</span></span>
+<span id="cb294-8"><a href="survival-analysis.html#cb294-8" tabindex="-1"></a></span>
+<span id="cb294-9"><a href="survival-analysis.html#cb294-9" tabindex="-1"></a> Chisq<span class="ot">=</span> <span class="fl">10.3</span>  on <span class="dv">1</span> degrees of freedom, p<span class="ot">=</span> <span class="fl">0.001</span> </span></code></pre></div>
 <p>The small p-value above (p= 0.00131) leads us to the conclusion that the hazards within the two groups significantly differ.</p>
 </div>
 <div id="stratified-log-rank-test" class="section level3" number="25.8.2">
@@ -644,7 +644,7 @@ sex. For instance, we realise that the number of deaths in males was more than t
 <span class="header-section-number">25.8.2</span> Stratified Log-Rank test<a class="anchor" aria-label="anchor" href="#stratified-log-rank-test"><i class="fas fa-link"></i></a>
 </h3>
 <p>In trying to figure out why females tend to do better than males with lung cancer we ask ourselves a few questions. One of these could be: Could it be because there is a difference in ages between the two sexes that took part in the study? To begin to evaluate this assertion we compare the ages of the two sexes.</p>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lung</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">meantables</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/meantables/man/mean_table.html">mean_table</a></span><span class="op">(</span>.x<span class="op">=</span><span class="va">age</span><span class="op">)</span></span></code></pre></div>
@@ -703,15 +703,15 @@ sex. For instance, we realise that the number of deaths in males was more than t
 </tr>
 </table></div>
 <p>Well, it appears the males are on average older than the females. Could this be the reason why the males did worse? To remove the possibility of age being the reason why males may be doing worse we perform a stratified log-rank test below</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="survival-analysis.html#cb319-1" tabindex="-1"></a><span class="fu">survdiff</span>(Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex <span class="sc">+</span> <span class="fu">strata</span>(lung<span class="sc">$</span>age))</span>
-<span id="cb319-2"><a href="survival-analysis.html#cb319-2" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb319-3"><a href="survival-analysis.html#cb319-3" tabindex="-1"></a><span class="fu">survdiff</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex <span class="sc">+</span> <span class="fu">strata</span>(lung<span class="sc">$</span>age))</span>
-<span id="cb319-4"><a href="survival-analysis.html#cb319-4" tabindex="-1"></a></span>
-<span id="cb319-5"><a href="survival-analysis.html#cb319-5" tabindex="-1"></a>                  N Observed <span class="fu">Expected</span> (O<span class="sc">-</span>E)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">E</span> (O<span class="sc">-</span>E)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>V</span>
-<span id="cb319-6"><a href="survival-analysis.html#cb319-6" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Male   <span class="dv">138</span>      <span class="dv">112</span>     <span class="fl">96.6</span>      <span class="fl">2.47</span>      <span class="fl">9.42</span></span>
-<span id="cb319-7"><a href="survival-analysis.html#cb319-7" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Female  <span class="dv">90</span>       <span class="dv">53</span>     <span class="fl">68.4</span>      <span class="fl">3.48</span>      <span class="fl">9.42</span></span>
-<span id="cb319-8"><a href="survival-analysis.html#cb319-8" tabindex="-1"></a></span>
-<span id="cb319-9"><a href="survival-analysis.html#cb319-9" tabindex="-1"></a> Chisq<span class="ot">=</span> <span class="fl">9.4</span>  on <span class="dv">1</span> degrees of freedom, p<span class="ot">=</span> <span class="fl">0.002</span> </span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="survival-analysis.html#cb296-1" tabindex="-1"></a><span class="fu">survdiff</span>(Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex <span class="sc">+</span> <span class="fu">strata</span>(lung<span class="sc">$</span>age))</span>
+<span id="cb296-2"><a href="survival-analysis.html#cb296-2" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb296-3"><a href="survival-analysis.html#cb296-3" tabindex="-1"></a><span class="fu">survdiff</span>(<span class="at">formula =</span> Surv<span class="fl">.1</span> <span class="sc">~</span> lung<span class="sc">$</span>sex <span class="sc">+</span> <span class="fu">strata</span>(lung<span class="sc">$</span>age))</span>
+<span id="cb296-4"><a href="survival-analysis.html#cb296-4" tabindex="-1"></a></span>
+<span id="cb296-5"><a href="survival-analysis.html#cb296-5" tabindex="-1"></a>                  N Observed <span class="fu">Expected</span> (O<span class="sc">-</span>E)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">E</span> (O<span class="sc">-</span>E)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>V</span>
+<span id="cb296-6"><a href="survival-analysis.html#cb296-6" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Male   <span class="dv">138</span>      <span class="dv">112</span>     <span class="fl">96.6</span>      <span class="fl">2.47</span>      <span class="fl">9.42</span></span>
+<span id="cb296-7"><a href="survival-analysis.html#cb296-7" tabindex="-1"></a>lung<span class="sc">$</span>sex<span class="ot">=</span>Female  <span class="dv">90</span>       <span class="dv">53</span>     <span class="fl">68.4</span>      <span class="fl">3.48</span>      <span class="fl">9.42</span></span>
+<span id="cb296-8"><a href="survival-analysis.html#cb296-8" tabindex="-1"></a></span>
+<span id="cb296-9"><a href="survival-analysis.html#cb296-9" tabindex="-1"></a> Chisq<span class="ot">=</span> <span class="fl">9.4</span>  on <span class="dv">1</span> degrees of freedom, p<span class="ot">=</span> <span class="fl">0.002</span> </span></code></pre></div>
 <p>The analysis above asks the question: Assuming the ages of all the sexes were equal among both sexes, would the survival still depend on the sex of the patient? After the analysis, it appears the age difference is not the reason for the difference in hazards observed. The significant p-value is hardly affected when we stratify by age.</p>
 </div>
 </div>
@@ -723,7 +723,7 @@ sex. For instance, we realise that the number of deaths in males was more than t
 in both groups being compared.
 Cox regression has the added advantage of being able to determine the HR for more than one variable at a time thereby correcting for their respective effects and stratifying at the same time.
 Cox proportional modelling is implemented in R using the function coxph(). Below we determine again the association between sex and the hazard in the lung data.</p>
-<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cox.1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/coxph.html">coxph</a></span><span class="op">(</span><span class="va">Surv.1</span> <span class="op">~</span> <span class="va">sex</span>, data <span class="op">=</span> <span class="va">lung</span><span class="op">)</span></span>
 <span><span class="va">cox.1</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>exponentiate <span class="op">=</span> <span class="cn">TRUE</span>, conf.int <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -758,7 +758,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
 </table></div>
 <p>Just like other regression functions in R, the output is scanty. However, the negative coeff indicated that the hazard is less in females compared to males (the referent group). Exponentiating the coefficient gives the hazard ratio. This is shown as the second column of the matrix with the heading exp(coef) and with a value of 0.588. This value indicates that females have about half the hazard of males. This is in concert with what we already know. The last column is the respective p-value associated with the coefficient or hazard ratio. It tests the hypothesis that the hazard ratio is equal to 1 (the null value). Therefore a small p-value makes this a significant finding. The last 2 columns are the confidence interval.</p>
 <p>As was mentioned one of the advantages of using the Cox proportional regression is our ability to put in more than one variable at a time. Below we determine the hazard ratios for both sex and age concurrently and after correcting for each other.</p>
-<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cox.2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/coxph.html">coxph</a></span><span class="op">(</span><span class="va">Surv.1</span> <span class="op">~</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">age</span>, data <span class="op">=</span> <span class="va">lung</span><span class="op">)</span></span>
 <span><span class="va">cox.2</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>exponentiate <span class="op">=</span> <span class="cn">TRUE</span>, conf.int <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -801,7 +801,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
 </tr>
 </table></div>
 <p>And then finally we determine the HRs while stratifying for the ECOG performance score (0=good 5=dead)</p>
-<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cox.3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/coxph.html">coxph</a></span><span class="op">(</span><span class="va">Surv.1</span> <span class="op">~</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">age</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/strata.html">strata</a></span><span class="op">(</span><span class="va">ph.ecog</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">lung</span><span class="op">)</span></span>
 <span><span class="va">cox.3</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span>exponentiate <span class="op">=</span> <span class="cn">TRUE</span>, conf.int <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -844,7 +844,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
 </tr>
 </table></div>
 <p>Putting all three into one Cox’s regression equation we have the table below</p>
-<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lung</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="va">sex</span>, <span class="va">ph.ecog</span>, <span class="va">age</span>, <span class="va">status</span>, <span class="va">time</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">survival</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/survival/man/coxph.html">coxph</a></span><span class="op">(</span></span>
@@ -859,23 +859,23 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
 <span>        exponentiate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/bold_italicize_labels_levels.html">bold_labels</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/bold_p.html">bold_p</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="evhdmqplcl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#evhdmqplcl table {
+<div id="prfceyzrij" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#prfceyzrij table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#evhdmqplcl thead, #evhdmqplcl tbody, #evhdmqplcl tfoot, #evhdmqplcl tr, #evhdmqplcl td, #evhdmqplcl th {
+#prfceyzrij thead, #prfceyzrij tbody, #prfceyzrij tfoot, #prfceyzrij tr, #prfceyzrij td, #prfceyzrij th {
   border-style: none;
 }
 
-#evhdmqplcl p {
+#prfceyzrij p {
   margin: 0;
   padding: 0;
 }
 
-#evhdmqplcl .gt_table {
+#prfceyzrij .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -901,12 +901,12 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-left-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_caption {
+#prfceyzrij .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#evhdmqplcl .gt_title {
+#prfceyzrij .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -918,7 +918,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-bottom-width: 0;
 }
 
-#evhdmqplcl .gt_subtitle {
+#prfceyzrij .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -930,7 +930,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-top-width: 0;
 }
 
-#evhdmqplcl .gt_heading {
+#prfceyzrij .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -942,13 +942,13 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-right-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_bottom_border {
+#prfceyzrij .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_col_headings {
+#prfceyzrij .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -963,7 +963,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-right-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_col_heading {
+#prfceyzrij .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -983,7 +983,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   overflow-x: hidden;
 }
 
-#evhdmqplcl .gt_column_spanner_outer {
+#prfceyzrij .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -995,15 +995,15 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   padding-right: 4px;
 }
 
-#evhdmqplcl .gt_column_spanner_outer:first-child {
+#prfceyzrij .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#evhdmqplcl .gt_column_spanner_outer:last-child {
+#prfceyzrij .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#evhdmqplcl .gt_column_spanner {
+#prfceyzrij .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1015,11 +1015,11 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   width: 100%;
 }
 
-#evhdmqplcl .gt_spanner_row {
+#prfceyzrij .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#evhdmqplcl .gt_group_heading {
+#prfceyzrij .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1045,7 +1045,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   text-align: left;
 }
 
-#evhdmqplcl .gt_empty_group_heading {
+#prfceyzrij .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1060,15 +1060,15 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   vertical-align: middle;
 }
 
-#evhdmqplcl .gt_from_md > :first-child {
+#prfceyzrij .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#evhdmqplcl .gt_from_md > :last-child {
+#prfceyzrij .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#evhdmqplcl .gt_row {
+#prfceyzrij .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1087,7 +1087,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   overflow-x: hidden;
 }
 
-#evhdmqplcl .gt_stub {
+#prfceyzrij .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1100,7 +1100,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   padding-right: 5px;
 }
 
-#evhdmqplcl .gt_stub_row_group {
+#prfceyzrij .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1114,15 +1114,15 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   vertical-align: top;
 }
 
-#evhdmqplcl .gt_row_group_first td {
+#prfceyzrij .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#evhdmqplcl .gt_row_group_first th {
+#prfceyzrij .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#evhdmqplcl .gt_summary_row {
+#prfceyzrij .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1132,16 +1132,16 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   padding-right: 5px;
 }
 
-#evhdmqplcl .gt_first_summary_row {
+#prfceyzrij .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_first_summary_row.thick {
+#prfceyzrij .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#evhdmqplcl .gt_last_summary_row {
+#prfceyzrij .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1151,7 +1151,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-bottom-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_grand_summary_row {
+#prfceyzrij .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1161,7 +1161,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   padding-right: 5px;
 }
 
-#evhdmqplcl .gt_first_grand_summary_row {
+#prfceyzrij .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1171,7 +1171,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-top-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_last_grand_summary_row_top {
+#prfceyzrij .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1181,11 +1181,11 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-bottom-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_striped {
+#prfceyzrij .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#evhdmqplcl .gt_table_body {
+#prfceyzrij .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1194,7 +1194,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-bottom-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_footnotes {
+#prfceyzrij .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1208,7 +1208,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-right-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_footnote {
+#prfceyzrij .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1217,7 +1217,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   padding-right: 5px;
 }
 
-#evhdmqplcl .gt_sourcenotes {
+#prfceyzrij .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1231,7 +1231,7 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   border-right-color: #D3D3D3;
 }
 
-#evhdmqplcl .gt_sourcenote {
+#prfceyzrij .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1239,63 +1239,63 @@ Cox proportional modelling is implemented in R using the function coxph(). Below
   padding-right: 5px;
 }
 
-#evhdmqplcl .gt_left {
+#prfceyzrij .gt_left {
   text-align: left;
 }
 
-#evhdmqplcl .gt_center {
+#prfceyzrij .gt_center {
   text-align: center;
 }
 
-#evhdmqplcl .gt_right {
+#prfceyzrij .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#evhdmqplcl .gt_font_normal {
+#prfceyzrij .gt_font_normal {
   font-weight: normal;
 }
 
-#evhdmqplcl .gt_font_bold {
+#prfceyzrij .gt_font_bold {
   font-weight: bold;
 }
 
-#evhdmqplcl .gt_font_italic {
+#prfceyzrij .gt_font_italic {
   font-style: italic;
 }
 
-#evhdmqplcl .gt_super {
+#prfceyzrij .gt_super {
   font-size: 65%;
 }
 
-#evhdmqplcl .gt_footnote_marks {
+#prfceyzrij .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#evhdmqplcl .gt_asterisk {
+#prfceyzrij .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#evhdmqplcl .gt_indent_1 {
+#prfceyzrij .gt_indent_1 {
   text-indent: 5px;
 }
 
-#evhdmqplcl .gt_indent_2 {
+#prfceyzrij .gt_indent_2 {
   text-indent: 10px;
 }
 
-#evhdmqplcl .gt_indent_3 {
+#prfceyzrij .gt_indent_3 {
   text-indent: 15px;
 }
 
-#evhdmqplcl .gt_indent_4 {
+#prfceyzrij .gt_indent_4 {
   text-indent: 20px;
 }
 
-#evhdmqplcl .gt_indent_5 {
+#prfceyzrij .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1354,7 +1354,6 @@ study were relatively higher than the females this difference in age could not e
 why males did worse than females. In other words, the difference in survival for the two sexes is
 irrespective of their age.</p>
 
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
 </div>
 </div>
   <div class="chapter-nav">
@@ -1395,7 +1394,7 @@ irrespective of their age.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-21.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

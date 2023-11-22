@@ -1,7 +1,4 @@
 
-```
-Warning: package 'ggplot2' was built under R version 4.3.2
-```
 
 # Analysis of categorical data
 
@@ -374,23 +371,23 @@ df_anc %>%
 
 
 ```{=html}
-<div id="dtubbzrjoe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dtubbzrjoe table {
+<div id="bpmpuuywac" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bpmpuuywac table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dtubbzrjoe thead, #dtubbzrjoe tbody, #dtubbzrjoe tfoot, #dtubbzrjoe tr, #dtubbzrjoe td, #dtubbzrjoe th {
+#bpmpuuywac thead, #bpmpuuywac tbody, #bpmpuuywac tfoot, #bpmpuuywac tr, #bpmpuuywac td, #bpmpuuywac th {
   border-style: none;
 }
 
-#dtubbzrjoe p {
+#bpmpuuywac p {
   margin: 0;
   padding: 0;
 }
 
-#dtubbzrjoe .gt_table {
+#bpmpuuywac .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -416,12 +413,12 @@ df_anc %>%
   border-left-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_caption {
+#bpmpuuywac .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dtubbzrjoe .gt_title {
+#bpmpuuywac .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -433,7 +430,7 @@ df_anc %>%
   border-bottom-width: 0;
 }
 
-#dtubbzrjoe .gt_subtitle {
+#bpmpuuywac .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -445,7 +442,7 @@ df_anc %>%
   border-top-width: 0;
 }
 
-#dtubbzrjoe .gt_heading {
+#bpmpuuywac .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -457,13 +454,13 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_bottom_border {
+#bpmpuuywac .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_col_headings {
+#bpmpuuywac .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -478,7 +475,7 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_col_heading {
+#bpmpuuywac .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -498,7 +495,7 @@ df_anc %>%
   overflow-x: hidden;
 }
 
-#dtubbzrjoe .gt_column_spanner_outer {
+#bpmpuuywac .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -510,15 +507,15 @@ df_anc %>%
   padding-right: 4px;
 }
 
-#dtubbzrjoe .gt_column_spanner_outer:first-child {
+#bpmpuuywac .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dtubbzrjoe .gt_column_spanner_outer:last-child {
+#bpmpuuywac .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dtubbzrjoe .gt_column_spanner {
+#bpmpuuywac .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -530,11 +527,11 @@ df_anc %>%
   width: 100%;
 }
 
-#dtubbzrjoe .gt_spanner_row {
+#bpmpuuywac .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dtubbzrjoe .gt_group_heading {
+#bpmpuuywac .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -560,7 +557,7 @@ df_anc %>%
   text-align: left;
 }
 
-#dtubbzrjoe .gt_empty_group_heading {
+#bpmpuuywac .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -575,15 +572,15 @@ df_anc %>%
   vertical-align: middle;
 }
 
-#dtubbzrjoe .gt_from_md > :first-child {
+#bpmpuuywac .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dtubbzrjoe .gt_from_md > :last-child {
+#bpmpuuywac .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dtubbzrjoe .gt_row {
+#bpmpuuywac .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -602,7 +599,7 @@ df_anc %>%
   overflow-x: hidden;
 }
 
-#dtubbzrjoe .gt_stub {
+#bpmpuuywac .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -615,7 +612,7 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_stub_row_group {
+#bpmpuuywac .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -629,15 +626,15 @@ df_anc %>%
   vertical-align: top;
 }
 
-#dtubbzrjoe .gt_row_group_first td {
+#bpmpuuywac .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dtubbzrjoe .gt_row_group_first th {
+#bpmpuuywac .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dtubbzrjoe .gt_summary_row {
+#bpmpuuywac .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -647,16 +644,16 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_first_summary_row {
+#bpmpuuywac .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_first_summary_row.thick {
+#bpmpuuywac .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dtubbzrjoe .gt_last_summary_row {
+#bpmpuuywac .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -666,7 +663,7 @@ df_anc %>%
   border-bottom-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_grand_summary_row {
+#bpmpuuywac .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -676,7 +673,7 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_first_grand_summary_row {
+#bpmpuuywac .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -686,7 +683,7 @@ df_anc %>%
   border-top-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_last_grand_summary_row_top {
+#bpmpuuywac .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -696,11 +693,11 @@ df_anc %>%
   border-bottom-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_striped {
+#bpmpuuywac .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dtubbzrjoe .gt_table_body {
+#bpmpuuywac .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -709,7 +706,7 @@ df_anc %>%
   border-bottom-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_footnotes {
+#bpmpuuywac .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -723,7 +720,7 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_footnote {
+#bpmpuuywac .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -732,7 +729,7 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_sourcenotes {
+#bpmpuuywac .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -746,7 +743,7 @@ df_anc %>%
   border-right-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_sourcenote {
+#bpmpuuywac .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -754,63 +751,63 @@ df_anc %>%
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_left {
+#bpmpuuywac .gt_left {
   text-align: left;
 }
 
-#dtubbzrjoe .gt_center {
+#bpmpuuywac .gt_center {
   text-align: center;
 }
 
-#dtubbzrjoe .gt_right {
+#bpmpuuywac .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dtubbzrjoe .gt_font_normal {
+#bpmpuuywac .gt_font_normal {
   font-weight: normal;
 }
 
-#dtubbzrjoe .gt_font_bold {
+#bpmpuuywac .gt_font_bold {
   font-weight: bold;
 }
 
-#dtubbzrjoe .gt_font_italic {
+#bpmpuuywac .gt_font_italic {
   font-style: italic;
 }
 
-#dtubbzrjoe .gt_super {
+#bpmpuuywac .gt_super {
   font-size: 65%;
 }
 
-#dtubbzrjoe .gt_footnote_marks {
+#bpmpuuywac .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dtubbzrjoe .gt_asterisk {
+#bpmpuuywac .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dtubbzrjoe .gt_indent_1 {
+#bpmpuuywac .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dtubbzrjoe .gt_indent_2 {
+#bpmpuuywac .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dtubbzrjoe .gt_indent_3 {
+#bpmpuuywac .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dtubbzrjoe .gt_indent_4 {
+#bpmpuuywac .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dtubbzrjoe .gt_indent_5 {
+#bpmpuuywac .gt_indent_5 {
   text-indent: 25px;
 }
 </style>

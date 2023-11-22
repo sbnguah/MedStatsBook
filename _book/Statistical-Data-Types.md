@@ -1,7 +1,4 @@
 
-```
-Warning: package 'ggplot2' was built under R version 4.3.2
-```
 
 # Statistical data types
 We begin proper data analysis by revising what statistical data types are. There are two broad types of data; Quantitative and Qualitative 

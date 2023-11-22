@@ -1,7 +1,4 @@
 
-```
-Warning: package 'ggplot2' was built under R version 4.3.2
-```
 
 # Data Cleaning
 Data to be analysed has to be ”cleaned” first of abnormal or invalid values. This 

@@ -137,7 +137,7 @@ hypertension (failures).</li>
 </ul>
 <p>With our sample not violating these conditions, we go ahead to use the one-sample
 binomial test as below:</p>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">67</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
@@ -183,7 +183,7 @@ hypothesis. As usual, we start by setting the null hypothesis.</p>
 <blockquote>
 <p>H0: The population proportion of hypertensive in the population is 50%</p>
 </blockquote>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">23</span>, n<span class="op">=</span><span class="fl">67</span>, p<span class="op">=</span><span class="fl">.5</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
@@ -227,7 +227,7 @@ is 40%? Our null hypothesis would then have been:</p>
 <p>H0: The population proportion of hypertensive is 40%</p>
 </blockquote>
 <p>Next, we test this hypothesis.</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">23</span>, n<span class="op">=</span><span class="fl">67</span>, p<span class="op">=</span><span class="fl">.4</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
@@ -270,7 +270,7 @@ and our null hypothesis would be</p>
 <p>H0: The population proportion of hypertension is greater than or equal to 47%</p>
 </blockquote>
 <p>And then we test the hypothesis</p>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">67</span>, p<span class="op">=</span><span class="fl">.47</span>, alternative <span class="op">=</span> <span class="st">"less"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
@@ -325,11 +325,11 @@ hypertension patients in the two populations. To do this we use the
 <p>Next, we test the hypothesis. To do this we first create two vectors
 representing the number of persons with hypertension and the total samples
 chosen.</p>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">hpt</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">52</span>, <span class="fl">23</span><span class="op">)</span> <span class="co"># Vector of numbers with hypertension</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">67</span><span class="op">)</span> <span class="co"># Vector of numbers in the sample</span></span></code></pre></div>
 <p>Next, we apply the test</p>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/prop.test.html">prop.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">hpt</span>, n <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span><span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">method</span><span class="op">)</span></span></code></pre></div>
@@ -406,7 +406,7 @@ assumptions of the test are:</p>
 </blockquote>
 <p>Next, we perform the test but to do that we first create a data frame of the
 expected and observed frequencies in Asia and Kumasi respectively.</p>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bld_grp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"AB"</span>, <span class="st">"O"</span><span class="op">)</span></span>
 <span><span class="va">Asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">38.0</span>, <span class="fl">10.0</span>, <span class="fl">3.0</span>, <span class="fl">49.9</span><span class="op">)</span></span>
 <span><span class="va">Kumasi</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">226</span>, <span class="fl">82</span>, <span class="fl">21</span>, <span class="fl">271</span><span class="op">)</span></span>
@@ -447,7 +447,7 @@ expected and observed frequencies in Asia and Kumasi respectively.</p>
 </table></div>
 <p>Next, we illustrate these proportions using a barplot by plotting the same blood
 groups from different regions side by side.</p>
-<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_temp</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>        cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Asia</span>, <span class="va">Kumasi</span><span class="op">)</span>, </span>
@@ -474,10 +474,10 @@ A, B and AB. However, we also observe that adjacent bars are not exactly of the
 same height. Blood groups O and B for instance have approximately a 4%-point
 difference between the two populations. Next, we perform the actual test for
 the difference in proportions.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="analysis-of-categorical-data.html#cb194-1" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> Kumasi, <span class="at">p =</span> Asia<span class="sc">/</span><span class="fu">sum</span>(Asia)) <span class="sc">%&gt;%</span> </span>
-<span id="cb194-2"><a href="analysis-of-categorical-data.html#cb194-2" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>()</span>
-<span id="cb194-3"><a href="analysis-of-categorical-data.html#cb194-3" tabindex="-1"></a>Warning <span class="cf">in</span> <span class="fu">chisq.test</span>(<span class="at">x =</span> Kumasi, <span class="at">p =</span> Asia<span class="sc">/</span><span class="fu">sum</span>(Asia))<span class="sc">:</span></span>
-<span id="cb194-4"><a href="analysis-of-categorical-data.html#cb194-4" tabindex="-1"></a>Chi<span class="sc">-</span>squared approximation may be incorrect</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="analysis-of-categorical-data.html#cb182-1" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> Kumasi, <span class="at">p =</span> Asia<span class="sc">/</span><span class="fu">sum</span>(Asia)) <span class="sc">%&gt;%</span> </span>
+<span id="cb182-2"><a href="analysis-of-categorical-data.html#cb182-2" tabindex="-1"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>()</span>
+<span id="cb182-3"><a href="analysis-of-categorical-data.html#cb182-3" tabindex="-1"></a>Warning <span class="cf">in</span> <span class="fu">chisq.test</span>(<span class="at">x =</span> Kumasi, <span class="at">p =</span> Asia<span class="sc">/</span><span class="fu">sum</span>(Asia))<span class="sc">:</span></span>
+<span id="cb182-4"><a href="analysis-of-categorical-data.html#cb182-4" tabindex="-1"></a>Chi<span class="sc">-</span>squared approximation may be incorrect</span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-10">
 <caption style="caption-side: top; text-align: center;">
 <span id="tab:unnamed-chunk-10">Table 6.5: </span> </caption>
@@ -512,59 +512,59 @@ contains records of high-risk pregnant women in a trial to compare a new and an
 old method of antenatal care (anc) in two clinics (clinic). The outcome was
 perinatal mortality, the death of the baby within the first week of life (death).</p>
 <p>We begin by loading the ANCdata</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="analysis-of-categorical-data.html#cb195-1" tabindex="-1"></a>df_anc <span class="ot">&lt;-</span> </span>
-<span id="cb195-2"><a href="analysis-of-categorical-data.html#cb195-2" tabindex="-1"></a>    <span class="fu">read.delim</span>(<span class="st">"./Data/ANCData.txt"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb195-3"><a href="analysis-of-categorical-data.html#cb195-3" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb195-4"><a href="analysis-of-categorical-data.html#cb195-4" tabindex="-1"></a>        <span class="at">death =</span> <span class="fu">factor</span>(death, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no"</span>,<span class="st">"yes"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)),</span>
-<span id="cb195-5"><a href="analysis-of-categorical-data.html#cb195-5" tabindex="-1"></a>        <span class="at">clinic =</span> <span class="fu">factor</span>(clinic),</span>
-<span id="cb195-6"><a href="analysis-of-categorical-data.html#cb195-6" tabindex="-1"></a>        <span class="at">anc =</span> <span class="fu">factor</span>(anc, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"old"</span>, <span class="st">"new"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Old"</span>, <span class="st">"New"</span>)))</span>
-<span id="cb195-7"><a href="analysis-of-categorical-data.html#cb195-7" tabindex="-1"></a></span>
-<span id="cb195-8"><a href="analysis-of-categorical-data.html#cb195-8" tabindex="-1"></a>df_anc <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb195-9"><a href="analysis-of-categorical-data.html#cb195-9" tabindex="-1"></a>Data Frame Summary  </span>
-<span id="cb195-10"><a href="analysis-of-categorical-data.html#cb195-10" tabindex="-1"></a>df_anc  </span>
-<span id="cb195-11"><a href="analysis-of-categorical-data.html#cb195-11" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">755</span> x <span class="dv">3</span>  </span>
-<span id="cb195-12"><a href="analysis-of-categorical-data.html#cb195-12" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">747</span>  </span>
-<span id="cb195-13"><a href="analysis-of-categorical-data.html#cb195-13" tabindex="-1"></a></span>
-<span id="cb195-14"><a href="analysis-of-categorical-data.html#cb195-14" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span>
-<span id="cb195-15"><a href="analysis-of-categorical-data.html#cb195-15" tabindex="-1"></a>No   Variable   Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
-<span id="cb195-16"><a href="analysis-of-categorical-data.html#cb195-16" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
-<span id="cb195-17"><a href="analysis-of-categorical-data.html#cb195-17" tabindex="-1"></a><span class="dv">1</span>    death      <span class="fl">1.</span> No            <span class="dv">689</span> (<span class="fl">91.3</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb195-18"><a href="analysis-of-categorical-data.html#cb195-18" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> Yes            <span class="dv">66</span> ( <span class="fl">8.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb195-19"><a href="analysis-of-categorical-data.html#cb195-19" tabindex="-1"></a></span>
-<span id="cb195-20"><a href="analysis-of-categorical-data.html#cb195-20" tabindex="-1"></a><span class="dv">2</span>    anc        <span class="fl">1.</span> Old           <span class="dv">419</span> (<span class="fl">55.5</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb195-21"><a href="analysis-of-categorical-data.html#cb195-21" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> New           <span class="dv">336</span> (<span class="fl">44.5</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb195-22"><a href="analysis-of-categorical-data.html#cb195-22" tabindex="-1"></a></span>
-<span id="cb195-23"><a href="analysis-of-categorical-data.html#cb195-23" tabindex="-1"></a><span class="dv">3</span>    clinic     <span class="fl">1.</span> A             <span class="dv">497</span> (<span class="fl">65.8</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
-<span id="cb195-24"><a href="analysis-of-categorical-data.html#cb195-24" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> B             <span class="dv">258</span> (<span class="fl">34.2</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
-<span id="cb195-25"><a href="analysis-of-categorical-data.html#cb195-25" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="analysis-of-categorical-data.html#cb183-1" tabindex="-1"></a>df_anc <span class="ot">&lt;-</span> </span>
+<span id="cb183-2"><a href="analysis-of-categorical-data.html#cb183-2" tabindex="-1"></a>    <span class="fu">read.delim</span>(<span class="st">"./Data/ANCData.txt"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb183-3"><a href="analysis-of-categorical-data.html#cb183-3" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb183-4"><a href="analysis-of-categorical-data.html#cb183-4" tabindex="-1"></a>        <span class="at">death =</span> <span class="fu">factor</span>(death, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no"</span>,<span class="st">"yes"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)),</span>
+<span id="cb183-5"><a href="analysis-of-categorical-data.html#cb183-5" tabindex="-1"></a>        <span class="at">clinic =</span> <span class="fu">factor</span>(clinic),</span>
+<span id="cb183-6"><a href="analysis-of-categorical-data.html#cb183-6" tabindex="-1"></a>        <span class="at">anc =</span> <span class="fu">factor</span>(anc, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"old"</span>, <span class="st">"new"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Old"</span>, <span class="st">"New"</span>)))</span>
+<span id="cb183-7"><a href="analysis-of-categorical-data.html#cb183-7" tabindex="-1"></a></span>
+<span id="cb183-8"><a href="analysis-of-categorical-data.html#cb183-8" tabindex="-1"></a>df_anc <span class="sc">%&gt;%</span> summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(<span class="at">graph.col =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb183-9"><a href="analysis-of-categorical-data.html#cb183-9" tabindex="-1"></a>Data Frame Summary  </span>
+<span id="cb183-10"><a href="analysis-of-categorical-data.html#cb183-10" tabindex="-1"></a>df_anc  </span>
+<span id="cb183-11"><a href="analysis-of-categorical-data.html#cb183-11" tabindex="-1"></a>Dimensions<span class="sc">:</span> <span class="dv">755</span> x <span class="dv">3</span>  </span>
+<span id="cb183-12"><a href="analysis-of-categorical-data.html#cb183-12" tabindex="-1"></a>Duplicates<span class="sc">:</span> <span class="dv">747</span>  </span>
+<span id="cb183-13"><a href="analysis-of-categorical-data.html#cb183-13" tabindex="-1"></a></span>
+<span id="cb183-14"><a href="analysis-of-categorical-data.html#cb183-14" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span>
+<span id="cb183-15"><a href="analysis-of-categorical-data.html#cb183-15" tabindex="-1"></a>No   Variable   Stats <span class="sc">/</span> Values   <span class="fu">Freqs</span> (% of Valid)   Valid      Missing  </span>
+<span id="cb183-16"><a href="analysis-of-categorical-data.html#cb183-16" tabindex="-1"></a><span class="sc">----</span> <span class="sc">----------</span> <span class="sc">----------------</span> <span class="sc">--------------------</span> <span class="sc">----------</span> <span class="sc">---------</span></span>
+<span id="cb183-17"><a href="analysis-of-categorical-data.html#cb183-17" tabindex="-1"></a><span class="dv">1</span>    death      <span class="fl">1.</span> No            <span class="dv">689</span> (<span class="fl">91.3</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb183-18"><a href="analysis-of-categorical-data.html#cb183-18" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> Yes            <span class="dv">66</span> ( <span class="fl">8.7</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb183-19"><a href="analysis-of-categorical-data.html#cb183-19" tabindex="-1"></a></span>
+<span id="cb183-20"><a href="analysis-of-categorical-data.html#cb183-20" tabindex="-1"></a><span class="dv">2</span>    anc        <span class="fl">1.</span> Old           <span class="dv">419</span> (<span class="fl">55.5</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb183-21"><a href="analysis-of-categorical-data.html#cb183-21" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> New           <span class="dv">336</span> (<span class="fl">44.5</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb183-22"><a href="analysis-of-categorical-data.html#cb183-22" tabindex="-1"></a></span>
+<span id="cb183-23"><a href="analysis-of-categorical-data.html#cb183-23" tabindex="-1"></a><span class="dv">3</span>    clinic     <span class="fl">1.</span> A             <span class="dv">497</span> (<span class="fl">65.8</span>%)          <span class="dv">755</span>        <span class="dv">0</span>        </span>
+<span id="cb183-24"><a href="analysis-of-categorical-data.html#cb183-24" tabindex="-1"></a>     [factor]   <span class="fl">2.</span> B             <span class="dv">258</span> (<span class="fl">34.2</span><span class="sc">%)          (100.0%</span>)   (<span class="fl">0.0</span>%)   </span>
+<span id="cb183-25"><a href="analysis-of-categorical-data.html#cb183-25" tabindex="-1"></a><span class="sc">--------------------------------------------------------------------------</span></span></code></pre></div>
 <p>Our objective in this section is to determine if there is a significant
 relationship between the anc type and perinatal death. In other words, does
 perinatal mortality differ in the population depending on the anc method used?</p>
 <p>To begin we cross-tabulate the two variables.</p>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">tbl_cross</span><span class="op">(</span>percent <span class="op">=</span> <span class="st">"col"</span>,</span>
 <span>        row <span class="op">=</span> <span class="va">death</span>, </span>
 <span>        col <span class="op">=</span> <span class="va">anc</span>, </span>
 <span>        label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">death</span> <span class="op">~</span> <span class="st">"Death"</span>, anc <span class="op">=</span> <span class="st">"ANC"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">bold_labels</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="dtubbzrjoe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dtubbzrjoe table {
+<div id="bpmpuuywac" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bpmpuuywac table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dtubbzrjoe thead, #dtubbzrjoe tbody, #dtubbzrjoe tfoot, #dtubbzrjoe tr, #dtubbzrjoe td, #dtubbzrjoe th {
+#bpmpuuywac thead, #bpmpuuywac tbody, #bpmpuuywac tfoot, #bpmpuuywac tr, #bpmpuuywac td, #bpmpuuywac th {
   border-style: none;
 }
 
-#dtubbzrjoe p {
+#bpmpuuywac p {
   margin: 0;
   padding: 0;
 }
 
-#dtubbzrjoe .gt_table {
+#bpmpuuywac .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -590,12 +590,12 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-left-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_caption {
+#bpmpuuywac .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dtubbzrjoe .gt_title {
+#bpmpuuywac .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -607,7 +607,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-width: 0;
 }
 
-#dtubbzrjoe .gt_subtitle {
+#bpmpuuywac .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -619,7 +619,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-top-width: 0;
 }
 
-#dtubbzrjoe .gt_heading {
+#bpmpuuywac .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -631,13 +631,13 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_bottom_border {
+#bpmpuuywac .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_col_headings {
+#bpmpuuywac .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -652,7 +652,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_col_heading {
+#bpmpuuywac .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -672,7 +672,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   overflow-x: hidden;
 }
 
-#dtubbzrjoe .gt_column_spanner_outer {
+#bpmpuuywac .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -684,15 +684,15 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 4px;
 }
 
-#dtubbzrjoe .gt_column_spanner_outer:first-child {
+#bpmpuuywac .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dtubbzrjoe .gt_column_spanner_outer:last-child {
+#bpmpuuywac .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dtubbzrjoe .gt_column_spanner {
+#bpmpuuywac .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -704,11 +704,11 @@ perinatal mortality differ in the population depending on the anc method used?</
   width: 100%;
 }
 
-#dtubbzrjoe .gt_spanner_row {
+#bpmpuuywac .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dtubbzrjoe .gt_group_heading {
+#bpmpuuywac .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -734,7 +734,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   text-align: left;
 }
 
-#dtubbzrjoe .gt_empty_group_heading {
+#bpmpuuywac .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -749,15 +749,15 @@ perinatal mortality differ in the population depending on the anc method used?</
   vertical-align: middle;
 }
 
-#dtubbzrjoe .gt_from_md > :first-child {
+#bpmpuuywac .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dtubbzrjoe .gt_from_md > :last-child {
+#bpmpuuywac .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dtubbzrjoe .gt_row {
+#bpmpuuywac .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -776,7 +776,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   overflow-x: hidden;
 }
 
-#dtubbzrjoe .gt_stub {
+#bpmpuuywac .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -789,7 +789,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_stub_row_group {
+#bpmpuuywac .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -803,15 +803,15 @@ perinatal mortality differ in the population depending on the anc method used?</
   vertical-align: top;
 }
 
-#dtubbzrjoe .gt_row_group_first td {
+#bpmpuuywac .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dtubbzrjoe .gt_row_group_first th {
+#bpmpuuywac .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dtubbzrjoe .gt_summary_row {
+#bpmpuuywac .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -821,16 +821,16 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_first_summary_row {
+#bpmpuuywac .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_first_summary_row.thick {
+#bpmpuuywac .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dtubbzrjoe .gt_last_summary_row {
+#bpmpuuywac .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -840,7 +840,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_grand_summary_row {
+#bpmpuuywac .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -850,7 +850,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_first_grand_summary_row {
+#bpmpuuywac .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -860,7 +860,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-top-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_last_grand_summary_row_top {
+#bpmpuuywac .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -870,11 +870,11 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_striped {
+#bpmpuuywac .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dtubbzrjoe .gt_table_body {
+#bpmpuuywac .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -883,7 +883,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-bottom-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_footnotes {
+#bpmpuuywac .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -897,7 +897,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_footnote {
+#bpmpuuywac .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -906,7 +906,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_sourcenotes {
+#bpmpuuywac .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -920,7 +920,7 @@ perinatal mortality differ in the population depending on the anc method used?</
   border-right-color: #D3D3D3;
 }
 
-#dtubbzrjoe .gt_sourcenote {
+#bpmpuuywac .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -928,63 +928,63 @@ perinatal mortality differ in the population depending on the anc method used?</
   padding-right: 5px;
 }
 
-#dtubbzrjoe .gt_left {
+#bpmpuuywac .gt_left {
   text-align: left;
 }
 
-#dtubbzrjoe .gt_center {
+#bpmpuuywac .gt_center {
   text-align: center;
 }
 
-#dtubbzrjoe .gt_right {
+#bpmpuuywac .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dtubbzrjoe .gt_font_normal {
+#bpmpuuywac .gt_font_normal {
   font-weight: normal;
 }
 
-#dtubbzrjoe .gt_font_bold {
+#bpmpuuywac .gt_font_bold {
   font-weight: bold;
 }
 
-#dtubbzrjoe .gt_font_italic {
+#bpmpuuywac .gt_font_italic {
   font-style: italic;
 }
 
-#dtubbzrjoe .gt_super {
+#bpmpuuywac .gt_super {
   font-size: 65%;
 }
 
-#dtubbzrjoe .gt_footnote_marks {
+#bpmpuuywac .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dtubbzrjoe .gt_asterisk {
+#bpmpuuywac .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dtubbzrjoe .gt_indent_1 {
+#bpmpuuywac .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dtubbzrjoe .gt_indent_2 {
+#bpmpuuywac .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dtubbzrjoe .gt_indent_3 {
+#bpmpuuywac .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dtubbzrjoe .gt_indent_4 {
+#bpmpuuywac .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dtubbzrjoe .gt_indent_5 {
+#bpmpuuywac .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1030,7 +1030,7 @@ perinatal mortality differ in the population depending on the anc method used?</
 </tbody>
 </table></div>
 </div>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">death</span>, <span class="va">anc</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">count</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -1064,7 +1064,7 @@ hypothesis.</p>
 <p>H0: There is no difference in the proportion of perinatal deaths between mothers who used the new and old ANC methods.</p>
 </blockquote>
 <p>And perform the test</p>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">anc</span>, <span class="va">death</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -1107,22 +1107,22 @@ the Chi-squared test for trend is often employed.</p>
 the following data was obtained: 4 out of 42 persons aged less than 45yrs, 7 out
 of 43 aged between 46yrs and 55yrs, 12 out of 46 aged between 56yrs and 65yrs and
 15 out of 44 aged more than 65yrs. First, we input these into R and calculate the percentages with the eye changes.</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">No.eye</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">7</span>,<span class="fl">12</span>,<span class="fl">15</span><span class="op">)</span></span>
 <span><span class="va">No.studied</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">42</span>, <span class="fl">43</span>, <span class="fl">46</span>, <span class="fl">44</span><span class="op">)</span></span></code></pre></div>
 <p>Next, we determine the percentage of those with eye changes for each age group</p>
-<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Perc.eye</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">No.eye</span><span class="op">/</span><span class="va">No.studied</span> <span class="op">*</span> <span class="fl">100</span>, <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p>Next, we form a matrix showing the number of persons with eye changes, the number
 of persons studied and the percentage of persons with eye changes for each age
 group.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="analysis-of-categorical-data.html#cb201-1" tabindex="-1"></a><span class="fu">names</span>(No.eye)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"&lt;=45yrs"</span>,<span class="st">"46-55yrs"</span>,<span class="st">"56-65yrs"</span>,<span class="st">"&gt;65yrs"</span>)</span>
-<span id="cb201-2"><a href="analysis-of-categorical-data.html#cb201-2" tabindex="-1"></a><span class="fu">cbind</span>(No.eye, No.studied, Perc.eye)</span>
-<span id="cb201-3"><a href="analysis-of-categorical-data.html#cb201-3" tabindex="-1"></a>         No.eye No.studied Perc.eye</span>
-<span id="cb201-4"><a href="analysis-of-categorical-data.html#cb201-4" tabindex="-1"></a><span class="sc">&lt;=</span>45yrs       <span class="dv">4</span>         <span class="dv">42</span>      <span class="fl">9.5</span></span>
-<span id="cb201-5"><a href="analysis-of-categorical-data.html#cb201-5" tabindex="-1"></a><span class="dv">46</span><span class="sc">-</span>55yrs      <span class="dv">7</span>         <span class="dv">43</span>     <span class="fl">16.3</span></span>
-<span id="cb201-6"><a href="analysis-of-categorical-data.html#cb201-6" tabindex="-1"></a><span class="dv">56</span><span class="sc">-</span>65yrs     <span class="dv">12</span>         <span class="dv">46</span>     <span class="fl">26.1</span></span>
-<span id="cb201-7"><a href="analysis-of-categorical-data.html#cb201-7" tabindex="-1"></a><span class="sc">&gt;</span>65yrs       <span class="dv">15</span>         <span class="dv">44</span>     <span class="fl">34.1</span></span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="analysis-of-categorical-data.html#cb189-1" tabindex="-1"></a><span class="fu">names</span>(No.eye)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"&lt;=45yrs"</span>,<span class="st">"46-55yrs"</span>,<span class="st">"56-65yrs"</span>,<span class="st">"&gt;65yrs"</span>)</span>
+<span id="cb189-2"><a href="analysis-of-categorical-data.html#cb189-2" tabindex="-1"></a><span class="fu">cbind</span>(No.eye, No.studied, Perc.eye)</span>
+<span id="cb189-3"><a href="analysis-of-categorical-data.html#cb189-3" tabindex="-1"></a>         No.eye No.studied Perc.eye</span>
+<span id="cb189-4"><a href="analysis-of-categorical-data.html#cb189-4" tabindex="-1"></a><span class="sc">&lt;=</span>45yrs       <span class="dv">4</span>         <span class="dv">42</span>      <span class="fl">9.5</span></span>
+<span id="cb189-5"><a href="analysis-of-categorical-data.html#cb189-5" tabindex="-1"></a><span class="dv">46</span><span class="sc">-</span>55yrs      <span class="dv">7</span>         <span class="dv">43</span>     <span class="fl">16.3</span></span>
+<span id="cb189-6"><a href="analysis-of-categorical-data.html#cb189-6" tabindex="-1"></a><span class="dv">56</span><span class="sc">-</span>65yrs     <span class="dv">12</span>         <span class="dv">46</span>     <span class="fl">26.1</span></span>
+<span id="cb189-7"><a href="analysis-of-categorical-data.html#cb189-7" tabindex="-1"></a><span class="sc">&gt;</span>65yrs       <span class="dv">15</span>         <span class="dv">44</span>     <span class="fl">34.1</span></span></code></pre></div>
 <p>From the analysis above it can be said that the proportions of persons with eye
 changes increases with age. However, to determine if this apparent rise could be
 a chance finding we apply the Chi-Squared test after we confirm the data does not
@@ -1134,7 +1134,7 @@ conditions we state the null hypothesis.</p>
 <p>H0: There is no trend in the eye changes with increasing age</p>
 </blockquote>
 <p>Next, we put it to the formal test</p>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/prop.trend.test.html">prop.trend.test</a></span><span class="op">(</span><span class="va">No.eye</span>, <span class="va">No.studied</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-20">
@@ -1167,7 +1167,7 @@ increasing age.</p>
 <span class="header-section-number">14.4</span> Fisher’s Exact test<a class="anchor" aria-label="anchor" href="#fishers-exact-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>A valid conclusion from the use of the chi-squared test can only be guaranteed if the counts in all the cells of the table in question are equal to or greater than 5. Whenever the count or value in any of the cells is below 5, Fisher’s exact test must be used instead. Its use and interpretation are similar to the chi-squared test and are demonstrated with the ANCdata as below.</p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_anc</span> <span class="op">%$%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">anc</span>, <span class="va">death</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/fisher.test.html">fisher.test</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -1246,7 +1246,7 @@ interval. The odds ratio will be explained in subsequent sections.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-21.</p>
+    <p>"<strong>Medical Statistics using R</strong>" was written by Samuel Blay Nguah. It was last built on 2023-11-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
